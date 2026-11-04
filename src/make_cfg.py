@@ -7,10 +7,35 @@ Only paths and the per-GPU batch split change; the global batch stays 32 on any 
   dpo: template settings/sr/config/dpo/config_full_iter0.yaml (upstream: 8 GPUs x 2 x accumulation 2).
        The TSR DPO configs are identical to it except paths (and iter0_tmp, which uses per-device 1, i.e. a global
        batch of 16 on 8 GPUs; we use 32 for every DPO run). -> per-device 1, accumulation 32 / ngpu.
+       Only DIR/train.json is copied into <config stem>.data/ for loading; nested validation files are excluded.
 
   make_cfg.py {sft,dpo} --name N --init MODEL --data DIR --out_dir DIR --ngpu G --cfg OUT.yaml [--max_steps S]
 """
-import argparse, os, yaml
+import argparse, os, shutil, tempfile, yaml
+from pathlib import Path
+
+
+def dpo_training_data(data, cfg):
+    """Snapshot the canonical pairs without recursively importing verification copies."""
+    source = Path(data) / "train.json"
+    if not source.is_file():
+        raise SystemExit(f"DPO pairs file not found: {source}")
+    target_dir = Path(cfg).resolve().with_suffix(".data")
+    if target_dir.is_symlink():
+        raise SystemExit(f"DPO input directory must not be a symlink: {target_dir}")
+    target_dir.mkdir(parents=True, exist_ok=True)
+    unexpected = [p.name for p in target_dir.iterdir() if p.name != "train.json" or not p.is_file()]
+    if unexpected:
+        raise SystemExit(f"Unexpected files in isolated DPO input directory {target_dir}: {unexpected}")
+    # Stage outside the dataset directory, then replace atomically. A failed copy leaves the old input intact.
+    fd, temporary = tempfile.mkstemp(prefix=f".{target_dir.name}-", suffix=".tmp", dir=target_dir.parent)
+    os.close(fd)
+    try:
+        shutil.copyfile(source, temporary)
+        os.replace(temporary, target_dir / "train.json")
+    finally:
+        Path(temporary).unlink(missing_ok=True)
+    return str(target_dir)
 
 ap = argparse.ArgumentParser()
 ap.add_argument("mode", choices=["sft", "dpo"])
@@ -32,7 +57,8 @@ else:
     c.update({"report_to": ["tensorboard"]})
 if 32 % (micro * a.ngpu):
     raise SystemExit(f"global batch 32 is not divisible by {micro} x {a.ngpu} GPUs; use 1, 2, 4, 8, 16 or 32 GPUs")
-c.update({"model_name_or_path": a.init, "dataset_mixer": {a.data: 1.0}, "output_dir": a.out_dir,
+data = dpo_training_data(a.data, a.cfg) if a.mode == "dpo" else a.data
+c.update({"model_name_or_path": a.init, "dataset_mixer": {data: 1.0}, "output_dir": a.out_dir,
           "hub_model_id": a.name, "per_device_train_batch_size": micro,
           "gradient_accumulation_steps": 32 // (micro * a.ngpu), "max_steps": a.max_steps})
 os.makedirs(os.path.dirname(a.cfg), exist_ok=True)

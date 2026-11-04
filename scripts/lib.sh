@@ -91,15 +91,17 @@ pairs() {
   need "$c" "$r" ${f:+"$f"}
   local check=()
   if [ $# -eq 0 ]; then
-    mkdir -p "$out/official"
+    # datasets recursively discovers train.json; keep comparison output outside the dataset directory.
+    local official="${out%/}.official.json"
+    mkdir -p "$(dirname "$official")"
     if [ "$mode" = past ]; then
       "$PY" "$TSR_DIR/settings/tsr/reformat2DPO_past.py" --input_path_chosen "$c" --input_path_rejected "$r" \
-        --output_path "$out/official/train.json" >> "$LOGS/run.log" 2>&1 || die "official past script"
+        --output_path "$official" >> "$LOGS/run.log" 2>&1 || die "official past script"
     else
       "$PY" "$TSR_DIR/settings/tsr/reformat2DPO_future.py" --input_path_chosen "$c" --input_path_future "$f" \
-        --input_path_rejected "$r" --output_path "$out/official/train.json" >> "$LOGS/run.log" 2>&1 || die "official future script"
+        --input_path_rejected "$r" --output_path "$official" >> "$LOGS/run.log" 2>&1 || die "official future script"
     fi
-    check=(--check "$out/official/train.json")
+    check=(--check "$official")
   fi
   "$PY" "$REPO/src/build_pairs.py" "$mode" --chosen "$c" --rejected "$r" ${f:+--future "$f"} --out "$out.tmp" \
     "${check[@]}" "$@" > "$LOGS/pairs_$(basename "$out").log" 2>&1 || die "build_pairs $(basename "$out")"

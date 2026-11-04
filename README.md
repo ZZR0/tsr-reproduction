@@ -73,6 +73,23 @@ Stages can also be run one by one: `bash run.sh sft | iter0 | iter1 | sr | wof |
 Each step writes its output once and is skipped when the output exists, so an interrupted run resumes with the same command.
 If the judge is reached through a SOCKS proxy, also `pip install socksio`.
 
+### DPO input files
+
+`pairs` stores the upstream comparison beside the pair directory (for example, `D2.official.json`), outside the
+training dataset. `make_cfg.py` copies only the requested directory's `train.json` into `configs/<model>.data/`
+and points DPO at that isolated directory. SFT keeps its original multi-file dataset loading.
+
+Older pair directories may contain both `train.json` and an identical `official/train.json`. Hugging Face datasets
+discovers both recursively, turning 5,000 pairs into 10,000 training rows. The isolated DPO input also fixes loading
+from these existing directories without deleting their verification files. Completed checkpoints are still skipped;
+use a fresh `WORK_DIR` to retrain checkpoints produced with duplicated inputs. Existing result artifacts are unchanged.
+
+Run the data-loading regression tests in the configured environment:
+
+```bash
+.venv/bin/python -m unittest discover -s tests -v
+```
+
 On 2 × A800 80GB one generation pass (5,000 prompts × 7 responses) takes about 20 min, one judging pass about 27 min,
 one DPO run about 40 min of training plus loading and saving, and SFT about 40 min. The full run takes roughly 13 hours.
 Each AlpacaEval evaluation with `gpt-4o-2024-08-06` costs about $2.3.
