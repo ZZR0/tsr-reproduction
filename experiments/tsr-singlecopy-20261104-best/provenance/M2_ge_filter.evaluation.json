@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "result": {
+    "model": "M2_ge_filter",
+    "future_comparison": ">=",
+    "filter_equal_scores": true,
+    "LC": 25.354906337990723,
+    "Win": 28.80625874322982,
+    "length": 2320,
+    "n": 805
+  }
+}

@@ -1,0 +1,10 @@
+{
+ "model": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M2_ge_filter",
+ "n": 805,
+ "seed": 0,
+ "temperature": 1.0,
+ "mean_chars": 2320.6894409937886,
+ "empty_rate": 0.0,
+ "eos_rate": 0.9850931677018634,
+ "truncated_rate": 0.014906832298136646
+}

@@ -1,0 +1,14 @@
+{"time": "2026-11-04T13:40:36.620265+08:00", "stage": "train_Mf0", "status": "running"}
+{"time": "2026-11-04T14:48:30.661372+08:00", "stage": "iter0_future_rollout_and_judging", "status": "running"}
+{"time": "2026-11-04T15:35:12.914305+08:00", "stage": "train_M1", "status": "running"}
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 5000 examples [00:00, 74812.52 examples/s]
+{"time": "2026-11-04T16:43:31.411876+08:00", "stage": "iter1_current_past_rollout_and_judging", "status": "running"}
+{"time": "2026-11-04T18:04:33.590393+08:00", "stage": "train_Mf1", "status": "running"}
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 5000 examples [00:00, 72831.69 examples/s]
+{"time": "2026-11-04T19:14:42.852822+08:00", "stage": "iter1_future_rollout_and_judging", "status": "running"}
+{"time": "2026-11-04T20:11:07.198029+08:00", "stage": "four_M2_parallel", "status": "running", "groups": [{"model": "M2", "gpus": [0, 1]}, {"model": "M2_gt_keep", "gpus": [2, 3]}, {"model": "M2_ge_filter", "gpus": [4, 5]}, {"model": "M2_gt_filter", "gpus": [6, 7]}]}
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 4770 examples [00:00, 54306.03 examples/s]
+Generating train split: 5000 examples [00:00, 59791.70 examples/s]
+Generating train split: 4770 examples [00:00, 54234.63 examples/s]
+Generating train split: 5000 examples [00:00, 60869.06 examples/s]
+{"time": "2026-11-04T21:47:11.218272+08:00", "stage": "pipeline", "status": "failed", "error_type": "RuntimeError"}

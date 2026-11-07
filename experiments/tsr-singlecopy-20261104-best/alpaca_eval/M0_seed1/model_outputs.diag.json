@@ -1,0 +1,11 @@
+{
+ "model": "/media/ardeawang/TSR/tsr-reproduction/work/models/M0",
+ "n": 805,
+ "seed": 1,
+ "temperature": 1.0,
+ "mean_chars": 1445.4447204968944,
+ "empty_rate": 0.0,
+ "eos_rate": 0.9701863354037267,
+ "truncated_rate": 0.01987577639751553,
+ "role_stop_rate": 0.009937888198757764
+}

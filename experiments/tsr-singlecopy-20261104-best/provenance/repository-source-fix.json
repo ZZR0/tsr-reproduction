@@ -1,0 +1,17 @@
+{
+  "time": "2026-11-04T16:34:32.345747+08:00",
+  "base_commit": "aa7200a3538a1a6e89518016dc275226363fc52c",
+  "reason": "User-requested repository fix for recursive loading of official/train.json",
+  "tracked_files": {
+    "README.md": "233aafac96bff10e6c72e9a8bd60c312d716c2afca4c7c73d030db387276e1b5",
+    "scripts/lib.sh": "f6bc9eefda5955db1a34abf1e0077614eb0a80a6674c880863d2c0e0e8b095ae",
+    "src/make_cfg.py": "0c4b91dc928317810aceb0daf7e9b099e4c216e938950b8e8a99fb813335d7c8"
+  },
+  "all_files": {
+    "README.md": "233aafac96bff10e6c72e9a8bd60c312d716c2afca4c7c73d030db387276e1b5",
+    "scripts/lib.sh": "f6bc9eefda5955db1a34abf1e0077614eb0a80a6674c880863d2c0e0e8b095ae",
+    "src/make_cfg.py": "0c4b91dc928317810aceb0daf7e9b099e4c216e938950b8e8a99fb813335d7c8",
+    "tests/test_dpo_data_loading.py": "e628a70cd33d21e9b9cd117950397c905bc3068a846118d41f7a4c5a1f238a5b"
+  },
+  "tests": "6 regression tests passed; actual legacy 5000-pair data loads once (156 steps)"
+}

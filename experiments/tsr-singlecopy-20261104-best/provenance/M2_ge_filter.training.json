@@ -1,0 +1,19 @@
+{
+  "status": "completed",
+  "gpus": [
+    4,
+    5
+  ],
+  "init": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1",
+  "global_step": 149,
+  "epoch": 0.99958071278826,
+  "directory": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/trainsets/M2_ge_filter",
+  "source_pairs": 4770,
+  "repetitions": 1,
+  "loaded_rows": 4770,
+  "expected_steps": 149,
+  "files": [
+    "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/trainsets/M2_ge_filter/train.json"
+  ],
+  "canonical_sha256": "8c56d847714d38a6ebb6f85fbdde1b5e51e1994f7df4cc7c3c0ba80324e92174"
+}

@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "loaded_rows": 5000,
+  "expected_steps": 156,
+  "files": [
+    "/media/ardeawang/TSR/repro/tsr-singlecopy-20261104/repository-fix-candidate/real-data-check.data/train.json"
+  ],
+  "legacy_validation_copy_preserved": true,
+  "source_sha256": "6ce0d80be30cf19a5286293afb81be29d365e224cc815e40b8abf7f5585708de"
+}

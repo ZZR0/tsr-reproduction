@@ -1,0 +1,17 @@
+{
+  "iter0/0_chosen_response.json": {
+    "source": "/media/ardeawang/TSR/tsr-reproduction/work/data/iter0/0_chosen_response.json",
+    "sha256": "8b48fd009f8ef0a530a00ab31119b37564fa37a395f1a6538c57dc0c406bc291",
+    "rows": 5000
+  },
+  "iter0/0_chosen_judgement.json": {
+    "source": "/media/ardeawang/TSR/tsr-reproduction/work/data/iter0/0_chosen_judgement.json",
+    "sha256": "5604966af11a8dd37fb2ca5b6c8fb777e82540a0ff514d295d1612c188b9aaab",
+    "rows": 5000
+  },
+  "iter1/1_rejected_response.json": {
+    "source": "/media/ardeawang/TSR/tsr-reproduction/work/data/iter1/1_rejected_response.json",
+    "sha256": "401f2b442d496d5aebd0760325b59367aada4518745bbf4a43f6b8e08f53ebb1",
+    "rows": 5000
+  }
+}

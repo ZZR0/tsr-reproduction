@@ -1,0 +1,20 @@
+{
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_chosen_judgement.json": "0e46bef8f20da1475639746c45e8b0a5fd15e1427691db7dbde187077e301f82",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_rejected_judgement.json": "d0a6dbdfb21ce495b8432dd46ba2185752b8e34c53fe02e6daf39e89d5dfca4e",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_future_judgement.json": "25e9d8abf39670fafbe667169717cc3bca204cbab2a08f913aeb41d20bc653eb",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/D1/train.json": "5fcb6036ba938b0fb0d3f0c6d49bebf6a481fdb8cbbaf19338da44f29f865a87",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/all_results.json": "e6de8ce0556a0f8776ebefe077afee3c76e84d584e70ce1f1cb3b34ecf378608",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/config.json": "2b8622dcda532a4c1b68b264f4f9fe716966ceffb952115491e5afddd020746e",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/generation_config.json": "a1ea7ccc959cebb952bdcc66ce6583a240d72a7039ac1cc059318991bc06657a",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/pytorch_model-00001-of-00004.bin": "e01c35f98001861195b61fc13ea85d4e717ae59197e5da3d513ddccb3ea93465",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/pytorch_model-00002-of-00004.bin": "9a71d65e4de1f8aac2dc37fb31f082f28c82a4fccc367f97984c20bfab8c90d8",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/pytorch_model-00003-of-00004.bin": "6e8f6ed2dc49171c952fbfedff8d15318b396aa7cb13d38e49cbc4ab5bf06011",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/pytorch_model-00004-of-00004.bin": "dd1af8eb84cae9983b77ca1927df28d2cf5872c05e058c9f60642a71c8f4cd65",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/pytorch_model.bin.index.json": "9dbd847ac143506b53ff7fb4839101e826bf3e6ca41796607157d0893b62c852",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/special_tokens_map.json": "03d62862d41de30db9e05cb4865de4f36c48ab3032327139fcdfacc5798a4828",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/tokenizer.json": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/tokenizer_config.json": "d6b03c97fb8dcbb92196a8a23133ea55575b24bcee7c2bec0899155fcb5fcf4f",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/train_results.json": "e6de8ce0556a0f8776ebefe077afee3c76e84d584e70ce1f1cb3b34ecf378608",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/trainer_state.json": "d15c1329a67699b23b32ca545f932377ee91aebf4954b4a602e2b326ead66dd6",
+  "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1/training_args.bin": "e262e4c98d5ed27e6b4b20b9df1d98249b6cb3a274f6ef6a31f211b385dfb061"
+}

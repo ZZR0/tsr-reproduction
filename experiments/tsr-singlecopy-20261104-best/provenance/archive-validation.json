@@ -1,0 +1,159 @@
+{
+  "checked_at": "2026-11-07 Asia/Shanghai",
+  "status": "PASS",
+  "pair_rebuilds": [
+    {
+      "dataset": "data/iter0/D1/train.json",
+      "rows": 5000,
+      "sha256": "c06d669546fd524b1907f60a7d75d6d19777f7d947911d613e921cebb8df3dbd",
+      "byte_identical": true
+    },
+    {
+      "dataset": "data/iter0/D2/train.json",
+      "rows": 5000,
+      "sha256": "20697abb278cb4411bd6ed9d9a39d446406e87399bb4c019d2e6c994065e1005",
+      "byte_identical": true
+    },
+    {
+      "dataset": "data/iter1/D1/train.json",
+      "rows": 5000,
+      "sha256": "5fcb6036ba938b0fb0d3f0c6d49bebf6a481fdb8cbbaf19338da44f29f865a87",
+      "byte_identical": true
+    },
+    {
+      "dataset": "data/four-settings/M2_ge_filter/D2/train.json",
+      "rows": 4770,
+      "sha256": "8c56d847714d38a6ebb6f85fbdde1b5e51e1994f7df4cc7c3c0ba80324e92174",
+      "byte_identical": true
+    }
+  ],
+  "rollouts": [
+    {
+      "file": "data/iter0/0_chosen_response.json",
+      "prompts": 5000,
+      "responses_per_prompt": 7,
+      "judgements_aligned": true
+    },
+    {
+      "file": "data/iter0/0_future_response.json",
+      "prompts": 5000,
+      "responses_per_prompt": 7,
+      "judgements_aligned": true
+    },
+    {
+      "file": "data/iter1/1_chosen_response.json",
+      "prompts": 5000,
+      "responses_per_prompt": 7,
+      "judgements_aligned": true
+    },
+    {
+      "file": "data/iter1/1_future_response.json",
+      "prompts": 5000,
+      "responses_per_prompt": 7,
+      "judgements_aligned": true
+    },
+    {
+      "file": "data/iter1/1_rejected_response.json",
+      "prompts": 5000,
+      "responses_per_prompt": 7,
+      "judgements_aligned": true
+    }
+  ],
+  "evaluations": [
+    {
+      "model": "M0",
+      "outputs": 805,
+      "annotations": 805,
+      "LC": 7.102071675546623,
+      "Win": 5.673134858044506,
+      "mean_chars_exact": 1390.655900621118
+    },
+    {
+      "model": "M0_seed1",
+      "outputs": 805,
+      "annotations": 805,
+      "LC": 9.412386997065855,
+      "Win": 7.6711194732818715,
+      "mean_chars_exact": 1445.4447204968944
+    },
+    {
+      "model": "M0_seed2",
+      "outputs": 805,
+      "annotations": 805,
+      "LC": 5.633737487043535,
+      "Win": 4.397663527699489,
+      "mean_chars_exact": 1355.129192546584
+    },
+    {
+      "model": "M1",
+      "outputs": 805,
+      "annotations": 805,
+      "LC": 21.01080987523531,
+      "Win": 20.06931330688972,
+      "mean_chars_exact": 1864.7639751552795
+    },
+    {
+      "model": "M2_ge_filter",
+      "outputs": 805,
+      "annotations": 805,
+      "LC": 25.354906337990723,
+      "Win": 28.80625874322982,
+      "mean_chars_exact": 2320.6894409937886
+    },
+    {
+      "model": "Mf0",
+      "outputs": 805,
+      "annotations": 805,
+      "LC": 13.013036173786213,
+      "Win": 10.541313853662471,
+      "mean_chars_exact": 1563.8422360248446
+    },
+    {
+      "model": "Mf1",
+      "outputs": 805,
+      "annotations": 805,
+      "LC": 21.961411163391595,
+      "Win": 22.33375929293263,
+      "mean_chars_exact": 2000.5714285714287
+    }
+  ],
+  "best_training_log": {
+    "examples": 4770,
+    "optimization_steps": 149,
+    "matches_saved_log": true
+  },
+  "archive_storage": {
+    "duplicate_policy": "Byte-identical source files share one stored payload; all original paths and SHA-256 hashes are retained.",
+    "compression": "Files above 1 MiB use deterministic gzip except AlpacaEval model_outputs.json and reference_outputs.json, which remain directly downloadable.",
+    "source_file_count": 269,
+    "unique_payload_count": 230,
+    "unique_raw_bytes": 1065606322,
+    "stored_payload_bytes": 301512748
+  },
+  "credential_check": "Exporter checked every selected payload against configured credential values; no configured credentials included. Credential files/private keys were outside the export allowlist.",
+  "restore_test": {
+    "status": "PASS",
+    "source_files": 269,
+    "unique_payloads": 230,
+    "restored_files_with_duplicates": 269,
+    "tool": "verify_and_unpack.py --restore-duplicates"
+  },
+  "source_snapshot_check": {
+    "status": "PASS",
+    "matches_published_fix_branch_code": [
+      "src/build_pairs.py",
+      "src/make_cfg.py",
+      "scripts/lib.sh",
+      "src/gen_alpaca.py",
+      "src/eval_alpaca.py",
+      "requirements.txt"
+    ]
+  },
+  "reference_export": {
+    "rows": 805,
+    "source": "M2_ge_filter annotations output_1 / generator_1",
+    "order": "M2_ge_filter model_outputs.json",
+    "generator": "gpt4_turbo",
+    "new_judging": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "result": {
+    "": "Mf1",
+    "win_rate": "22.33375929293263",
+    "standard_error": "1.30054957479274",
+    "mode": "community",
+    "avg_length": "2000",
+    "n_wins": "186",
+    "n_wins_base": "619",
+    "n_draws": "0",
+    "n_total": "805",
+    "discrete_win_rate": "23.1055900621118",
+    "length_controlled_winrate": "21.961411163391595",
+    "lc_standard_error": "0.0298295581236949"
+  }
+}

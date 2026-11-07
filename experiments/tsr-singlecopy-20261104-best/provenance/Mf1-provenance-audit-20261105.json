@@ -1,0 +1,354 @@
+{
+  "checked_at": "2026-11-05T16:50:15.284608+08:00",
+  "work": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104",
+  "models": [
+    {
+      "version": "old",
+      "model": "Mf1",
+      "path": "/media/ardeawang/TSR/tsr-reproduction/work/models/Mf1",
+      "resolved": "/media/ardeawang/TSR/tsr-reproduction/work/models/Mf1",
+      "done": true,
+      "train_results.json": {
+        "train_samples": 10000,
+        "epoch": 0.9984,
+        "train_runtime": 8101.6606
+      },
+      "train_results.json_mtime": "2026-11-04T10:52:22.239653+08:00",
+      "trainer_state.json": {
+        "global_step": 312,
+        "max_steps": 312,
+        "num_train_epochs": 1,
+        "epoch": 0.9984
+      },
+      "trainer_state.json_mtime": "2026-11-04T10:52:22.242091+08:00",
+      "config": {
+        "model_name_or_path": "/media/ardeawang/TSR/tsr-reproduction/work/models/M1",
+        "dataset_mixer": {
+          "/media/ardeawang/TSR/tsr-reproduction/work/data/iter1/D1": 1.0
+        },
+        "num_train_epochs": 1,
+        "seed": 42,
+        "learning_rate": 5e-07,
+        "beta": 0.1,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 16
+      },
+      "eval": {
+        "length_controlled_winrate": 23.31268864128902,
+        "win_rate": 22.099175193476164,
+        "avg_length": 1852.0,
+        "n_total": 805.0
+      }
+    },
+    {
+      "version": "singlecopy",
+      "model": "Mf0",
+      "path": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/Mf0",
+      "resolved": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/Mf0",
+      "done": true,
+      "train_results.json": {
+        "train_samples": 5000,
+        "epoch": 0.9984,
+        "train_runtime": 3943.4175
+      },
+      "train_results.json_mtime": "2026-11-04T14:48:11.585141+08:00",
+      "trainer_state.json": {
+        "global_step": 156,
+        "max_steps": 156,
+        "num_train_epochs": 1,
+        "epoch": 0.9984
+      },
+      "trainer_state.json_mtime": "2026-11-04T14:48:11.587595+08:00",
+      "config": {
+        "model_name_or_path": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M0",
+        "dataset_mixer": {
+          "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/trainsets/Mf0": 1.0
+        },
+        "num_train_epochs": 1,
+        "seed": 42,
+        "learning_rate": 5e-07,
+        "beta": 0.1,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 16
+      },
+      "eval": {
+        "length_controlled_winrate": 13.013036173786213,
+        "win_rate": 10.541313853662471,
+        "avg_length": 1563.0,
+        "n_total": 805.0
+      }
+    },
+    {
+      "version": "singlecopy",
+      "model": "M1",
+      "path": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1",
+      "resolved": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1",
+      "done": true,
+      "train_results.json": {
+        "train_samples": 5000,
+        "epoch": 0.9984,
+        "train_runtime": 3965.8204
+      },
+      "train_results.json_mtime": "2026-11-04T16:43:12.198293+08:00",
+      "trainer_state.json": {
+        "global_step": 156,
+        "max_steps": 156,
+        "num_train_epochs": 1,
+        "epoch": 0.9984
+      },
+      "trainer_state.json_mtime": "2026-11-04T16:43:12.200639+08:00",
+      "config": {
+        "model_name_or_path": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M0",
+        "dataset_mixer": {
+          "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/trainsets/M1": 1.0
+        },
+        "num_train_epochs": 1,
+        "seed": 42,
+        "learning_rate": 5e-07,
+        "beta": 0.1,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 16
+      },
+      "eval": {
+        "length_controlled_winrate": 21.01080987523531,
+        "win_rate": 20.06931330688972,
+        "avg_length": 1864.0,
+        "n_total": 805.0
+      }
+    },
+    {
+      "version": "singlecopy",
+      "model": "Mf1",
+      "path": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/Mf1",
+      "resolved": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/Mf1",
+      "done": true,
+      "train_results.json": {
+        "train_samples": 5000,
+        "epoch": 0.9984,
+        "train_runtime": 4074.8112
+      },
+      "train_results.json_mtime": "2026-11-04T19:14:23.630585+08:00",
+      "trainer_state.json": {
+        "global_step": 156,
+        "max_steps": 156,
+        "num_train_epochs": 1,
+        "epoch": 0.9984
+      },
+      "trainer_state.json_mtime": "2026-11-04T19:14:23.632910+08:00",
+      "config": {
+        "model_name_or_path": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1",
+        "dataset_mixer": {
+          "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/configs/Mf1.data": 1.0
+        },
+        "num_train_epochs": 1,
+        "seed": 42,
+        "learning_rate": 5e-07,
+        "beta": 0.1,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 16
+      },
+      "eval": {
+        "length_controlled_winrate": 21.961411163391595,
+        "win_rate": 22.33375929293263,
+        "avg_length": 2000.0,
+        "n_total": 805.0
+      }
+    },
+    {
+      "version": "singlecopy",
+      "model": "M2_ge_filter",
+      "path": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M2_ge_filter",
+      "resolved": "/opt/tsr-reproduction-aa7200a/tsr-singlecopy-20261104/models/M2_ge_filter",
+      "done": true,
+      "train_results.json": {
+        "train_samples": 4770,
+        "epoch": 0.99958071278826,
+        "train_runtime": 4495.7593
+      },
+      "train_results.json_mtime": "2026-11-04T21:27:43.374859+08:00",
+      "trainer_state.json": {
+        "global_step": 149,
+        "max_steps": 149,
+        "num_train_epochs": 1,
+        "epoch": 0.99958071278826
+      },
+      "trainer_state.json_mtime": "2026-11-04T21:27:43.374859+08:00",
+      "config": {
+        "model_name_or_path": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1",
+        "dataset_mixer": {
+          "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/configs/M2_ge_filter.data": 1.0
+        },
+        "num_train_epochs": 1,
+        "seed": 42,
+        "learning_rate": 5e-07,
+        "beta": 0.1,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 16
+      },
+      "eval": {
+        "length_controlled_winrate": 25.354906337990723,
+        "win_rate": 28.80625874322982,
+        "avg_length": 2320.0,
+        "n_total": 805.0
+      }
+    }
+  ],
+  "source_fix": {
+    "time": "2026-11-04T16:34:32.345747+08:00",
+    "base_commit": "aa7200a3538a1a6e89518016dc275226363fc52c",
+    "reason": "User-requested repository fix for recursive loading of official/train.json",
+    "tracked_files": {
+      "README.md": "233aafac96bff10e6c72e9a8bd60c312d716c2afca4c7c73d030db387276e1b5",
+      "scripts/lib.sh": "f6bc9eefda5955db1a34abf1e0077614eb0a80a6674c880863d2c0e0e8b095ae",
+      "src/make_cfg.py": "0c4b91dc928317810aceb0daf7e9b099e4c216e938950b8e8a99fb813335d7c8"
+    },
+    "all_files": {
+      "README.md": "233aafac96bff10e6c72e9a8bd60c312d716c2afca4c7c73d030db387276e1b5",
+      "scripts/lib.sh": "f6bc9eefda5955db1a34abf1e0077614eb0a80a6674c880863d2c0e0e8b095ae",
+      "src/make_cfg.py": "0c4b91dc928317810aceb0daf7e9b099e4c216e938950b8e8a99fb813335d7c8",
+      "tests/test_dpo_data_loading.py": "e628a70cd33d21e9b9cd117950397c905bc3068a846118d41f7a4c5a1f238a5b"
+    },
+    "tests": "6 regression tests passed; actual legacy 5000-pair data loads once (156 steps)"
+  },
+  "pipeline_events": [
+    {
+      "time": "2026-11-04T13:40:36.620265+08:00",
+      "stage": "train_Mf0",
+      "status": "running"
+    },
+    {
+      "time": "2026-11-04T15:35:12.914305+08:00",
+      "stage": "train_M1",
+      "status": "running"
+    },
+    {
+      "time": "2026-11-04T18:04:33.590393+08:00",
+      "stage": "train_Mf1",
+      "status": "running"
+    },
+    {
+      "time": "2026-11-04T19:14:42.852822+08:00",
+      "stage": "iter1_future_rollout_and_judging",
+      "status": "running"
+    },
+    {
+      "time": "2026-11-04T20:11:07.198029+08:00",
+      "stage": "four_M2_parallel",
+      "status": "running",
+      "groups": [
+        {
+          "model": "M2",
+          "gpus": [
+            0,
+            1
+          ]
+        },
+        {
+          "model": "M2_gt_keep",
+          "gpus": [
+            2,
+            3
+          ]
+        },
+        {
+          "model": "M2_ge_filter",
+          "gpus": [
+            4,
+            5
+          ]
+        },
+        {
+          "model": "M2_gt_filter",
+          "gpus": [
+            6,
+            7
+          ]
+        }
+      ]
+    }
+  ],
+  "run_log_events": [
+    "[2026-11-04 18:04:37] dpo Mf1  init=M1 data=Mf1  (2 GPUs)",
+    "[2026-11-04 19:14:42] gen 1_future_response  <- Mf1",
+    "merged 5000 -> /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_future_response.json.tmp",
+    "[2026-11-04 19:39:57] judge 1_future_judgement  <- M1",
+    "merged 5000 -> /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_future_judgement.json.tmp"
+  ],
+  "generation_models": {
+    "1_future_response.part0.log": [
+      "INFO 11-04 19:14:52 llm_engine.py:249] Initializing an LLM engine (v0.6.4.post1) with config: model='/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/Mf1', speculative_config=None, tokenizer='/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/Mf1', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=131072, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/Mf1, num_scheduler_steps=1, chunked_prefill_enabled=True multi_step_stream_outputs=True, enable_prefix_caching=False, use_async_output_proc=True, use_cached_outputs=False, chat_template_text_format=string, mm_processor_kwargs=None, pooler_config=None)"
+    ],
+    "1_future_response.part1.log": [
+      "INFO 11-04 19:14:52 llm_engine.py:249] Initializing an LLM engine (v0.6.4.post1) with config: model='/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/Mf1', speculative_config=None, tokenizer='/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/Mf1', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=131072, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/Mf1, num_scheduler_steps=1, chunked_prefill_enabled=True multi_step_stream_outputs=True, enable_prefix_caching=False, use_async_output_proc=True, use_cached_outputs=False, chat_template_text_format=string, mm_processor_kwargs=None, pooler_config=None)"
+    ]
+  },
+  "actual_training_log": {
+    "Mf1": [
+      "2026-11-04 18:05:25 - INFO - __main__ - Model parameters ModelArguments(base_model_revision=None, model_name_or_path='/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1', model_revision='main', model_code_revision=None, torch_dtype=None, tokenizer_name_or_path=None, trust_remote_code=False, attn_implementation=None, use_peft=False, lora_r=16, lora_alpha=32, lora_dropout=0.05, lora_target_modules=None, lora_modules_to_save=None, load_in_8bit=False, load_in_4bit=False, bnb_4bit_quant_type='nf4', use_bnb_nested_quant=False, bnb_4bit_quant_storage='uint8')",
+      "2026-11-04 18:05:25 - INFO - __main__ - Data parameters DataArguments(chat_template=None, dataset_mixer={'/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/configs/Mf1.data': 1.0}, text_column='text', dataset_splits=['train'], dataset_configs=None, preprocessing_num_workers=12, truncation_side=None, auto_insert_empty_system_msg=True)",
+      "[INFO|trainer.py:2315] 2026-11-04 18:06:28,812 >>   Num examples = 5,000",
+      "[INFO|trainer.py:2316] 2026-11-04 18:06:28,812 >>   Num Epochs = 1",
+      "[INFO|trainer.py:2322] 2026-11-04 18:06:28,813 >>   Total optimization steps = 156"
+    ],
+    "M2_ge_filter": [
+      "2026-11-04 20:11:53 - INFO - __main__ - Model parameters ModelArguments(base_model_revision=None, model_name_or_path='/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/models/M1', model_revision='main', model_code_revision=None, torch_dtype=None, tokenizer_name_or_path=None, trust_remote_code=False, attn_implementation=None, use_peft=False, lora_r=16, lora_alpha=32, lora_dropout=0.05, lora_target_modules=None, lora_modules_to_save=None, load_in_8bit=False, load_in_4bit=False, bnb_4bit_quant_type='nf4', use_bnb_nested_quant=False, bnb_4bit_quant_storage='uint8')",
+      "2026-11-04 20:11:53 - INFO - __main__ - Data parameters DataArguments(chat_template=None, dataset_mixer={'/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/configs/M2_ge_filter.data': 1.0}, text_column='text', dataset_splits=['train'], dataset_configs=None, preprocessing_num_workers=12, truncation_side=None, auto_insert_empty_system_msg=True)",
+      "[INFO|trainer.py:2315] 2026-11-04 20:12:47,617 >>   Num examples = 4,770",
+      "[INFO|trainer.py:2316] 2026-11-04 20:12:47,617 >>   Num Epochs = 1",
+      "[INFO|trainer.py:2322] 2026-11-04 20:12:47,617 >>   Total optimization steps = 149"
+    ]
+  },
+  "Mf1_data": {
+    "files": [
+      "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/configs/Mf1.data/train.json"
+    ],
+    "rows": 5000,
+    "sha256": {
+      "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/D1/train.json": "5fcb6036ba938b0fb0d3f0c6d49bebf6a481fdb8cbbaf19338da44f29f865a87",
+      "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/trainsets/Mf1/train.json": "5fcb6036ba938b0fb0d3f0c6d49bebf6a481fdb8cbbaf19338da44f29f865a87",
+      "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/configs/Mf1.data/train.json": "5fcb6036ba938b0fb0d3f0c6d49bebf6a481fdb8cbbaf19338da44f29f865a87"
+    }
+  },
+  "judgment_checksums_match_original_run": {
+    "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_chosen_judgement.json": true,
+    "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_rejected_judgement.json": true,
+    "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_future_judgement.json": true
+  },
+  "pair_validation_now": {
+    "status": "PASS",
+    "original_pairs": 5000,
+    "filtered_pairs": 4770,
+    "removed_tie_pairs": 230,
+    "future_current_best_ties": 4991,
+    "future_strictly_better": 7,
+    "chosen_text_changed_by_strict": 4971,
+    "rejected_unchanged": true,
+    "filter_keeps_identical_prompt_set": true,
+    "d1_and_future_model_reused": true
+  },
+  "ge_filter_training_data": {
+    "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/four-settings/M2_ge_filter/D2/train.json": "8c56d847714d38a6ebb6f85fbdde1b5e51e1994f7df4cc7c3c0ba80324e92174",
+    "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/trainsets/M2_ge_filter/train.json": "8c56d847714d38a6ebb6f85fbdde1b5e51e1994f7df4cc7c3c0ba80324e92174",
+    "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/configs/M2_ge_filter.data/train.json": "8c56d847714d38a6ebb6f85fbdde1b5e51e1994f7df4cc7c3c0ba80324e92174"
+  },
+  "future_artifact_times": {
+    "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_future_response.json": "2026-11-04T19:39:57.217617+08:00",
+    "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_future_judgement.json": "2026-11-04T20:10:27.749452+08:00",
+    "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/four-settings/M2_ge_filter/D2/train.json": "2026-11-04T20:11:00.283554+08:00"
+  },
+  "baseline_rerun_status": {
+    "time": "2026-11-05T15:47:41.625780+08:00",
+    "stage": "baseline_ge_keep_training",
+    "status": "running"
+  },
+  "filtered_ge_vs_gt_pair_comparison": {
+    "rows_each": 4770,
+    "same_prompt_set_and_order": true,
+    "chosen_differences": 4743,
+    "rejected_differences": 0,
+    "sources": [
+      "data/four-settings/M2_ge_filter/D2/train.json",
+      "data/four-settings/M2_gt_filter/D2/train.json"
+    ]
+  }
+}

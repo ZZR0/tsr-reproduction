@@ -1,0 +1,1651 @@
+[2026-11-04 00:06:59,286] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+INFO:root:Using nproc_per_node=2.
+[2026-11-04 00:08:01,181] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2026-11-04 00:08:02,097] [INFO] [comm.py:652:init_distributed] cdb=None
+[W1104 00:08:02.003914564 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+2026-11-04 00:08:02 - WARNING - __main__ - Process rank: 1, device: cuda:1, n_gpu: 1 distributed training: True, 16-bits training: False
+[rank1]:[W1104 00:08:02.893396879 ProcessGroupNCCL.cpp:4115] [PG ID 0 PG GUID 0 Rank 1]  using GPU 1 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+[2026-11-04 00:16:07,653] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2026-11-04 00:16:08,565] [INFO] [comm.py:652:init_distributed] cdb=None
+[2026-11-04 00:16:08,566] [INFO] [comm.py:683:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[W1104 00:16:08.472505834 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+2026-11-04 00:16:08 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1 distributed training: True, 16-bits training: False
+2026-11-04 00:16:08 - INFO - __main__ - Model parameters ModelArguments(base_model_revision=None, model_name_or_path='/media/ardeawang/TSR/models/Llama-3.1-8B', model_revision='main', model_code_revision=None, torch_dtype='bfloat16', tokenizer_name_or_path=None, trust_remote_code=False, attn_implementation='flash_attention_2', use_peft=False, lora_r=16, lora_alpha=32, lora_dropout=0.05, lora_target_modules=None, lora_modules_to_save=None, load_in_8bit=False, load_in_4bit=False, bnb_4bit_quant_type='nf4', use_bnb_nested_quant=False, bnb_4bit_quant_storage='uint8')
+2026-11-04 00:16:08 - INFO - __main__ - Data parameters DataArguments(chat_template="{% for message in messages %}\n{% if message['role'] == 'user' %}\n{{ '<|user|>\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'system' %}\n{{ '<|system|>\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'assistant' %}\n{{ '<|assistant|>\n'  + message['content'] + eos_token }}\n{% endif %}\n{% if loop.last and add_generation_prompt %}\n{{ '<|assistant|>' }}\n{% endif %}\n{% endfor %}", dataset_mixer={'/media/ardeawang/TSR/tsr-reproduction/third_party/TSR/data/sft_data': 1.0}, text_column='text', dataset_splits=['train', 'test'], dataset_configs=None, preprocessing_num_workers=12, truncation_side=None, auto_insert_empty_system_msg=True)
+2026-11-04 00:16:08 - INFO - __main__ - Training/evaluation parameters SFTConfig(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=True,
+bf16_full_eval=False,
+chars_per_token=<CHARS_PER_TOKEN>,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+dataset_batch_size=1000,
+dataset_kwargs=None,
+dataset_num_proc=None,
+dataset_text_field=text,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_packing=None,
+eval_steps=None,
+eval_strategy=IntervalStrategy.EPOCH,
+eval_use_gather_object=False,
+evaluation_strategy=None,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=8,
+gradient_checkpointing=True,
+gradient_checkpointing_kwargs={'use_reentrant': False},
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=M0,
+hub_model_revision=main,
+hub_private_repo=False,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=2e-06,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=info,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/media/ardeawang/TSR/tsr-reproduction/work/models/M0/runs/Nov04_00-16-08_aibox-r0632df7282e-bd897dd7b-t6m2l,
+logging_first_step=True,
+logging_nan_inf_filter=True,
+logging_steps=5,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_kwargs={},
+lr_scheduler_type=SchedulerType.COSINE,
+max_grad_norm=1.0,
+max_seq_length=2048,
+max_steps=-1,
+metric_for_best_model=None,
+model_init_kwargs=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_of_sequences=1024,
+num_train_epochs=3,
+optim=OptimizerNames.ADAMW_TORCH,
+optim_args=None,
+optim_target_modules=None,
+output_dir=/media/ardeawang/TSR/tsr-reproduction/work/models/M0,
+overwrite_output_dir=True,
+packing=False,
+past_index=-1,
+per_device_eval_batch_size=2,
+per_device_train_batch_size=2,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/media/ardeawang/TSR/tsr-reproduction/work/models/M0,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=False,
+save_steps=500,
+save_strategy=IntervalStrategy.NO,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.1,
+warmup_steps=0,
+weight_decay=0.0,
+)
+No config specified, defaulting to the single config: sft_data/default
+2026-11-04 00:16:08 - INFO - datasets.builder - No config specified, defaulting to the single config: sft_data/default
+Loading Dataset Infos from /media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/datasets/packaged_modules/json
+2026-11-04 00:16:08 - INFO - datasets.info - Loading Dataset Infos from /media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/datasets/packaged_modules/json
+Overwrite dataset info from restored data version if exists.
+2026-11-04 00:16:08 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98
+2026-11-04 00:16:08 - INFO - datasets.info - Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98
+Found cached dataset sft_data (/media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98)
+2026-11-04 00:16:08 - INFO - datasets.builder - Found cached dataset sft_data (/media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98)
+Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98
+2026-11-04 00:16:08 - INFO - datasets.info - Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98
+No config specified, defaulting to the single config: sft_data/default
+2026-11-04 00:16:08 - INFO - datasets.builder - No config specified, defaulting to the single config: sft_data/default
+Loading Dataset Infos from /media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/datasets/packaged_modules/json
+2026-11-04 00:16:08 - INFO - datasets.info - Loading Dataset Infos from /media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/datasets/packaged_modules/json
+Overwrite dataset info from restored data version if exists.
+2026-11-04 00:16:08 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98
+2026-11-04 00:16:08 - INFO - datasets.info - Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98
+Found cached dataset sft_data (/media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98)
+2026-11-04 00:16:08 - INFO - datasets.builder - Found cached dataset sft_data (/media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98)
+Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98
+2026-11-04 00:16:08 - INFO - datasets.info - Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98
+Loading cached shuffled indices for dataset at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-a7602d81e72310a5.arrow
+2026-11-04 00:16:08 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-a7602d81e72310a5.arrow
+Loading cached shuffled indices for dataset at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-62081db3b7e89443.arrow
+2026-11-04 00:16:08 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-62081db3b7e89443.arrow
+2026-11-04 00:16:08 - INFO - __main__ - Training on the following datasets and their proportions: ['train : 6871', 'test : 1000']
+[INFO|tokenization_utils_base.py:2209] 2026-11-04 00:16:08,708 >> loading file tokenizer.json
+[INFO|tokenization_utils_base.py:2209] 2026-11-04 00:16:08,708 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2209] 2026-11-04 00:16:08,708 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2209] 2026-11-04 00:16:08,708 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2209] 2026-11-04 00:16:08,708 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2475] 2026-11-04 00:16:09,029 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+2026-11-04 00:16:09 - INFO - __main__ - *** Load pretrained model ***
+Process #0 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00000_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #0 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00000_of_00012.arrow
+Process #1 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00001_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #1 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00001_of_00012.arrow
+Process #2 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00002_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #2 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00002_of_00012.arrow
+Process #3 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00003_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #3 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00003_of_00012.arrow
+Process #4 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00004_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #4 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00004_of_00012.arrow
+Process #5 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00005_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #5 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00005_of_00012.arrow
+Process #6 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00006_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #6 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00006_of_00012.arrow
+Process #7 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00007_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #7 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00007_of_00012.arrow
+Process #8 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00008_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #8 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00008_of_00012.arrow
+Process #9 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00009_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #9 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00009_of_00012.arrow
+Process #10 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00010_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #10 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00010_of_00012.arrow
+Process #11 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00011_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #11 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_00011_of_00012.arrow
+Loading cached processed dataset at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_*_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-4a85b92e0d5bbc1c_*_of_00012.arrow
+Concatenating 12 shards
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Concatenating 12 shards
+Process #0 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00000_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #0 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00000_of_00012.arrow
+Process #1 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00001_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #1 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00001_of_00012.arrow
+Process #2 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00002_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #2 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00002_of_00012.arrow
+Process #3 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00003_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #3 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00003_of_00012.arrow
+Process #4 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00004_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #4 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00004_of_00012.arrow
+Process #5 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00005_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #5 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00005_of_00012.arrow
+Process #6 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00006_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #6 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00006_of_00012.arrow
+Process #7 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00007_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #7 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00007_of_00012.arrow
+Process #8 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00008_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #8 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00008_of_00012.arrow
+Process #9 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00009_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #9 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00009_of_00012.arrow
+Process #10 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00010_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #10 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00010_of_00012.arrow
+Process #11 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00011_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Process #11 will write at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_00011_of_00012.arrow
+Loading cached processed dataset at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_*_of_00012.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-0bff830b5c2f09cb_*_of_00012.arrow
+Concatenating 12 shards
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Concatenating 12 shards
+Loading cached processed dataset at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-38809f0a767e2807.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-38809f0a767e2807.arrow
+Loading cached processed dataset at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-8c7b10c4640b34c9.arrow
+2026-11-04 00:16:09 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /media/ardeawang/TSR/.cache/huggingface/datasets/sft_data/default/0.0.0/39f3a47ccdc4cf98/cache-8c7b10c4640b34c9.arrow
+2026-11-04 00:16:09 - INFO - __main__ - Decontaminated 0 (0.00%) samples from the training set.
+2026-11-04 00:16:09 - INFO - __main__ - Sample 5238 of the processed training set:
+
+<|system|>
+You are a helpful, respectful, and knowledgeable assistant. Your goal is to provide accurate, concise, and relevant answers to user queries. If you are unsure about something, politely let the user know and avoid making assumptions. Always prioritize clarity and helpfulness in your responses.<|end_of_text|>
+<|user|>
+write nginx reverse proxy configuration that forwards port 8000 to 8011 and 8014<|end_of_text|>
+<|assistant|>
+To configure Nginx as a reverse proxy server that forwards incoming requests on port 8000 to ports 8011 and 8014, you need to create a new Nginx configuration file. Here's an example of how to set up this configuration:
+
+1. First, create a new file called `proxy.conf` (or use an existing configuration file if you have one). The contents should look like this:
+```nginx
+upstream backend {
+    server 127.0.0.1:8011;
+    server 127.0.0.1:8014;
+}
+
+server {
+    listen 8000;
+    server_name localhost;
+
+    location / {
+        proxy_pass http://backend;
+        proxy_redir off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_buffering off;
+    }
+}
+```
+1. Ensure you have the `http_proxy_module` loaded in your Nginx configuration. You can check this by running the following command:
+```bash
+sudo nginx -T -V
+```
+Look for `--with-http_proxy_module` in the output to see if it's enabled. If not, you'll need to recompile Nginx with this module or install a version that includes it.
+2. Now, include the new `proxy.conf` file in your main Nginx configuration file, typically located at `/etc/nginx/nginx.conf`. Add the following line to the `http` section:
+```nginx
+include /etc/nginx/conf.d/*.conf;
+```
+This assumes that you've saved the `proxy.conf` file in the `/etc/nginx/conf.d` directory. If you have it in a different location, adjust the path accordingly.
+1. Save the changes, then restart Nginx for the new configuration to take effect:
+```bash
+sudo systemctl restart nginx
+```
+
+Now, when Nginx receives incoming connections on port 8000, it will forward those requests to ports 8011 and 8014, distributing the incoming connections to both backend servers. The `proxy_buffering off;` directive ensures that Nginx does not buffer responses, allowing for faster response times.
+
+Remember to replace `localhost` in the `server_name` directive with the hostname or IP address of your server if you're using a public domain name or IP for your server.<|end_of_text|>
+
+2026-11-04 00:16:09 - INFO - __main__ - Sample 912 of the processed training set:
+
+<|system|>
+You are a helpful and precise evaluator. Provide objective, constructive, and detailed feedback. Be concise, clear, and tailored to the context. Your goal is to support refinement and informed decision-making.<|end_of_text|>
+<|user|>
+Review the user’s question and the corresponding response using the additive 5-point scoring system described below. Points are accumulated based on the satisfaction of each criterion:
+- Add 1 point if the response is relevant and provides some information related to the user’s inquiry, even if it is incomplete or contains some irrelevant content.
+- Add another point if the response addresses a substantial portion of the user’s question, but does not completely resolve the query or provide a direct answer.
+- Award a third point if the response answers the basic elements of the user’s question in a useful way, regardless of whether it seems to have been written by an AI Assistant or if it has elements typically found in blogs or search results.
+- Grant a fourth point if the response is clearly written from an AI Assistant’s perspective, addressing the user’s question directly and comprehensively, and is well-organized and helpful, even if there is slight room for improvement in clarity, conciseness or focus.
+- Bestow a fifth point for a response that is impeccably tailored to the user’s question by an AI Assistant, without extraneous information, reflecting expert knowledge, and demonstrating a high-quality, engaging, and insightful answer.
+
+User: In this task, given a sentence in the Central Khmer language, your task is to convert it into the English language.
+
+Let me give you an example: អំពីការលុបចោល លោកហ្គារី បេតមេន បានិយាយថា "ភាពអាម៉ាស​នៃរឿងនេះ​គឺថា អ្នកគាំទ្រមានភាពប្រសើរជាង​។"
+The answer to this example can be: Speaking about the cancellation, Gary Bettman said "The shame of this is that our fans deserve better."
+Here is why: The above sentence is correctly translated from Khmer to English
+
+OK. solve this:
+អ្នកដែលប្រឆាំងទៅនឹងច្បាប់ថ្មី និយាយថា វាកម្រិតសេរីភាពក្នុងការបញ្ចេញមតិ និងសេរីភាពសាសនា ចំណែកអ្នកគាំទ្រវិញអះអាងថា ស្រ្តីត្រូវបានបន្ថោកដោយសារការពាក់ស្បៃគ្របមុខនេះ ហើយច្បាប់នេះមានបំណងផ្តល់អំណាចដល់ស្រ្តីទាំងនោះ ព្រមទាំងបង្កើនសន្តិសុខសាធារណៈផងដែរ។
+Answer:
+<response>Sure, I'm ready to help! Please provide the sentence in Central Khmer language that you would like me to translate into English, and I will do my best to provide an accurate translation with a high confidence level.</response>
+
+After examining the user’s instruction and the response:
+- Briefly justify your total score, up to 100 words.
+- Conclude with the score using the format: “Score: <total points>”
+
+Remember to assess from the AI Assistant perspective, utilizing web search knowledge as necessary. To evaluate the response in alignment with this additive scoring model, we’ll systematically attribute points based on the outlined criteria.<|end_of_text|>
+<|assistant|>
+The response does not translate the provided Central Khmer sentence into English, which is the primary task requested by the user. While the response indicates readiness to help with the translation, it does not provide any relevant information or attempt to answer the user's specific question. Thus, it fails to demonstrate any expert knowledge or to engage with the user's request meaningfully. Since the task is a translation, a translation attempt should be made regardless of the accuracy, which the response lacks entirely.
+
+Score: 0<|end_of_text|>
+
+2026-11-04 00:16:09 - INFO - __main__ - Sample 204 of the processed training set:
+
+<|system|>
+You are a helpful, respectful, and knowledgeable assistant. Your goal is to provide accurate, concise, and relevant answers to user queries. If you are unsure about something, politely let the user know and avoid making assumptions. Always prioritize clarity and helpfulness in your responses.<|end_of_text|>
+<|user|>
+Which birds can add up numbers just as well as humans?<|end_of_text|>
+<|assistant|>
+Some studies suggest that African Grey Parrots have the ability to perform numerical tasks and understand quantities. They can add up numbers and solve simple arithmetic problems. However, it might not be appropriate to compare their mathematical abilities directly to humans, as human math skills can vary greatly and can go beyond basic arithmetic to more complex calculations. Keep in mind that these findings are based on experiments and may not represent the abilities of all African Grey Parrots or other bird species.<|end_of_text|>
+
+[rank0]:[W1104 00:16:09.337766506 ProcessGroupNCCL.cpp:4115] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:3959 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to =eth0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:3959 [0] NCCL INFO Bootstrap : Using eth0:172.17.193.36<0>
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:3959 [0] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:3959 [0] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:3959 [0] NCCL INFO NET/Plugin: Using internal network plugin.
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:3959 [0] NCCL INFO cudaDriverVersion 12020
+NCCL version 2.21.5+cuda12.4
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:3960 [1] NCCL INFO cudaDriverVersion 12020
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:3960 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to =eth0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:3960 [1] NCCL INFO Bootstrap : Using eth0:172.17.193.36<0>
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:3960 [1] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:3960 [1] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:3960 [1] NCCL INFO NET/Plugin: Using internal network plugin.
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Failed to open libibverbs.so[.1]
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to =eth0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO NET/Socket : Using [0]eth0:172.17.193.36<0>
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Using non-device net plugin version 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Using network Socket
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Failed to open libibverbs.so[.1]
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to =eth0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO NET/Socket : Using [0]eth0:172.17.193.36<0>
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Using non-device net plugin version 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Using network Socket
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO ncclCommInitRank comm 0x56206e436c50 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId 58000 commId 0x5361ae3be0d809c3 - Init START
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO ncclCommInitRank comm 0x55fc17e62b60 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 53000 commId 0x5361ae3be0d809c3 - Init START
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO === System : maxBw 160.0 totalBw 160.0 ===
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO CPU/0-0 (1/1/2)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO + PCI[5000.0] - NIC/0-0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO + PCI[24.0] - PCI/0-4d000 (1000c0101000ffff)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO               + PCI[24.0] - PCI/0-51000 (1000c01010de13b8)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO                             + PCI[24.0] - GPU/0-53000 (0)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO                                           + NVL[160.0] - NVS/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO               + PCI[24.0] - PCI/0-56000 (1000c01010de13b8)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO                             + PCI[24.0] - GPU/0-58000 (1)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO                                           + NVL[160.0] - NVS/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO ==========================================
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO GPU/53000 :GPU/0-53000 (0/5000.0/LOC) GPU/0-58000 (2/160.0/NVL) NVS/0-0 (1/160.0/NVL) CPU/0-0 (3/24.0/PHB) 
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO GPU/58000 :GPU/0-53000 (2/160.0/NVL) GPU/0-58000 (0/5000.0/LOC) NVS/0-0 (1/160.0/NVL) CPU/0-0 (3/24.0/PHB) 
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Setting affinity for GPU 1 to ffffffff,00000000,ffffffff
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Pattern 4, crossNic 0, nChannels 8, bw 20.000000/20.000000, type NVL/PIX, sameChannels 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  0 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  1 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  2 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  3 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  4 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  5 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  6 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  7 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Pattern 1, crossNic 0, nChannels 8, bw 40.000000/40.000000, type NVL/PIX, sameChannels 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  0 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  1 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  2 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  3 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  4 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  5 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  6 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO  7 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO === System : maxBw 160.0 totalBw 160.0 ===
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO CPU/0-0 (1/1/2)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO + PCI[5000.0] - NIC/0-0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO + PCI[24.0] - PCI/0-4d000 (1000c0101000ffff)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO               + PCI[24.0] - PCI/0-51000 (1000c01010de13b8)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO                             + PCI[24.0] - GPU/0-53000 (0)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO                                           + NVL[160.0] - NVS/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO               + PCI[24.0] - PCI/0-56000 (1000c01010de13b8)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO                             + PCI[24.0] - GPU/0-58000 (1)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO                                           + NVL[160.0] - NVS/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO ==========================================
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO GPU/53000 :GPU/0-53000 (0/5000.0/LOC) GPU/0-58000 (2/160.0/NVL) NVS/0-0 (1/160.0/NVL) CPU/0-0 (3/24.0/PHB) 
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO GPU/58000 :GPU/0-53000 (2/160.0/NVL) GPU/0-58000 (0/5000.0/LOC) NVS/0-0 (1/160.0/NVL) CPU/0-0 (3/24.0/PHB) 
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Setting affinity for GPU 0 to ffffffff,00000000,ffffffff
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 8, bw 20.000000/20.000000, type NVL/PIX, sameChannels 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  0 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  1 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  2 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  3 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  4 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  5 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  6 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  7 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Pattern 1, crossNic 0, nChannels 8, bw 40.000000/40.000000, type NVL/PIX, sameChannels 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  0 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  1 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  2 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  3 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  4 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  5 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  6 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO  7 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO comm 0x56206e436c50 rank 1 nRanks 2 nNodes 1 localRanks 2 localRank 1 MNNVL 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO comm 0x55fc17e62b60 rank 0 nRanks 2 nNodes 1 localRanks 2 localRank 0 MNNVL 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 0 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 0 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 8 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 8 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 1 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 1 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 9 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 9 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 2 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 2 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 10 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 10 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 3 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 3 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 11 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 11 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 4 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 4 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 12 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 12 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 5 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 5 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 13 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 13 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 6 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 6 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 14 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 14 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 7 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 7 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Tree 15 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Tree 15 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 00/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 00 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 01/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 01 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 02/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 02 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 03/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 03 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 04/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 04 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 05/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 05 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 06/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 06 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 07/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 07 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 08/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 08 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 09/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 09 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 10/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 10 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 11/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 11 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 12/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 12 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 13/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 13 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 14/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 14 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 15/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Ring 15 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0 [2] -1/-1/-1->1->0 [3] -1/-1/-1->1->0 [4] 0/-1/-1->1->-1 [5] 0/-1/-1->1->-1 [6] 0/-1/-1->1->-1 [7] 0/-1/-1->1->-1 [8] -1/-1/-1->1->0 [9] -1/-1/-1->1->0 [10] -1/-1/-1->1->0 [11] -1/-1/-1->1->0 [12] 0/-1/-1->1->-1 [13] 0/-1/-1->1->-1 [14] 0/-1/-1->1->-1 [15] 0/-1/-1->1->-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO P2P Chunksize set to 524288
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 02 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 03 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 04 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 05 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 06 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 07 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 08 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 09 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 10 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 11 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 12 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 13 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 14 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Ring 15 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1 [2] 1/-1/-1->0->-1 [3] 1/-1/-1->0->-1 [4] -1/-1/-1->0->1 [5] -1/-1/-1->0->1 [6] -1/-1/-1->0->1 [7] -1/-1/-1->0->1 [8] 1/-1/-1->0->-1 [9] 1/-1/-1->0->-1 [10] 1/-1/-1->0->-1 [11] 1/-1/-1->0->-1 [12] -1/-1/-1->0->1 [13] -1/-1/-1->0->1 [14] -1/-1/-1->0->1 [15] -1/-1/-1->0->1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO P2P Chunksize set to 524288
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 00/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 01/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 02/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 02/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 03/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 03/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 04/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 04/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 05/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 05/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 06/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 06/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 07/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 07/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 08/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 08/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 09/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 09/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 10/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 10/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 11/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 11/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 12/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 12/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 13/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 13/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 14/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 14/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Channel 15/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Channel 15/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Connected all rings
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO Connected all trees
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Connected all rings
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO Connected all trees
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO 16 coll channels, 16 collnet channels, 0 nvls channels, 16 p2p channels, 16 p2p channels per peer
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO 16 coll channels, 16 collnet channels, 0 nvls channels, 16 p2p channels, 16 p2p channels per peer
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO TUNER/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO TUNER/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4144 [1] NCCL INFO ncclCommInitRank comm 0x56206e436c50 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId 58000 commId 0x5361ae3be0d809c3 - Init COMPLETE
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4143 [0] NCCL INFO ncclCommInitRank comm 0x55fc17e62b60 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 53000 commId 0x5361ae3be0d809c3 - Init COMPLETE
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/huggingface_hub/utils/_deprecation.py:100: FutureWarning: Deprecated argument(s) used in '__init__': model_init_kwargs, dataset_text_field, max_seq_length, packing. Will not be supported from version '0.13.0'.
+
+Deprecated positional argument(s) used in SFTTrainer, please use the SFTConfig to set these arguments instead.
+  warnings.warn(message, FutureWarning)
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/trl/trainer/sft_trainer.py:175: UserWarning: You passed `model_init_kwargs` to the SFTTrainer, the value you passed will override the one in the `SFTConfig`.
+  warnings.warn(
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/trl/trainer/sft_trainer.py:202: UserWarning: You passed a model_id to the SFTTrainer. This will automatically create an `AutoModelForCausalLM` or a `PeftModel` (if you passed a `peft_config`) for you.
+  warnings.warn(
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/huggingface_hub/utils/_deprecation.py:100: FutureWarning: Deprecated argument(s) used in '__init__': model_init_kwargs, dataset_text_field, max_seq_length, packing. Will not be supported from version '0.13.0'.
+
+Deprecated positional argument(s) used in SFTTrainer, please use the SFTConfig to set these arguments instead.
+  warnings.warn(message, FutureWarning)
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/trl/trainer/sft_trainer.py:175: UserWarning: You passed `model_init_kwargs` to the SFTTrainer, the value you passed will override the one in the `SFTConfig`.
+  warnings.warn(
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/trl/trainer/sft_trainer.py:202: UserWarning: You passed a model_id to the SFTTrainer. This will automatically create an `AutoModelForCausalLM` or a `PeftModel` (if you passed a `peft_config`) for you.
+  warnings.warn(
+[INFO|configuration_utils.py:677] 2026-11-04 00:16:09,695 >> loading configuration file /media/ardeawang/TSR/models/Llama-3.1-8B/config.json
+[INFO|configuration_utils.py:746] 2026-11-04 00:16:09,696 >> Model config LlamaConfig {
+  "_name_or_path": "/media/ardeawang/TSR/models/Llama-3.1-8B",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": 128001,
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.3",
+  "use_cache": false,
+  "vocab_size": 128256
+}
+
+[INFO|modeling_utils.py:3934] 2026-11-04 00:16:09,699 >> loading weights file /media/ardeawang/TSR/models/Llama-3.1-8B/model.safetensors.index.json
+[INFO|modeling_utils.py:1670] 2026-11-04 00:16:09,699 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
+[INFO|modeling_utils.py:4080] 2026-11-04 00:16:09,699 >> Detected DeepSpeed ZeRO-3: activating zero.init() for this model
+[2026-11-04 00:16:09,699] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 2
+[2026-11-04 00:16:09,699] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 2
+[WARNING|logging.py:328] 2026-11-04 00:16:09,701 >> You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[WARNING|logging.py:328] 2026-11-04 00:16:09,702 >> You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[INFO|configuration_utils.py:1096] 2026-11-04 00:16:09,707 >> Generate config GenerationConfig {
+  "bos_token_id": 128000,
+  "eos_token_id": 128001,
+  "use_cache": false
+}
+
+[2026-11-04 00:16:09,993] [INFO] [partition_parameters.py:348:__exit__] finished initializing model - num_params = 291, num_elems = 8.03B
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.80it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  4.09it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  2.56it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.32it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.27it/s]
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/trl/trainer/sft_trainer.py:212: UserWarning: You passed a `packing` argument to the SFTTrainer, the value you passed will override the one in the `SFTConfig`.
+  warnings.warn(
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/trl/trainer/sft_trainer.py:300: UserWarning: You passed a `max_seq_length` argument to the SFTTrainer, the value you passed will override the one in the `SFTConfig`.
+  warnings.warn(
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/trl/trainer/sft_trainer.py:328: UserWarning: You passed a `dataset_text_field` argument to the SFTTrainer, the value you passed will override the one in the `SFTConfig`.
+  warnings.warn(
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.16s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.16s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.11s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.51s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.74s/it]
+[INFO|modeling_utils.py:4800] 2026-11-04 00:16:16,993 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+[INFO|modeling_utils.py:4808] 2026-11-04 00:16:16,993 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at /media/ardeawang/TSR/models/Llama-3.1-8B.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:1049] 2026-11-04 00:16:16,996 >> loading configuration file /media/ardeawang/TSR/models/Llama-3.1-8B/generation_config.json
+[INFO|configuration_utils.py:1096] 2026-11-04 00:16:16,996 >> Generate config GenerationConfig {
+  "bos_token_id": 128000,
+  "do_sample": true,
+  "eos_token_id": 128001,
+  "temperature": 0.6,
+  "top_p": 0.9
+}
+
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/trl/trainer/sft_trainer.py:212: UserWarning: You passed a `packing` argument to the SFTTrainer, the value you passed will override the one in the `SFTConfig`.
+  warnings.warn(
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/trl/trainer/sft_trainer.py:300: UserWarning: You passed a `max_seq_length` argument to the SFTTrainer, the value you passed will override the one in the `SFTConfig`.
+  warnings.warn(
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/trl/trainer/sft_trainer.py:328: UserWarning: You passed a `dataset_text_field` argument to the SFTTrainer, the value you passed will override the one in the `SFTConfig`.
+  warnings.warn(
+Using custom data configuration default-ffc82e4002ed938c
+2026-11-04 00:16:17 - INFO - datasets.builder - Using custom data configuration default-ffc82e4002ed938c
+Loading Dataset Infos from /media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/datasets/packaged_modules/generator
+2026-11-04 00:16:17 - INFO - datasets.info - Loading Dataset Infos from /media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/datasets/packaged_modules/generator
+Overwrite dataset info from restored data version if exists.
+2026-11-04 00:16:17 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/generator/default-ffc82e4002ed938c/0.0.0
+2026-11-04 00:16:17 - INFO - datasets.info - Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/generator/default-ffc82e4002ed938c/0.0.0
+Found cached dataset generator (/media/ardeawang/TSR/.cache/huggingface/datasets/generator/default-ffc82e4002ed938c/0.0.0)
+2026-11-04 00:16:17 - INFO - datasets.builder - Found cached dataset generator (/media/ardeawang/TSR/.cache/huggingface/datasets/generator/default-ffc82e4002ed938c/0.0.0)
+Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/generator/default-ffc82e4002ed938c/0.0.0
+2026-11-04 00:16:17 - INFO - datasets.info - Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/generator/default-ffc82e4002ed938c/0.0.0
+Using custom data configuration default-7a829aafd259d51c
+2026-11-04 00:16:17 - INFO - datasets.builder - Using custom data configuration default-7a829aafd259d51c
+Loading Dataset Infos from /media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/datasets/packaged_modules/generator
+2026-11-04 00:16:17 - INFO - datasets.info - Loading Dataset Infos from /media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/datasets/packaged_modules/generator
+Overwrite dataset info from restored data version if exists.
+2026-11-04 00:16:17 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/generator/default-7a829aafd259d51c/0.0.0
+2026-11-04 00:16:17 - INFO - datasets.info - Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/generator/default-7a829aafd259d51c/0.0.0
+Found cached dataset generator (/media/ardeawang/TSR/.cache/huggingface/datasets/generator/default-7a829aafd259d51c/0.0.0)
+2026-11-04 00:16:17 - INFO - datasets.builder - Found cached dataset generator (/media/ardeawang/TSR/.cache/huggingface/datasets/generator/default-7a829aafd259d51c/0.0.0)
+Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/generator/default-7a829aafd259d51c/0.0.0
+2026-11-04 00:16:17 - INFO - datasets.info - Loading Dataset info from /media/ardeawang/TSR/.cache/huggingface/datasets/generator/default-7a829aafd259d51c/0.0.0
+[INFO|trainer.py:699] 2026-11-04 00:16:17,333 >> Using auto half precision backend
+2026-11-04 00:16:17 - INFO - __main__ - *** Train ***
+[2026-11-04 00:16:17,522] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed info: version=0.15.4, git-hash=unknown, git-branch=unknown
+[2026-11-04 00:16:17,523] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 2
+[2026-11-04 00:16:17,530] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2026-11-04 00:16:17,531] [INFO] [logging.py:128:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2026-11-04 00:16:17,531] [INFO] [logging.py:128:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2026-11-04 00:16:17,538] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2026-11-04 00:16:17,538] [INFO] [utils.py:59:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2026-11-04 00:16:17,539] [INFO] [logging.py:128:log_dist] [Rank 0] Creating fp16 ZeRO stage 3 optimizer, MiCS is enabled False, Hierarchical params gather False
+[2026-11-04 00:16:17,539] [INFO] [logging.py:128:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 3 optimizer
+[2026-11-04 00:16:17,699] [INFO] [utils.py:781:see_memory_usage] Stage 3 initialize beginning
+[2026-11-04 00:16:17,700] [INFO] [utils.py:782:see_memory_usage] MA 7.48 GB         Max_MA 9.44 GB         CA 7.58 GB         Max_CA 10 GB 
+[2026-11-04 00:16:17,700] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 34.82 GB, percent = 1.7%
+[2026-11-04 00:16:17,701] [INFO] [stage3.py:166:__init__] Reduce bucket size 500000000
+[2026-11-04 00:16:17,701] [INFO] [stage3.py:167:__init__] Prefetch bucket size 50000000
+[2026-11-04 00:16:17,856] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2026-11-04 00:16:17,857] [INFO] [utils.py:782:see_memory_usage] MA 7.48 GB         Max_MA 7.48 GB         CA 7.58 GB         Max_CA 8 GB 
+[2026-11-04 00:16:17,857] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 34.82 GB, percent = 1.7%
+Parameter Offload: Total persistent parameters: 266240 in 65 params
+[2026-11-04 00:16:18,019] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2026-11-04 00:16:18,020] [INFO] [utils.py:782:see_memory_usage] MA 7.48 GB         Max_MA 7.48 GB         CA 7.58 GB         Max_CA 8 GB 
+[2026-11-04 00:16:18,020] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 34.82 GB, percent = 1.7%
+[2026-11-04 00:16:18,164] [INFO] [utils.py:781:see_memory_usage] Before creating fp16 partitions
+[2026-11-04 00:16:18,165] [INFO] [utils.py:782:see_memory_usage] MA 7.48 GB         Max_MA 7.48 GB         CA 7.58 GB         Max_CA 8 GB 
+[2026-11-04 00:16:18,165] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 34.82 GB, percent = 1.7%
+[2026-11-04 00:16:23,751] [INFO] [utils.py:781:see_memory_usage] After creating fp16 partitions: 5
+[2026-11-04 00:16:23,751] [INFO] [utils.py:782:see_memory_usage] MA 7.48 GB         Max_MA 7.48 GB         CA 7.48 GB         Max_CA 8 GB 
+[2026-11-04 00:16:23,751] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 34.88 GB, percent = 1.7%
+[2026-11-04 00:16:23,902] [INFO] [utils.py:781:see_memory_usage] Before creating fp32 partitions
+[2026-11-04 00:16:23,903] [INFO] [utils.py:782:see_memory_usage] MA 7.48 GB         Max_MA 7.48 GB         CA 7.48 GB         Max_CA 7 GB 
+[2026-11-04 00:16:23,903] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 34.88 GB, percent = 1.7%
+[2026-11-04 00:16:24,114] [INFO] [utils.py:781:see_memory_usage] After creating fp32 partitions
+[2026-11-04 00:16:24,114] [INFO] [utils.py:782:see_memory_usage] MA 22.44 GB         Max_MA 24.25 GB         CA 24.36 GB         Max_CA 24 GB 
+[2026-11-04 00:16:24,114] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 34.89 GB, percent = 1.7%
+[2026-11-04 00:16:24,260] [INFO] [utils.py:781:see_memory_usage] Before initializing optimizer states
+[2026-11-04 00:16:24,260] [INFO] [utils.py:782:see_memory_usage] MA 22.44 GB         Max_MA 22.44 GB         CA 24.36 GB         Max_CA 24 GB 
+[2026-11-04 00:16:24,260] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 34.89 GB, percent = 1.7%
+[2026-11-04 00:16:24,419] [INFO] [utils.py:781:see_memory_usage] After initializing optimizer states
+[2026-11-04 00:16:24,420] [INFO] [utils.py:782:see_memory_usage] MA 22.44 GB         Max_MA 26.26 GB         CA 28.19 GB         Max_CA 28 GB 
+[2026-11-04 00:16:24,420] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 34.89 GB, percent = 1.7%
+[2026-11-04 00:16:24,420] [INFO] [stage3.py:521:_setup_for_real_optimizer] optimizer state initialized
+[2026-11-04 00:16:24,684] [INFO] [utils.py:781:see_memory_usage] After initializing ZeRO optimizer
+[2026-11-04 00:16:24,685] [INFO] [utils.py:782:see_memory_usage] MA 30.85 GB         Max_MA 32.8 GB         CA 32.81 GB         Max_CA 33 GB 
+[2026-11-04 00:16:24,685] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 34.91 GB, percent = 1.7%
+[2026-11-04 00:16:24,685] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedZeroOptimizer_Stage3
+[2026-11-04 00:16:24,685] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed using configured LR scheduler = None
+[2026-11-04 00:16:24,685] [INFO] [logging.py:128:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2026-11-04 00:16:24,685] [INFO] [logging.py:128:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0, 0.0], mom=[(0.9, 0.999), (0.9, 0.999)]
+[2026-11-04 00:16:24,686] [INFO] [config.py:999:print] DeepSpeedEngine configuration:
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True, 'use_gds': False}
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   amp_enabled .................. False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   amp_params ................... False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   bfloat16_enabled ............. True
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   bfloat16_immediate_grad_update  False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   checkpoint_parallel_write_pipeline  False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   checkpoint_tag_validation_enabled  True
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   checkpoint_tag_validation_fail  False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7fd1ec2f5150>
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   communication_data_type ...... None
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   curriculum_enabled_legacy .... False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   curriculum_params_legacy ..... False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   data_efficiency_enabled ...... False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   dataloader_drop_last ......... False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   disable_allgather ............ False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   dump_state ................... False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   dynamic_loss_scale_args ...... None
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   eigenvalue_enabled ........... False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   eigenvalue_gas_boundary_resolution  1
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   eigenvalue_layer_num ......... 0
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   eigenvalue_max_iter .......... 100
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   eigenvalue_stability ......... 1e-06
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   eigenvalue_tol ............... 0.01
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   eigenvalue_verbose ........... False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   elasticity_enabled ........... False
+[2026-11-04 00:16:24,687] [INFO] [config.py:1003:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   fp16_auto_cast ............... None
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   fp16_enabled ................. False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   fp16_master_weights_and_gradients  False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   global_rank .................. 0
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   grad_accum_dtype ............. None
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   gradient_accumulation_steps .. 8
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   gradient_clipping ............ 1.0
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   gradient_predivide_factor .... 1.0
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   graph_harvesting ............. False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   initial_dynamic_scale ........ 1
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   load_universal_checkpoint .... False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   loss_scale ................... 1.0
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   memory_breakdown ............. False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   mics_hierarchial_params_gather  False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   mics_shard_size .............. -1
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, experiment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName')
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   optimizer_legacy_fusion ...... False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   optimizer_name ............... None
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   optimizer_params ............. None
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   pld_enabled .................. False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   pld_params ................... False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   prescale_gradients ........... False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   scheduler_name ............... None
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   scheduler_params ............. None
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   seq_parallel_communication_data_type  torch.float32
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   sparse_attention ............. None
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   sparse_gradients_enabled ..... False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   steps_per_print .............. inf
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   timers_config ................ enabled=True synchronized=True
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   train_batch_size ............. 32
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   train_micro_batch_size_per_gpu  2
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   use_data_before_expert_parallel_  False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   use_node_local_storage ....... False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   wall_clock_breakdown ......... False
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   weight_quantization_config ... None
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   world_size ................... 2
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   zero_allow_untested_optimizer  True
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='none', nvme_path=None, buffer_count=5, buffer_size=100000000, max_in_cpu=1000000000, pin_memory=False) offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='none', nvme_path=None, buffer_count=4, pin_memory=False, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1000000000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50000000 param_persistence_threshold=100000 model_persistence_threshold=9223372036854775807 max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=True use_all_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   zero_enabled ................. True
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   zero_force_ds_cpu_optimizer .. True
+[2026-11-04 00:16:24,688] [INFO] [config.py:1003:print]   zero_optimization_stage ...... 3
+[2026-11-04 00:16:24,689] [INFO] [config.py:989:print_user_config]   json = {
+    "train_batch_size": 32, 
+    "train_micro_batch_size_per_gpu": 2, 
+    "gradient_accumulation_steps": 8, 
+    "zero_optimization": {
+        "stage": 3, 
+        "offload_optimizer": {
+            "device": "none", 
+            "nvme_path": null
+        }, 
+        "offload_param": {
+            "device": "none", 
+            "nvme_path": null
+        }, 
+        "stage3_gather_16bit_weights_on_model_save": true
+    }, 
+    "gradient_clipping": 1.0, 
+    "steps_per_print": inf, 
+    "bf16": {
+        "enabled": true
+    }, 
+    "fp16": {
+        "enabled": false
+    }, 
+    "zero_allow_untested_optimizer": true
+}
+[INFO|trainer.py:2314] 2026-11-04 00:16:24,690 >> ***** Running training *****
+[INFO|trainer.py:2315] 2026-11-04 00:16:24,690 >>   Num examples = 1,929
+[INFO|trainer.py:2316] 2026-11-04 00:16:24,690 >>   Num Epochs = 3
+[INFO|trainer.py:2317] 2026-11-04 00:16:24,690 >>   Instantaneous batch size per device = 2
+[INFO|trainer.py:2320] 2026-11-04 00:16:24,690 >>   Total train batch size (w. parallel, distributed & accumulation) = 32
+[INFO|trainer.py:2321] 2026-11-04 00:16:24,690 >>   Gradient Accumulation steps = 8
+[INFO|trainer.py:2322] 2026-11-04 00:16:24,690 >>   Total optimization steps = 180
+[INFO|trainer.py:2323] 2026-11-04 00:16:24,691 >>   Number of trainable parameters = 8,030,261,248
+  0%|          | 0/180 [00:00<?, ?it/s]aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Using non-device net plugin version 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Using non-device net plugin version 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Using network Socket
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Using network Socket
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO bootstrapSplit: comm 0x7fd1740666b0 parent 0x55fc17e62b60 rank 0 nranks 2 color 1530306504 key 0 prev 1 next 1 - DONE
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO bootstrapSplit: comm 0x7fd6e00666e0 parent 0x56206e436c50 rank 1 nranks 2 color 1530306504 key 1 prev 0 next 0 - DONE
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO ncclCommSplit comm 0x7fd1740666b0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 53000 parent 0x55fc17e62b60 color 1530306504 key 0 commId 0x3832bd031d52ee11 - Init START
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO ncclCommSplit comm 0x7fd6e00666e0 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId 58000 parent 0x56206e436c50 color 1530306504 key 1 commId 0x3832bd031d52ee11 - Init START
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO === System : maxBw 160.0 totalBw 160.0 ===
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO CPU/0-0 (1/1/2)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO + PCI[5000.0] - NIC/0-0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO + PCI[24.0] - PCI/0-4d000 (1000c0101000ffff)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO               + PCI[24.0] - PCI/0-51000 (1000c01010de13b8)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO                             + PCI[24.0] - GPU/0-53000 (0)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO                                           + NVL[160.0] - NVS/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO               + PCI[24.0] - PCI/0-56000 (1000c01010de13b8)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO                             + PCI[24.0] - GPU/0-58000 (1)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO                                           + NVL[160.0] - NVS/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO ==========================================
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO GPU/53000 :GPU/0-53000 (0/5000.0/LOC) GPU/0-58000 (2/160.0/NVL) NVS/0-0 (1/160.0/NVL) CPU/0-0 (3/24.0/PHB) 
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO GPU/58000 :GPU/0-53000 (2/160.0/NVL) GPU/0-58000 (0/5000.0/LOC) NVS/0-0 (1/160.0/NVL) CPU/0-0 (3/24.0/PHB) 
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Setting affinity for GPU 0 to ffffffff,00000000,ffffffff
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 8, bw 20.000000/20.000000, type NVL/PIX, sameChannels 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  0 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  1 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  2 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  3 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  4 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  5 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  6 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  7 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Pattern 1, crossNic 0, nChannels 8, bw 40.000000/40.000000, type NVL/PIX, sameChannels 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  0 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  1 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  2 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  3 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  4 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  5 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO === System : maxBw 160.0 totalBw 160.0 ===
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  6 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO CPU/0-0 (1/1/2)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO  7 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO + PCI[5000.0] - NIC/0-0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO + PCI[24.0] - PCI/0-4d000 (1000c0101000ffff)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO               + PCI[24.0] - PCI/0-51000 (1000c01010de13b8)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO                             + PCI[24.0] - GPU/0-53000 (0)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO                                           + NVL[160.0] - NVS/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO               + PCI[24.0] - PCI/0-56000 (1000c01010de13b8)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO                             + PCI[24.0] - GPU/0-58000 (1)
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO                                           + NVL[160.0] - NVS/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO ==========================================
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO GPU/53000 :GPU/0-53000 (0/5000.0/LOC) GPU/0-58000 (2/160.0/NVL) NVS/0-0 (1/160.0/NVL) CPU/0-0 (3/24.0/PHB) 
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO GPU/58000 :GPU/0-53000 (2/160.0/NVL) GPU/0-58000 (0/5000.0/LOC) NVS/0-0 (1/160.0/NVL) CPU/0-0 (3/24.0/PHB) 
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Setting affinity for GPU 1 to ffffffff,00000000,ffffffff
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Pattern 4, crossNic 0, nChannels 8, bw 20.000000/20.000000, type NVL/PIX, sameChannels 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  0 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  1 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  2 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  3 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  4 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  5 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  6 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  7 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Pattern 1, crossNic 0, nChannels 8, bw 40.000000/40.000000, type NVL/PIX, sameChannels 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  0 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  1 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  2 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  3 : GPU/0 GPU/1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  4 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  5 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  6 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO  7 : GPU/1 GPU/0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO comm 0x7fd1740666b0 rank 0 nRanks 2 nNodes 1 localRanks 2 localRank 0 MNNVL 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO comm 0x7fd6e00666e0 rank 1 nRanks 2 nNodes 1 localRanks 2 localRank 1 MNNVL 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 0 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 0 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 8 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 8 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 1 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 1 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 9 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 9 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 2 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 2 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 10 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 10 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 3 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 3 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 11 : -1 -> 0 -> 1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 11 : 0 -> 1 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 4 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 4 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 12 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 12 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 5 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 5 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 13 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 13 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 6 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 6 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 14 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 14 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 7 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 7 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Tree 15 : 1 -> 0 -> -1/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Tree 15 : -1 -> 1 -> 0/-1/-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 00/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 01/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 00 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 02/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 01 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 03/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 02 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 04/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 03 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 05/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 04 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 06/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 05 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 07/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 06 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 08/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 07 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 09/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 08 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 10/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 09 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 11/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 10 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 12/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 11 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 13/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 12 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 14/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 13 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 15/16 :    0   1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 14 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Ring 15 : 0 -> 1 -> 0
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0 [2] -1/-1/-1->1->0 [3] -1/-1/-1->1->0 [4] 0/-1/-1->1->-1 [5] 0/-1/-1->1->-1 [6] 0/-1/-1->1->-1 [7] 0/-1/-1->1->-1 [8] -1/-1/-1->1->0 [9] -1/-1/-1->1->0 [10] -1/-1/-1->1->0 [11] -1/-1/-1->1->0 [12] 0/-1/-1->1->-1 [13] 0/-1/-1->1->-1 [14] 0/-1/-1->1->-1 [15] 0/-1/-1->1->-1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 02 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO P2P Chunksize set to 524288
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 03 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 04 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 05 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 06 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 07 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 08 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 09 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 10 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 11 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 12 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 13 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 14 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Ring 15 : 1 -> 0 -> 1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1 [2] 1/-1/-1->0->-1 [3] 1/-1/-1->0->-1 [4] -1/-1/-1->0->1 [5] -1/-1/-1->0->1 [6] -1/-1/-1->0->1 [7] -1/-1/-1->0->1 [8] 1/-1/-1->0->-1 [9] 1/-1/-1->0->-1 [10] 1/-1/-1->0->-1 [11] 1/-1/-1->0->-1 [12] -1/-1/-1->0->1 [13] -1/-1/-1->0->1 [14] -1/-1/-1->0->1 [15] -1/-1/-1->0->1
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO P2P Chunksize set to 524288
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 00/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 01/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 02/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 03/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 04/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 02/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 05/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 03/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 06/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 04/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 07/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 05/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 08/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 06/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 09/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 07/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 10/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 08/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 11/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 09/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 12/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 10/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 13/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 11/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 14/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 12/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Channel 15/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 13/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 14/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Channel 15/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Connected all rings
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO Connected all trees
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Connected all rings
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO Connected all trees
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO 16 coll channels, 16 collnet channels, 0 nvls channels, 16 p2p channels, 16 p2p channels per peer
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO 16 coll channels, 16 collnet channels, 0 nvls channels, 16 p2p channels, 16 p2p channels per peer
+aibox-r0632df7282e-bd897dd7b-t6m2l:3960:4168 [1] NCCL INFO ncclCommSplit comm 0x7fd6e00666e0 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId 58000 parent 0x56206e436c50 color 1530306504 key 1 commId 0x3832bd031d52ee11 - Init COMPLETE
+aibox-r0632df7282e-bd897dd7b-t6m2l:3959:4167 [0] NCCL INFO ncclCommSplit comm 0x7fd1740666b0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 53000 parent 0x55fc17e62b60 color 1530306504 key 0 commId 0x3832bd031d52ee11 - Init COMPLETE
+[2026-11-04 00:16:37,986] [WARNING] [stage3.py:2114:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+  1%|          | 1/180 [00:13<39:40, 13.30s/it]                                               {'loss': 1.6536, 'grad_norm': 2.1861837249993967, 'learning_rate': 1.111111111111111e-07, 'epoch': 0.02}
+  1%|          | 1/180 [00:13<39:40, 13.30s/it]  1%|          | 2/180 [00:25<37:30, 12.64s/it][2026-11-04 00:17:03,351] [WARNING] [stage3.py:2114:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+  2%|▏         | 3/180 [00:38<38:01, 12.89s/it]  2%|▏         | 4/180 [00:50<36:55, 12.59s/it]  3%|▎         | 5/180 [01:02<36:13, 12.42s/it]                                               {'loss': 1.6526, 'grad_norm': 2.372861871118329, 'learning_rate': 5.555555555555555e-07, 'epoch': 0.08}
+  3%|▎         | 5/180 [01:02<36:13, 12.42s/it]  3%|▎         | 6/180 [01:15<35:43, 12.32s/it]  4%|▍         | 7/180 [01:27<35:44, 12.40s/it]  4%|▍         | 8/180 [01:39<35:17, 12.31s/it]  5%|▌         | 9/180 [01:51<34:53, 12.25s/it]  6%|▌         | 10/180 [02:03<34:35, 12.21s/it]                                                {'loss': 1.6136, 'grad_norm': 0.8330437009118806, 'learning_rate': 1.111111111111111e-06, 'epoch': 0.17}
+  6%|▌         | 10/180 [02:03<34:35, 12.21s/it]  6%|▌         | 11/180 [02:16<34:40, 12.31s/it]  7%|▋         | 12/180 [02:28<34:18, 12.26s/it]  7%|▋         | 13/180 [02:40<34:00, 12.22s/it]  8%|▊         | 14/180 [02:53<33:55, 12.26s/it]  8%|▊         | 15/180 [03:05<33:37, 12.23s/it]                                                {'loss': 1.5044, 'grad_norm': 0.49713447543874933, 'learning_rate': 1.6666666666666667e-06, 'epoch': 0.25}
+  8%|▊         | 15/180 [03:05<33:37, 12.23s/it]  9%|▉         | 16/180 [03:17<33:20, 12.20s/it]  9%|▉         | 17/180 [03:29<33:14, 12.24s/it] 10%|█         | 18/180 [03:42<33:31, 12.42s/it] 11%|█         | 19/180 [03:54<33:05, 12.33s/it] 11%|█         | 20/180 [04:06<32:44, 12.28s/it]                                                {'loss': 1.3332, 'grad_norm': 0.43682668689108967, 'learning_rate': 1.99924795250423e-06, 'epoch': 0.33}
+ 11%|█         | 20/180 [04:06<32:44, 12.28s/it] 12%|█▏        | 21/180 [04:19<32:33, 12.29s/it] 12%|█▏        | 22/180 [04:31<32:24, 12.30s/it] 13%|█▎        | 23/180 [04:43<32:03, 12.25s/it] 13%|█▎        | 24/180 [04:55<31:46, 12.22s/it] 14%|█▍        | 25/180 [05:08<31:49, 12.32s/it]                                                {'loss': 1.1531, 'grad_norm': 0.41188291722737685, 'learning_rate': 1.990800403364845e-06, 'epoch': 0.41}
+ 14%|█▍        | 25/180 [05:08<31:49, 12.32s/it] 14%|█▍        | 26/180 [05:20<31:28, 12.26s/it] 15%|█▌        | 27/180 [05:32<31:10, 12.23s/it] 16%|█▌        | 28/180 [05:44<30:54, 12.20s/it] 16%|█▌        | 29/180 [05:57<30:49, 12.25s/it] 17%|█▋        | 30/180 [06:09<30:31, 12.21s/it]                                                {'loss': 1.0999, 'grad_norm': 0.24929509796150956, 'learning_rate': 1.9730448705798236e-06, 'epoch': 0.5}
+ 17%|█▋        | 30/180 [06:09<30:31, 12.21s/it] 17%|█▋        | 31/180 [06:21<30:15, 12.19s/it] 18%|█▊        | 32/180 [06:34<30:29, 12.36s/it] 18%|█▊        | 33/180 [06:46<30:07, 12.30s/it] 19%|█▉        | 34/180 [06:58<29:49, 12.26s/it] 19%|█▉        | 35/180 [07:10<29:31, 12.22s/it]                                                {'loss': 1.0802, 'grad_norm': 0.20034477770301545, 'learning_rate': 1.9461481568757504e-06, 'epoch': 0.58}
+ 19%|█▉        | 35/180 [07:10<29:31, 12.22s/it] 20%|██        | 36/180 [07:23<29:57, 12.48s/it] 21%|██        | 37/180 [07:35<29:30, 12.38s/it] 21%|██        | 38/180 [07:47<29:07, 12.30s/it] 22%|██▏       | 39/180 [08:00<28:47, 12.25s/it] 22%|██▏       | 40/180 [08:12<28:58, 12.42s/it]                                                {'loss': 1.0931, 'grad_norm': 0.19771091977286073, 'learning_rate': 1.9103629409661467e-06, 'epoch': 0.66}
+ 22%|██▏       | 40/180 [08:12<28:58, 12.42s/it] 23%|██▎       | 41/180 [08:24<28:34, 12.33s/it] 23%|██▎       | 42/180 [08:37<28:14, 12.28s/it] 24%|██▍       | 43/180 [08:49<28:04, 12.30s/it] 24%|██▍       | 44/180 [09:01<27:46, 12.25s/it] 25%|██▌       | 45/180 [09:13<27:29, 12.22s/it]                                                {'loss': 1.0441, 'grad_norm': 0.19654097481937852, 'learning_rate': 1.8660254037844386e-06, 'epoch': 0.75}
+ 25%|██▌       | 45/180 [09:13<27:29, 12.22s/it] 26%|██▌       | 46/180 [09:25<27:14, 12.20s/it] 26%|██▌       | 47/180 [09:38<27:36, 12.46s/it] 27%|██▋       | 48/180 [09:51<27:11, 12.36s/it] 27%|██▋       | 49/180 [10:03<26:50, 12.30s/it] 28%|██▊       | 50/180 [10:15<26:38, 12.30s/it]                                                {'loss': 1.0482, 'grad_norm': 0.1929452604295918, 'learning_rate': 1.8135520702629674e-06, 'epoch': 0.83}
+ 28%|██▊       | 50/180 [10:15<26:38, 12.30s/it] 28%|██▊       | 51/180 [10:27<26:28, 12.31s/it] 29%|██▉       | 52/180 [10:40<26:08, 12.26s/it] 29%|██▉       | 53/180 [10:52<25:51, 12.22s/it] 30%|███       | 54/180 [11:04<25:44, 12.26s/it] 31%|███       | 55/180 [11:16<25:34, 12.27s/it]                                                {'loss': 1.0297, 'grad_norm': 0.18425957198218315, 'learning_rate': 1.7534358963276605e-06, 'epoch': 0.91}
+ 31%|███       | 55/180 [11:16<25:34, 12.27s/it] 31%|███       | 56/180 [11:28<25:17, 12.24s/it] 32%|███▏      | 57/180 [11:41<25:01, 12.21s/it] 32%|███▏      | 58/180 [11:53<24:54, 12.25s/it] 33%|███▎      | 59/180 [12:05<24:37, 12.21s/it] 33%|███▎      | 60/180 [12:17<24:23, 12.19s/it]                                                {'loss': 1.0094, 'grad_norm': 0.164547850735461, 'learning_rate': 1.6862416378687337e-06, 'epoch': 0.99}
+ 33%|███▎      | 60/180 [12:17<24:23, 12.19s/it][INFO|trainer.py:4128] 2026-11-04 00:28:43,903 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:4130] 2026-11-04 00:28:43,903 >>   Num examples = 606
+[INFO|trainer.py:4133] 2026-11-04 00:28:43,903 >>   Batch size = 2
+
+  0%|          | 0/152 [00:00<?, ?it/s][A
+  1%|▏         | 2/152 [00:00<00:28,  5.24it/s][A
+  2%|▏         | 3/152 [00:00<00:40,  3.69it/s][A
+  3%|▎         | 4/152 [00:01<00:46,  3.20it/s][A
+  3%|▎         | 5/152 [00:01<00:49,  2.97it/s][A
+  4%|▍         | 6/152 [00:01<00:51,  2.83it/s][A
+  5%|▍         | 7/152 [00:02<00:52,  2.76it/s][A
+  5%|▌         | 8/152 [00:02<00:53,  2.71it/s][A
+  6%|▌         | 9/152 [00:03<00:53,  2.68it/s][A
+  7%|▋         | 10/152 [00:03<00:53,  2.65it/s][A
+  7%|▋         | 11/152 [00:03<00:53,  2.64it/s][A
+  8%|▊         | 12/152 [00:04<00:53,  2.63it/s][A
+  9%|▊         | 13/152 [00:04<00:53,  2.62it/s][A
+  9%|▉         | 14/152 [00:04<00:52,  2.62it/s][A
+ 10%|▉         | 15/152 [00:05<00:52,  2.61it/s][A
+ 11%|█         | 16/152 [00:05<00:52,  2.61it/s][A
+ 11%|█         | 17/152 [00:06<00:51,  2.61it/s][A
+ 12%|█▏        | 18/152 [00:06<00:51,  2.61it/s][A
+ 12%|█▎        | 19/152 [00:06<00:51,  2.61it/s][A
+ 13%|█▎        | 20/152 [00:07<00:50,  2.61it/s][A
+ 14%|█▍        | 21/152 [00:07<00:50,  2.61it/s][A
+ 14%|█▍        | 22/152 [00:08<00:49,  2.61it/s][A
+ 15%|█▌        | 23/152 [00:08<00:49,  2.61it/s][A
+ 16%|█▌        | 24/152 [00:08<00:49,  2.61it/s][A
+ 16%|█▋        | 25/152 [00:09<00:48,  2.61it/s][A
+ 17%|█▋        | 26/152 [00:09<00:48,  2.61it/s][A
+ 18%|█▊        | 27/152 [00:09<00:47,  2.60it/s][A
+ 18%|█▊        | 28/152 [00:10<00:47,  2.61it/s][A
+ 19%|█▉        | 29/152 [00:10<00:47,  2.61it/s][A
+ 20%|█▉        | 30/152 [00:11<00:46,  2.61it/s][A
+ 20%|██        | 31/152 [00:11<00:46,  2.61it/s][A
+ 21%|██        | 32/152 [00:11<00:46,  2.61it/s][A
+ 22%|██▏       | 33/152 [00:12<00:45,  2.61it/s][A
+ 22%|██▏       | 34/152 [00:12<00:45,  2.61it/s][A
+ 23%|██▎       | 35/152 [00:13<00:44,  2.61it/s][A
+ 24%|██▎       | 36/152 [00:13<00:44,  2.61it/s][A
+ 24%|██▍       | 37/152 [00:13<00:44,  2.61it/s][A
+ 25%|██▌       | 38/152 [00:14<00:43,  2.61it/s][A
+ 26%|██▌       | 39/152 [00:14<00:43,  2.61it/s][A
+ 26%|██▋       | 40/152 [00:14<00:42,  2.61it/s][A
+ 27%|██▋       | 41/152 [00:15<00:42,  2.61it/s][A
+ 28%|██▊       | 42/152 [00:15<00:42,  2.61it/s][A
+ 28%|██▊       | 43/152 [00:16<00:41,  2.61it/s][A
+ 29%|██▉       | 44/152 [00:16<00:41,  2.61it/s][A
+ 30%|██▉       | 45/152 [00:16<00:41,  2.61it/s][A
+ 30%|███       | 46/152 [00:17<00:40,  2.61it/s][A
+ 31%|███       | 47/152 [00:17<00:40,  2.61it/s][A
+ 32%|███▏      | 48/152 [00:18<00:39,  2.61it/s][A
+ 32%|███▏      | 49/152 [00:18<00:39,  2.61it/s][A
+ 33%|███▎      | 50/152 [00:18<00:39,  2.60it/s][A
+ 34%|███▎      | 51/152 [00:19<00:38,  2.60it/s][A
+ 34%|███▍      | 52/152 [00:19<00:38,  2.61it/s][A
+ 35%|███▍      | 53/152 [00:19<00:37,  2.61it/s][A
+ 36%|███▌      | 54/152 [00:20<00:37,  2.61it/s][A
+ 36%|███▌      | 55/152 [00:20<00:37,  2.61it/s][A
+ 37%|███▋      | 56/152 [00:21<00:36,  2.61it/s][A
+ 38%|███▊      | 57/152 [00:21<00:36,  2.61it/s][A
+ 38%|███▊      | 58/152 [00:21<00:36,  2.61it/s][A
+ 39%|███▉      | 59/152 [00:22<00:35,  2.61it/s][A
+ 39%|███▉      | 60/152 [00:22<00:35,  2.61it/s][A
+ 40%|████      | 61/152 [00:23<00:34,  2.61it/s][A
+ 41%|████      | 62/152 [00:23<00:34,  2.61it/s][A
+ 41%|████▏     | 63/152 [00:23<00:34,  2.61it/s][A
+ 42%|████▏     | 64/152 [00:24<00:33,  2.61it/s][A
+ 43%|████▎     | 65/152 [00:24<00:33,  2.61it/s][A
+ 43%|████▎     | 66/152 [00:24<00:32,  2.61it/s][A
+ 44%|████▍     | 67/152 [00:25<00:32,  2.61it/s][A
+ 45%|████▍     | 68/152 [00:25<00:32,  2.61it/s][A
+ 45%|████▌     | 69/152 [00:26<00:31,  2.61it/s][A
+ 46%|████▌     | 70/152 [00:26<00:31,  2.61it/s][A
+ 47%|████▋     | 71/152 [00:26<00:31,  2.61it/s][A
+ 47%|████▋     | 72/152 [00:27<00:30,  2.61it/s][A
+ 48%|████▊     | 73/152 [00:27<00:30,  2.61it/s][A
+ 49%|████▊     | 74/152 [00:27<00:29,  2.61it/s][A
+ 49%|████▉     | 75/152 [00:28<00:29,  2.61it/s][A
+ 50%|█████     | 76/152 [00:28<00:29,  2.61it/s][A
+ 51%|█████     | 77/152 [00:29<00:28,  2.61it/s][A
+ 51%|█████▏    | 78/152 [00:29<00:28,  2.61it/s][A
+ 52%|█████▏    | 79/152 [00:29<00:27,  2.61it/s][A
+ 53%|█████▎    | 80/152 [00:30<00:27,  2.61it/s][A
+ 53%|█████▎    | 81/152 [00:30<00:27,  2.61it/s][A
+ 54%|█████▍    | 82/152 [00:31<00:26,  2.61it/s][A
+ 55%|█████▍    | 83/152 [00:31<00:26,  2.61it/s][A
+ 55%|█████▌    | 84/152 [00:31<00:26,  2.61it/s][A
+ 56%|█████▌    | 85/152 [00:32<00:25,  2.61it/s][A
+ 57%|█████▋    | 86/152 [00:32<00:25,  2.61it/s][A
+ 57%|█████▋    | 87/152 [00:32<00:24,  2.61it/s][A
+ 58%|█████▊    | 88/152 [00:33<00:24,  2.61it/s][A
+ 59%|█████▊    | 89/152 [00:33<00:24,  2.61it/s][A
+ 59%|█████▉    | 90/152 [00:34<00:23,  2.61it/s][A
+ 60%|█████▉    | 91/152 [00:34<00:23,  2.61it/s][A
+ 61%|██████    | 92/152 [00:34<00:22,  2.61it/s][A
+ 61%|██████    | 93/152 [00:35<00:22,  2.61it/s][A
+ 62%|██████▏   | 94/152 [00:35<00:22,  2.61it/s][A
+ 62%|██████▎   | 95/152 [00:36<00:21,  2.61it/s][A
+ 63%|██████▎   | 96/152 [00:36<00:21,  2.61it/s][A
+ 64%|██████▍   | 97/152 [00:36<00:21,  2.61it/s][A
+ 64%|██████▍   | 98/152 [00:37<00:20,  2.61it/s][A
+ 65%|██████▌   | 99/152 [00:37<00:20,  2.61it/s][A
+ 66%|██████▌   | 100/152 [00:37<00:19,  2.61it/s][A
+ 66%|██████▋   | 101/152 [00:38<00:19,  2.61it/s][A
+ 67%|██████▋   | 102/152 [00:38<00:19,  2.61it/s][A
+ 68%|██████▊   | 103/152 [00:39<00:18,  2.61it/s][A
+ 68%|██████▊   | 104/152 [00:39<00:18,  2.61it/s][A
+ 69%|██████▉   | 105/152 [00:39<00:18,  2.61it/s][A
+ 70%|██████▉   | 106/152 [00:40<00:17,  2.61it/s][A
+ 70%|███████   | 107/152 [00:40<00:17,  2.61it/s][A
+ 71%|███████   | 108/152 [00:41<00:16,  2.61it/s][A
+ 72%|███████▏  | 109/152 [00:41<00:16,  2.61it/s][A
+ 72%|███████▏  | 110/152 [00:41<00:16,  2.61it/s][A
+ 73%|███████▎  | 111/152 [00:42<00:15,  2.61it/s][A
+ 74%|███████▎  | 112/152 [00:42<00:15,  2.61it/s][A
+ 74%|███████▍  | 113/152 [00:42<00:14,  2.61it/s][A
+ 75%|███████▌  | 114/152 [00:43<00:14,  2.61it/s][A
+ 76%|███████▌  | 115/152 [00:43<00:14,  2.61it/s][A
+ 76%|███████▋  | 116/152 [00:44<00:13,  2.61it/s][A
+ 77%|███████▋  | 117/152 [00:44<00:13,  2.61it/s][A
+ 78%|███████▊  | 118/152 [00:44<00:13,  2.61it/s][A
+ 78%|███████▊  | 119/152 [00:45<00:12,  2.61it/s][A
+ 79%|███████▉  | 120/152 [00:45<00:12,  2.61it/s][A
+ 80%|███████▉  | 121/152 [00:46<00:11,  2.61it/s][A
+ 80%|████████  | 122/152 [00:46<00:11,  2.61it/s][A
+ 81%|████████  | 123/152 [00:46<00:11,  2.61it/s][A
+ 82%|████████▏ | 124/152 [00:47<00:10,  2.61it/s][A
+ 82%|████████▏ | 125/152 [00:47<00:10,  2.61it/s][A
+ 83%|████████▎ | 126/152 [00:47<00:09,  2.61it/s][A
+ 84%|████████▎ | 127/152 [00:48<00:09,  2.61it/s][A
+ 84%|████████▍ | 128/152 [00:48<00:09,  2.61it/s][A
+ 85%|████████▍ | 129/152 [00:49<00:08,  2.61it/s][A
+ 86%|████████▌ | 130/152 [00:49<00:08,  2.61it/s][A
+ 86%|████████▌ | 131/152 [00:49<00:08,  2.61it/s][A
+ 87%|████████▋ | 132/152 [00:50<00:07,  2.61it/s][A
+ 88%|████████▊ | 133/152 [00:50<00:07,  2.60it/s][A
+ 88%|████████▊ | 134/152 [00:50<00:06,  2.61it/s][A
+ 89%|████████▉ | 135/152 [00:51<00:06,  2.61it/s][A
+ 89%|████████▉ | 136/152 [00:51<00:06,  2.61it/s][A
+ 90%|█████████ | 137/152 [00:52<00:05,  2.61it/s][A
+ 91%|█████████ | 138/152 [00:52<00:05,  2.61it/s][A
+ 91%|█████████▏| 139/152 [00:52<00:04,  2.61it/s][A
+ 92%|█████████▏| 140/152 [00:53<00:04,  2.61it/s][A
+ 93%|█████████▎| 141/152 [00:53<00:04,  2.61it/s][A
+ 93%|█████████▎| 142/152 [00:54<00:03,  2.61it/s][A
+ 94%|█████████▍| 143/152 [00:54<00:03,  2.61it/s][A
+ 95%|█████████▍| 144/152 [00:54<00:03,  2.61it/s][A
+ 95%|█████████▌| 145/152 [00:55<00:02,  2.61it/s][A
+ 96%|█████████▌| 146/152 [00:55<00:02,  2.61it/s][A
+ 97%|█████████▋| 147/152 [00:55<00:01,  2.61it/s][A
+ 97%|█████████▋| 148/152 [00:56<00:01,  2.61it/s][A
+ 98%|█████████▊| 149/152 [00:56<00:01,  2.61it/s][A
+ 99%|█████████▊| 150/152 [00:57<00:00,  2.61it/s][A
+ 99%|█████████▉| 151/152 [00:57<00:00,  2.61it/s][A
+100%|██████████| 152/152 [00:57<00:00,  2.61it/s][A                                                
+                                                 [A{'eval_loss': 1.1531565189361572, 'eval_runtime': 58.266, 'eval_samples_per_second': 10.401, 'eval_steps_per_second': 2.609, 'epoch': 0.99}
+ 33%|███▎      | 60/180 [13:17<24:23, 12.19s/it]
+100%|██████████| 152/152 [00:57<00:00,  2.61it/s][A
+                                                 [A 34%|███▍      | 61/180 [13:28<59:13, 29.86s/it] 34%|███▍      | 62/180 [13:41<48:24, 24.61s/it] 35%|███▌      | 63/180 [13:53<40:41, 20.87s/it] 36%|███▌      | 64/180 [14:05<35:16, 18.25s/it] 36%|███▌      | 65/180 [14:17<31:33, 16.47s/it]                                                {'loss': 1.1809, 'grad_norm': 0.16296116887201242, 'learning_rate': 1.6126005451932027e-06, 'epoch': 1.08}
+ 36%|███▌      | 65/180 [14:17<31:33, 16.47s/it] 37%|███▋      | 66/180 [14:30<28:56, 15.23s/it] 37%|███▋      | 67/180 [14:42<26:56, 14.30s/it] 38%|███▊      | 68/180 [14:54<25:35, 13.71s/it] 38%|███▊      | 69/180 [15:06<24:36, 13.30s/it] 39%|███▉      | 70/180 [15:19<23:44, 12.95s/it]                                                {'loss': 0.9942, 'grad_norm': 0.15966709113894978, 'learning_rate': 1.5332044328016912e-06, 'epoch': 1.16}
+ 39%|███▉      | 70/180 [15:19<23:44, 12.95s/it] 39%|███▉      | 71/180 [15:31<23:04, 12.71s/it] 40%|████      | 72/180 [15:43<22:45, 12.64s/it] 41%|████      | 73/180 [15:55<22:16, 12.49s/it] 41%|████      | 74/180 [16:07<21:53, 12.39s/it] 42%|████▏     | 75/180 [16:20<21:32, 12.31s/it]                                                {'loss': 0.9676, 'grad_norm': 0.1627124189410689, 'learning_rate': 1.4487991802004622e-06, 'epoch': 1.25}
+ 42%|████▏     | 75/180 [16:20<21:32, 12.31s/it] 42%|████▏     | 76/180 [16:32<21:28, 12.39s/it] 43%|████▎     | 77/180 [16:44<21:07, 12.31s/it] 43%|████▎     | 78/180 [16:56<20:50, 12.26s/it] 44%|████▍     | 79/180 [17:09<20:39, 12.27s/it] 44%|████▍     | 80/180 [17:21<20:28, 12.29s/it]                                                {'loss': 0.9682, 'grad_norm': 0.16225334443778258, 'learning_rate': 1.3601777248047103e-06, 'epoch': 1.33}
+ 44%|████▍     | 80/180 [17:21<20:28, 12.29s/it] 45%|████▌     | 81/180 [17:33<20:11, 12.24s/it] 46%|████▌     | 82/180 [17:46<20:01, 12.26s/it] 46%|████▌     | 83/180 [17:58<19:46, 12.23s/it] 47%|████▋     | 84/180 [18:10<19:36, 12.26s/it] 47%|████▋     | 85/180 [18:22<19:21, 12.22s/it]                                                {'loss': 0.9491, 'grad_norm': 0.147145952883511, 'learning_rate': 1.2681726127606374e-06, 'epoch': 1.41}
+ 47%|████▋     | 85/180 [18:22<19:21, 12.22s/it] 48%|████▊     | 86/180 [18:34<19:06, 12.20s/it] 48%|████▊     | 87/180 [18:47<18:58, 12.25s/it] 49%|████▉     | 88/180 [18:59<18:43, 12.21s/it] 49%|████▉     | 89/180 [19:11<18:29, 12.19s/it] 50%|█████     | 90/180 [19:23<18:20, 12.23s/it]                                                {'loss': 0.9454, 'grad_norm': 0.1596742857571632, 'learning_rate': 1.1736481776669305e-06, 'epoch': 1.49}
+ 50%|█████     | 90/180 [19:23<18:20, 12.23s/it] 51%|█████     | 91/180 [19:36<18:10, 12.26s/it] 51%|█████     | 92/180 [19:48<17:55, 12.22s/it] 52%|█████▏    | 93/180 [20:00<17:41, 12.20s/it] 52%|█████▏    | 94/180 [20:12<17:32, 12.24s/it] 53%|█████▎    | 95/180 [20:25<17:23, 12.27s/it]                                                {'loss': 0.9625, 'grad_norm': 0.16404593040010484, 'learning_rate': 1.077492420671931e-06, 'epoch': 1.58}
+ 53%|█████▎    | 95/180 [20:25<17:23, 12.27s/it] 53%|█████▎    | 96/180 [20:37<17:07, 12.23s/it] 54%|█████▍    | 97/180 [20:49<16:57, 12.26s/it] 54%|█████▍    | 98/180 [21:01<16:46, 12.28s/it] 55%|█████▌    | 99/180 [21:13<16:31, 12.24s/it] 56%|█████▌    | 100/180 [21:26<16:16, 12.21s/it]                                                 {'loss': 0.9457, 'grad_norm': 0.16842263353993514, 'learning_rate': 9.806086682281757e-07, 'epoch': 1.66}
+ 56%|█████▌    | 100/180 [21:26<16:16, 12.21s/it] 56%|█████▌    | 101/180 [21:38<16:11, 12.30s/it] 57%|█████▋    | 102/180 [21:50<15:55, 12.25s/it] 57%|█████▋    | 103/180 [22:02<15:41, 12.22s/it] 58%|█████▊    | 104/180 [22:15<15:26, 12.20s/it] 58%|█████▊    | 105/180 [22:27<15:22, 12.30s/it]                                                 {'loss': 0.9635, 'grad_norm': 0.1703326684368342, 'learning_rate': 8.839070858747696e-07, 'epoch': 1.74}
+ 58%|█████▊    | 105/180 [22:27<15:22, 12.30s/it] 59%|█████▉    | 106/180 [22:39<15:06, 12.25s/it] 59%|█████▉    | 107/180 [22:51<14:51, 12.22s/it] 60%|██████    | 108/180 [23:04<14:41, 12.24s/it] 61%|██████    | 109/180 [23:16<14:30, 12.27s/it] 61%|██████    | 110/180 [23:28<14:15, 12.22s/it]                                                 {'loss': 0.9377, 'grad_norm': 0.15356338263012498, 'learning_rate': 7.882961277705896e-07, 'epoch': 1.83}
+ 61%|██████    | 110/180 [23:28<14:15, 12.22s/it] 62%|██████▏   | 111/180 [23:40<14:01, 12.20s/it] 62%|██████▏   | 112/180 [23:53<13:52, 12.24s/it] 63%|██████▎   | 113/180 [24:05<13:42, 12.27s/it] 63%|██████▎   | 114/180 [24:17<13:27, 12.23s/it] 64%|██████▍   | 115/180 [24:29<13:13, 12.20s/it]                                                 {'loss': 0.9172, 'grad_norm': 0.15503212514226744, 'learning_rate': 6.946740023048869e-07, 'epoch': 1.91}
+ 64%|██████▍   | 115/180 [24:29<13:13, 12.20s/it] 64%|██████▍   | 116/180 [24:42<13:03, 12.24s/it] 65%|██████▌   | 117/180 [24:54<12:49, 12.21s/it] 66%|██████▌   | 118/180 [25:06<12:35, 12.19s/it] 66%|██████▌   | 119/180 [25:18<12:22, 12.17s/it] 67%|██████▋   | 120/180 [25:30<12:16, 12.27s/it]                                                 {'loss': 0.9339, 'grad_norm': 0.1526326293593765, 'learning_rate': 6.039202339608431e-07, 'epoch': 1.99}
+ 67%|██████▋   | 120/180 [25:30<12:16, 12.27s/it][INFO|trainer.py:4128] 2026-11-04 00:41:58,578 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:4130] 2026-11-04 00:41:58,578 >>   Num examples = 606
+[INFO|trainer.py:4133] 2026-11-04 00:41:58,578 >>   Batch size = 2
+
+  0%|          | 0/152 [00:00<?, ?it/s][A
+  1%|▏         | 2/152 [00:00<00:28,  5.26it/s][A
+  2%|▏         | 3/152 [00:00<00:40,  3.69it/s][A
+  3%|▎         | 4/152 [00:01<00:46,  3.19it/s][A
+  3%|▎         | 5/152 [00:01<00:49,  2.97it/s][A
+  4%|▍         | 6/152 [00:01<00:51,  2.83it/s][A
+  5%|▍         | 7/152 [00:02<00:52,  2.75it/s][A
+  5%|▌         | 8/152 [00:02<00:53,  2.71it/s][A
+  6%|▌         | 9/152 [00:03<00:53,  2.68it/s][A
+  7%|▋         | 10/152 [00:03<00:53,  2.66it/s][A
+  7%|▋         | 11/152 [00:03<00:53,  2.64it/s][A
+  8%|▊         | 12/152 [00:04<00:53,  2.63it/s][A
+  9%|▊         | 13/152 [00:04<00:52,  2.63it/s][A
+  9%|▉         | 14/152 [00:04<00:52,  2.62it/s][A
+ 10%|▉         | 15/152 [00:05<00:52,  2.62it/s][A
+ 11%|█         | 16/152 [00:05<00:52,  2.61it/s][A
+ 11%|█         | 17/152 [00:06<00:51,  2.61it/s][A
+ 12%|█▏        | 18/152 [00:06<00:51,  2.61it/s][A
+ 12%|█▎        | 19/152 [00:06<00:51,  2.61it/s][A
+ 13%|█▎        | 20/152 [00:07<00:50,  2.61it/s][A
+ 14%|█▍        | 21/152 [00:07<00:50,  2.61it/s][A
+ 14%|█▍        | 22/152 [00:08<00:49,  2.61it/s][A
+ 15%|█▌        | 23/152 [00:08<00:49,  2.61it/s][A
+ 16%|█▌        | 24/152 [00:08<00:49,  2.61it/s][A
+ 16%|█▋        | 25/152 [00:09<00:48,  2.61it/s][A
+ 17%|█▋        | 26/152 [00:09<00:48,  2.61it/s][A
+ 18%|█▊        | 27/152 [00:09<00:47,  2.61it/s][A
+ 18%|█▊        | 28/152 [00:10<00:47,  2.61it/s][A
+ 19%|█▉        | 29/152 [00:10<00:47,  2.61it/s][A
+ 20%|█▉        | 30/152 [00:11<00:46,  2.60it/s][A
+ 20%|██        | 31/152 [00:11<00:46,  2.61it/s][A
+ 21%|██        | 32/152 [00:11<00:46,  2.61it/s][A
+ 22%|██▏       | 33/152 [00:12<00:45,  2.61it/s][A
+ 22%|██▏       | 34/152 [00:12<00:45,  2.61it/s][A
+ 23%|██▎       | 35/152 [00:13<00:44,  2.61it/s][A
+ 24%|██▎       | 36/152 [00:13<00:44,  2.61it/s][A
+ 24%|██▍       | 37/152 [00:13<00:44,  2.61it/s][A
+ 25%|██▌       | 38/152 [00:14<00:43,  2.61it/s][A
+ 26%|██▌       | 39/152 [00:14<00:43,  2.61it/s][A
+ 26%|██▋       | 40/152 [00:14<00:42,  2.61it/s][A
+ 27%|██▋       | 41/152 [00:15<00:42,  2.61it/s][A
+ 28%|██▊       | 42/152 [00:15<00:42,  2.61it/s][A
+ 28%|██▊       | 43/152 [00:16<00:41,  2.61it/s][A
+ 29%|██▉       | 44/152 [00:16<00:41,  2.61it/s][A
+ 30%|██▉       | 45/152 [00:16<00:41,  2.61it/s][A
+ 30%|███       | 46/152 [00:17<00:40,  2.61it/s][A
+ 31%|███       | 47/152 [00:17<00:40,  2.61it/s][A
+ 32%|███▏      | 48/152 [00:18<00:39,  2.61it/s][A
+ 32%|███▏      | 49/152 [00:18<00:39,  2.61it/s][A
+ 33%|███▎      | 50/152 [00:18<00:39,  2.61it/s][A
+ 34%|███▎      | 51/152 [00:19<00:38,  2.61it/s][A
+ 34%|███▍      | 52/152 [00:19<00:38,  2.61it/s][A
+ 35%|███▍      | 53/152 [00:19<00:37,  2.61it/s][A
+ 36%|███▌      | 54/152 [00:20<00:37,  2.61it/s][A
+ 36%|███▌      | 55/152 [00:20<00:37,  2.61it/s][A
+ 37%|███▋      | 56/152 [00:21<00:36,  2.61it/s][A
+ 38%|███▊      | 57/152 [00:21<00:36,  2.61it/s][A
+ 38%|███▊      | 58/152 [00:21<00:36,  2.61it/s][A
+ 39%|███▉      | 59/152 [00:22<00:35,  2.61it/s][A
+ 39%|███▉      | 60/152 [00:22<00:35,  2.61it/s][A
+ 40%|████      | 61/152 [00:23<00:34,  2.61it/s][A
+ 41%|████      | 62/152 [00:23<00:34,  2.61it/s][A
+ 41%|████▏     | 63/152 [00:23<00:34,  2.61it/s][A
+ 42%|████▏     | 64/152 [00:24<00:33,  2.61it/s][A
+ 43%|████▎     | 65/152 [00:24<00:33,  2.61it/s][A
+ 43%|████▎     | 66/152 [00:24<00:32,  2.61it/s][A
+ 44%|████▍     | 67/152 [00:25<00:32,  2.61it/s][A
+ 45%|████▍     | 68/152 [00:25<00:32,  2.61it/s][A
+ 45%|████▌     | 69/152 [00:26<00:31,  2.61it/s][A
+ 46%|████▌     | 70/152 [00:26<00:31,  2.61it/s][A
+ 47%|████▋     | 71/152 [00:26<00:31,  2.61it/s][A
+ 47%|████▋     | 72/152 [00:27<00:30,  2.62it/s][A
+ 48%|████▊     | 73/152 [00:27<00:30,  2.62it/s][A
+ 49%|████▊     | 74/152 [00:27<00:29,  2.62it/s][A
+ 49%|████▉     | 75/152 [00:28<00:29,  2.62it/s][A
+ 50%|█████     | 76/152 [00:28<00:29,  2.62it/s][A
+ 51%|█████     | 77/152 [00:29<00:28,  2.61it/s][A
+ 51%|█████▏    | 78/152 [00:29<00:28,  2.61it/s][A
+ 52%|█████▏    | 79/152 [00:29<00:27,  2.61it/s][A
+ 53%|█████▎    | 80/152 [00:30<00:27,  2.61it/s][A
+ 53%|█████▎    | 81/152 [00:30<00:27,  2.61it/s][A
+ 54%|█████▍    | 82/152 [00:31<00:26,  2.61it/s][A
+ 55%|█████▍    | 83/152 [00:31<00:26,  2.61it/s][A
+ 55%|█████▌    | 84/152 [00:31<00:26,  2.61it/s][A
+ 56%|█████▌    | 85/152 [00:32<00:25,  2.61it/s][A
+ 57%|█████▋    | 86/152 [00:32<00:25,  2.61it/s][A
+ 57%|█████▋    | 87/152 [00:32<00:24,  2.61it/s][A
+ 58%|█████▊    | 88/152 [00:33<00:24,  2.61it/s][A
+ 59%|█████▊    | 89/152 [00:33<00:24,  2.61it/s][A
+ 59%|█████▉    | 90/152 [00:34<00:23,  2.61it/s][A
+ 60%|█████▉    | 91/152 [00:34<00:23,  2.61it/s][A
+ 61%|██████    | 92/152 [00:34<00:22,  2.61it/s][A
+ 61%|██████    | 93/152 [00:35<00:22,  2.61it/s][A
+ 62%|██████▏   | 94/152 [00:35<00:22,  2.61it/s][A
+ 62%|██████▎   | 95/152 [00:36<00:21,  2.61it/s][A
+ 63%|██████▎   | 96/152 [00:36<00:21,  2.61it/s][A
+ 64%|██████▍   | 97/152 [00:36<00:21,  2.61it/s][A
+ 64%|██████▍   | 98/152 [00:37<00:20,  2.61it/s][A
+ 65%|██████▌   | 99/152 [00:37<00:20,  2.61it/s][A
+ 66%|██████▌   | 100/152 [00:37<00:19,  2.61it/s][A
+ 66%|██████▋   | 101/152 [00:38<00:19,  2.61it/s][A
+ 67%|██████▋   | 102/152 [00:38<00:19,  2.61it/s][A
+ 68%|██████▊   | 103/152 [00:39<00:18,  2.61it/s][A
+ 68%|██████▊   | 104/152 [00:39<00:18,  2.61it/s][A
+ 69%|██████▉   | 105/152 [00:39<00:17,  2.61it/s][A
+ 70%|██████▉   | 106/152 [00:40<00:17,  2.61it/s][A
+ 70%|███████   | 107/152 [00:40<00:17,  2.61it/s][A
+ 71%|███████   | 108/152 [00:40<00:16,  2.61it/s][A
+ 72%|███████▏  | 109/152 [00:41<00:16,  2.61it/s][A
+ 72%|███████▏  | 110/152 [00:41<00:16,  2.61it/s][A
+ 73%|███████▎  | 111/152 [00:42<00:15,  2.61it/s][A
+ 74%|███████▎  | 112/152 [00:42<00:15,  2.61it/s][A
+ 74%|███████▍  | 113/152 [00:42<00:14,  2.61it/s][A
+ 75%|███████▌  | 114/152 [00:43<00:14,  2.61it/s][A
+ 76%|███████▌  | 115/152 [00:43<00:14,  2.61it/s][A
+ 76%|███████▋  | 116/152 [00:44<00:13,  2.61it/s][A
+ 77%|███████▋  | 117/152 [00:44<00:13,  2.61it/s][A
+ 78%|███████▊  | 118/152 [00:44<00:13,  2.61it/s][A
+ 78%|███████▊  | 119/152 [00:45<00:12,  2.61it/s][A
+ 79%|███████▉  | 120/152 [00:45<00:12,  2.61it/s][A
+ 80%|███████▉  | 121/152 [00:45<00:11,  2.61it/s][A
+ 80%|████████  | 122/152 [00:46<00:11,  2.61it/s][A
+ 81%|████████  | 123/152 [00:46<00:11,  2.61it/s][A
+ 82%|████████▏ | 124/152 [00:47<00:10,  2.61it/s][A
+ 82%|████████▏ | 125/152 [00:47<00:10,  2.61it/s][A
+ 83%|████████▎ | 126/152 [00:47<00:09,  2.61it/s][A
+ 84%|████████▎ | 127/152 [00:48<00:09,  2.61it/s][A
+ 84%|████████▍ | 128/152 [00:48<00:09,  2.61it/s][A
+ 85%|████████▍ | 129/152 [00:49<00:08,  2.61it/s][A
+ 86%|████████▌ | 130/152 [00:49<00:08,  2.61it/s][A
+ 86%|████████▌ | 131/152 [00:49<00:08,  2.61it/s][A
+ 87%|████████▋ | 132/152 [00:50<00:07,  2.61it/s][A
+ 88%|████████▊ | 133/152 [00:50<00:07,  2.61it/s][A
+ 88%|████████▊ | 134/152 [00:50<00:06,  2.61it/s][A
+ 89%|████████▉ | 135/152 [00:51<00:06,  2.61it/s][A
+ 89%|████████▉ | 136/152 [00:51<00:06,  2.61it/s][A
+ 90%|█████████ | 137/152 [00:52<00:05,  2.61it/s][A
+ 91%|█████████ | 138/152 [00:52<00:05,  2.61it/s][A
+ 91%|█████████▏| 139/152 [00:52<00:04,  2.61it/s][A
+ 92%|█████████▏| 140/152 [00:53<00:04,  2.61it/s][A
+ 93%|█████████▎| 141/152 [00:53<00:04,  2.61it/s][A
+ 93%|█████████▎| 142/152 [00:54<00:03,  2.61it/s][A
+ 94%|█████████▍| 143/152 [00:54<00:03,  2.61it/s][A
+ 95%|█████████▍| 144/152 [00:54<00:03,  2.61it/s][A
+ 95%|█████████▌| 145/152 [00:55<00:02,  2.61it/s][A
+ 96%|█████████▌| 146/152 [00:55<00:02,  2.61it/s][A
+ 97%|█████████▋| 147/152 [00:55<00:01,  2.62it/s][A
+ 97%|█████████▋| 148/152 [00:56<00:01,  2.62it/s][A
+ 98%|█████████▊| 149/152 [00:56<00:01,  2.62it/s][A
+ 99%|█████████▊| 150/152 [00:57<00:00,  2.61it/s][A
+ 99%|█████████▉| 151/152 [00:57<00:00,  2.61it/s][A
+100%|██████████| 152/152 [00:57<00:00,  2.61it/s][A                                                 
+                                                 [A{'eval_loss': 1.1550320386886597, 'eval_runtime': 58.2089, 'eval_samples_per_second': 10.411, 'eval_steps_per_second': 2.611, 'epoch': 1.99}
+ 67%|██████▋   | 120/180 [26:32<12:16, 12.27s/it]
+100%|██████████| 152/152 [00:57<00:00,  2.61it/s][A
+                                                 [A 67%|██████▋   | 121/180 [26:41<29:12, 29.70s/it] 68%|██████▊   | 122/180 [26:53<23:36, 24.43s/it] 68%|██████▊   | 123/180 [27:05<19:46, 20.81s/it] 69%|██████▉   | 124/180 [27:18<17:03, 18.27s/it] 69%|██████▉   | 125/180 [27:30<15:03, 16.43s/it]                                                 {'loss': 1.0489, 'grad_norm': 0.15088136042858902, 'learning_rate': 5.168874007033615e-07, 'epoch': 2.08}
+ 69%|██████▉   | 125/180 [27:30<15:03, 16.43s/it] 70%|███████   | 126/180 [27:42<13:38, 15.15s/it] 71%|███████   | 127/180 [27:54<12:40, 14.36s/it] 71%|███████   | 128/180 [28:07<11:51, 13.69s/it] 72%|███████▏  | 129/180 [28:19<11:14, 13.22s/it] 72%|███████▏  | 130/180 [28:31<10:44, 12.89s/it]                                                 {'loss': 0.9091, 'grad_norm': 0.15033413832723533, 'learning_rate': 4.3439312451346154e-07, 'epoch': 2.16}
+ 72%|███████▏  | 130/180 [28:31<10:44, 12.89s/it] 73%|███████▎  | 131/180 [28:43<10:25, 12.76s/it] 73%|███████▎  | 132/180 [28:55<10:03, 12.57s/it] 74%|███████▍  | 133/180 [29:08<09:44, 12.44s/it] 74%|███████▍  | 134/180 [29:20<09:30, 12.41s/it] 75%|███████▌  | 135/180 [29:32<09:17, 12.39s/it]                                                 {'loss': 0.9223, 'grad_norm': 0.15963712024097526, 'learning_rate': 3.5721239031346063e-07, 'epoch': 2.24}
+ 75%|███████▌  | 135/180 [29:32<09:17, 12.39s/it] 76%|███████▌  | 136/180 [29:44<09:01, 12.31s/it] 76%|███████▌  | 137/180 [29:56<08:47, 12.26s/it] 77%|███████▋  | 138/180 [30:09<08:35, 12.27s/it] 77%|███████▋  | 139/180 [30:21<08:23, 12.29s/it] 78%|███████▊  | 140/180 [30:33<08:09, 12.24s/it]                                                 {'loss': 0.9035, 'grad_norm': 0.15827951614823565, 'learning_rate': 2.860702654421011e-07, 'epoch': 2.33}
+ 78%|███████▊  | 140/180 [30:33<08:09, 12.24s/it] 78%|███████▊  | 141/180 [30:45<07:56, 12.21s/it] 79%|███████▉  | 142/180 [30:58<07:47, 12.31s/it] 79%|███████▉  | 143/180 [31:10<07:33, 12.26s/it] 80%|████████  | 144/180 [31:22<07:20, 12.22s/it] 81%|████████  | 145/180 [31:35<07:10, 12.31s/it]                                                 {'loss': 0.8965, 'grad_norm': 0.15395127236335687, 'learning_rate': 2.2163508807583998e-07, 'epoch': 2.41}
+ 81%|████████  | 145/180 [31:35<07:10, 12.31s/it] 81%|████████  | 146/180 [31:47<06:56, 12.26s/it] 82%|████████▏ | 147/180 [31:59<06:43, 12.23s/it] 82%|████████▏ | 148/180 [32:11<06:30, 12.20s/it] 83%|████████▎ | 149/180 [32:24<06:21, 12.30s/it] 83%|████████▎ | 150/180 [32:36<06:07, 12.25s/it]                                                 {'loss': 0.8568, 'grad_norm': 0.15258606843223874, 'learning_rate': 1.6451218858706372e-07, 'epoch': 2.49}
+ 83%|████████▎ | 150/180 [32:36<06:07, 12.25s/it] 84%|████████▍ | 151/180 [32:48<05:54, 12.22s/it] 84%|████████▍ | 152/180 [33:00<05:43, 12.25s/it] 85%|████████▌ | 153/180 [33:13<05:31, 12.28s/it] 86%|████████▌ | 154/180 [33:25<05:18, 12.24s/it] 86%|████████▌ | 155/180 [33:37<05:05, 12.21s/it]                                                 {'loss': 0.9004, 'grad_norm': 0.15399656972716208, 'learning_rate': 1.1523820282334218e-07, 'epoch': 2.58}
+ 86%|████████▌ | 155/180 [33:37<05:05, 12.21s/it] 87%|████████▋ | 156/180 [33:49<04:53, 12.24s/it] 87%|████████▋ | 157/180 [34:02<04:42, 12.26s/it] 88%|████████▊ | 158/180 [34:14<04:28, 12.23s/it] 88%|████████▊ | 159/180 [34:26<04:16, 12.20s/it] 89%|████████▉ | 160/180 [34:38<04:05, 12.28s/it]                                                 {'loss': 0.9035, 'grad_norm': 0.15458035252788532, 'learning_rate': 7.427603073110966e-08, 'epoch': 2.66}
+ 89%|████████▉ | 160/180 [34:38<04:05, 12.28s/it] 89%|████████▉ | 161/180 [34:50<03:52, 12.24s/it] 90%|█████████ | 162/180 [35:03<03:39, 12.21s/it] 91%|█████████ | 163/180 [35:15<03:28, 12.25s/it] 91%|█████████ | 164/180 [35:27<03:16, 12.27s/it] 92%|█████████▏| 165/180 [35:39<03:03, 12.23s/it]                                                 {'loss': 0.9038, 'grad_norm': 0.15363098900860034, 'learning_rate': 4.20104876845111e-08, 'epoch': 2.74}
+ 92%|█████████▏| 165/180 [35:39<03:03, 12.23s/it] 92%|█████████▏| 166/180 [35:52<02:50, 12.20s/it] 93%|█████████▎| 167/180 [36:04<02:39, 12.24s/it] 93%|█████████▎| 168/180 [36:16<02:27, 12.27s/it] 94%|█████████▍| 169/180 [36:28<02:14, 12.23s/it] 94%|█████████▍| 170/180 [36:40<02:01, 12.20s/it]                                                 {'loss': 0.9252, 'grad_norm': 0.15772568728855071, 'learning_rate': 1.8744689372615306e-08, 'epoch': 2.82}
+ 94%|█████████▍| 170/180 [36:40<02:01, 12.20s/it] 95%|█████████▌| 171/180 [36:53<01:50, 12.30s/it] 96%|█████████▌| 172/180 [37:05<01:38, 12.25s/it] 96%|█████████▌| 173/180 [37:17<01:25, 12.22s/it] 97%|█████████▋| 174/180 [37:30<01:13, 12.30s/it] 97%|█████████▋| 175/180 [37:42<01:01, 12.25s/it]                                                 {'loss': 0.9204, 'grad_norm': 0.17570957271983337, 'learning_rate': 4.697204206834171e-09, 'epoch': 2.91}
+ 97%|█████████▋| 175/180 [37:42<01:01, 12.25s/it] 98%|█████████▊| 176/180 [37:54<00:48, 12.21s/it] 98%|█████████▊| 177/180 [38:06<00:36, 12.20s/it] 99%|█████████▉| 178/180 [38:18<00:24, 12.23s/it] 99%|█████████▉| 179/180 [38:31<00:12, 12.27s/it]100%|██████████| 180/180 [38:43<00:00, 12.23s/it]                                                 {'loss': 0.8919, 'grad_norm': 0.15721608853379762, 'learning_rate': 0.0, 'epoch': 2.99}
+100%|██████████| 180/180 [38:43<00:00, 12.23s/it][INFO|trainer.py:4128] 2026-11-04 00:55:08,146 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:4130] 2026-11-04 00:55:08,146 >>   Num examples = 606
+[INFO|trainer.py:4133] 2026-11-04 00:55:08,146 >>   Batch size = 2
+
+  0%|          | 0/152 [00:00<?, ?it/s][A
+  1%|▏         | 2/152 [00:00<00:28,  5.28it/s][A
+  2%|▏         | 3/152 [00:00<00:40,  3.70it/s][A
+  3%|▎         | 4/152 [00:01<00:46,  3.21it/s][A
+  3%|▎         | 5/152 [00:01<00:49,  2.97it/s][A
+  4%|▍         | 6/152 [00:01<00:51,  2.84it/s][A
+  5%|▍         | 7/152 [00:02<00:52,  2.76it/s][A
+  5%|▌         | 8/152 [00:02<00:53,  2.71it/s][A
+  6%|▌         | 9/152 [00:03<00:53,  2.68it/s][A
+  7%|▋         | 10/152 [00:03<00:53,  2.66it/s][A
+  7%|▋         | 11/152 [00:03<00:53,  2.65it/s][A
+  8%|▊         | 12/152 [00:04<00:53,  2.64it/s][A
+  9%|▊         | 13/152 [00:04<00:52,  2.63it/s][A
+  9%|▉         | 14/152 [00:04<00:52,  2.62it/s][A
+ 10%|▉         | 15/152 [00:05<00:52,  2.62it/s][A
+ 11%|█         | 16/152 [00:05<00:51,  2.62it/s][A
+ 11%|█         | 17/152 [00:06<00:51,  2.62it/s][A
+ 12%|█▏        | 18/152 [00:06<00:51,  2.62it/s][A
+ 12%|█▎        | 19/152 [00:06<00:50,  2.61it/s][A
+ 13%|█▎        | 20/152 [00:07<00:50,  2.61it/s][A
+ 14%|█▍        | 21/152 [00:07<00:50,  2.62it/s][A
+ 14%|█▍        | 22/152 [00:08<00:49,  2.61it/s][A
+ 15%|█▌        | 23/152 [00:08<00:49,  2.61it/s][A
+ 16%|█▌        | 24/152 [00:08<00:48,  2.61it/s][A
+ 16%|█▋        | 25/152 [00:09<00:48,  2.61it/s][A
+ 17%|█▋        | 26/152 [00:09<00:48,  2.61it/s][A
+ 18%|█▊        | 27/152 [00:09<00:47,  2.61it/s][A
+ 18%|█▊        | 28/152 [00:10<00:47,  2.61it/s][A
+ 19%|█▉        | 29/152 [00:10<00:47,  2.61it/s][A
+ 20%|█▉        | 30/152 [00:11<00:46,  2.61it/s][A
+ 20%|██        | 31/152 [00:11<00:46,  2.61it/s][A
+ 21%|██        | 32/152 [00:11<00:45,  2.61it/s][A
+ 22%|██▏       | 33/152 [00:12<00:45,  2.61it/s][A
+ 22%|██▏       | 34/152 [00:12<00:45,  2.61it/s][A
+ 23%|██▎       | 35/152 [00:13<00:44,  2.61it/s][A
+ 24%|██▎       | 36/152 [00:13<00:44,  2.61it/s][A
+ 24%|██▍       | 37/152 [00:13<00:43,  2.61it/s][A
+ 25%|██▌       | 38/152 [00:14<00:43,  2.61it/s][A
+ 26%|██▌       | 39/152 [00:14<00:43,  2.62it/s][A
+ 26%|██▋       | 40/152 [00:14<00:42,  2.62it/s][A
+ 27%|██▋       | 41/152 [00:15<00:42,  2.62it/s][A
+ 28%|██▊       | 42/152 [00:15<00:42,  2.61it/s][A
+ 28%|██▊       | 43/152 [00:16<00:41,  2.61it/s][A
+ 29%|██▉       | 44/152 [00:16<00:41,  2.61it/s][A
+ 30%|██▉       | 45/152 [00:16<00:40,  2.61it/s][A
+ 30%|███       | 46/152 [00:17<00:40,  2.61it/s][A
+ 31%|███       | 47/152 [00:17<00:40,  2.61it/s][A
+ 32%|███▏      | 48/152 [00:17<00:39,  2.61it/s][A
+ 32%|███▏      | 49/152 [00:18<00:39,  2.61it/s][A
+ 33%|███▎      | 50/152 [00:18<00:39,  2.61it/s][A
+ 34%|███▎      | 51/152 [00:19<00:38,  2.61it/s][A
+ 34%|███▍      | 52/152 [00:19<00:38,  2.61it/s][A
+ 35%|███▍      | 53/152 [00:19<00:37,  2.61it/s][A
+ 36%|███▌      | 54/152 [00:20<00:37,  2.61it/s][A
+ 36%|███▌      | 55/152 [00:20<00:37,  2.61it/s][A
+ 37%|███▋      | 56/152 [00:21<00:36,  2.61it/s][A
+ 38%|███▊      | 57/152 [00:21<00:36,  2.61it/s][A
+ 38%|███▊      | 58/152 [00:21<00:35,  2.61it/s][A
+ 39%|███▉      | 59/152 [00:22<00:35,  2.61it/s][A
+ 39%|███▉      | 60/152 [00:22<00:35,  2.61it/s][A
+ 40%|████      | 61/152 [00:22<00:34,  2.61it/s][A
+ 41%|████      | 62/152 [00:23<00:34,  2.61it/s][A
+ 41%|████▏     | 63/152 [00:23<00:34,  2.61it/s][A
+ 42%|████▏     | 64/152 [00:24<00:33,  2.61it/s][A
+ 43%|████▎     | 65/152 [00:24<00:33,  2.61it/s][A
+ 43%|████▎     | 66/152 [00:24<00:32,  2.61it/s][A
+ 44%|████▍     | 67/152 [00:25<00:32,  2.61it/s][A
+ 45%|████▍     | 68/152 [00:25<00:32,  2.61it/s][A
+ 45%|████▌     | 69/152 [00:26<00:31,  2.61it/s][A
+ 46%|████▌     | 70/152 [00:26<00:31,  2.61it/s][A
+ 47%|████▋     | 71/152 [00:26<00:31,  2.61it/s][A
+ 47%|████▋     | 72/152 [00:27<00:30,  2.60it/s][A
+ 48%|████▊     | 73/152 [00:27<00:30,  2.61it/s][A
+ 49%|████▊     | 74/152 [00:27<00:29,  2.61it/s][A
+ 49%|████▉     | 75/152 [00:28<00:29,  2.61it/s][A
+ 50%|█████     | 76/152 [00:28<00:29,  2.61it/s][A
+ 51%|█████     | 77/152 [00:29<00:28,  2.61it/s][A
+ 51%|█████▏    | 78/152 [00:29<00:28,  2.62it/s][A
+ 52%|█████▏    | 79/152 [00:29<00:27,  2.62it/s][A
+ 53%|█████▎    | 80/152 [00:30<00:27,  2.62it/s][A
+ 53%|█████▎    | 81/152 [00:30<00:27,  2.62it/s][A
+ 54%|█████▍    | 82/152 [00:31<00:26,  2.62it/s][A
+ 55%|█████▍    | 83/152 [00:31<00:26,  2.62it/s][A
+ 55%|█████▌    | 84/152 [00:31<00:26,  2.61it/s][A
+ 56%|█████▌    | 85/152 [00:32<00:25,  2.62it/s][A
+ 57%|█████▋    | 86/152 [00:32<00:25,  2.61it/s][A
+ 57%|█████▋    | 87/152 [00:32<00:24,  2.61it/s][A
+ 58%|█████▊    | 88/152 [00:33<00:24,  2.61it/s][A
+ 59%|█████▊    | 89/152 [00:33<00:24,  2.61it/s][A
+ 59%|█████▉    | 90/152 [00:34<00:23,  2.62it/s][A
+ 60%|█████▉    | 91/152 [00:34<00:23,  2.61it/s][A
+ 61%|██████    | 92/152 [00:34<00:22,  2.61it/s][A
+ 61%|██████    | 93/152 [00:35<00:22,  2.61it/s][A
+ 62%|██████▏   | 94/152 [00:35<00:22,  2.61it/s][A
+ 62%|██████▎   | 95/152 [00:35<00:21,  2.61it/s][A
+ 63%|██████▎   | 96/152 [00:36<00:21,  2.61it/s][A
+ 64%|██████▍   | 97/152 [00:36<00:21,  2.61it/s][A
+ 64%|██████▍   | 98/152 [00:37<00:20,  2.61it/s][A
+ 65%|██████▌   | 99/152 [00:37<00:20,  2.61it/s][A
+ 66%|██████▌   | 100/152 [00:37<00:19,  2.61it/s][A
+ 66%|██████▋   | 101/152 [00:38<00:19,  2.61it/s][A
+ 67%|██████▋   | 102/152 [00:38<00:19,  2.61it/s][A
+ 68%|██████▊   | 103/152 [00:39<00:18,  2.61it/s][A
+ 68%|██████▊   | 104/152 [00:39<00:18,  2.61it/s][A
+ 69%|██████▉   | 105/152 [00:39<00:18,  2.61it/s][A
+ 70%|██████▉   | 106/152 [00:40<00:17,  2.61it/s][A
+ 70%|███████   | 107/152 [00:40<00:17,  2.61it/s][A
+ 71%|███████   | 108/152 [00:40<00:16,  2.61it/s][A
+ 72%|███████▏  | 109/152 [00:41<00:16,  2.61it/s][A
+ 72%|███████▏  | 110/152 [00:41<00:16,  2.61it/s][A
+ 73%|███████▎  | 111/152 [00:42<00:15,  2.61it/s][A
+ 74%|███████▎  | 112/152 [00:42<00:15,  2.61it/s][A
+ 74%|███████▍  | 113/152 [00:42<00:14,  2.61it/s][A
+ 75%|███████▌  | 114/152 [00:43<00:14,  2.61it/s][A
+ 76%|███████▌  | 115/152 [00:43<00:14,  2.61it/s][A
+ 76%|███████▋  | 116/152 [00:44<00:13,  2.62it/s][A
+ 77%|███████▋  | 117/152 [00:44<00:13,  2.61it/s][A
+ 78%|███████▊  | 118/152 [00:44<00:13,  2.61it/s][A
+ 78%|███████▊  | 119/152 [00:45<00:12,  2.61it/s][A
+ 79%|███████▉  | 120/152 [00:45<00:12,  2.61it/s][A
+ 80%|███████▉  | 121/152 [00:45<00:11,  2.61it/s][A
+ 80%|████████  | 122/152 [00:46<00:11,  2.61it/s][A
+ 81%|████████  | 123/152 [00:46<00:11,  2.61it/s][A
+ 82%|████████▏ | 124/152 [00:47<00:10,  2.61it/s][A
+ 82%|████████▏ | 125/152 [00:47<00:10,  2.61it/s][A
+ 83%|████████▎ | 126/152 [00:47<00:09,  2.61it/s][A
+ 84%|████████▎ | 127/152 [00:48<00:09,  2.61it/s][A
+ 84%|████████▍ | 128/152 [00:48<00:09,  2.61it/s][A
+ 85%|████████▍ | 129/152 [00:49<00:08,  2.61it/s][A
+ 86%|████████▌ | 130/152 [00:49<00:08,  2.61it/s][A
+ 86%|████████▌ | 131/152 [00:49<00:08,  2.61it/s][A
+ 87%|████████▋ | 132/152 [00:50<00:07,  2.61it/s][A
+ 88%|████████▊ | 133/152 [00:50<00:07,  2.61it/s][A
+ 88%|████████▊ | 134/152 [00:50<00:06,  2.61it/s][A
+ 89%|████████▉ | 135/152 [00:51<00:06,  2.61it/s][A
+ 89%|████████▉ | 136/152 [00:51<00:06,  2.61it/s][A
+ 90%|█████████ | 137/152 [00:52<00:05,  2.61it/s][A
+ 91%|█████████ | 138/152 [00:52<00:05,  2.61it/s][A
+ 91%|█████████▏| 139/152 [00:52<00:04,  2.61it/s][A
+ 92%|█████████▏| 140/152 [00:53<00:04,  2.61it/s][A
+ 93%|█████████▎| 141/152 [00:53<00:04,  2.61it/s][A
+ 93%|█████████▎| 142/152 [00:53<00:03,  2.61it/s][A
+ 94%|█████████▍| 143/152 [00:54<00:03,  2.62it/s][A
+ 95%|█████████▍| 144/152 [00:54<00:03,  2.61it/s][A
+ 95%|█████████▌| 145/152 [00:55<00:02,  2.61it/s][A
+ 96%|█████████▌| 146/152 [00:55<00:02,  2.61it/s][A
+ 97%|█████████▋| 147/152 [00:55<00:01,  2.61it/s][A
+ 97%|█████████▋| 148/152 [00:56<00:01,  2.61it/s][A
+ 98%|█████████▊| 149/152 [00:56<00:01,  2.61it/s][A
+ 99%|█████████▊| 150/152 [00:57<00:00,  2.61it/s][A
+ 99%|█████████▉| 151/152 [00:57<00:00,  2.61it/s][A
+100%|██████████| 152/152 [00:57<00:00,  2.62it/s][A                                                 
+                                                 [A{'eval_loss': 1.1582589149475098, 'eval_runtime': 58.1844, 'eval_samples_per_second': 10.415, 'eval_steps_per_second': 2.612, 'epoch': 2.99}
+100%|██████████| 180/180 [39:41<00:00, 12.23s/it]
+100%|██████████| 152/152 [00:57<00:00,  2.62it/s][A
+                                                 [A[INFO|trainer.py:2591] 2026-11-04 00:56:06,331 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                                 {'train_runtime': 2381.6407, 'train_samples_per_second': 2.43, 'train_steps_per_second': 0.076, 'train_loss': 1.036390538348092, 'epoch': 2.99}
+100%|██████████| 180/180 [39:41<00:00, 12.23s/it]100%|██████████| 180/180 [39:41<00:00, 13.23s/it]
+***** train metrics *****
+  epoch                    =     2.9896
+  total_flos               =    17537GF
+  train_loss               =     1.0364
+  train_runtime            = 0:39:41.64
+  train_samples            =       6871
+  train_samples_per_second =       2.43
+  train_steps_per_second   =      0.076
+2026-11-04 00:56:06 - INFO - __main__ - *** Save model ***
+[INFO|trainer.py:3812] 2026-11-04 00:56:14,187 >> Saving model checkpoint to /media/ardeawang/TSR/tsr-reproduction/work/models/M0
+[INFO|configuration_utils.py:414] 2026-11-04 00:56:14,190 >> Configuration saved in /media/ardeawang/TSR/tsr-reproduction/work/models/M0/config.json
+[INFO|configuration_utils.py:865] 2026-11-04 00:56:14,191 >> Configuration saved in /media/ardeawang/TSR/tsr-reproduction/work/models/M0/generation_config.json
+[INFO|modeling_utils.py:3043] 2026-11-04 00:56:22,646 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 4 checkpoint shards. You can find where each parameters has been saved in the index located at /media/ardeawang/TSR/tsr-reproduction/work/models/M0/pytorch_model.bin.index.json.
+[INFO|tokenization_utils_base.py:2646] 2026-11-04 00:56:22,649 >> tokenizer config file saved in /media/ardeawang/TSR/tsr-reproduction/work/models/M0/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2655] 2026-11-04 00:56:22,650 >> Special tokens file saved in /media/ardeawang/TSR/tsr-reproduction/work/models/M0/special_tokens_map.json
+2026-11-04 00:56:23 - INFO - __main__ - Model saved to /media/ardeawang/TSR/tsr-reproduction/work/models/M0
+2026-11-04 00:56:23 - WARNING - __main__ - skip model card: SFTTrainer.create_model_card() got an unexpected keyword argument 'finetuned_from'
+[INFO|configuration_utils.py:414] 2026-11-04 00:56:23,250 >> Configuration saved in /media/ardeawang/TSR/tsr-reproduction/work/models/M0/config.json
+2026-11-04 00:56:23 - INFO - __main__ - *** Evaluate ***
+[INFO|trainer.py:4128] 2026-11-04 00:56:23,253 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:4130] 2026-11-04 00:56:23,253 >>   Num examples = 606
+[INFO|trainer.py:4133] 2026-11-04 00:56:23,253 >>   Batch size = 2
+  0%|          | 0/152 [00:00<?, ?it/s]  1%|▏         | 2/152 [00:00<00:28,  5.32it/s]  2%|▏         | 3/152 [00:00<00:39,  3.75it/s]  3%|▎         | 4/152 [00:01<00:45,  3.25it/s]  3%|▎         | 5/152 [00:01<00:48,  3.01it/s]  4%|▍         | 6/152 [00:01<00:50,  2.87it/s]  5%|▍         | 7/152 [00:02<00:51,  2.79it/s]  5%|▌         | 8/152 [00:02<00:52,  2.74it/s]  6%|▌         | 9/152 [00:03<00:52,  2.70it/s]  7%|▋         | 10/152 [00:03<00:53,  2.67it/s]  7%|▋         | 11/152 [00:03<00:53,  2.66it/s]  8%|▊         | 12/152 [00:04<00:52,  2.65it/s]  9%|▊         | 13/152 [00:04<00:52,  2.64it/s]  9%|▉         | 14/152 [00:04<00:52,  2.64it/s] 10%|▉         | 15/152 [00:05<00:51,  2.64it/s] 11%|█         | 16/152 [00:05<00:51,  2.64it/s] 11%|█         | 17/152 [00:06<00:51,  2.63it/s] 12%|█▏        | 18/152 [00:06<00:51,  2.63it/s] 12%|█▎        | 19/152 [00:06<00:50,  2.63it/s] 13%|█▎        | 20/152 [00:07<00:50,  2.62it/s] 14%|█▍        | 21/152 [00:07<00:50,  2.62it/s] 14%|█▍        | 22/152 [00:07<00:49,  2.62it/s] 15%|█▌        | 23/152 [00:08<00:49,  2.62it/s] 16%|█▌        | 24/152 [00:08<00:48,  2.61it/s] 16%|█▋        | 25/152 [00:09<00:48,  2.61it/s] 17%|█▋        | 26/152 [00:09<00:48,  2.62it/s] 18%|█▊        | 27/152 [00:09<00:47,  2.62it/s] 18%|█▊        | 28/152 [00:10<00:47,  2.62it/s] 19%|█▉        | 29/152 [00:10<00:47,  2.61it/s] 20%|█▉        | 30/152 [00:11<00:46,  2.61it/s] 20%|██        | 31/152 [00:11<00:46,  2.61it/s] 21%|██        | 32/152 [00:11<00:45,  2.61it/s] 22%|██▏       | 33/152 [00:12<00:45,  2.61it/s] 22%|██▏       | 34/152 [00:12<00:45,  2.61it/s] 23%|██▎       | 35/152 [00:12<00:44,  2.61it/s] 24%|██▎       | 36/152 [00:13<00:44,  2.61it/s] 24%|██▍       | 37/152 [00:13<00:44,  2.61it/s] 25%|██▌       | 38/152 [00:14<00:43,  2.61it/s] 26%|██▌       | 39/152 [00:14<00:43,  2.62it/s] 26%|██▋       | 40/152 [00:14<00:42,  2.62it/s] 27%|██▋       | 41/152 [00:15<00:42,  2.62it/s] 28%|██▊       | 42/152 [00:15<00:42,  2.62it/s] 28%|██▊       | 43/152 [00:16<00:41,  2.62it/s] 29%|██▉       | 44/152 [00:16<00:41,  2.62it/s] 30%|██▉       | 45/152 [00:16<00:40,  2.62it/s] 30%|███       | 46/152 [00:17<00:40,  2.62it/s] 31%|███       | 47/152 [00:17<00:40,  2.62it/s] 32%|███▏      | 48/152 [00:17<00:39,  2.62it/s] 32%|███▏      | 49/152 [00:18<00:39,  2.62it/s] 33%|███▎      | 50/152 [00:18<00:38,  2.62it/s] 34%|███▎      | 51/152 [00:19<00:38,  2.62it/s] 34%|███▍      | 52/152 [00:19<00:38,  2.62it/s] 35%|███▍      | 53/152 [00:19<00:37,  2.62it/s] 36%|███▌      | 54/152 [00:20<00:37,  2.62it/s] 36%|███▌      | 55/152 [00:20<00:37,  2.62it/s] 37%|███▋      | 56/152 [00:20<00:36,  2.62it/s] 38%|███▊      | 57/152 [00:21<00:36,  2.62it/s] 38%|███▊      | 58/152 [00:21<00:35,  2.62it/s] 39%|███▉      | 59/152 [00:22<00:35,  2.62it/s] 39%|███▉      | 60/152 [00:22<00:35,  2.62it/s] 40%|████      | 61/152 [00:22<00:34,  2.62it/s] 41%|████      | 62/152 [00:23<00:34,  2.62it/s] 41%|████▏     | 63/152 [00:23<00:34,  2.62it/s] 42%|████▏     | 64/152 [00:24<00:33,  2.61it/s] 43%|████▎     | 65/152 [00:24<00:33,  2.61it/s] 43%|████▎     | 66/152 [00:24<00:32,  2.61it/s] 44%|████▍     | 67/152 [00:25<00:32,  2.61it/s] 45%|████▍     | 68/152 [00:25<00:32,  2.61it/s] 45%|████▌     | 69/152 [00:25<00:31,  2.61it/s] 46%|████▌     | 70/152 [00:26<00:31,  2.62it/s] 47%|████▋     | 71/152 [00:26<00:30,  2.61it/s] 47%|████▋     | 72/152 [00:27<00:30,  2.62it/s] 48%|████▊     | 73/152 [00:27<00:30,  2.62it/s] 49%|████▊     | 74/152 [00:27<00:29,  2.62it/s] 49%|████▉     | 75/152 [00:28<00:29,  2.62it/s] 50%|█████     | 76/152 [00:28<00:29,  2.61it/s] 51%|█████     | 77/152 [00:29<00:28,  2.62it/s] 51%|█████▏    | 78/152 [00:29<00:28,  2.62it/s] 52%|█████▏    | 79/152 [00:29<00:27,  2.62it/s] 53%|█████▎    | 80/152 [00:30<00:27,  2.62it/s] 53%|█████▎    | 81/152 [00:30<00:27,  2.62it/s] 54%|█████▍    | 82/152 [00:30<00:26,  2.62it/s] 55%|█████▍    | 83/152 [00:31<00:26,  2.62it/s] 55%|█████▌    | 84/152 [00:31<00:25,  2.62it/s] 56%|█████▌    | 85/152 [00:32<00:25,  2.62it/s] 57%|█████▋    | 86/152 [00:32<00:25,  2.62it/s] 57%|█████▋    | 87/152 [00:32<00:24,  2.62it/s] 58%|█████▊    | 88/152 [00:33<00:24,  2.62it/s] 59%|█████▊    | 89/152 [00:33<00:23,  2.63it/s] 59%|█████▉    | 90/152 [00:33<00:23,  2.62it/s] 60%|█████▉    | 91/152 [00:34<00:23,  2.62it/s] 61%|██████    | 92/152 [00:34<00:22,  2.62it/s] 61%|██████    | 93/152 [00:35<00:22,  2.62it/s] 62%|██████▏   | 94/152 [00:35<00:22,  2.62it/s] 62%|██████▎   | 95/152 [00:35<00:21,  2.62it/s] 63%|██████▎   | 96/152 [00:36<00:21,  2.63it/s] 64%|██████▍   | 97/152 [00:36<00:20,  2.62it/s] 64%|██████▍   | 98/152 [00:37<00:20,  2.62it/s] 65%|██████▌   | 99/152 [00:37<00:20,  2.62it/s] 66%|██████▌   | 100/152 [00:37<00:19,  2.62it/s] 66%|██████▋   | 101/152 [00:38<00:19,  2.62it/s] 67%|██████▋   | 102/152 [00:38<00:19,  2.62it/s] 68%|██████▊   | 103/152 [00:38<00:18,  2.62it/s] 68%|██████▊   | 104/152 [00:39<00:18,  2.62it/s] 69%|██████▉   | 105/152 [00:39<00:17,  2.62it/s] 70%|██████▉   | 106/152 [00:40<00:17,  2.62it/s] 70%|███████   | 107/152 [00:40<00:17,  2.62it/s] 71%|███████   | 108/152 [00:40<00:16,  2.62it/s] 72%|███████▏  | 109/152 [00:41<00:16,  2.62it/s] 72%|███████▏  | 110/152 [00:41<00:16,  2.62it/s] 73%|███████▎  | 111/152 [00:41<00:15,  2.62it/s] 74%|███████▎  | 112/152 [00:42<00:15,  2.62it/s] 74%|███████▍  | 113/152 [00:42<00:14,  2.62it/s] 75%|███████▌  | 114/152 [00:43<00:14,  2.61it/s] 76%|███████▌  | 115/152 [00:43<00:14,  2.62it/s] 76%|███████▋  | 116/152 [00:43<00:13,  2.62it/s] 77%|███████▋  | 117/152 [00:44<00:13,  2.62it/s] 78%|███████▊  | 118/152 [00:44<00:13,  2.62it/s] 78%|███████▊  | 119/152 [00:45<00:12,  2.61it/s] 79%|███████▉  | 120/152 [00:45<00:12,  2.61it/s] 80%|███████▉  | 121/152 [00:45<00:11,  2.61it/s] 80%|████████  | 122/152 [00:46<00:11,  2.61it/s] 81%|████████  | 123/152 [00:46<00:11,  2.61it/s] 82%|████████▏ | 124/152 [00:46<00:10,  2.61it/s] 82%|████████▏ | 125/152 [00:47<00:10,  2.61it/s] 83%|████████▎ | 126/152 [00:47<00:09,  2.61it/s] 84%|████████▎ | 127/152 [00:48<00:09,  2.62it/s] 84%|████████▍ | 128/152 [00:48<00:09,  2.62it/s] 85%|████████▍ | 129/152 [00:48<00:08,  2.62it/s] 86%|████████▌ | 130/152 [00:49<00:08,  2.62it/s] 86%|████████▌ | 131/152 [00:49<00:08,  2.62it/s] 87%|████████▋ | 132/152 [00:50<00:07,  2.63it/s] 88%|████████▊ | 133/152 [00:50<00:07,  2.62it/s] 88%|████████▊ | 134/152 [00:50<00:06,  2.62it/s] 89%|████████▉ | 135/152 [00:51<00:06,  2.62it/s] 89%|████████▉ | 136/152 [00:51<00:06,  2.62it/s] 90%|█████████ | 137/152 [00:51<00:05,  2.62it/s] 91%|█████████ | 138/152 [00:52<00:05,  2.61it/s] 91%|█████████▏| 139/152 [00:52<00:04,  2.61it/s] 92%|█████████▏| 140/152 [00:53<00:04,  2.62it/s] 93%|█████████▎| 141/152 [00:53<00:04,  2.62it/s] 93%|█████████▎| 142/152 [00:53<00:03,  2.62it/s] 94%|█████████▍| 143/152 [00:54<00:03,  2.62it/s] 95%|█████████▍| 144/152 [00:54<00:03,  2.61it/s] 95%|█████████▌| 145/152 [00:54<00:02,  2.62it/s] 96%|█████████▌| 146/152 [00:55<00:02,  2.62it/s] 97%|█████████▋| 147/152 [00:55<00:01,  2.62it/s] 97%|█████████▋| 148/152 [00:56<00:01,  2.62it/s] 98%|█████████▊| 149/152 [00:56<00:01,  2.62it/s] 99%|█████████▊| 150/152 [00:56<00:00,  2.62it/s] 99%|█████████▉| 151/152 [00:57<00:00,  2.62it/s]100%|██████████| 152/152 [00:57<00:00,  2.62it/s]100%|██████████| 152/152 [00:57<00:00,  2.63it/s]
+***** eval metrics *****
+  epoch                   =     2.9896
+  eval_loss               =     1.1583
+  eval_runtime            = 0:00:58.06
+  eval_samples            =       1000
+  eval_samples_per_second =     10.437
+  eval_steps_per_second   =      2.618
+2026-11-04 00:57:21 - INFO - __main__ - *** Training complete ***

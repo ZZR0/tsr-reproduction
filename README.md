@@ -6,6 +6,16 @@ The upstream code is used as is, apart from three small patches (listed below). 
 the whole pipeline (SFT, TSR iter0 and iter1, the SR and w/o Future baselines, AlpacaEval 2.0) with one command, together
 with every output behind the numbers reported here.
 
+## Single-copy rerun data (2026-11-04)
+
+The later rerun with duplicate DPO loading fixed is archived in
+[experiments/tsr-singlecopy-20261104-best](experiments/tsr-singlecopy-20261104-best/README.md).
+Its best completed M2 setting uses `>=` future replacement and removes equal-score preference pairs:
+**25.3549 LC / 28.8063 Win** on 805 AlpacaEval instructions. The archive includes the SFT inputs,
+both rounds of rollouts and self-judgements, DPO pairs, actual configs/logs, per-instruction evaluation,
+source snapshots, and SHA-256 verification. Final M2 weights are unavailable on the replacement server;
+the archive documents this gap. The original report and results below remain unchanged.
+
 ## Results
 
 AlpacaEval 2.0, judge `gpt-4o-2024-08-06`, reference `gpt4_1106_preview`. LC / Win / mean length (characters).

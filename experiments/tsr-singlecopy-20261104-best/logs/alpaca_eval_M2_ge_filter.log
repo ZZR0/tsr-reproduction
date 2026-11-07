@@ -1,0 +1,37 @@
+WARNING:root:precomputed_leaderboard = 'auto'. But we have found no corresponding leaderboard
+INFO:root:Evaluating the M2_ge_filter outputs.
+INFO:root:Creating the annotator from `/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator`.
+INFO:root:Saving annotations to `/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json`.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+Annotation chunk:   0%|          | 0/7 [00:00<?, ?it/s]INFO:root:Annotating 0 examples with weighted_alpaca_eval_judge
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+Annotation chunk:  14%|█▍        | 1/7 [00:00<00:00,  7.77it/s]INFO:root:Annotating 0 examples with weighted_alpaca_eval_judge
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+Annotation chunk:  29%|██▊       | 2/7 [00:00<00:00,  6.17it/s]INFO:root:Annotating 0 examples with weighted_alpaca_eval_judge
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+Annotation chunk:  43%|████▎     | 3/7 [00:00<00:00,  6.97it/s]INFO:root:Annotating 0 examples with weighted_alpaca_eval_judge
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+Annotation chunk:  57%|█████▋    | 4/7 [00:00<00:00,  7.40it/s]INFO:root:Annotating 0 examples with weighted_alpaca_eval_judge
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+Annotation chunk:  71%|███████▏  | 5/7 [00:00<00:00,  7.59it/s]INFO:root:Annotating 0 examples with weighted_alpaca_eval_judge
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+Annotation chunk:  86%|████████▌ | 6/7 [00:00<00:00,  7.79it/s]INFO:root:Annotating 0 examples with weighted_alpaca_eval_judge
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter/annotator/annotations_seed0_configs.json.
+Annotation chunk: 100%|██████████| 7/7 [00:00<00:00,  7.86it/s]
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:2071: FutureWarning: The default value for l1_ratios will change from None to (0.0,) in version 1.10. From version 1.10 onwards, only array-like with values in [0, 1] will be allowed, None will be forbidden. To avoid this warning, explicitly set a value, e.g. l1_ratios=(0,).
+  warnings.warn(
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:2102: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratios' and 'Cs' instead. Use l1_ratios=(0,) instead of penalty='l2', l1_ratios=(1,) instead of penalty='l1', l1_ratios set to floats between 0 and 1 instead of penalty='elasticnet', and Cs=(np.inf,) instead of penalty=None.
+  warnings.warn(
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:2129: FutureWarning: The fitted attributes of LogisticRegressionCV will be simplified in scikit-learn 1.10 to remove redundancy. Set`use_legacy_attributes=False` to enable the new behavior now, or set it to `True` to silence this warning during the transition period while keeping the deprecated behavior for the time being. The default value of use_legacy_attributes will change from True to False in scikit-learn 1.10. See the docstring of LogisticRegressionCV for more details.
+  warnings.warn(
+INFO:root:Saving all results to /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/alpaca_eval/M2_ge_filter
+INFO:root:Not saving the result to the cached leaderboard because precomputed_leaderboard is not a path but <class 'NoneType'>.
+               win_rate  standard_error       mode  avg_length  n_wins  n_wins_base  n_draws  n_total  discrete_win_rate  length_controlled_winrate  lc_standard_error
+M2_ge_filter  28.806259        1.445234  community        2320     236          569        0      805           29.31677                  25.354906           0.037525

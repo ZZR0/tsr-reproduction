@@ -1,0 +1,13 @@
+{
+ "rejected_from_Mi": 5000,
+ "chosen_from_Mf": 4670,
+ "chosen_from_Mf_by_tie": 3828,
+ "identical_pair": 18,
+ "tie_pair": 7,
+ "chosen_from_Mi": 330,
+ "n_prompts": 5000,
+ "n_pairs": 5000,
+ "gap_mean": 3.663,
+ "gap_median": 4.0,
+ "matches_official": true
+}

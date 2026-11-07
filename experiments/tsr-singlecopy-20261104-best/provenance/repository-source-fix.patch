@@ -1,0 +1,244 @@
+diff --git a/README.md b/README.md
+index 7bb0dd3..b788c7f 100644
+--- a/README.md
++++ b/README.md
+@@ -73,6 +73,23 @@ Stages can also be run one by one: `bash run.sh sft | iter0 | iter1 | sr | wof |
+ Each step writes its output once and is skipped when the output exists, so an interrupted run resumes with the same command.
+ If the judge is reached through a SOCKS proxy, also `pip install socksio`.
+ 
++### DPO input files
++
++`pairs` stores the upstream comparison beside the pair directory (for example, `D2.official.json`), outside the
++training dataset. `make_cfg.py` copies only the requested directory's `train.json` into `configs/<model>.data/`
++and points DPO at that isolated directory. SFT keeps its original multi-file dataset loading.
++
++Older pair directories may contain both `train.json` and an identical `official/train.json`. Hugging Face datasets
++discovers both recursively, turning 5,000 pairs into 10,000 training rows. The isolated DPO input also fixes loading
++from these existing directories without deleting their verification files. Completed checkpoints are still skipped;
++use a fresh `WORK_DIR` to retrain checkpoints produced with duplicated inputs. Existing result artifacts are unchanged.
++
++Run the data-loading regression tests in the configured environment:
++
++```bash
++.venv/bin/python -m unittest discover -s tests -v
++```
++
+ On 2 × A800 80GB one generation pass (5,000 prompts × 7 responses) takes about 20 min, one judging pass about 27 min,
+ one DPO run about 40 min of training plus loading and saving, and SFT about 40 min. The full run takes roughly 13 hours.
+ Each AlpacaEval evaluation with `gpt-4o-2024-08-06` costs about $2.3.
+diff --git a/scripts/lib.sh b/scripts/lib.sh
+index e3f5790..95485f8 100644
+--- a/scripts/lib.sh
++++ b/scripts/lib.sh
+@@ -91,15 +91,17 @@ pairs() {
+   need "$c" "$r" ${f:+"$f"}
+   local check=()
+   if [ $# -eq 0 ]; then
+-    mkdir -p "$out/official"
++    # datasets recursively discovers train.json; keep comparison output outside the dataset directory.
++    local official="${out%/}.official.json"
++    mkdir -p "$(dirname "$official")"
+     if [ "$mode" = past ]; then
+       "$PY" "$TSR_DIR/settings/tsr/reformat2DPO_past.py" --input_path_chosen "$c" --input_path_rejected "$r" \
+-        --output_path "$out/official/train.json" >> "$LOGS/run.log" 2>&1 || die "official past script"
++        --output_path "$official" >> "$LOGS/run.log" 2>&1 || die "official past script"
+     else
+       "$PY" "$TSR_DIR/settings/tsr/reformat2DPO_future.py" --input_path_chosen "$c" --input_path_future "$f" \
+-        --input_path_rejected "$r" --output_path "$out/official/train.json" >> "$LOGS/run.log" 2>&1 || die "official future script"
++        --input_path_rejected "$r" --output_path "$official" >> "$LOGS/run.log" 2>&1 || die "official future script"
+     fi
+-    check=(--check "$out/official/train.json")
++    check=(--check "$official")
+   fi
+   "$PY" "$REPO/src/build_pairs.py" "$mode" --chosen "$c" --rejected "$r" ${f:+--future "$f"} --out "$out.tmp" \
+     "${check[@]}" "$@" > "$LOGS/pairs_$(basename "$out").log" 2>&1 || die "build_pairs $(basename "$out")"
+diff --git a/src/make_cfg.py b/src/make_cfg.py
+index 49296d9..de4f9fa 100644
+--- a/src/make_cfg.py
++++ b/src/make_cfg.py
+@@ -7,10 +7,35 @@ Only paths and the per-GPU batch split change; the global batch stays 32 on any
+   dpo: template settings/sr/config/dpo/config_full_iter0.yaml (upstream: 8 GPUs x 2 x accumulation 2).
+        The TSR DPO configs are identical to it except paths (and iter0_tmp, which uses per-device 1, i.e. a global
+        batch of 16 on 8 GPUs; we use 32 for every DPO run). -> per-device 1, accumulation 32 / ngpu.
++       Only DIR/train.json is copied into <config stem>.data/ for loading; nested validation files are excluded.
+ 
+   make_cfg.py {sft,dpo} --name N --init MODEL --data DIR --out_dir DIR --ngpu G --cfg OUT.yaml [--max_steps S]
+ """
+-import argparse, os, yaml
++import argparse, os, shutil, tempfile, yaml
++from pathlib import Path
++
++
++def dpo_training_data(data, cfg):
++    """Snapshot the canonical pairs without recursively importing verification copies."""
++    source = Path(data) / "train.json"
++    if not source.is_file():
++        raise SystemExit(f"DPO pairs file not found: {source}")
++    target_dir = Path(cfg).resolve().with_suffix(".data")
++    if target_dir.is_symlink():
++        raise SystemExit(f"DPO input directory must not be a symlink: {target_dir}")
++    target_dir.mkdir(parents=True, exist_ok=True)
++    unexpected = [p.name for p in target_dir.iterdir() if p.name != "train.json" or not p.is_file()]
++    if unexpected:
++        raise SystemExit(f"Unexpected files in isolated DPO input directory {target_dir}: {unexpected}")
++    # Stage outside the dataset directory, then replace atomically. A failed copy leaves the old input intact.
++    fd, temporary = tempfile.mkstemp(prefix=f".{target_dir.name}-", suffix=".tmp", dir=target_dir.parent)
++    os.close(fd)
++    try:
++        shutil.copyfile(source, temporary)
++        os.replace(temporary, target_dir / "train.json")
++    finally:
++        Path(temporary).unlink(missing_ok=True)
++    return str(target_dir)
+ 
+ ap = argparse.ArgumentParser()
+ ap.add_argument("mode", choices=["sft", "dpo"])
+@@ -32,7 +57,8 @@ else:
+     c.update({"report_to": ["tensorboard"]})
+ if 32 % (micro * a.ngpu):
+     raise SystemExit(f"global batch 32 is not divisible by {micro} x {a.ngpu} GPUs; use 1, 2, 4, 8, 16 or 32 GPUs")
+-c.update({"model_name_or_path": a.init, "dataset_mixer": {a.data: 1.0}, "output_dir": a.out_dir,
++data = dpo_training_data(a.data, a.cfg) if a.mode == "dpo" else a.data
++c.update({"model_name_or_path": a.init, "dataset_mixer": {data: 1.0}, "output_dir": a.out_dir,
+           "hub_model_id": a.name, "per_device_train_batch_size": micro,
+           "gradient_accumulation_steps": 32 // (micro * a.ngpu), "max_steps": a.max_steps})
+ os.makedirs(os.path.dirname(a.cfg), exist_ok=True)
+diff --git a/tests/test_dpo_data_loading.py b/tests/test_dpo_data_loading.py
+new file mode 100644
+index 0000000..32f8007
+--- /dev/null
++++ b/tests/test_dpo_data_loading.py
+@@ -0,0 +1,133 @@
++"""Exercise the real datasets loader and production config/pair helpers, without GPUs."""
++import json
++import os
++from pathlib import Path
++import subprocess
++import sys
++import tempfile
++import unittest
++
++from datasets import load_dataset
++import yaml
++
++REPO = Path(__file__).resolve().parents[1]
++
++
++def write_rows(path, records):
++    path.parent.mkdir(parents=True, exist_ok=True)
++    path.write_text("".join(json.dumps(row) + "\n" for row in records))
++
++
++class DataLoadingTests(unittest.TestCase):
++    def setUp(self):
++        self.temp = tempfile.TemporaryDirectory(prefix="tsr data ")
++        self.addCleanup(self.temp.cleanup)
++        self.root = Path(self.temp.name)
++        self.upstream = self.root / "upstream"
++        for mode, rel, micro, accumulation, epochs in [
++            ("dpo", "sr/config/dpo/config_full_iter0.yaml", 2, 2, 1),
++            ("sft", "sft/config/config.yaml", 4, 1, 3),
++        ]:
++            path = self.upstream / "settings" / rel
++            path.parent.mkdir(parents=True, exist_ok=True)
++            path.write_text(yaml.safe_dump(dict(per_device_train_batch_size=micro,
++                            gradient_accumulation_steps=accumulation, num_train_epochs=epochs, seed=42)))
++        self.env = dict(os.environ, TSR_DIR=str(self.upstream), HF_HUB_OFFLINE="1", HF_DATASETS_OFFLINE="1")
++        self.data = self.root / "pairs"
++        self.records = [{"prompt": f"question {i}", "chosen": "good", "rejected": "bad"} for i in range(3)]
++        write_rows(self.data / "train.json", self.records)
++        self.cfg = self.root / "configs/M2.yaml"
++
++    def config(self, mode="dpo", check=True):
++        return subprocess.run([sys.executable, str(REPO / "src/make_cfg.py"), mode,
++            "--name", "M2", "--init", "base-model", "--data", str(self.data),
++            "--out_dir", str(self.root / "model"), "--ngpu", "2", "--cfg", str(self.cfg)],
++            env=self.env, text=True, capture_output=True, check=check)
++
++    def configured_rows(self):
++        config = yaml.safe_load(self.cfg.read_text())
++        path = next(iter(config["dataset_mixer"]))
++        dataset = load_dataset(path, split="train", cache_dir=str(self.root / "cache"))
++        return config, Path(path), list(dataset)
++
++    def test_legacy_duplicate_is_read_once_and_preserved(self):
++        duplicate = self.data / "official/train.json"
++        write_rows(duplicate, self.records)
++        old = load_dataset(str(self.data), split="train", cache_dir=str(self.root / "legacy-cache"))
++        self.assertEqual(len(old), 6)  # Reproduce the original regression with the actual loader.
++        self.config()
++        config, path, loaded = self.configured_rows()
++        self.assertEqual(loaded, self.records)
++        self.assertEqual(list(path.iterdir()), [path / "train.json"])
++        self.assertEqual(duplicate.read_bytes(), (self.data / "train.json").read_bytes())
++        self.assertEqual(config["num_train_epochs"], 1)
++        self.assertEqual(config["per_device_train_batch_size"] * config["gradient_accumulation_steps"] * 2, 32)
++
++    def test_unrelated_training_files_are_not_imported(self):
++        write_rows(self.data / "nested/train_extra.json", [{"prompt": "must not train", "chosen": "x", "rejected": "y"}])
++        self.config()
++        self.assertEqual(self.configured_rows()[2], self.records)
++
++    def test_regenerated_config_refreshes_the_snapshot(self):
++        self.config()
++        updated = self.records + [{"prompt": "new question", "chosen": "new good", "rejected": "new bad"}]
++        write_rows(self.data / "train.json", updated)
++        self.config()
++        self.assertEqual(self.configured_rows()[2], updated)
++
++    def test_contaminated_snapshot_fails_before_training(self):
++        self.config()
++        extra = self.cfg.with_suffix(".data") / "official/train.json"
++        write_rows(extra, self.records)
++        result = self.config(check=False)
++        self.assertNotEqual(result.returncode, 0)
++        self.assertIn("Unexpected files", result.stderr)
++        self.assertTrue(extra.exists())
++
++    def test_sft_still_loads_multiple_training_files(self):
++        (self.data / "train.json").unlink()
++        write_rows(self.data / "ift_train.jsonl", self.records[:2])
++        write_rows(self.data / "eft_train.jsonl", self.records[2:])
++        self.config(mode="sft")
++        config, path, loaded = self.configured_rows()
++        self.assertEqual(path, self.data)
++        self.assertCountEqual(loaded, self.records)
++        self.assertEqual(config["num_train_epochs"], 3)
++
++    def test_comparison_files_stay_outside_new_pair_directories(self):
++        chosen = self.root / "judgements.json"
++        chosen.write_text(json.dumps([dict(prompt="question", responses=["best", "worst"], scores=[5, 1])]))
++        # Stub only the external upstream formatter; test the production pair helper's output placement.
++        formatter = """import argparse, os, shutil
++parser = argparse.ArgumentParser()
++parser.add_argument('--output_path', required=True)
++args, _ = parser.parse_known_args()
++shutil.copyfile(os.environ['PAIR_REFERENCE'], args.output_path)
++"""
++        scripts = self.upstream / "settings/tsr"
++        scripts.mkdir(parents=True)
++        for mode in ["past", "future"]:
++            with self.subTest(mode=mode):
++                (scripts / f"reformat2DPO_{mode}.py").write_text(formatter)
++                reference = self.root / (mode + "-reference")
++                args = ["--chosen", str(chosen), "--rejected", str(chosen)]
++                if mode == "future":
++                    args += ["--future", str(chosen)]
++                subprocess.run([sys.executable, str(REPO / "src/build_pairs.py"), mode, *args,
++                                "--out", str(reference)], check=True, capture_output=True)
++                out = self.root / mode / "D2"
++                env = dict(self.env, PAIR_REFERENCE=str(reference / "train.json"), TEST_REPO=str(REPO),
++                           TEST_PY=sys.executable, TEST_LOGS=str(self.root / "logs"))
++                script = '. "$TEST_REPO/scripts/lib.sh"; PY="$TEST_PY"; LOGS="$TEST_LOGS"; mkdir -p "$LOGS"; pairs "$@"'
++                inputs = [str(chosen), str(chosen)] + ([str(chosen)] if mode == "future" else [])
++                subprocess.run(["bash", "-euc", script, "test-pairs", mode, str(out) + "/", *inputs],
++                               env=env, check=True, capture_output=True)
++                self.assertTrue(out.with_suffix(".official.json").exists())
++                self.assertFalse((out / "official").exists())
++                self.assertTrue(json.loads((out / "stats.json").read_text())["matches_official"])
++                dataset = load_dataset(str(out), split="train", cache_dir=str(self.root / "cache"))
++                self.assertEqual(len(dataset), 1)
++
++
++if __name__ == "__main__":
++    unittest.main()

@@ -1,0 +1,18 @@
+test_comparison_files_stay_outside_new_pair_directories (test_dpo_data_loading.DataLoadingTests.test_comparison_files_stay_outside_new_pair_directories) ... Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1 examples [00:00, 396.81 examples/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1 examples [00:00, 945.30 examples/s]
+ok
+test_contaminated_snapshot_fails_before_training (test_dpo_data_loading.DataLoadingTests.test_contaminated_snapshot_fails_before_training) ... ok
+test_legacy_duplicate_is_read_once_and_preserved (test_dpo_data_loading.DataLoadingTests.test_legacy_duplicate_is_read_once_and_preserved) ... Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 6 examples [00:00, 5081.95 examples/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 3 examples [00:00, 2794.34 examples/s]
+ok
+test_regenerated_config_refreshes_the_snapshot (test_dpo_data_loading.DataLoadingTests.test_regenerated_config_refreshes_the_snapshot) ... Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 4 examples [00:00, 4643.57 examples/s]
+ok
+test_sft_still_loads_multiple_training_files (test_dpo_data_loading.DataLoadingTests.test_sft_still_loads_multiple_training_files) ... Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 3 examples [00:00, 2863.01 examples/s]
+ok
+test_unrelated_training_files_are_not_imported (test_dpo_data_loading.DataLoadingTests.test_unrelated_training_files_are_not_imported) ... Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 3 examples [00:00, 4249.55 examples/s]
+ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.423s
+
+OK

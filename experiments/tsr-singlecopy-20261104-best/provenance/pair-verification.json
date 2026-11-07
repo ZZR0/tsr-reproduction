@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "original_pairs": 5000,
+  "filtered_pairs": 4770,
+  "removed_tie_pairs": 230,
+  "future_current_best_ties": 4991,
+  "future_strictly_better": 7,
+  "chosen_text_changed_by_strict": 4971,
+  "rejected_unchanged": true,
+  "filter_keeps_identical_prompt_set": true,
+  "d1_and_future_model_reused": true
+}

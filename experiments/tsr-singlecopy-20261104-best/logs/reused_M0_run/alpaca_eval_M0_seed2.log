@@ -1,0 +1,1141 @@
+WARNING:root:precomputed_leaderboard = 'auto'. But we have found no corresponding leaderboard
+INFO:root:Evaluating the M0_seed2 outputs.
+INFO:root:Creating the annotator from `/media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator`.
+INFO:root:Saving annotations to `/media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json`.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+Annotation chunk:   0%|          | 0/7 [00:00<?, ?it/s]INFO:root:Annotating 0 examples with weighted_alpaca_eval_judge
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+Annotation chunk:  14%|█▍        | 1/7 [00:00<00:00,  9.36it/s]INFO:root:Annotating 0 examples with weighted_alpaca_eval_judge
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+Annotation chunk:  29%|██▊       | 2/7 [00:00<00:00,  9.70it/s]INFO:root:Annotating 0 examples with weighted_alpaca_eval_judge
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+Annotation chunk:  43%|████▎     | 3/7 [00:00<00:00,  7.61it/s]INFO:root:Annotating 0 examples with weighted_alpaca_eval_judge
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+Annotation chunk:  57%|█████▋    | 4/7 [00:00<00:00,  8.35it/s]INFO:root:Annotating 128 examples with weighted_alpaca_eval_judge
+INFO:root:Using `openai_completions` on 128 prompts using gpt-4o-2024-08-06.
+INFO:root:Kwargs to completion: {'model': 'gpt-4o-2024-08-06', 'temperature': 1, 'logprobs': True, 'top_logprobs': 5, 'is_chat': True}. num_procs=3
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   0%|          | 0/128 [00:00<?, ?it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   1%|          | 1/128 [00:01<03:10,  1.50s/it][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   3%|▎         | 4/128 [00:03<01:33,  1.33it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   5%|▌         | 7/128 [00:04<01:11,  1.68it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   8%|▊         | 10/128 [00:05<01:00,  1.96it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   9%|▊         | 11/128 [00:05<00:51,  2.26it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  10%|█         | 13/128 [00:07<00:57,  1.98it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  12%|█▎        | 16/128 [00:08<00:58,  1.92it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  15%|█▍        | 19/128 [00:10<00:57,  1.89it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  16%|█▌        | 20/128 [00:10<00:50,  2.14it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  17%|█▋        | 22/128 [00:11<00:56,  1.89it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  20%|█▉        | 25/128 [00:13<00:49,  2.10it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  20%|██        | 26/128 [00:13<00:43,  2.33it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  22%|██▏       | 28/128 [00:14<00:44,  2.23it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  23%|██▎       | 29/128 [00:14<00:40,  2.46it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  24%|██▍       | 31/128 [00:15<00:46,  2.10it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  25%|██▌       | 32/128 [00:16<00:48,  1.99it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  27%|██▋       | 34/128 [00:16<00:40,  2.30it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  27%|██▋       | 35/128 [00:17<00:44,  2.10it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  28%|██▊       | 36/128 [00:18<00:43,  2.13it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  29%|██▉       | 37/128 [00:18<00:38,  2.36it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  30%|██▉       | 38/128 [00:18<00:43,  2.07it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  30%|███       | 39/128 [00:19<00:43,  2.04it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  32%|███▏      | 41/128 [00:20<00:40,  2.13it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  33%|███▎      | 42/128 [00:20<00:39,  2.20it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  34%|███▍      | 44/128 [00:21<00:38,  2.17it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  35%|███▌      | 45/128 [00:21<00:34,  2.39it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  36%|███▌      | 46/128 [00:23<00:47,  1.74it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  37%|███▋      | 47/128 [00:23<00:49,  1.63it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  38%|███▊      | 49/128 [00:24<00:38,  2.04it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  39%|███▉      | 50/128 [00:25<00:46,  1.66it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  41%|████      | 52/128 [00:26<00:40,  1.89it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  41%|████▏     | 53/128 [00:26<00:39,  1.92it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  43%|████▎     | 55/128 [00:27<00:34,  2.11it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  44%|████▍     | 56/128 [00:28<00:35,  2.01it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  45%|████▌     | 58/128 [00:28<00:31,  2.20it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  46%|████▌     | 59/128 [00:29<00:34,  1.98it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  48%|████▊     | 61/128 [00:30<00:31,  2.14it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  48%|████▊     | 62/128 [00:30<00:30,  2.20it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  50%|█████     | 64/128 [00:31<00:30,  2.12it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  51%|█████     | 65/128 [00:32<00:29,  2.15it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  52%|█████▏    | 67/128 [00:33<00:30,  2.00it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  53%|█████▎    | 68/128 [00:33<00:27,  2.21it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  55%|█████▍    | 70/128 [00:34<00:29,  1.95it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  56%|█████▋    | 72/128 [00:35<00:21,  2.60it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  57%|█████▋    | 73/128 [00:37<00:48,  1.13it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  59%|█████▊    | 75/128 [00:38<00:33,  1.56it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  59%|█████▉    | 76/128 [00:39<00:35,  1.47it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  60%|██████    | 77/128 [00:39<00:29,  1.73it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  61%|██████    | 78/128 [00:39<00:24,  2.08it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  62%|██████▏   | 79/128 [00:40<00:29,  1.65it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  62%|██████▎   | 80/128 [00:40<00:23,  2.08it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  63%|██████▎   | 81/128 [00:40<00:18,  2.58it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  64%|██████▍   | 82/128 [00:41<00:26,  1.74it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  65%|██████▍   | 83/128 [00:42<00:19,  2.28it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  66%|██████▌   | 84/128 [00:42<00:15,  2.84it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  66%|██████▋   | 85/128 [00:43<00:25,  1.66it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  68%|██████▊   | 87/128 [00:43<00:15,  2.56it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  69%|██████▉   | 88/128 [00:45<00:25,  1.60it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  71%|███████   | 91/128 [00:46<00:18,  2.02it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  73%|███████▎  | 93/128 [00:46<00:13,  2.58it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  73%|███████▎  | 94/128 [00:47<00:17,  1.95it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  74%|███████▍  | 95/128 [00:47<00:15,  2.09it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  76%|███████▌  | 97/128 [00:48<00:14,  2.18it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  77%|███████▋  | 98/128 [00:49<00:14,  2.07it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  78%|███████▊  | 100/128 [00:50<00:12,  2.18it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  79%|███████▉  | 101/128 [00:50<00:12,  2.23it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  80%|███████▉  | 102/128 [00:50<00:10,  2.52it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  80%|████████  | 103/128 [00:51<00:11,  2.08it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  81%|████████▏ | 104/128 [00:51<00:11,  2.18it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  83%|████████▎ | 106/128 [00:52<00:09,  2.37it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  84%|████████▎ | 107/128 [00:53<00:09,  2.18it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  85%|████████▌ | 109/128 [00:53<00:08,  2.37it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  86%|████████▌ | 110/128 [00:54<00:08,  2.10it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  88%|████████▊ | 112/128 [00:55<00:07,  2.20it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  88%|████████▊ | 113/128 [00:55<00:06,  2.20it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  89%|████████▉ | 114/128 [00:56<00:05,  2.52it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  90%|████████▉ | 115/128 [00:56<00:06,  1.99it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  91%|█████████ | 116/128 [00:57<00:05,  2.39it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  91%|█████████▏| 117/128 [00:57<00:04,  2.73it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  92%|█████████▏| 118/128 [00:58<00:05,  1.82it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  94%|█████████▍| 120/128 [00:58<00:02,  2.76it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  95%|█████████▍| 121/128 [00:59<00:03,  1.92it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  95%|█████████▌| 122/128 [00:59<00:02,  2.27it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  97%|█████████▋| 124/128 [01:00<00:01,  2.13it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  98%|█████████▊| 125/128 [01:01<00:01,  2.45it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+prompt_batches:  98%|█████████▊| 126/128 [01:01<00:00,  2.93it/s][AINFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+prompt_batches:  99%|█████████▉| 127/128 [01:02<00:00,  1.94it/s][AINFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+prompt_batches: 100%|██████████| 128/128 [01:02<00:00,  2.05it/s]
+INFO:root:Completed 128 examples in 62.3 seconds.
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+Annotation chunk:  71%|███████▏  | 5/7 [01:02<00:45, 22.62s/it]INFO:root:Annotating 128 examples with weighted_alpaca_eval_judge
+INFO:root:Using `openai_completions` on 128 prompts using gpt-4o-2024-08-06.
+INFO:root:Kwargs to completion: {'model': 'gpt-4o-2024-08-06', 'temperature': 1, 'logprobs': True, 'top_logprobs': 5, 'is_chat': True}. num_procs=3
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   0%|          | 0/128 [00:00<?, ?it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   1%|          | 1/128 [00:01<03:09,  1.49s/it][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   3%|▎         | 4/128 [00:02<01:16,  1.61it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   5%|▌         | 7/128 [00:03<00:59,  2.05it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   6%|▋         | 8/128 [00:03<00:49,  2.41it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   7%|▋         | 9/128 [00:04<00:41,  2.88it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   8%|▊         | 10/128 [00:05<01:02,  1.90it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   9%|▉         | 12/128 [00:05<00:43,  2.69it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  10%|█         | 13/128 [00:06<00:56,  2.03it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  11%|█         | 14/128 [00:06<00:46,  2.45it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  12%|█▏        | 15/128 [00:06<00:39,  2.83it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  12%|█▎        | 16/128 [00:07<01:00,  1.86it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  14%|█▍        | 18/128 [00:08<00:38,  2.83it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  15%|█▍        | 19/128 [00:09<00:58,  1.86it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  16%|█▌        | 20/128 [00:09<00:54,  1.97it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  17%|█▋        | 22/128 [00:10<00:51,  2.06it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  18%|█▊        | 23/128 [00:10<00:43,  2.40it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  20%|█▉        | 25/128 [00:11<00:50,  2.05it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  20%|██        | 26/128 [00:12<00:42,  2.41it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  21%|██        | 27/128 [00:12<00:35,  2.84it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  22%|██▏       | 28/128 [00:13<01:06,  1.50it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  24%|██▍       | 31/128 [00:14<00:47,  2.03it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  25%|██▌       | 32/128 [00:14<00:39,  2.40it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  26%|██▌       | 33/128 [00:14<00:33,  2.86it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  27%|██▋       | 34/128 [00:16<00:49,  1.88it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  27%|██▋       | 35/128 [00:16<00:39,  2.37it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  28%|██▊       | 36/128 [00:16<00:32,  2.83it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  29%|██▉       | 37/128 [00:17<00:53,  1.72it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  31%|███▏      | 40/128 [00:18<00:45,  1.94it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  34%|███▎      | 43/128 [00:20<00:41,  2.05it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  34%|███▍      | 44/128 [00:20<00:37,  2.27it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  36%|███▌      | 46/128 [00:21<00:40,  2.03it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  38%|███▊      | 48/128 [00:21<00:28,  2.81it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  38%|███▊      | 49/128 [00:23<00:40,  1.93it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  40%|███▉      | 51/128 [00:23<00:27,  2.76it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  41%|████      | 52/128 [00:24<00:37,  2.04it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  41%|████▏     | 53/128 [00:24<00:33,  2.22it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  43%|████▎     | 55/128 [00:25<00:33,  2.19it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  44%|████▍     | 56/128 [00:25<00:33,  2.18it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  45%|████▌     | 58/128 [00:26<00:31,  2.23it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  46%|████▌     | 59/128 [00:27<00:31,  2.18it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  48%|████▊     | 61/128 [00:27<00:27,  2.43it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  48%|████▊     | 62/128 [00:28<00:28,  2.33it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  49%|████▉     | 63/128 [00:28<00:23,  2.77it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  50%|█████     | 64/128 [00:29<00:26,  2.42it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  51%|█████     | 65/128 [00:29<00:28,  2.25it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  52%|█████▏    | 66/128 [00:29<00:23,  2.68it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  52%|█████▏    | 67/128 [00:30<00:25,  2.43it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  53%|█████▎    | 68/128 [00:30<00:25,  2.35it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  54%|█████▍    | 69/128 [00:31<00:26,  2.24it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  55%|█████▍    | 70/128 [00:31<00:26,  2.15it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  55%|█████▌    | 71/128 [00:32<00:22,  2.51it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  56%|█████▋    | 72/128 [00:32<00:24,  2.28it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  57%|█████▋    | 73/128 [00:33<00:24,  2.23it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  58%|█████▊    | 74/128 [00:33<00:19,  2.80it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  59%|█████▊    | 75/128 [00:33<00:23,  2.27it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  59%|█████▉    | 76/128 [00:34<00:26,  1.98it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  61%|██████    | 78/128 [00:35<00:23,  2.16it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  62%|██████▏   | 79/128 [00:36<00:28,  1.72it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  62%|██████▎   | 80/128 [00:37<00:38,  1.24it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  65%|██████▍   | 83/128 [00:39<00:28,  1.56it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  67%|██████▋   | 86/128 [00:40<00:20,  2.03it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  68%|██████▊   | 87/128 [00:40<00:19,  2.16it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  70%|██████▉   | 89/128 [00:41<00:17,  2.17it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  70%|███████   | 90/128 [00:41<00:16,  2.33it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  71%|███████   | 91/128 [00:41<00:14,  2.56it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  72%|███████▏  | 92/128 [00:42<00:19,  1.88it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  73%|███████▎  | 94/128 [00:43<00:13,  2.54it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  74%|███████▍  | 95/128 [00:44<00:16,  1.94it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  76%|███████▌  | 97/128 [00:44<00:12,  2.40it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  77%|███████▋  | 98/128 [00:45<00:15,  1.88it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  77%|███████▋  | 99/128 [00:45<00:12,  2.29it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  78%|███████▊  | 100/128 [00:46<00:11,  2.35it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  79%|███████▉  | 101/128 [00:46<00:14,  1.87it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  80%|████████  | 103/128 [00:47<00:11,  2.19it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  81%|████████▏ | 104/128 [00:48<00:11,  2.00it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  82%|████████▏ | 105/128 [00:48<00:09,  2.44it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  83%|████████▎ | 106/128 [00:49<00:09,  2.24it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  84%|████████▎ | 107/128 [00:49<00:10,  2.03it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  84%|████████▍ | 108/128 [00:49<00:08,  2.43it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  85%|████████▌ | 109/128 [00:50<00:08,  2.34it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  86%|████████▌ | 110/128 [00:50<00:08,  2.15it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  87%|████████▋ | 111/128 [00:51<00:07,  2.42it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  88%|████████▊ | 112/128 [00:51<00:06,  2.43it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  88%|████████▊ | 113/128 [00:52<00:07,  2.03it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  89%|████████▉ | 114/128 [00:52<00:05,  2.41it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  90%|████████▉ | 115/128 [00:52<00:05,  2.43it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  91%|█████████ | 116/128 [00:53<00:06,  1.84it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  92%|█████████▏| 118/128 [00:54<00:03,  2.58it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  93%|█████████▎| 119/128 [00:55<00:04,  1.93it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  95%|█████████▍| 121/128 [00:55<00:02,  2.48it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  95%|█████████▌| 122/128 [00:56<00:03,  1.99it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  97%|█████████▋| 124/128 [00:56<00:01,  2.59it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+prompt_batches:  98%|█████████▊| 125/128 [00:57<00:01,  1.90it/s][AINFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+prompt_batches:  99%|█████████▉| 127/128 [00:58<00:00,  2.48it/s][AINFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+prompt_batches: 100%|██████████| 128/128 [00:59<00:00,  2.01it/s][Aprompt_batches: 100%|██████████| 128/128 [00:59<00:00,  2.17it/s]
+INFO:root:Completed 128 examples in 59.1 seconds.
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+Annotation chunk:  86%|████████▌ | 6/7 [02:02<00:35, 35.09s/it]INFO:root:Annotating 37 examples with weighted_alpaca_eval_judge
+INFO:root:Using `openai_completions` on 37 prompts using gpt-4o-2024-08-06.
+INFO:root:Kwargs to completion: {'model': 'gpt-4o-2024-08-06', 'temperature': 1, 'logprobs': True, 'top_logprobs': 5, 'is_chat': True}. num_procs=3
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:   0%|          | 0/37 [00:00<?, ?it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+
+prompt_batches:   3%|▎         | 1/37 [00:01<01:02,  1.74s/it]INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+[AWARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  11%|█         | 4/37 [00:03<00:26,  1.27it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  19%|█▉        | 7/37 [00:04<00:15,  1.90it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  22%|██▏       | 8/37 [00:04<00:14,  1.95it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  24%|██▍       | 9/37 [00:05<00:12,  2.19it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  27%|██▋       | 10/37 [00:05<00:14,  1.84it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  30%|██▉       | 11/37 [00:06<00:15,  1.69it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  35%|███▌      | 13/37 [00:07<00:11,  2.07it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  38%|███▊      | 14/37 [00:07<00:11,  1.96it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  41%|████      | 15/37 [00:08<00:10,  2.00it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  43%|████▎     | 16/37 [00:08<00:09,  2.18it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  46%|████▌     | 17/37 [00:09<00:09,  2.10it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  49%|████▊     | 18/37 [00:09<00:09,  1.91it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  54%|█████▍    | 20/37 [00:10<00:07,  2.23it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  57%|█████▋    | 21/37 [00:11<00:08,  1.99it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  59%|█████▉    | 22/37 [00:11<00:06,  2.32it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  62%|██████▏   | 23/37 [00:11<00:05,  2.53it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  65%|██████▍   | 24/37 [00:12<00:06,  2.06it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  68%|██████▊   | 25/37 [00:12<00:04,  2.49it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  70%|███████   | 26/37 [00:12<00:04,  2.74it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  73%|███████▎  | 27/37 [00:14<00:05,  1.75it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  76%|███████▌  | 28/37 [00:14<00:04,  2.05it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  81%|████████  | 30/37 [00:15<00:03,  2.00it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  84%|████████▍ | 31/37 [00:15<00:03,  1.94it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+prompt_batches:  89%|████████▉ | 33/37 [00:16<00:01,  2.08it/s][AINFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING:root:/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/client_configs/openai_configs.yaml wasn't found. We are using environment variables to construct the client configs.This is the old and non-recommended way of doing it. Please see `client_configs/README.md` for the recommended way of specifying client configs.
+INFO:root:Using OAI client number 1 out of 1.
+INFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+prompt_batches:  92%|█████████▏| 34/37 [00:17<00:01,  2.04it/s][AINFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+prompt_batches:  97%|█████████▋| 36/37 [00:18<00:00,  2.02it/s][AINFO:httpx2:HTTP Request: POST https://api2.aigcbest.top/v1/chat/completions "HTTP/1.1 200 OK"
+
+prompt_batches: 100%|██████████| 37/37 [00:18<00:00,  2.04it/s][Aprompt_batches: 100%|██████████| 37/37 [00:18<00:00,  1.97it/s]
+INFO:root:Completed 37 examples in 18.8 seconds.
+INFO:root:Saving all annotations to /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+INFO:root:Loading all annotations from /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2/annotator/annotations_seed0_configs.json.
+Annotation chunk: 100%|██████████| 7/7 [02:21<00:00, 29.79s/it]Annotation chunk: 100%|██████████| 7/7 [02:21<00:00, 20.17s/it]
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:2071: FutureWarning: The default value for l1_ratios will change from None to (0.0,) in version 1.10. From version 1.10 onwards, only array-like with values in [0, 1] will be allowed, None will be forbidden. To avoid this warning, explicitly set a value, e.g. l1_ratios=(0,).
+  warnings.warn(
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:2102: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratios' and 'Cs' instead. Use l1_ratios=(0,) instead of penalty='l2', l1_ratios=(1,) instead of penalty='l1', l1_ratios set to floats between 0 and 1 instead of penalty='elasticnet', and Cs=(np.inf,) instead of penalty=None.
+  warnings.warn(
+/media/ardeawang/TSR/tsr-reproduction/.venv/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:2129: FutureWarning: The fitted attributes of LogisticRegressionCV will be simplified in scikit-learn 1.10 to remove redundancy. Set`use_legacy_attributes=False` to enable the new behavior now, or set it to `True` to silence this warning during the transition period while keeping the deprecated behavior for the time being. The default value of use_legacy_attributes will change from True to False in scikit-learn 1.10. See the docstring of LogisticRegressionCV for more details.
+  warnings.warn(
+INFO:root:Saving all results to /media/ardeawang/TSR/tsr-reproduction/work/alpaca_eval/M0_seed2
+INFO:root:Not saving the result to the cached leaderboard because precomputed_leaderboard is not a path but <class 'NoneType'>.
+          win_rate  standard_error       mode  avg_length  n_wins  n_wins_base  n_draws  n_total  discrete_win_rate  length_controlled_winrate  lc_standard_error
+M0_seed2  4.397664        0.631751  community        1355      32          773        0      805           3.975155                   5.633737           0.160873

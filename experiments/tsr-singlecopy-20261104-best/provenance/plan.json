@@ -1,0 +1,66 @@
+{
+  "commit": "aa7200a3538a1a6e89518016dc275226363fc52c",
+  "work": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104",
+  "sft_reused": "/media/ardeawang/TSR/tsr-reproduction/work/models/M0",
+  "sft_mask_system_user": false,
+  "dpo_epochs": 1,
+  "data_repetitions": 1,
+  "global_batch_size": 32,
+  "train_seed": 42,
+  "retrain_common": [
+    "Mf0",
+    "M1",
+    "Mf1"
+  ],
+  "sr1": false,
+  "wof": false,
+  "variants": [
+    {
+      "model": "M2",
+      "pair_flags": [],
+      "gpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "model": "M2_gt_keep",
+      "pair_flags": [
+        "--strict"
+      ],
+      "gpus": [
+        2,
+        3
+      ]
+    },
+    {
+      "model": "M2_ge_filter",
+      "pair_flags": [
+        "--filter"
+      ],
+      "gpus": [
+        4,
+        5
+      ]
+    },
+    {
+      "model": "M2_gt_filter",
+      "pair_flags": [
+        "--strict",
+        "--filter"
+      ],
+      "gpus": [
+        6,
+        7
+      ]
+    }
+  ],
+  "eval": {
+    "benchmark": "AlpacaEval",
+    "seed": 0,
+    "temperature": 1,
+    "top_p": 1,
+    "max_tokens": 1024,
+    "judge": "gpt-4o-2024-08-06"
+  }
+}

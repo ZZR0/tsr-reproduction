@@ -1,0 +1,23 @@
+{
+ "file": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_chosen_judgement.json",
+ "n_items": 5000,
+ "n_judgments": 35000,
+ "parse_fail_rate": 0.0,
+ "out_of_range_rate": 0.0,
+ "group_all_tie_rate": 0.3424,
+ "group_max_is_5_rate": 0.9992,
+ "score_dist": {
+  "0": 6,
+  "1.0": 12,
+  "2.0": 20,
+  "3.0": 87,
+  "4.0": 5936,
+  "4.5": 10,
+  "4.8": 2,
+  "4.9": 1,
+  "5.0": 28925,
+  "10.0": 1
+ },
+ "score_mean": 4.821,
+ "resp_mean_chars": 1833
+}

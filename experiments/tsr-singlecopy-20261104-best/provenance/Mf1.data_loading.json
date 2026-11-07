@@ -1,0 +1,11 @@
+{
+  "directory": "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/trainsets/Mf1",
+  "source_pairs": 5000,
+  "repetitions": 1,
+  "loaded_rows": 5000,
+  "expected_steps": 156,
+  "files": [
+    "/media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/trainsets/Mf1/train.json"
+  ],
+  "canonical_sha256": "5fcb6036ba938b0fb0d3f0c6d49bebf6a481fdb8cbbaf19338da44f29f865a87"
+}

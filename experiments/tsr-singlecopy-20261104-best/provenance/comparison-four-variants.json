@@ -1,0 +1,38 @@
+[
+  {
+    "model": "M2_ge_filter",
+    "future_comparison": ">=",
+    "filter_equal_scores": true,
+    "LC": 25.354906337990723,
+    "Win": 28.80625874322982,
+    "length": 2320,
+    "n": 805
+  },
+  {
+    "model": "M2",
+    "future_comparison": ">=",
+    "filter_equal_scores": false,
+    "LC": 23.583839975295625,
+    "Win": 26.798435725213626,
+    "length": 2332,
+    "n": 805
+  },
+  {
+    "model": "M2_gt_filter",
+    "future_comparison": ">",
+    "filter_equal_scores": true,
+    "LC": 22.87260716594143,
+    "Win": 22.99973509776933,
+    "length": 1979,
+    "n": 805
+  },
+  {
+    "model": "M2_gt_keep",
+    "future_comparison": ">",
+    "filter_equal_scores": false,
+    "LC": 22.813169196913936,
+    "Win": 22.834043358705635,
+    "length": 1975,
+    "n": 805
+  }
+]

@@ -1,0 +1,51 @@
+[2026-11-04 13:39:30] pairs D1: {"rejected_from_Mi":5000,"identical_pair":33,"tie_pair":16,"n_prompts":5000,"n_pairs":5000,"gap_mean":3.469,"gap_median":4.0,"matches_official":true}
+[2026-11-04 13:40:36] skip pairs D1 (exists)
+[2026-11-04 13:40:40] dpo Mf0  init=M0 data=Mf0  (2 GPUs)
+[2026-11-04 14:48:30] gen 0_future_response  <- Mf0
+[2026-11-04 14:50:25] alpaca_eval judge Mf0  (judge gpt-4o-2024-08-06)
+[2026-11-04 14:58:30] alpaca_eval Mf0: Mf0,10.541313853662471,0.9436608170154612,community,1563,84,719,2,805,10.559006211180124,13.013036173786213,0.22619569182968294
+merged 5000 -> /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter0/0_future_response.json.tmp
+[2026-11-04 15:09:01] judge 0_future_judgement  <- M0
+merged 5000 -> /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter0/0_future_judgement.json.tmp
+[2026-11-04 15:35:12] pairs D2: {"rejected_from_Mi":5000,"chosen_from_Mf":4670,"chosen_from_Mf_by_tie":3828,"identical_pair":18,"tie_pair":7,"chosen_from_Mi":330,"n_prompts":5000,"n_pairs":5000,"gap_mean":3.663,"gap_median":4.0,"matches_official":true}
+[2026-11-04 15:35:16] dpo M1  init=M0 data=M1  (2 GPUs)
+[2026-11-04 16:43:31] gen 1_chosen_response  <- M1
+[2026-11-04 16:45:42] alpaca_eval judge M1  (judge gpt-4o-2024-08-06)
+[2026-11-04 16:54:04] alpaca_eval M1: M1,20.06931330688972,1.2462663280283286,community,1864,160,644,1,805,19.937888198757765,21.01080987523531,0.11484135339381459
+merged 5000 -> /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_chosen_response.json.tmp
+[2026-11-04 17:07:05] judge 1_chosen_judgement  <- M1
+merged 5000 -> /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_chosen_judgement.json.tmp
+[2026-11-04 17:36:52] judge 1_rejected_judgement  <- M1
+merged 5000 -> /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_rejected_judgement.json.tmp
+[2026-11-04 18:04:33] pairs D1: {"rejected_from_Mi":2394,"identical_pair":240,"tie_pair":230,"rejected_from_M0":2606,"n_prompts":5000,"n_pairs":5000,"gap_mean":1.734,"gap_median":1.0,"matches_official":true}
+[2026-11-04 18:04:37] dpo Mf1  init=M1 data=Mf1  (2 GPUs)
+[2026-11-04 19:14:42] gen 1_future_response  <- Mf1
+[2026-11-04 19:16:56] alpaca_eval judge Mf1  (judge gpt-4o-2024-08-06)
+[2026-11-04 19:24:07] alpaca_eval Mf1: Mf1,22.33375929293263,1.30054957479274,community,2000,186,619,0,805,23.1055900621118,21.961411163391595,0.0298295581236949
+merged 5000 -> /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_future_response.json.tmp
+[2026-11-04 19:39:57] judge 1_future_judgement  <- M1
+merged 5000 -> /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/data/iter1/1_future_judgement.json.tmp
+[2026-11-04 20:10:53] pairs D2: {"rejected_from_Mi":2394,"chosen_from_Mf":4998,"chosen_from_Mf_by_tie":4991,"identical_pair":10,"tie_pair":230,"rejected_from_M0":2606,"chosen_from_Mi":2,"n_prompts":5000,"n_pairs":5000,"gap_mean":1.738,"gap_median":1.0,"matches_official":true}
+[2026-11-04 20:10:56] pairs D2: {"rejected_from_Mi":2394,"chosen_from_Mi":4993,"identical_pair":240,"tie_pair":230,"rejected_from_M0":2606,"chosen_from_Mf":7,"chosen_from_Mf_by_tie":0,"n_prompts":5000,"n_pairs":5000,"gap_mean":1.738,"gap_median":1.0}
+[2026-11-04 20:11:00] pairs D2: {"rejected_from_Mi":2394,"chosen_from_Mf":4998,"chosen_from_Mf_by_tie":4991,"identical_pair":10,"tie_pair":230,"rejected_from_M0":2606,"filtered_out":230,"chosen_from_Mi":2,"n_prompts":5000,"n_pairs":4770,"gap_mean":1.821,"gap_median":1.0}
+[2026-11-04 20:11:03] pairs D2: {"rejected_from_Mi":2394,"chosen_from_Mi":4993,"identical_pair":240,"tie_pair":230,"rejected_from_M0":2606,"filtered_out":230,"chosen_from_Mf":7,"chosen_from_Mf_by_tie":0,"n_prompts":5000,"n_pairs":4770,"gap_mean":1.821,"gap_median":1.0}
+[2026-11-04 20:11:09] dpo M2_gt_filter  init=M1 data=M2_gt_filter  (2 GPUs)
+[2026-11-04 20:11:09] dpo M2  init=M1 data=M2  (2 GPUs)
+[2026-11-04 20:11:09] dpo M2_gt_keep  init=M1 data=M2_gt_keep  (2 GPUs)
+[2026-11-04 20:11:09] dpo M2_ge_filter  init=M1 data=M2_ge_filter  (2 GPUs)
+[2026-11-04 21:29:41] alpaca_eval judge M2_gt_filter  (judge gpt-4o-2024-08-06)
+[2026-11-04 21:30:27] ERROR: dpo M2, see /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/logs/dpo_M2.log
+[2026-11-04 21:33:50] ERROR: alpaca_eval M2_gt_filter, see /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/logs/alpaca_eval_M2_gt_filter.log
+[2026-11-04 21:37:24] alpaca_eval judge M2_ge_filter  (judge gpt-4o-2024-08-06)
+[2026-11-04 21:44:55] ERROR: alpaca_eval M2_ge_filter, see /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/logs/alpaca_eval_M2_ge_filter.log
+[2026-11-04 22:35:06] alpaca_eval judge M2_ge_filter  (judge gpt-4o-2024-08-06)
+[2026-11-04 22:35:26] alpaca_eval M2_ge_filter: M2_ge_filter,28.80625874322982,1.445233608374823,community,2320,236,569,0,805,29.316770186335404,25.354906337990723,0.03752489526324206
+[2026-11-04 22:35:26] alpaca_eval judge M2_gt_filter  (judge gpt-4o-2024-08-06)
+[2026-11-04 22:41:37] alpaca_eval M2_gt_filter: M2_gt_filter,22.99973509776933,1.3230130342281192,community,1979,183,619,3,805,22.919254658385093,22.87260716594143,0.07171659978408723
+[2026-11-04 22:41:38] alpaca_eval judge M2_gt_keep  (judge gpt-4o-2024-08-06)
+[2026-11-04 22:48:21] ERROR: alpaca_eval M2_gt_keep, see /media/ardeawang/TSR/tsr-reproduction/work-tsr-singlecopy-20261104/logs/alpaca_eval_M2_gt_keep.log
+[2026-11-04 22:48:31] alpaca_eval judge M2_gt_keep  (judge gpt-4o-2024-08-06)
+[2026-11-04 22:52:53] alpaca_eval M2_gt_keep: M2_gt_keep,22.834043358705635,1.3155932309137897,community,1975,184,620,1,805,22.919254658385093,22.813169196913936,0.05063101957073631
+[2026-11-05 15:47:47] dpo M2  init=M1 data=M2  (2 GPUs)
+[2026-11-05 17:01:57] alpaca_eval judge M2  (judge gpt-4o-2024-08-06)
+[2026-11-05 17:09:30] alpaca_eval M2: M2,26.798435725213626,1.4096496090496302,community,2332,220,585,0,805,27.32919254658385,23.583839975295625,0.00118916813699189
