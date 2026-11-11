@@ -143,9 +143,18 @@ sft() {
 
 _train() {
   local cfg=$1 script=$2 logf=$3
+  local entry=("$script")
+  if [ -n "${TSR_RANK_CACHE_ROOT:-}" ]; then
+    entry=("$REPO/src/rank_training.py" "$script")
+  fi
+  local train_result=0
   ( cd "$TSR_DIR/alignment-handbook" && CUDA_VISIBLE_DEVICES=$GPUS "$PY" -m accelerate.commands.launch \
       --config_file "$TSR_DIR/settings/tsr/config/deepspeed_zero3.yaml" --num_processes "$NGPU" \
-      --main_process_port $((29500 + RANDOM % 1000)) "$script" "$cfg" ) > "$logf" 2>&1
+      --main_process_port $((29500 + RANDOM % 1000)) "${entry[@]}" "$cfg" ) > "$logf" 2>&1 || train_result=$?
+  if [ -n "${TSR_TENSORBOARD_LOCAL_ROOT:-}" ]; then
+    "$PY" "$REPO/src/rank_training.py" --sync-tensorboard "$cfg" "$WORK_DIR/tensorboard" || return $?
+  fi
+  return "$train_result"
 }
 
 # alpaca NAME MODEL  -> $EVAL/NAME/{model_outputs.json, leaderboard.csv, annotations.json}

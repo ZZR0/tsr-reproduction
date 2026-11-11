@@ -1,0 +1,10 @@
+{
+ "model": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-future-only-1111e8/trial/models/Mf0",
+ "n": 805,
+ "seed": 0,
+ "temperature": 1.0,
+ "mean_chars": 1591.3714285714286,
+ "empty_rate": 0.0,
+ "eos_rate": 0.9875776397515528,
+ "truncated_rate": 0.012422360248447204
+}

@@ -4,3 +4,6 @@ work/
 third_party/
 __pycache__/
 *.pyc
+
+# Isolated TSR runtime and downloaded toolchain
+.runtime/

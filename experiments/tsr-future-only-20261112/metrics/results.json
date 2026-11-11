@@ -1,0 +1,100 @@
+{
+  "evaluations": [
+    {
+      "model": "M0",
+      "seed": 0,
+      "n": 805,
+      "lc": 7.7339813894284655,
+      "soft_win": 6.214597114799773,
+      "discrete_win": 5.962732919254658,
+      "average_chars": 1379.0,
+      "truncation_rate": 0.007453416149068323,
+      "judge": "gpt-4o-2024-08-06",
+      "reference_sha256": "f90dac29878557296f0f2d79adbd25eeef69bc09478a2af1e708a8ed2016950d"
+    },
+    {
+      "model": "M0_seed1",
+      "seed": 1,
+      "n": 805,
+      "lc": 8.563212030532124,
+      "soft_win": 6.703218142880485,
+      "discrete_win": 6.3354037267080745,
+      "average_chars": 1399.0,
+      "truncation_rate": 0.013664596273291925,
+      "judge": "gpt-4o-2024-08-06",
+      "reference_sha256": "f90dac29878557296f0f2d79adbd25eeef69bc09478a2af1e708a8ed2016950d"
+    },
+    {
+      "model": "M0_seed2",
+      "seed": 2,
+      "n": 805,
+      "lc": 6.465142601159449,
+      "soft_win": 5.362851326275582,
+      "discrete_win": 5.217391304347826,
+      "average_chars": 1400.0,
+      "truncation_rate": 0.02111801242236025,
+      "judge": "gpt-4o-2024-08-06",
+      "reference_sha256": "f90dac29878557296f0f2d79adbd25eeef69bc09478a2af1e708a8ed2016950d"
+    },
+    {
+      "model": "Mf0",
+      "seed": 0,
+      "n": 805,
+      "lc": 14.83501411928889,
+      "soft_win": 12.364486476813703,
+      "discrete_win": 12.48447204968944,
+      "average_chars": 1591.0,
+      "truncation_rate": 0.012422360248447204,
+      "judge": "gpt-4o-2024-08-06",
+      "reference_sha256": "f90dac29878557296f0f2d79adbd25eeef69bc09478a2af1e708a8ed2016950d"
+    },
+    {
+      "model": "M1",
+      "seed": 0,
+      "n": 805,
+      "lc": 19.452880109098764,
+      "soft_win": 18.98127417357494,
+      "discrete_win": 18.32298136645963,
+      "average_chars": 1881.0,
+      "truncation_rate": 0.011180124223602485,
+      "judge": "gpt-4o-2024-08-06",
+      "reference_sha256": "f90dac29878557296f0f2d79adbd25eeef69bc09478a2af1e708a8ed2016950d"
+    },
+    {
+      "model": "Mf1",
+      "seed": 0,
+      "n": 805,
+      "lc": 23.4019351805114,
+      "soft_win": 26.641915266303034,
+      "discrete_win": 27.142857142857142,
+      "average_chars": 2268.0,
+      "truncation_rate": 0.02111801242236025,
+      "judge": "gpt-4o-2024-08-06",
+      "reference_sha256": "f90dac29878557296f0f2d79adbd25eeef69bc09478a2af1e708a8ed2016950d"
+    },
+    {
+      "model": "M2_future_only",
+      "seed": 0,
+      "n": 805,
+      "lc": 19.3324378368711,
+      "soft_win": 29.673353569236895,
+      "discrete_win": 29.37888198757764,
+      "average_chars": 3147.0,
+      "truncation_rate": 0.0782608695652174,
+      "judge": "gpt-4o-2024-08-06",
+      "reference_sha256": "f90dac29878557296f0f2d79adbd25eeef69bc09478a2af1e708a8ed2016950d"
+    }
+  ],
+  "m0_three_generation_seed_mean": {
+    "lc": 7.587445340373346,
+    "soft_win": 6.09355552798528,
+    "discrete_win": 5.838509316770185,
+    "average_chars": 1392.6666666666667
+  },
+  "notes": [
+    "Three generation seeds of one SFT model, not three independent training seeds.",
+    "LC and soft Win use the same frozen reference and scoring code for all models.",
+    "Paper Win soft/hard implementation has not been verified; numeric comparisons are descriptive.",
+    "M2 future-only changes only second-round D2, not iter0 or Mf1 D1."
+  ]
+}

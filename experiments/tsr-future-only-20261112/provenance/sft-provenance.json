@@ -1,0 +1,76 @@
+{
+  "source_run": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-future-only-1111c",
+  "source_model": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-future-only-1111c/trial/models/M0",
+  "source_gpus": 2,
+  "optimizer_resume": false,
+  "training_repeated": false,
+  "global_batch": 32,
+  "native_global_step": 180,
+  "source_config_sha256": "7f37f1d1f16c5afa7c481a2364affb163d4bca57d8b2e68692f9a81603c9e118",
+  "files": {
+    "eval_results.json": {
+      "bytes": 201,
+      "sha256": "3cd0d77a52b2d89bad00c943a01abf09561f2ed8e572498f2eb4c237a39e2dd2"
+    },
+    "all_results.json": {
+      "bytes": 410,
+      "sha256": "466e8b81afd274c05c4f602fa338947b935cabb68facf34b130c7fecdfff9549"
+    },
+    "trainer_state.json": {
+      "bytes": 8040,
+      "sha256": "1432fb8afe07c637360c22e11c586764ab4e7b8b3cf01b89939e8cf01b6cf160"
+    },
+    "config.json": {
+      "bytes": 924,
+      "sha256": "e05286840914c7a60697b44397991c577f4726ebd52adaac7b6b41e16c5c19bd"
+    },
+    "tokenizer.json": {
+      "bytes": 17209920,
+      "sha256": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b"
+    },
+    "pytorch_model-00001-of-00004.bin": {
+      "bytes": 4976717314,
+      "sha256": "049f64a84c64905088b09a59c7c255eef0a2bec368f10773c8f255b6031502c2"
+    },
+    "pytorch_model-00003-of-00004.bin": {
+      "bytes": 4915938762,
+      "sha256": "96e3b9554602fcedb244559fd5cc36bb9b7f33ea4eec24341ba68b007200c465"
+    },
+    "pytorch_model-00002-of-00004.bin": {
+      "bytes": 4999826246,
+      "sha256": "db90d9662ccefc4cf6ea2b74a53e5f17bd4928e23ee7e617d3d44294b76838f6"
+    },
+    "train_results.json": {
+      "bytes": 243,
+      "sha256": "1c019a3c40fec71536c55534f80d659ffd977340c3d3e853b04978c5552e53d9"
+    },
+    "pytorch_model-00004-of-00004.bin": {
+      "bytes": 1168140873,
+      "sha256": "f4bd9708fe52183848c26b22f11e446142fae908104fb5e32cbd138829b15143"
+    },
+    "training_args.bin": {
+      "bytes": 7224,
+      "sha256": "c6107d88b4c519642c4d5f1be11a9405cd2fc61863c92b86e3ec96b73cefe362"
+    },
+    "pytorch_model.bin.index.json": {
+      "bytes": 23950,
+      "sha256": "9dbd847ac143506b53ff7fb4839101e826bf3e6ca41796607157d0893b62c852"
+    },
+    ".done": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "special_tokens_map.json": {
+      "bytes": 335,
+      "sha256": "849070cae53bd45439e64ce5b1ddd650a66081b1bd47895c5a58939a05055579"
+    },
+    "generation_config.json": {
+      "bytes": 180,
+      "sha256": "a1ea7ccc959cebb952bdcc66ce6583a240d72a7039ac1cc059318991bc06657a"
+    },
+    "tokenizer_config.json": {
+      "bytes": 50979,
+      "sha256": "d6b03c97fb8dcbb92196a8a23133ea55575b24bcee7c2bec0899155fcb5fcf4f"
+    }
+  }
+}

@@ -51,6 +51,17 @@ No further filtering: pairs whose chosen and rejected scores are equal are kept 
 
 ## DPO
 
+### Local second-round default: future-only chosen
+
+As of 2026-11-11, the default `run.sh iter1` uses `future_only`. For each prompt, choose
+Mf1's highest-scored answer unconditionally, and reject the lowest-scored answer across
+M1 and M0 (ties prefer M1). Scores remain M1's plain self-judgements. Keep the pair only
+when `score(chosen) > score(rejected)`; discard equal or reversed scores. D1/Mf1 remain
+unchanged. D2 is rebuilt on each invocation in `data/iter1_future_only/D2`, and M2 is
+trained from M1 into `models/M2_future_only`. The input is still isolated by `make_cfg.py`
+to prevent duplicate loading. `iter1 main` explicitly restores the historical selection
+rule described above. The completed result is archived under `experiments/tsr-future-only-20261112`: M2 LC19.3324 /soft Win29.6734, versus Mf1 LC23.4019 /soft Win26.6419.
+
 - Upstream `alignment-handbook/scripts/run_dpo.py` with patch 0001 (prepend BOS).
 - Hyperparameters (upstream `settings/sr/config/dpo/config_full_iter0.yaml`, identical to the TSR configs except paths):
   lr 5e-7, β 0.1, 1 epoch (156 steps), cosine schedule, warmup ratio 0.1, max_length 2048, max_prompt_length 512,
@@ -90,3 +101,47 @@ No further filtering: pairs whose chosen and rejected scores are equal are kept 
 torch 2.5.1 (cu124), transformers 4.46.3, trl 0.12.2, accelerate 1.1.1, deepspeed 0.15.4, vllm 0.6.4.post1,
 flash-attn 2.7.2.post1, datasets 2.21.0, alpaca_eval 0.6.6, Python 3.11.17; 2 × NVIDIA A800-SXM4-80GB.
 Old-stack check: trl 0.9.6, transformers 4.43.4 (4.39.3 cannot load Llama-3.1), deepspeed 0.14.4, accelerate 0.33.0.
+
+
+## Completed SN5 run and launch helpers
+
+The full future-only result is in [the complete archive](../experiments/tsr-future-only-20261112/README.md).
+SFT completed on2H200 (micro2, accumulation8,180updates); native final M0 was verified and reused.
+The following four DPO stages used8H200 (micro1, accumulation4), keeping global batch32.
+Mf0/M1/Mf1 each trained156updates; M2 trained148updates on4,732positive-gap pairs.
+The GPU Job completed and released its allocation after training and response generation.
+
+`python scripts/prepare_sn5.py --run-name NAME --gpus 8 --node any-sn5` freezes a single-node
+SN5/H200 job specification but does not submit it. An exact `--node` is also supported.
+`--sft-source-run PATH` reuses only a fully completed native M0 after verifying code, data,
+base manifests, state and weight hashes. This is a stage-boundary reuse, not optimizer resume.
+Do not delete the source M0 while another run references it.
+
+`sn5_driver.py` validates the visible GPU count and global batch, runs an isolated2-update
+SFT/DPO smoke plus K7generation/self-judging, and then executes the original pipeline stages.
+On Lustre, `rank_training.py` gives ranks separate dataset caches and writes TensorBoard
+locally before copying final event files to shared storage. No optimizer checkpoints are introduced.
+Candidate generation/self-judging use8independent shards; changing the original2-way sharding
+can change sampled candidates even when sampling parameters and seeds are unchanged.
+
+`python scripts/score_when_ready.py --run RUN --credentials PRIVATE_JSON` runs without GPUs.
+It reads JUDGE_API_KEY, JUDGE_BASE_URL and JUDGE_MODEL from a private JSON file (mode600;
+parent directory mode700), waits for the7planned complete805-question outputs, and uses
+the frozen scoring code and reference. Use `gpt-4o-2024-08-06` and your own compatible
+endpoint. Never commit credential values or private service endpoints. API429/5xx/connection
+failures get at most3attempts per model, preserving completed annotation caches.
+After retry exhaustion, fix the endpoint and rerun the same command to resume.
+Completed models are validated and reused. The scorer reports in `scoring/status.json`,
+with `EVALUATION_COMPLETED.json` as the final seven-evaluation completion marker.
+The frozen GPU driver's historical awaiting-credentials text does not describe CPU scoring.
+
+`python scripts/early_eval.py --run RUN --models M1 Mf1` can generate those completed
+models' planned seed0evaluations early on one temporarily allocated GPU. It publishes
+complete outputs atomically, preserves the original generator settings, and avoids overwriting
+outputs of the final driver. Supply USER and LOGNAME in nonroot containers whose numeric UID
+is absent from /etc/passwd; use a writable HOME/cache directory. The CPU scorer consumes
+these outputs and the final driver skips them.
+
+Retention keeps stage-final models, canonical training pairs, configs and compact metrics;
+consumed raw candidates/judgements and duplicate loader snapshots are removed. Public
+archives contain final evaluations and statistics, not weights or raw training caches.

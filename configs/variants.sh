@@ -3,6 +3,7 @@
 #   name | pair flags for D1 (Mf1 data) | pair flags for D2 (M2 data) | Mf1 init | vLLM seed | needs p(score token)
 # "-" = same as the main run. If D1, Mf1 init and seed are all "-", the main run's Mf1 and future responses are reused.
 VARIANTS=(
+  "future_only|-|--future-only --filter|M1|-|0"                         # chosen exclusively from Mf1; positive score gap only
   "strict|-|--strict --filter|M1|-|0"                                    # paper Alg. 1: upgrade only if strictly better, keep s_chosen > s_rejected
   "rej_past|--rej_tie past|--rej_tie past|M1|-|0"                        # rejected past/current tie -> past
   "rej_past_conf|--rej_tie past --within conf|--rej_tie past --within conf|M1|-|1"  # + among same-score candidates take the highest p(score token)

@@ -18,6 +18,30 @@ the archive documents this gap. The original report and results below remain unc
 
 ## Results
 
+The latest complete run, including all metrics, per-question evaluations and figures:
+[TSR future-only (2026-11-12)](experiments/tsr-future-only-20261112/README.md).
+
+
+### Local second-round rule (2026-11-11)
+
+`bash run.sh iter1` now selects `future_only`: chosen is always Mf1's highest-scored answer,
+even if M1's best answer scores higher. Rejected remains the worst answer across M1 and M0
+(ties prefer M1). Only pairs with **chosen score > rejected score** are retained; tied and
+reversed preferences are discarded. All candidate scores are produced by M1. D1 and Mf1
+training retain their existing rules.
+
+The new D2 is rebuilt under `work/data/iter1_future_only/D2` (or the configured `WORK_DIR`)
+and the output model is `work/models/M2_future_only`. Historical D2 and M2 are separate.
+Run `bash run.sh eval M2_future_only` after training. `bash run.sh iter1 main` explicitly
+selects the historical current/future comparison. The completed run and all seven evaluations are archived in
+[experiments/tsr-future-only-20261112](experiments/tsr-future-only-20261112/README.md).
+M2 reaches **19.3324 LC /29.6734 soft Win**, with mean length3,147 characters.
+Mf1 reaches **23.4019 LC /26.6419 soft Win**: future-only raises soft Win but reduces LC.
+The tables below describe earlier historical runs, not this new run.
+
+The pair builder also exposes `--future-only`, which implies strict positive-gap filtering.
+Its `stats.json` records retained chosen sources, minimum score gap, and retained tie count.
+
 AlpacaEval 2.0, judge `gpt-4o-2024-08-06`, reference `gpt4_1106_preview`. LC / Win / mean length (characters).
 
 | Model | Ours | Paper |

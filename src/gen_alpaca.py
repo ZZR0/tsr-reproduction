@@ -13,6 +13,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--model", required=True); ap.add_argument("--out", required=True)
 ap.add_argument("--seed", type=int, default=0); ap.add_argument("--temperature", type=float, default=1.0)
 ap.add_argument("--limit", type=int, default=0)
+ap.add_argument("--reference_outputs", help="Frozen AlpacaEval reference JSON; preserves archived question order")
 args = ap.parse_args()
 
 import yaml
@@ -24,7 +25,7 @@ TSR = os.environ["TSR_DIR"]
 TEMPLATE = yaml.safe_load(open(f"{TSR}/settings/sft/config/config.yaml"))["chat_template"]
 IFT_SYS = json.loads(open(f"{TSR}/data/sft_data/ift_train.jsonl").readline())["messages"][0]["content"]
 
-data = list(C.get_alpaca_eval_data())
+data = json.load(open(args.reference_outputs)) if args.reference_outputs else list(C.get_alpaca_eval_data())
 if args.limit: data = data[:args.limit]
 tok = AutoTokenizer.from_pretrained(args.model)
 tok.chat_template = TEMPLATE

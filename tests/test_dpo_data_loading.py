@@ -38,10 +38,10 @@ class DataLoadingTests(unittest.TestCase):
         write_rows(self.data / "train.json", self.records)
         self.cfg = self.root / "configs/M2.yaml"
 
-    def config(self, mode="dpo", check=True):
+    def config(self, mode="dpo", check=True, ngpu=2):
         return subprocess.run([sys.executable, str(REPO / "src/make_cfg.py"), mode,
             "--name", "M2", "--init", "base-model", "--data", str(self.data),
-            "--out_dir", str(self.root / "model"), "--ngpu", "2", "--cfg", str(self.cfg)],
+            "--out_dir", str(self.root / "model"), "--ngpu", str(ngpu), "--cfg", str(self.cfg)],
             env=self.env, text=True, capture_output=True, check=check)
 
     def configured_rows(self):
@@ -93,6 +93,20 @@ class DataLoadingTests(unittest.TestCase):
         self.assertEqual(path, self.data)
         self.assertCountEqual(loaded, self.records)
         self.assertEqual(config["num_train_epochs"], 3)
+
+    def test_eight_gpus_preserve_batch_and_scientific_settings(self):
+        for mode, micro, accumulation in [("sft", 2, 2), ("dpo", 1, 4)]:
+            with self.subTest(mode=mode):
+                self.config(mode=mode, ngpu=2)
+                previous = yaml.safe_load(self.cfg.read_text())
+                self.config(mode=mode, ngpu=8)
+                current = yaml.safe_load(self.cfg.read_text())
+                self.assertEqual(current["per_device_train_batch_size"], micro)
+                self.assertEqual(current["gradient_accumulation_steps"], accumulation)
+                self.assertEqual(8 * micro * accumulation, 32)
+                previous.pop("gradient_accumulation_steps")
+                current.pop("gradient_accumulation_steps")
+                self.assertEqual(current, previous)
 
     def test_comparison_files_stay_outside_new_pair_directories(self):
         chosen = self.root / "judgements.json"

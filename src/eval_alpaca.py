@@ -13,6 +13,7 @@ import argparse, json, os
 ap = argparse.ArgumentParser()
 ap.add_argument("--model_outputs", required=True); ap.add_argument("--name", required=True)
 ap.add_argument("--out_dir", required=True)
+ap.add_argument("--reference_outputs", help="Frozen AlpacaEval reference JSON from the archived experiment")
 args = ap.parse_args()
 
 os.environ["OPENAI_API_KEY"] = os.environ["JUDGE_API_KEY"]
@@ -23,7 +24,7 @@ import pandas as pd
 from alpaca_eval import constants as C, evaluate
 
 outputs = json.load(open(args.model_outputs))
-ref = list(C.get_alpaca_eval_data())[:len(outputs)]
+ref = (json.load(open(args.reference_outputs)) if args.reference_outputs else list(C.get_alpaca_eval_data()))[:len(outputs)]
 assert [o["instruction"] for o in outputs] == [r["instruction"] for r in ref], "outputs must follow AlpacaEval order"
 
 # Annotator config next to the results, so its annotation cache never mixes judges or models.

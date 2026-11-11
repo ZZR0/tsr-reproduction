@@ -1,0 +1,84 @@
+{
+  "iter0/D1": {
+    "statistics": {
+      "rejected_from_Mi": 5000,
+      "identical_pair": 43,
+      "tie_pair": 19,
+      "retained_tie_pairs": 19,
+      "n_prompts": 5000,
+      "n_pairs": 5000,
+      "chosen_policy": "current_best",
+      "strict_score_gap": false,
+      "gap_min": 0.0,
+      "gap_mean": 3.418,
+      "gap_median": 4.0,
+      "matches_official": true
+    },
+    "train_json_sha256": "2f1de98dd50ffad0be3d4fedcbbdab76b86a47f2d0c362236e86122062b31cec",
+    "bytes": 24692049
+  },
+  "iter0/D2": {
+    "statistics": {
+      "rejected_from_Mi": 5000,
+      "chosen_from_Mi": 348,
+      "identical_pair": 14,
+      "tie_pair": 8,
+      "retained_chosen_from_Mi": 348,
+      "retained_tie_pairs": 8,
+      "chosen_from_Mf": 4652,
+      "chosen_from_Mf_by_tie": 3800,
+      "retained_chosen_from_Mf": 4652,
+      "n_prompts": 5000,
+      "n_pairs": 5000,
+      "chosen_policy": "current_future_best",
+      "strict_score_gap": false,
+      "gap_min": 0.0,
+      "gap_mean": 3.629,
+      "gap_median": 4.0,
+      "matches_official": true
+    },
+    "train_json_sha256": "703b719c3dc3c43b69ecd85ec1a2202613be1441f7810a24a40627e133daf5dc",
+    "bytes": 25247523
+  },
+  "iter1/D1": {
+    "statistics": {
+      "rejected_from_Mi": 2334,
+      "identical_pair": 269,
+      "tie_pair": 269,
+      "retained_tie_pairs": 269,
+      "rejected_from_M0": 2666,
+      "n_prompts": 5000,
+      "n_pairs": 5000,
+      "chosen_policy": "current_best",
+      "strict_score_gap": false,
+      "gap_min": 0.0,
+      "gap_mean": 1.727,
+      "gap_median": 1.0,
+      "matches_official": true
+    },
+    "train_json_sha256": "9fad39b6216191bf706ef74342c80ebf261ba879fe115e04cc0d5dd01742d107",
+    "bytes": 28265841
+  },
+  "iter1_future_only/D2": {
+    "statistics": {
+      "rejected_from_Mi": 2334,
+      "chosen_from_Mf": 5000,
+      "chosen_from_Mf_by_tie": 4993,
+      "identical_pair": 0,
+      "tie_pair": 268,
+      "retained_chosen_from_Mf": 4732,
+      "retained_tie_pairs": 0,
+      "rejected_from_M0": 2666,
+      "filtered_out": 268,
+      "n_prompts": 5000,
+      "n_pairs": 4732,
+      "chosen_policy": "future_only",
+      "strict_score_gap": true,
+      "gap_min": 0.5,
+      "gap_mean": 1.978,
+      "gap_median": 1.0
+    },
+    "train_json_sha256": "61b66528b48a81f19a0925217279372a145247931c96bd343157b37c5b10238e",
+    "bytes": 28542463
+  }
+}

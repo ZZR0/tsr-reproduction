@@ -24,9 +24,9 @@ stage_iter0() {
   dpo M1 "$M0" "$W/D2"
 }
 
-# stage_iter1 [VARIANT]   (variants: configs/variants.sh)
+# stage_iter1 [VARIANT] defaults to future_only; explicit main keeps the historical rules.
 stage_iter1() {
-  local tag=${1:-main} d1="-" d2="-" init=M1 seed="-" conf=0
+  local tag=${1:-future_only} d1="-" d2="-" init=M1 seed="-" conf=0
   if [ "$tag" != main ]; then
     . "$REPO/configs/variants.sh"; local row="" r
     for r in "${VARIANTS[@]}"; do [ "${r%%|*}" = "$tag" ] && row=$r; done
@@ -63,7 +63,19 @@ stage_iter1() {
     gen   "$MODELS/$mf1" "$Q" "${fut%_judgement.json}_response.json"
     judge "$MODELS/M1" "${fut%_judgement.json}_response.json" "$fut" ) || exit 1
   [ "$conf" = 1 ] && conf_of "$MODELS/M1" "$fut"
-  if [ "$d2" = "-" ]; then pairs future "$W/D2" "$c" "$r" "$fut"; else pairs future "$W/D2" "$c" "$r" "$fut" -- $d2; fi
+  if [ "$tag" = future_only ]; then
+    # Rebuild this small dataset even on resume: an existing train.json must not silently bypass the new rules.
+    "$PY" "$REPO/src/build_pairs.py" future --chosen "$c" --rejected "$r" --future "$fut" \
+      --out "$W/D2" --future-only --filter > "$LOGS/pairs_M2_future_only.log" 2>&1 || return $?
+    "$PY" - "$W/D2/stats.json" <<'EOF' || return $?
+import json, sys
+s = json.load(open(sys.argv[1]))
+assert s["chosen_policy"] == "future_only" and s["strict_score_gap"]
+assert s["n_pairs"] > 0 and s["gap_min"] > 0
+assert s.get("retained_chosen_from_Mi", 0) == 0 and s["retained_chosen_from_Mf"] == s["n_pairs"]
+assert s["retained_tie_pairs"] == 0
+EOF
+  elif [ "$d2" = "-" ]; then pairs future "$W/D2" "$c" "$r" "$fut"; else pairs future "$W/D2" "$c" "$r" "$fut" -- $d2; fi
   dpo "M2$sfx" "$MODELS/M1" "$W/D2"
 }
 
@@ -121,7 +133,7 @@ conf_of() {
 # AlpacaEval for every model that exists (or the ones given).
 stage_eval() {
   local names=("$@") n
-  [ ${#names[@]} -eq 0 ] && names=(M0 Mf0 M1 Mf1 M2 SR1 W1)
+  [ ${#names[@]} -eq 0 ] && names=(M0 Mf0 M1 Mf1 M2_future_only M2 SR1 W1)
   for n in "${names[@]}"; do
     if [ -f "$MODELS/$n/.done" ]; then alpaca "$n" "$MODELS/$n"; else log "skip eval $n (model not trained)"; fi
   done
