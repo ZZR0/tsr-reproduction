@@ -1,0 +1,16 @@
+{
+  "run": "tsr-llama31-8b-longer-gap-1112t",
+  "status": "completed",
+  "created_utc": "2026-11-12T15:36:22.575061+00:00",
+  "saved_stage_models": [
+    "Mf1",
+    "M1",
+    "M2_future_tie_longer_distinct",
+    "M0",
+    "Mf0"
+  ],
+  "completed_evaluation_models": [
+    "M2_future_tie_longer_distinct"
+  ],
+  "already_archived": false
+}

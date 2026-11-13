@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Self-judging health stats for a TSR *_judgement.json (official format: judgments[k][0], scores[k])."""
-import json, sys, re, collections
+import json, sys, re, collections, os
+if os.environ.get('TSR_DROP_INVALID_SCORES') == '1':
+    from score_validation import validation_summary
+    print(json.dumps(dict(file=sys.argv[1], **validation_summary(json.load(open(sys.argv[1])))), indent=1))
+    raise SystemExit(0)
 d = json.load(open(sys.argv[1])); SC = re.compile(r"Score:\s*(\d+(?:\.\d+)?)")
 n = 0; fail = 0; oor = 0; dist = collections.Counter(); alltie = 0; nmax5 = 0; lens = []
 for it in d:

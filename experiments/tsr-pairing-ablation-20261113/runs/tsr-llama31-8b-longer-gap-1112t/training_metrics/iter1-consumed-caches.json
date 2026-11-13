@@ -1,0 +1,71 @@
+[
+  {
+    "path": "data/iter1/1_chosen_judgement.json",
+    "bytes": 157432832,
+    "sha256": "16d84f9d9357c67f5a9486fb9cb9bd430759849b94a5f945a4944afb8dacf403",
+    "prompts": 5000,
+    "scores": {
+      "5.0": 26496,
+      "4.0": 8261,
+      "3.0": 111,
+      "None": 82,
+      "2.0": 12,
+      "4.5": 20,
+      "4.75": 7,
+      "1.0": 5,
+      "4.3": 1,
+      "0.0": 1,
+      "4.8": 1,
+      "4.25": 1,
+      "3.5": 1,
+      "4.9": 1
+    }
+  },
+  {
+    "path": "data/iter1/1_future_judgement.json",
+    "bytes": 182160596,
+    "sha256": "5cf033ba7ac9c6bebde6e370ec49d1d8d68007f11f252c69bca8c58d491a85eb",
+    "prompts": 5000,
+    "scores": {
+      "5.0": 26979,
+      "4.0": 7816,
+      "3.0": 108,
+      "None": 61,
+      "4.5": 20,
+      "2.0": 11,
+      "0.0": 2,
+      "1.0": 2,
+      "4.25": 1
+    }
+  },
+  {
+    "path": "data/iter1/1_future_response.json",
+    "bytes": 123664601,
+    "sha256": "9de307fd14850347ddfa22c318d294ee0bcdc6a8901fec1550ec7dc77de0d968"
+  },
+  {
+    "path": "data/iter1/1_rejected_judgement.json",
+    "bytes": 101567355,
+    "sha256": "a9574b7e83c7f11eb9cdf6001851911dee90e83e1ee85adf07d143d7cf21bdd3",
+    "prompts": 5000,
+    "scores": {
+      "5.0": 18144,
+      "4.0": 13214,
+      "3.0": 1475,
+      "1.0": 895,
+      "0.0": 457,
+      "2.0": 725,
+      "None": 68,
+      "4.5": 17,
+      "2.5": 2,
+      "3.5": 1,
+      "4.1": 1,
+      "1.5": 1
+    }
+  },
+  {
+    "path": "data/iter1/1_rejected_response.json",
+    "bytes": 52615547,
+    "sha256": "753d1c5c5cf6e60e87d0e041f74ea472353b34cd0146957d890b816f77d0da97"
+  }
+]

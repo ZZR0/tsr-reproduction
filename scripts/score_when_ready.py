@@ -1,4 +1,4 @@
-"""Score only this run's seven planned AlpacaEval outputs, without allocating a GPU."""
+"""Score planned AlpacaEval outputs or an explicitly selected subset, without a GPU."""
 import argparse
 import csv
 import datetime
@@ -89,9 +89,9 @@ def retryable_log(text):
     ])
 
 
-def score_with_retries(script, arguments, env, state_dir, name, completed):
+def score_with_retries(script, arguments, env, state_dir, name, completed, max_attempts=3):
     stamp = time.time_ns()
-    for attempt in range(1, 4):
+    for attempt in range(1, max_attempts + 1):
         log = state_dir / f"{name}-{stamp}-attempt{attempt}.log"
         atomic(state_dir / "status.json", dict(phase="scoring", model=name, attempt=attempt,
                                                completed=list(completed)))
@@ -99,11 +99,18 @@ def score_with_retries(script, arguments, env, state_dir, name, completed):
             call(script, arguments, env, log)
             return
         except RuntimeError:
-            if attempt == 3 or not log.exists() or not retryable_log(log.read_text()):
+            if attempt == max_attempts or not log.exists() or not retryable_log(log.read_text()):
                 raise
             atomic(state_dir / "status.json", dict(phase="retry_wait", model=name, attempt=attempt,
                    completed=list(completed), reason="transient_api_error", keep_annotation_cache=True))
-            time.sleep(30 * attempt)
+            time.sleep(min(30 * attempt, 60))
+
+
+def prioritize_names(names, priorities):
+    """Change scheduling order only; every planned evaluation remains included exactly once."""
+    if len(set(priorities)) != len(priorities) or any(n not in names for n in priorities):
+        raise ValueError("Priority models must be unique members of the frozen evaluation list")
+    return list(priorities) + [n for n in names if n not in priorities]
 
 
 def main():
@@ -112,8 +119,20 @@ def main():
     ap.add_argument("--credentials", type=Path, required=True)
     ap.add_argument("--timeout-hours", type=float, default=24)
     ap.add_argument("--poll-seconds", type=float, default=30)
+    ap.add_argument("--api-concurrency", type=int, default=16)
+    ap.add_argument("--max-model-attempts", type=int, default=3)
+    ap.add_argument("--only", nargs="+", help="Score only these unique members of the frozen evaluation list")
+    ap.add_argument("--prioritize", nargs="+", default=[], help="Score these planned models first, then all remaining models")
+    ap.add_argument("--eval-script", type=Path, help="Runtime scoring overlay within this run; frozen training bundle stays unchanged")
     args = ap.parse_args()
+    if not 1 <= args.api_concurrency <= 128:
+        ap.error("--api-concurrency must be between 1 and 128")
+    if not 1 <= args.max_model_attempts <= 20:
+        ap.error("--max-model-attempts must be between 1 and 20")
     run = args.run.resolve()
+    eval_script = args.eval_script.resolve() if args.eval_script else run / "bundle/src/eval_alpaca.py"
+    if run not in eval_script.resolve().parents:
+        raise RuntimeError("Scoring overlay must belong to this run")
     plan = json.loads((run / "run-plan.json").read_text())
     if plan["run_dir"] != str(run):
         raise RuntimeError("Run ownership differs")
@@ -127,7 +146,7 @@ def main():
     if args.credentials.stat().st_mode & 0o077:
         raise RuntimeError("Credentials must be readable only by their owner")
     env = dict(os.environ, **credentials, PYTHONDONTWRITEBYTECODE="1", CUDA_VISIBLE_DEVICES="",
-               OPENAI_LOG="warn", HF_HUB_DISABLE_XET="1")
+               OPENAI_LOG="warn", HF_HUB_DISABLE_XET="1", JUDGE_API_CONCURRENCY=str(args.api_concurrency))
     reference = run / "inputs/alpaca_reference.json"
     reference_rows = json.loads(reference.read_text())
     if len(reference_rows) != 805:
@@ -135,9 +154,17 @@ def main():
     names = plan["eval"]["model_outputs"]
     if len(names) != 7 or any(Path(n).name != n for n in names):
         raise RuntimeError("Unexpected evaluation model list")
+    if args.only is not None:
+        if not args.only or len(set(args.only)) != len(args.only) or any(n not in names for n in args.only):
+            raise RuntimeError("Selected models must be unique members of the frozen evaluation list")
+        names = list(args.only)
+    names = prioritize_names(names, args.prioritize)
     configured = dict(judge=credentials["JUDGE_MODEL"], base_url=credentials["JUDGE_BASE_URL"],
                       credential_file=str(args.credentials), gpu_required=False, names=names,
-                      frozen_eval_sha256=digest(run / "bundle/src/eval_alpaca.py"))
+                      frozen_eval_sha256=digest(run / "bundle/src/eval_alpaca.py"),
+                      active_eval_script=str(eval_script), active_eval_sha256=digest(eval_script),
+                      api_concurrency=args.api_concurrency, max_model_attempts=args.max_model_attempts,
+                      request_cache_root=str(state_dir / "request-cache"))
     atomic(run / "SCORING_CONFIGURED.json", configured)
     completed = {}
     start = time.monotonic()
@@ -158,9 +185,11 @@ def main():
                         raise RuntimeError(f"Existing scoring provenance differs: {name}")
                 atomic(state_dir / "status.json", dict(phase="scoring", model=name, completed=list(completed)))
                 if not marker.exists():
-                    score_with_retries(run / "bundle/src/eval_alpaca.py",
+                    model_env = dict(env, JUDGE_REQUEST_CACHE=str(state_dir / "request-cache" / name))
+                    score_with_retries(eval_script,
                          ["--model_outputs", outputs, "--name", name, "--out_dir", directory,
-                          "--reference_outputs", reference], env, state_dir, name, completed)
+                          "--reference_outputs", reference], model_env, state_dir, name, completed,
+                         max_attempts=args.max_model_attempts)
                 metrics = validate_result(directory, name)
                 result = dict(model=name, judge=credentials["JUDGE_MODEL"], base_url=credentials["JUDGE_BASE_URL"],
                               input_sha256=input_hash, reference_sha256=digest(reference), **metrics)

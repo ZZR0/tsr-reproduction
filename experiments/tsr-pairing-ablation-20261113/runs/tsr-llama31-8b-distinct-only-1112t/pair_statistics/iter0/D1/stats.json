@@ -1,0 +1,128 @@
+{
+  "stats": {
+    "rejected_from_Mi": 4967,
+    "retained_chosen_from_Mi": 4967,
+    "identical_pair": 0,
+    "retained_tie_pairs": 0,
+    "identical_text_combinations_excluded": 76,
+    "length_constraint_combinations_excluded": 0,
+    "valid_pair_combinations_total": 19984,
+    "high_pool_candidates_total": 12576,
+    "low_pool_candidates_total": 8099,
+    "tie_pair": 27,
+    "filtered_out": 33,
+    "filtered_equal_score_pairs": 27,
+    "filtered_no_valid_score_candidates": 0,
+    "filtered_no_distinct_text_pairs": 6,
+    "filtered_no_chosen_longer_pairs": 0,
+    "n_prompts": 5000,
+    "n_pairs": 4967,
+    "drop_invalid_scores": true,
+    "invalid_score_filter": {
+      "enabled": true,
+      "parser": "explicit-score-v1",
+      "order": "before score extrema and source priorities",
+      "inputs": {
+        "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-distinct-only-1112t/trial/data/iter0/0_chosen_judgement.json": {
+          "score_parser": "explicit-score-v1",
+          "n_items": 5000,
+          "n_judgments": 35000,
+          "valid_score_candidates": 34893,
+          "invalid_score_candidates": 107,
+          "parse_fail_rate": 0.003057,
+          "out_of_range_rate": 0.00022857142857142857,
+          "invalid_reasons": {
+            "missing_score": 41,
+            "malformed_score": 40,
+            "multiple_score_labels": 18,
+            "out_of_range_score": 8
+          },
+          "groups_without_valid_scores": 0,
+          "group_all_tie_rate": 0.0054,
+          "group_max_is_5_rate": 0.8472,
+          "score_dist": {
+            "2.0": 2987,
+            "0.0": 1889,
+            "4.0": 12019,
+            "3.0": 4462,
+            "5.0": 10514,
+            "1.0": 2985,
+            "3.5": 8,
+            "4.5": 19,
+            "2.5": 4,
+            "4.7": 2,
+            "1.5": 2,
+            "0.5": 2
+          },
+          "score_mean": 3.528727825065199,
+          "resp_mean_chars": 1373.9706285714285
+        }
+      },
+      "input_count_unit": "unique judgment file",
+      "invalid_candidates_removed": 107
+    },
+    "chosen_policy": "current_best",
+    "strict_score_gap": true,
+    "base_chosen_source": "current",
+    "chosen_tie_break": "not_applicable",
+    "rejected_tie_break": "current",
+    "pair_selection": "future_tie_distinct",
+    "filter_equal_scores": true,
+    "model_source_priority": true,
+    "selection_order": [
+      "strict_score_gap",
+      "model_source_priority",
+      "first_distinct_combination"
+    ],
+    "length_selection": "none",
+    "require_distinct_text": true,
+    "text_comparison": "strip leading/trailing whitespace",
+    "length_unit": "unicode_characters",
+    "signed_length_gap_min": -6783,
+    "signed_length_gap_mean": 144.3001811958929,
+    "chosen_longer_pairs": 2742,
+    "chosen_equal_length_pairs": 18,
+    "chosen_shorter_pairs": 2207,
+    "chosen_length_mean": 1423.5288906784779,
+    "rejected_length_mean": 1279.2287094825851,
+    "absolute_length_gap_mean": 762.4676867324341,
+    "absolute_length_gap_median": 511,
+    "absolute_length_gap_max": 6783,
+    "zero_length_gap_pairs": 18,
+    "gap_min": 1.0,
+    "gap_mean": 3.24,
+    "gap_median": 3.0,
+    "within_source_tie_selection": "first valid distinct-text combination in original candidate order",
+    "pool_count_unit": "candidate entries, without text deduplication; after source priorities",
+    "chosen_candidate_pool": {
+      "n": 4967,
+      "mean": 2.5319106100261726,
+      "median": 2.0,
+      "histogram": {
+        "1": 1385,
+        "2": 1331,
+        "3": 1076,
+        "4": 711,
+        "5": 327,
+        "6": 137
+      },
+      "multiple_candidates_rate": 0.7211596537145158
+    },
+    "rejected_candidate_pool": {
+      "n": 4967,
+      "mean": 1.6305617072679686,
+      "median": 1.0,
+      "histogram": {
+        "1": 3117,
+        "2": 1097,
+        "3": 399,
+        "4": 213,
+        "5": 107,
+        "6": 34
+      },
+      "multiple_candidates_rate": 0.37245822428024966
+    }
+  },
+  "train_json_sha256": "5944d7fc34cbb48f7f1107afe0d40961ef01024002fd050163b12f1d9b35766e",
+  "train_json_bytes": 24634483
+}

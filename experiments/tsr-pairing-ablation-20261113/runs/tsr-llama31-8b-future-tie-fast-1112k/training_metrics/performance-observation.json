@@ -1,0 +1,29 @@
+{
+  "observed_utc": "2026-11-12T06:34:40.397388+00:00",
+  "stage": "Mf0",
+  "progress": [
+    "95",
+    "02:13<01:19,  1.33s/it"
+  ],
+  "logged_updates": 95,
+  "all_logged_metrics_finite": true,
+  "latest_metrics": {
+    "loss": 0.6416,
+    "grad_norm": 71.45706939697266,
+    "learning_rate": 1.967332023923078e-07,
+    "rewards/chosen": -0.6015625,
+    "rewards/rejected": -0.451171875,
+    "rewards/accuracies": 0.25,
+    "rewards/margins": -0.150390625,
+    "logps/chosen": -388.0,
+    "logps/rejected": -576.0,
+    "logits/chosen": -0.97265625,
+    "logits/rejected": -1.234375,
+    "epoch": 0.61
+  },
+  "zero_stage": 2,
+  "micro_batch": 4,
+  "gradient_accumulation": 1,
+  "global_batch": 32,
+  "whole_run_one_hour_target_verified": false
+}

@@ -1,0 +1,15 @@
+{
+  "models": {
+    "M2_future_tie_charcap_distinct": {
+      "model": "M2_future_tie_charcap_distinct",
+      "judge": "gpt-4o-2024-08-06",
+      "input_sha256": "bb8a4b4e9cba3bc00b169f77dd6aa5e86211949c30b4cbca57851fceaf9061d5",
+      "reference_sha256": "f90dac29878557296f0f2d79adbd25eeef69bc09478a2af1e708a8ed2016950d",
+      "win_rate": 21.987527525660173,
+      "length_controlled_winrate": 24.64216932664133,
+      "avg_length": 1675.0,
+      "n_total": 805
+    }
+  },
+  "completed_utc": "2026-11-12T19:17:42.676953+00:00"
+}

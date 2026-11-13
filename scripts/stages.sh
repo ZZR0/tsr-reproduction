@@ -1,8 +1,10 @@
 # Pipeline stages. Model names follow the paper:
 #   M0 = SFT;  Mf0 = DPO(M0, D1_0) = SR iter0 = w/o Future iter0;  M1 = DPO(M0, D2_0) = TSR iter0
 #   Mf1 = DPO(M1, D1_1);  M2 = DPO(M1, D2_1) = TSR iter1;  SR1 = SR iter1;  W1 = w/o Future iter1
-# D1 = past anchoring (chosen: best of current; rejected: worst of current and M0),
-# D2 = D1 with chosen upgraded to the future model's best response if max(s_future) >= max(s_current).
+# D1 = past anchoring (chosen: best of current; rejected: worst of current and M0, ties current),
+# with strict chosen_score > rejected_score filtering for future-model training (Mf0/Mf1).
+# Default D2: chosen is upgraded only if future scores strictly higher; current wins ties.
+# Default D1/D2 both require chosen_score > rejected_score; rejected ties select current.
 
 QA() { echo "$TSR_DIR/data/SelfPlayBeginData/qa$1.jsonl"; }
 
@@ -11,27 +13,70 @@ stage_sft() {
 }
 
 stage_iter0() {
+  local -a d1_flags=(--filter --rej_tie mi) d2_flags=(--strict --filter --rej_tie mi)
+  if [ "${TSR_PAIR_SELECTION:-current_tie}" = min_length_gap ]; then
+    d1_flags=(--min-length-gap --filter); d2_flags=(--min-length-gap --filter)
+  elif [ "${TSR_PAIR_SELECTION:-current_tie}" = future_tie_longer_distinct ]; then
+    d1_flags=(--source-priority-length-gap --different-text --chosen-longer --filter --rej_tie mi); d2_flags=(--source-priority-length-gap --different-text --chosen-longer --filter --rej_tie mi)
+  elif [ "${TSR_PAIR_SELECTION:-current_tie}" = future_tie_charcap_distinct ]; then
+    d1_flags=(--different-text --max-chosen-characters "${TSR_MAX_CHOSEN_CHARACTERS:-2500}" --filter --rej_tie mi); d2_flags=(--different-text --max-chosen-characters "${TSR_MAX_CHOSEN_CHARACTERS:-2500}" --filter --rej_tie mi)
+  elif [ "${TSR_PAIR_SELECTION:-current_tie}" = future_tie_distinct ]; then
+    d1_flags=(--different-text --filter --rej_tie mi); d2_flags=(--different-text --filter --rej_tie mi)
+  elif [ "${TSR_PAIR_SELECTION:-current_tie}" = future_tie_length_distinct ]; then
+    d1_flags=(--source-priority-length-gap --different-text --filter --rej_tie mi); d2_flags=(--source-priority-length-gap --different-text --filter --rej_tie mi)
+  elif [ "${TSR_PAIR_SELECTION:-current_tie}" = future_tie_length ]; then
+    d1_flags=(--source-priority-length-gap --filter --rej_tie mi); d2_flags=(--source-priority-length-gap --filter --rej_tie mi)
+  elif [ "${TSR_PAIR_SELECTION:-current_tie}" = future_tie_filtered ]; then
+    d1_flags=(--filter --rej_tie mi); d2_flags=(--filter --rej_tie mi)
+  elif [ "${TSR_PAIR_SELECTION:-current_tie}" = future_tie_unfiltered ]; then
+    d1_flags=(--keep-equal-scores --rej_tie mi); d2_flags=(--keep-equal-scores --rej_tie mi)
+  fi
   local W=$DATA/iter0 Q; Q=$(QA 1); mkdir -p "$W"; need "$M0/.done"
-  gen   "$M0" "$Q" "$W/0_chosen_response.json"
-  judge "$M0" "$W/0_chosen_response.json" "$W/0_chosen_judgement.json"
+  if [ "${TSR_FUSE_INFERENCE:-0}" = 1 ]; then
+    if [ -f "$W/0_chosen_response.json" ] && [ ! -f "$W/0_chosen_judgement.json" ]; then
+      # Responses may be reused independently; scores must be recomputed at this run's temperature.
+      judge "$M0" "$W/0_chosen_response.json" "$W/0_chosen_judgement.json"
+    else
+      genjudge "$M0" "$Q" "$W/0_chosen_judgement.json"
+    fi
+  else
+    gen   "$M0" "$Q" "$W/0_chosen_response.json"
+    judge "$M0" "$W/0_chosen_response.json" "$W/0_chosen_judgement.json"
+  fi
   # Upstream also generates a "rejected" set at iter0 with the same model, prompts and seed, i.e. an identical copy;
   # we pass the chosen file twice.
-  pairs past "$W/D1" "$W/0_chosen_judgement.json" "$W/0_chosen_judgement.json"
+  pairs past "$W/D1" "$W/0_chosen_judgement.json" "$W/0_chosen_judgement.json" -- "${d1_flags[@]}"
   dpo Mf0 "$M0" "$W/D1"
   gen   "$MODELS/Mf0" "$Q" "$W/0_future_response.json"
   judge "$M0" "$W/0_future_response.json" "$W/0_future_judgement.json"
-  pairs future "$W/D2" "$W/0_chosen_judgement.json" "$W/0_chosen_judgement.json" "$W/0_future_judgement.json"
+  pairs future "$W/D2" "$W/0_chosen_judgement.json" "$W/0_chosen_judgement.json" "$W/0_future_judgement.json" -- "${d2_flags[@]}"
   dpo M1 "$M0" "$W/D2"
 }
 
-# stage_iter1 [VARIANT] defaults to future_only; explicit main keeps the historical rules.
+# stage_iter1 [VARIANT] defaults to current_tie; explicit main keeps the historical D2 rules.
 stage_iter1() {
-  local tag=${1:-future_only} d1="-" d2="-" init=M1 seed="-" conf=0
+  local tag=${1:-${TSR_PAIR_SELECTION:-current_tie}} d1="-" d2="-" init=M1 seed="-" conf=0
   if [ "$tag" != main ]; then
     . "$REPO/configs/variants.sh"; local row="" r
     for r in "${VARIANTS[@]}"; do [ "${r%%|*}" = "$tag" ] && row=$r; done
     [ -n "$row" ] || die "unknown iter1 variant '$tag' (see configs/variants.sh)"
     IFS='|' read -r _ d1 d2 init seed conf <<< "$row"
+  fi
+  local -a base_d1_flags=(--filter --rej_tie mi)
+  if [ "$tag" = min_length_gap ]; then
+    base_d1_flags=(--min-length-gap --filter)
+  elif [ "$tag" = future_tie_longer_distinct ]; then
+    base_d1_flags=(--source-priority-length-gap --different-text --chosen-longer --filter --rej_tie mi)
+  elif [ "$tag" = future_tie_charcap_distinct ]; then
+    base_d1_flags=(--different-text --max-chosen-characters "${TSR_MAX_CHOSEN_CHARACTERS:-2500}" --filter --rej_tie mi)
+  elif [ "$tag" = future_tie_distinct ]; then
+    base_d1_flags=(--different-text --filter --rej_tie mi)
+  elif [ "$tag" = future_tie_length_distinct ]; then
+    base_d1_flags=(--source-priority-length-gap --different-text --filter --rej_tie mi)
+  elif [ "$tag" = future_tie_length ]; then
+    base_d1_flags=(--source-priority-length-gap --filter --rej_tie mi)
+  elif [ "$tag" = future_tie_unfiltered ]; then
+    base_d1_flags=(--keep-equal-scores --rej_tie mi)
   fi
   local B=$DATA/iter1 W=$DATA/iter1 Q; Q=$(QA 2); mkdir -p "$B"; need "$MODELS/M1/.done" "$M0/.done"
   [ "$tag" != main ] && W=$DATA/iter1_$tag && mkdir -p "$W"
@@ -41,20 +86,26 @@ stage_iter1() {
 
   # current (M1) and past (M0) responses on qa2, both judged by M1
   ( [ "$seed" != "-" ] && export VLLM_SEED=$seed
-    gen   "$MODELS/M1" "$Q" "$G/1_chosen_response.json"
-    judge "$MODELS/M1" "$G/1_chosen_response.json" "$c"
-    gen   "$M0" "$Q" "$G/1_rejected_response.json"
-    judge "$MODELS/M1" "$G/1_rejected_response.json" "$r" ) || exit 1
+    if [ "${TSR_FUSE_INFERENCE:-0}" = 1 ]; then
+      # Generate past answers first; one M1 engine generates current answers and judges both sets.
+      gen "$M0" "$Q" "$G/1_rejected_response.json"
+      genjudge "$MODELS/M1" "$Q" "$c" "$G/1_rejected_response.json" "$r"
+    else
+      gen   "$MODELS/M1" "$Q" "$G/1_chosen_response.json"
+      judge "$MODELS/M1" "$G/1_chosen_response.json" "$c"
+      gen   "$M0" "$Q" "$G/1_rejected_response.json"
+      judge "$MODELS/M1" "$G/1_rejected_response.json" "$r"
+    fi ) || exit 1
   [ "$conf" = 1 ] && { conf_of "$MODELS/M1" "$c"; conf_of "$MODELS/M1" "$r"; }
 
   # past anchoring -> Mf1 (reuse the main run's Mf1 when nothing upstream of it changed)
   local mf1=Mf1 fut=$B/1_future_judgement.json
   if [ "$d1" != "-" ] || [ "$init" != M1 ] || [ "$seed" != "-" ]; then
     mf1=Mf1$sfx; fut=$W/1_future_judgement.json
-    if [ "$d1" = "-" ]; then pairs past "$W/D1" "$c" "$r"; else pairs past "$W/D1" "$c" "$r" -- $d1; fi
+    if [ "$d1" = "-" ]; then pairs past "$W/D1" "$c" "$r" -- "${base_d1_flags[@]}"; else pairs past "$W/D1" "$c" "$r" -- $d1 --filter; fi
     dpo "$mf1" "$MODELS/$init" "$W/D1"
   else
-    pairs past "$B/D1" "$c" "$r"
+    pairs past "$B/D1" "$c" "$r" -- "${base_d1_flags[@]}"
     dpo Mf1 "$MODELS/M1" "$B/D1"
   fi
 
@@ -133,7 +184,7 @@ conf_of() {
 # AlpacaEval for every model that exists (or the ones given).
 stage_eval() {
   local names=("$@") n
-  [ ${#names[@]} -eq 0 ] && names=(M0 Mf0 M1 Mf1 M2_future_only M2 SR1 W1)
+  [ ${#names[@]} -eq 0 ] && names=(M0 Mf0 M1 Mf1 M2_current_tie M2_future_only M2 SR1 W1)
   for n in "${names[@]}"; do
     if [ -f "$MODELS/$n/.done" ]; then alpaca "$n" "$MODELS/$n"; else log "skip eval $n (model not trained)"; fi
   done

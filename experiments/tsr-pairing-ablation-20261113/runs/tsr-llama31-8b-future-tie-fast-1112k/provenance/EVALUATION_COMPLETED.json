@@ -1,0 +1,15 @@
+{
+  "models": {
+    "M2_future_tie_filtered": {
+      "model": "M2_future_tie_filtered",
+      "judge": "gpt-4o-2024-08-06",
+      "input_sha256": "bc82cf576673e96a1d3438add074b2ff9e3c2bc3b86d3703f7b7855794ed43d8",
+      "reference_sha256": "f90dac29878557296f0f2d79adbd25eeef69bc09478a2af1e708a8ed2016950d",
+      "win_rate": 30.059885002298138,
+      "length_controlled_winrate": 23.59257786317249,
+      "avg_length": 2577.0,
+      "n_total": 805
+    }
+  },
+  "completed_utc": "2026-11-12T07:50:55.160392+00:00"
+}

@@ -1,0 +1,16 @@
+diff --git a/alignment-handbook/scripts/run_sft.py b/alignment-handbook/scripts/run_sft.py
+index 60a2dfd..d547e53 100644
+--- a/alignment-handbook/scripts/run_sft.py
++++ b/alignment-handbook/scripts/run_sft.py
+@@ -207,7 +207,10 @@ def main():
+         "tags": ["alignment-handbook"],
+     }
+     if trainer.accelerator.is_main_process:
+-        trainer.create_model_card(**kwargs)
++        try:
++            trainer.create_model_card(**kwargs)
++        except TypeError as e:  # trl 0.12 dropped finetuned_from; card is cosmetic
++            logger.warning(f"skip model card: {e}")
+         # Restore k,v cache for fast inference
+         trainer.model.config.use_cache = True
+         trainer.model.config.save_pretrained(training_args.output_dir)

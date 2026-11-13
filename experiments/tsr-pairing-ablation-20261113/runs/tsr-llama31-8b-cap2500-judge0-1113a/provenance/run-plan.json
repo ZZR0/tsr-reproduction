@@ -1,0 +1,142 @@
+{
+  "run_dir": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-cap2500-judge0-1113a",
+  "created_utc": "2026-11-12T17:46:39.507641+00:00",
+  "gpus": 8,
+  "node": "any-sn5",
+  "image": "pytorch/pytorch@sha256:14611869895df612b7b07227d5925f30ec3cd6673bad58ce3d84ed107950e014",
+  "upstream_commit": "020266aa9ef3cc35bf81384c9b59f98cff62aa1c",
+  "base_model": "meta-llama/Llama-3.1-8B",
+  "base_directory": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/base/Llama-3.1-8B",
+  "initialization": "fresh Base -> SFT M0 -> Mf0 -> M1 -> Mf1 -> M2_future_tie_charcap_distinct",
+  "iter1_variant": "future_tie_charcap_distinct",
+  "pair_selection": "future_tie_charcap_distinct",
+  "training_only": false,
+  "skip_smoke": true,
+  "performance_profile": "h200-fast",
+  "performance": {
+    "zero_stage": 2,
+    "dpo_micro_batch": 4,
+    "dpo_gradient_accumulation": 1,
+    "gradient_checkpointing": false,
+    "communication_overlap": false,
+    "attention": "flash_attention_2",
+    "optimizer": "adamw_torch",
+    "drop_incomplete_final_global_batch": true,
+    "memory_fallback": "halve micro-batch, preserve global batch 32; then enable checkpointing; restart stage from init",
+    "vllm_max_num_batched_tokens": 16384,
+    "vllm_max_num_seqs": 512,
+    "prefix_caching": true,
+    "fused_inference": true,
+    "target_gpu_elapsed_seconds": 3600,
+    "target_is_estimate_not_forced_early_stop": true
+  },
+  "first_round_chosen": "highest score among M0/Mf0; ties prefer Mf0",
+  "first_round_filter": "chosen_score > rejected_score",
+  "filter_equal_scores": true,
+  "length_matching": {
+    "enabled": false,
+    "unit": "unicode_characters",
+    "require_chosen_longer": false,
+    "order": [
+      "strict_score_gap",
+      "model_source_priority",
+      "joint_minimum_character_length_gap"
+    ],
+    "scope": "All four D1/D2 stages, within the selected model sources only",
+    "no_legal_pair_action": "drop prompt; never relax score or source priorities",
+    "remaining_ties": "deterministic SHA256(prompt + chosen_text + rejected_text)"
+  },
+  "require_distinct_text": true,
+  "text_comparison": "strip leading/trailing whitespace",
+  "chosen_character_cap": {
+    "enabled": true,
+    "max_characters": 2500,
+    "unit": "unicode_characters",
+    "scope": "all four D1/D2 datasets; chosen response only",
+    "order": "after strict score gap and model source priority; first valid distinct pair within the cap",
+    "truncate_text": false,
+    "no_legal_pair_action": "drop prompt; no source or score fallback"
+  },
+  "invalid_score_filter": {
+    "enabled": true,
+    "parser": "explicit-score-v1",
+    "action": "remove invalid candidate before extrema; keep valid candidates of the same prompt",
+    "scope": "all four D1/D2 stages including future models",
+    "valid_range": [
+      0,
+      5
+    ],
+    "fallback_score": null,
+    "no_valid_pair_action": "drop prompt"
+  },
+  "pair_rule_scope": [
+    "iter0/D1 (Mf0)",
+    "iter0/D2 (M1)",
+    "iter1/D1 (Mf1)",
+    "iter1_future_tie_charcap_distinct/D2 (M2)"
+  ],
+  "global_batch": 32,
+  "sft_micro_batch": 2,
+  "sft_gradient_accumulation": 2,
+  "dpo_micro_batch": 4,
+  "dpo_gradient_accumulation": 1,
+  "sft_epochs": 3,
+  "sft_lr": 2e-06,
+  "dpo_epochs": 1,
+  "dpo_lr": 5e-07,
+  "beta": 0.1,
+  "warmup_ratio": 0.1,
+  "train_seed": 42,
+  "data_seed": 42,
+  "future_model_pairs": {
+    "models": [
+      "Mf0",
+      "Mf1"
+    ],
+    "filter": "chosen_score > rejected_score",
+    "chosen": "current best only; never replaced by past",
+    "rejected": "minimum among current/past; ties prefer current"
+  },
+  "second_round_chosen": "highest score among M1/Mf1; ties prefer Mf1",
+  "second_round_rejected": "minimum among M1/M0; ties prefer M1",
+  "second_round_filter": "chosen_score > rejected_score",
+  "generation": {
+    "K": 7,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "max_tokens": 1024,
+    "judge_count": 1,
+    "self_judge_temperature": 0.0,
+    "random_seed": 42,
+    "vllm_seed_base": 42,
+    "shard_seed_rule": "base + shard index",
+    "repetition_penalty": 1.0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "data_parallel_shards": 8,
+    "note": "Changing inference sharding can change sampled answers; no bitwise equivalence claimed"
+  },
+  "eval": {
+    "enabled": true,
+    "questions": 805,
+    "judge": "gpt-4o-2024-08-06",
+    "reference": "gpt4_1106_preview",
+    "model_outputs": [
+      "M0",
+      "M0_seed1",
+      "M0_seed2",
+      "Mf0",
+      "M1",
+      "Mf1",
+      "M2_future_tie_charcap_distinct"
+    ],
+    "requested_models": [
+      "M2_future_tie_charcap_distinct"
+    ],
+    "generation_temperature": 0.0,
+    "final_only": true,
+    "scoring": "separate CPU worker using configured GPT-4o service; GPU job exits after generation"
+  },
+  "retention": "metrics/configs/final stage models/canonical DPO datasets; generated candidate and judgement caches removed after consumption; no optimizer checkpoints or token dumps",
+  "gpu_validation": "standalone smoke skipped at user request; actual training retains device/config/data checks"
+}

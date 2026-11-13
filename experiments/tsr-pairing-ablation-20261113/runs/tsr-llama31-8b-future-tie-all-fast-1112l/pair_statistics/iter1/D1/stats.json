@@ -1,0 +1,32 @@
+{
+  "stats": {
+    "rejected_from_Mi": 2255,
+    "identical_pair": 470,
+    "tie_pair": 467,
+    "retained_tie_pairs": 467,
+    "rejected_from_M0": 2745,
+    "n_prompts": 5000,
+    "n_pairs": 5000,
+    "chosen_policy": "current_best",
+    "strict_score_gap": false,
+    "base_chosen_source": "current",
+    "chosen_tie_break": "not_applicable",
+    "rejected_tie_break": "current",
+    "pair_selection": "future_tie_unfiltered",
+    "filter_equal_scores": false,
+    "model_source_priority": true,
+    "length_selection": "none",
+    "length_unit": "unicode_characters",
+    "chosen_length_mean": 1848.4506,
+    "rejected_length_mean": 1454.209,
+    "absolute_length_gap_mean": 714.0816,
+    "absolute_length_gap_median": 436,
+    "absolute_length_gap_max": 6082,
+    "zero_length_gap_pairs": 475,
+    "gap_min": 0.0,
+    "gap_mean": 1.576,
+    "gap_median": 1.0
+  },
+  "train_json_sha256": "5b3832576be93905a9d18c9ee5c6005e2575c30a9b090a6d893690c000724225",
+  "train_json_bytes": 28271877
+}

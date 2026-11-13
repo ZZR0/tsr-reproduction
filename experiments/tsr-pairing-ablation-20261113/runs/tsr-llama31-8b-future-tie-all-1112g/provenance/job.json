@@ -1,0 +1,123 @@
+{
+  "apiVersion": "batch/v1",
+  "kind": "Job",
+  "metadata": {
+    "name": "zaninzeng-tsr-llama31-8b-future-tie-all-1112g",
+    "namespace": "sn5-system-intern",
+    "labels": {
+      "owner": "zaninzeng",
+      "app": "tsr-reproduction",
+      "toolkits/creator": "zaninzeng"
+    }
+  },
+  "spec": {
+    "backoffLimit": 0,
+    "activeDeadlineSeconds": 172800,
+    "ttlSecondsAfterFinished": 604800,
+    "template": {
+      "metadata": {
+        "labels": {
+          "owner": "zaninzeng",
+          "app": "tsr-reproduction",
+          "run": "tsr-llama31-8b-future-tie-all-1112g"
+        }
+      },
+      "spec": {
+        "restartPolicy": "Never",
+        "automountServiceAccountToken": false,
+        "affinity": {
+          "nodeAffinity": {
+            "requiredDuringSchedulingIgnoredDuringExecution": {
+              "nodeSelectorTerms": [
+                {
+                  "matchExpressions": [
+                    {
+                      "key": "group",
+                      "operator": "In",
+                      "values": [
+                        "shennong-5",
+                        "shennong-5-dev"
+                      ]
+                    },
+                    {
+                      "key": "node.kubernetes.io/instance-type",
+                      "operator": "In",
+                      "values": [
+                        "ml.p5e.48xlarge"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "tolerations": [
+          {
+            "key": "nvidia.com/gpu",
+            "operator": "Exists",
+            "effect": "NoSchedule"
+          },
+          {
+            "key": "role",
+            "operator": "Exists",
+            "effect": "NoSchedule"
+          },
+          {
+            "key": "glm5sft",
+            "operator": "Exists",
+            "effect": "NoSchedule"
+          }
+        ],
+        "containers": [
+          {
+            "name": "train",
+            "image": "pytorch/pytorch@sha256:14611869895df612b7b07227d5925f30ec3cd6673bad58ce3d84ed107950e014",
+            "command": [
+              "bash",
+              "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-future-tie-all-1112g/bundle/scripts/sn5_bootstrap.sh",
+              "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-future-tie-all-1112g"
+            ],
+            "resources": {
+              "requests": {
+                "cpu": "64",
+                "memory": "768Gi",
+                "nvidia.com/gpu": "8"
+              },
+              "limits": {
+                "cpu": "128",
+                "memory": "1536Gi",
+                "nvidia.com/gpu": "8"
+              }
+            },
+            "volumeMounts": [
+              {
+                "name": "fsx",
+                "mountPath": "/mnt/sn-007"
+              },
+              {
+                "name": "shm",
+                "mountPath": "/dev/shm"
+              }
+            ]
+          }
+        ],
+        "volumes": [
+          {
+            "name": "fsx",
+            "persistentVolumeClaim": {
+              "claimName": "youtu-sn2-007"
+            }
+          },
+          {
+            "name": "shm",
+            "emptyDir": {
+              "medium": "Memory",
+              "sizeLimit": "64Gi"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

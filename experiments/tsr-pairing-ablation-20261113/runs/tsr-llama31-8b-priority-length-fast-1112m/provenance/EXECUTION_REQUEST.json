@@ -1,0 +1,23 @@
+{
+  "requested_utc": "2026-11-12T10:29:36.947952+00:00",
+  "variant": "future_tie_length",
+  "priority_order": [
+    "strict chosen_score > rejected_score at all four DPO stages",
+    "chosen source max-score ties prefer future, rejected source min-score ties prefer current",
+    "jointly minimize absolute character length difference within those selected source/score pools"
+  ],
+  "equal_length_gap_tie_break": "deterministic SHA256(prompt + chosen_text + rejected_text)",
+  "gpus": 8,
+  "global_batch": 32,
+  "zero_stage": 2,
+  "training_driver_only": true,
+  "post_training_generation": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-priority-length-fast-1112m/runtime/train_then_m2_eval.sh",
+  "evaluation_models": [
+    "M2_future_tie_length"
+  ],
+  "questions": 805,
+  "generation_seed": 0,
+  "judge": "gpt-4o-2024-08-06",
+  "scoring_concurrency": 16,
+  "retention": "canonical training pairs, final stage models, performance metrics, score gaps, pool histograms and length-gap summaries; consumed raw generations and judgments removed"
+}

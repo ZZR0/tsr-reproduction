@@ -4,6 +4,7 @@ run_dir=$1
 repo=/mnt/sn-007/zaninzeng/tsr-reproduction
 export PATH="$repo/.venv/bin:$PATH"
 export PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 TZ=Asia/Shanghai
+export USER=zaninzeng LOGNAME=zaninzeng
 export HF_HOME="$repo/.runtime/hf-cache" HF_DATASETS_CACHE="$run_dir/trial/dataset-cache"
 export TSR_RANK_CACHE_ROOT="$run_dir/runtime/datasets"
 export TSR_TENSORBOARD_LOCAL_ROOT="/tmp/tsr-tensorboard-${HOSTNAME}"

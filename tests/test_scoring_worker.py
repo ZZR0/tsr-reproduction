@@ -12,6 +12,17 @@ spec.loader.exec_module(worker)
 
 
 class ScoringTests(unittest.TestCase):
+    def test_priority_scores_final_then_m1_without_dropping_other_models(self):
+        names = ["M0", "M0_seed1", "M0_seed2", "Mf0", "M1", "Mf1", "M2_current_tie"]
+        result = worker.prioritize_names(names, ["M2_current_tie", "M1"])
+        self.assertEqual(result[:2], ["M2_current_tie", "M1"])
+        self.assertEqual(result[2:], ["M0", "M0_seed1", "M0_seed2", "Mf0", "Mf1"])
+        self.assertEqual(len(result), len(set(result)))
+        self.assertCountEqual(result, names)
+        for invalid in [["unknown"], ["M1", "M1"]]:
+            with self.assertRaises(ValueError):
+                worker.prioritize_names(names, invalid)
+
     def test_retry_keeps_cached_annotations_and_stops_after_three_attempts(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

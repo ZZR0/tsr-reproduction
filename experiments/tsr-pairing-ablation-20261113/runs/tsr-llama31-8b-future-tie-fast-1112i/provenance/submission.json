@@ -1,0 +1,28 @@
+{
+  "job": "zaninzeng-tsr-llama31-8b-future-tie-fast-1112i",
+  "namespace": "sn5-system-intern",
+  "observed_utc": "2026-11-12T05:59:39.043212+00:00",
+  "performance_profile": "h200-fast",
+  "target_gpu_elapsed_s": 3600,
+  "target_verified": false,
+  "global_batch": 32,
+  "gpus": 8,
+  "pods": [
+    {
+      "name": "zaninzeng-tsr-llama31-8b-future-tie-fast-1112i-hnpfj",
+      "phase": "Running",
+      "node": "hyperpod-i-075fb19e3b0ee068d",
+      "containers": [
+        {
+          "name": "train",
+          "ready": true,
+          "state": {
+            "running": {
+              "startedAt": "2026-11-12T05:57:53Z"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

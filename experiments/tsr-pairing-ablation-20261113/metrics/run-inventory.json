@@ -1,0 +1,347 @@
+[
+  {
+    "run": "tsr-llama31-8b-cap2500-judge0-1113a",
+    "status": "completed",
+    "created_utc": "2026-11-12T17:46:39.507641+00:00",
+    "saved_stage_models": [
+      "M2_future_tie_charcap_distinct",
+      "Mf0",
+      "M1",
+      "Mf1",
+      "M0"
+    ],
+    "completed_evaluation_models": [
+      "M2_future_tie_charcap_distinct"
+    ],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-cap2500-judge1-1113a",
+    "status": "completed",
+    "created_utc": "2026-11-12T17:46:35.953456+00:00",
+    "saved_stage_models": [
+      "M0",
+      "M2_future_tie_charcap_distinct",
+      "Mf1",
+      "Mf0",
+      "M1"
+    ],
+    "completed_evaluation_models": [
+      "M2_future_tie_charcap_distinct"
+    ],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-clean-seed42-1112s",
+    "status": "canceled",
+    "created_utc": "2026-11-12T14:54:15.466006+00:00",
+    "saved_stage_models": [
+      "M0",
+      "Mf0"
+    ],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-clean-seed43-1112s",
+    "status": "canceled",
+    "created_utc": "2026-11-12T14:54:18.584881+00:00",
+    "saved_stage_models": [
+      "M0"
+    ],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-clean-seed44-1112s",
+    "status": "canceled",
+    "created_utc": "2026-11-12T14:54:21.637722+00:00",
+    "saved_stage_models": [
+      "M0"
+    ],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-current-tie-1112b",
+    "status": "completed",
+    "created_utc": "2026-11-11T19:13:36.793194+00:00",
+    "saved_stage_models": [
+      "Mf0",
+      "M0",
+      "Mf1",
+      "M1",
+      "M2_current_tie"
+    ],
+    "completed_evaluation_models": [
+      "M2_current_tie",
+      "M1",
+      "M0",
+      "M0_seed1",
+      "M0_seed2",
+      "Mf0",
+      "Mf1"
+    ],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-distinct-judge0-fast-1112p",
+    "status": "completed",
+    "created_utc": "2026-11-12T12:33:51.116166+00:00",
+    "saved_stage_models": [
+      "M1",
+      "M2_future_tie_distinct",
+      "Mf1",
+      "Mf0",
+      "M0"
+    ],
+    "completed_evaluation_models": [
+      "M2_future_tie_distinct"
+    ],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-distinct-only-1112t",
+    "status": "completed",
+    "created_utc": "2026-11-12T15:36:25.974584+00:00",
+    "saved_stage_models": [
+      "Mf1",
+      "M1",
+      "Mf0",
+      "M2_future_tie_distinct",
+      "M0"
+    ],
+    "completed_evaluation_models": [
+      "M2_future_tie_distinct"
+    ],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-filtered-future-1112a",
+    "status": "canceled",
+    "created_utc": "2026-11-11T19:02:39.390586+00:00",
+    "saved_stage_models": [
+      "M0"
+    ],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-future-only-1111a",
+    "status": "failed",
+    "created_utc": "2026-11-11T13:09:45.416243+00:00",
+    "saved_stage_models": [],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-future-only-1111b",
+    "status": "failed",
+    "created_utc": "2026-11-11T13:17:04.553935+00:00",
+    "saved_stage_models": [],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-future-only-1111c",
+    "status": "incomplete_no_final_evaluation",
+    "created_utc": "2026-11-11T13:28:06.374633+00:00",
+    "saved_stage_models": [
+      "M0"
+    ],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-future-only-1111d8",
+    "status": "incomplete_no_final_evaluation",
+    "created_utc": "2026-11-11T13:51:05.754873+00:00",
+    "saved_stage_models": [],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-future-only-1111e8",
+    "status": "completed",
+    "created_utc": "2026-11-11T14:06:41.231325+00:00",
+    "saved_stage_models": [
+      "Mf0",
+      "M0",
+      "M1",
+      "Mf1",
+      "M2_future_only"
+    ],
+    "completed_evaluation_models": [
+      "M0",
+      "M0_seed1",
+      "M0_seed2",
+      "Mf0",
+      "M1",
+      "Mf1",
+      "M2_future_only"
+    ],
+    "already_archived": true
+  },
+  {
+    "run": "tsr-llama31-8b-future-tie-all-1112g",
+    "status": "canceled",
+    "created_utc": "2026-11-12T05:17:33.716529+00:00",
+    "saved_stage_models": [
+      "M0"
+    ],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-future-tie-all-fast-1112l",
+    "status": "completed",
+    "created_utc": "2026-11-12T07:53:50.106533+00:00",
+    "saved_stage_models": [
+      "M0",
+      "Mf1",
+      "M2_future_tie_unfiltered",
+      "Mf0",
+      "M1"
+    ],
+    "completed_evaluation_models": [
+      "M2_future_tie_unfiltered"
+    ],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-future-tie-fast-1112i",
+    "status": "failed",
+    "created_utc": "2026-11-12T05:52:25.523418+00:00",
+    "saved_stage_models": [
+      "M0"
+    ],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-future-tie-fast-1112j",
+    "status": "canceled",
+    "created_utc": "2026-11-12T06:00:57.492618+00:00",
+    "saved_stage_models": [
+      "M0"
+    ],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-future-tie-fast-1112k",
+    "status": "completed",
+    "created_utc": "2026-11-12T06:09:17.835682+00:00",
+    "saved_stage_models": [
+      "M1",
+      "Mf1",
+      "M0",
+      "Mf0",
+      "M2_future_tie_filtered"
+    ],
+    "completed_evaluation_models": [
+      "M2_future_tie_filtered"
+    ],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-future-tie-filter-1112h",
+    "status": "canceled",
+    "created_utc": "2026-11-12T05:26:56.991590+00:00",
+    "saved_stage_models": [
+      "M0"
+    ],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-judge0-m2-evaltemp0-1112r",
+    "status": "completed",
+    "created_utc": "2026-11-12T14:09:19.506037+00:00",
+    "saved_stage_models": [
+      "M2_future_tie_distinct_temp0"
+    ],
+    "completed_evaluation_models": [
+      "M2_future_tie_distinct_temp0"
+    ],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-length-distinct-fast-1112n",
+    "status": "completed",
+    "created_utc": "2026-11-12T10:37:09.788175+00:00",
+    "saved_stage_models": [
+      "M0",
+      "Mf0",
+      "M1",
+      "M2_future_tie_length_distinct",
+      "Mf1"
+    ],
+    "completed_evaluation_models": [
+      "M2_future_tie_length_distinct"
+    ],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-longer-gap-1112t",
+    "status": "completed",
+    "created_utc": "2026-11-12T15:36:22.575061+00:00",
+    "saved_stage_models": [
+      "Mf1",
+      "M1",
+      "M2_future_tie_longer_distinct",
+      "M0",
+      "Mf0"
+    ],
+    "completed_evaluation_models": [
+      "M2_future_tie_longer_distinct"
+    ],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-m2-evaltemp0-1112q",
+    "status": "completed",
+    "created_utc": "2026-11-12T12:40:34.935114+00:00",
+    "saved_stage_models": [
+      "M2_future_tie_length_distinct_temp0"
+    ],
+    "completed_evaluation_models": [
+      "M2_future_tie_length_distinct_temp0"
+    ],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-min-length-gap-1112f",
+    "status": "incomplete_no_final_evaluation",
+    "created_utc": "2026-11-11T22:28:45.425982+00:00",
+    "saved_stage_models": [
+      "M0",
+      "Mf0",
+      "Mf1",
+      "M1",
+      "M2_min_length_gap"
+    ],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-priority-length-fast-1112m",
+    "status": "canceled",
+    "created_utc": "2026-11-12T10:27:39.114330+00:00",
+    "saved_stage_models": [
+      "M0"
+    ],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  },
+  {
+    "run": "tsr-llama31-8b-score-distinct-fast-1112o",
+    "status": "canceled",
+    "created_utc": "2026-11-12T12:20:50.744957+00:00",
+    "saved_stage_models": [
+      "M0"
+    ],
+    "completed_evaluation_models": [],
+    "already_archived": false
+  }
+]

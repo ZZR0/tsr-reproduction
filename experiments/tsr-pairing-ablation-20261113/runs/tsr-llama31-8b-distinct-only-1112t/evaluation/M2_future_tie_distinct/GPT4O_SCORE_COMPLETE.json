@@ -1,0 +1,10 @@
+{
+  "model": "M2_future_tie_distinct",
+  "judge": "gpt-4o-2024-08-06",
+  "input_sha256": "705996cce3b9cdc013317e92c29219c475c012952f4c37fe3769bd031b58ebf7",
+  "reference_sha256": "f90dac29878557296f0f2d79adbd25eeef69bc09478a2af1e708a8ed2016950d",
+  "win_rate": 30.148043973408743,
+  "length_controlled_winrate": 23.943818812698865,
+  "avg_length": 2462.0,
+  "n_total": 805
+}

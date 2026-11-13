@@ -1,0 +1,10 @@
+{
+  "model": "M2_current_tie",
+  "judge": "gpt-4o-2024-08-06",
+  "input_sha256": "d11d91c18222238e4c1723c2facabe85746ea22aa4334bc6d9c47272a5273b83",
+  "reference_sha256": "f90dac29878557296f0f2d79adbd25eeef69bc09478a2af1e708a8ed2016950d",
+  "win_rate": 20.256200132186333,
+  "length_controlled_winrate": 20.382857876924415,
+  "avg_length": 1927.0,
+  "n_total": 805
+}

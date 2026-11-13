@@ -25,8 +25,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--run", type=Path, required=True)
     ap.add_argument("--models", nargs="+", default=["M0", "Mf0"],
-                    choices=["M0", "Mf0", "M1", "Mf1", "M2_future_only"])
+                    help="Models must be members of the frozen run evaluation list")
+    ap.add_argument("--temperature", type=float, default=1.0, help="Evaluation response sampling temperature")
     args = ap.parse_args()
+    import math
+    if not math.isfinite(args.temperature) or args.temperature < 0:
+        ap.error("--temperature must be finite and nonnegative")
     run = args.run.resolve()
     plan = json.loads((run / "run-plan.json").read_text())
     if plan["run_dir"] != str(run):
@@ -57,13 +61,17 @@ def main():
             out = directory / "model_outputs.json"
             if out.exists():
                 check(out, reference_rows)
+                diag = json.loads((directory / "model_outputs.diag.json").read_text())
+                if diag["temperature"] != args.temperature:
+                    raise RuntimeError("Existing output sampling temperature differs")
                 completed.append(name)
                 continue
-            atomic(status, dict(phase="generating", model=name, completed=completed, questions=805, seed=0))
+            atomic(status, dict(phase="generating", model=name, completed=completed, questions=805, seed=0, temperature=args.temperature))
             temporary = directory / "model_outputs.early.json"
             with (status.parent / f"generate_{name}.log").open("w") as log:
                 subprocess.run([sys.executable, str(run / "bundle/src/gen_alpaca.py"),
                                 "--model", str(model), "--out", str(temporary), "--seed", "0",
+                                "--temperature", str(args.temperature),
                                 "--reference_outputs", str(reference)], env=env, stdout=log,
                                stderr=subprocess.STDOUT, check=True, timeout=1200)
             check(temporary, reference_rows)
@@ -86,7 +94,7 @@ def main():
                 temporary.replace(out)
             completed.append(name)
             print(json.dumps(dict(model=name, questions=805, seed=0, published=True)), flush=True)
-        atomic(status, dict(phase="completed", models=completed, delegated_to_final_driver=delegated, questions_each=805, seed=0,
+        atomic(status, dict(phase="completed", models=completed, delegated_to_final_driver=delegated, questions_each=805, seed=0, temperature=args.temperature,
                             completed_unix=time.time(), release_gpu=True))
     except Exception as e:
         atomic(status, dict(phase="failed", completed=completed, error_type=type(e).__name__))

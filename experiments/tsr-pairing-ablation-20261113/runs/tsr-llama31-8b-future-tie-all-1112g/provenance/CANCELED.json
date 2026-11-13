@@ -1,0 +1,13 @@
+{
+  "canceled_utc": "2026-11-12T05:24:55.904382+00:00",
+  "reason": "User requested stop: reported poor expected results",
+  "job": "zaninzeng-tsr-llama31-8b-future-tie-all-1112g",
+  "job_deleted": true,
+  "files_preserved": true,
+  "remaining_pods": [],
+  "last_status": {
+    "phase": "iter0",
+    "updated_unix": 1794461068.3378973,
+    "elapsed_s": 12.10788607597351
+  }
+}

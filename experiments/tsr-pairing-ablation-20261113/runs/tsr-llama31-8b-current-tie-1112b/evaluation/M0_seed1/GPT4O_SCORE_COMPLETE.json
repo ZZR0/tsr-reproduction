@@ -1,0 +1,10 @@
+{
+  "model": "M0_seed1",
+  "judge": "gpt-4o-2024-08-06",
+  "input_sha256": "c7fd387e32f509f56e4f27180e4e9b3d229a4defa95c8cb0b30d6dcf86618001",
+  "reference_sha256": "f90dac29878557296f0f2d79adbd25eeef69bc09478a2af1e708a8ed2016950d",
+  "win_rate": 6.807697717033347,
+  "length_controlled_winrate": 8.71700860250432,
+  "avg_length": 1399.0,
+  "n_total": 805
+}

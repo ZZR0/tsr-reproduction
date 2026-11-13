@@ -1,0 +1,20 @@
+{
+  "arm": "A",
+  "self_judge_temperature": 1,
+  "run": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-cap2500-judge1-1113a",
+  "variant": "future_tie_charcap_distinct",
+  "training_job": "zaninzeng-tsr-llama31-8b-cap2500-judge1-1113a",
+  "score_job": "zaninzeng-tsr-cap2500-judge1-score-1113a",
+  "submitted": [
+    {
+      "name": "zaninzeng-tsr-llama31-8b-cap2500-judge1-1113a",
+      "uid": "c31714f2-edc8-44ee-9666-3440acf67f8d",
+      "created_utc": "2026-11-12T17:46:40Z"
+    },
+    {
+      "name": "zaninzeng-tsr-cap2500-judge1-score-1113a",
+      "uid": "087e14c2-a5a9-4021-bce6-de999d067ecd",
+      "created_utc": "2026-11-12T17:46:41Z"
+    }
+  ]
+}

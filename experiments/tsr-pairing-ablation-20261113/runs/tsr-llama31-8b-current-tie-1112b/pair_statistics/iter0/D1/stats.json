@@ -1,0 +1,21 @@
+{
+  "stats": {
+    "rejected_from_Mi": 5000,
+    "identical_pair": 43,
+    "tie_pair": 19,
+    "retained_tie_pairs": 0,
+    "filtered_out": 19,
+    "n_prompts": 5000,
+    "n_pairs": 4981,
+    "chosen_policy": "current_best",
+    "strict_score_gap": true,
+    "base_chosen_source": "current",
+    "chosen_tie_break": "not_applicable",
+    "rejected_tie_break": "current",
+    "gap_min": 1.0,
+    "gap_mean": 3.431,
+    "gap_median": 4.0
+  },
+  "train_json_sha256": "c4a61362865a9893f86771ed135d1182679c0760de9f4d106d3388bb972e3799",
+  "train_json_bytes": 24613452
+}

@@ -9,7 +9,14 @@ import json, argparse, os, re, collections
 ap = argparse.ArgumentParser(); ap.add_argument("mode", choices=["past", "future"])
 ap.add_argument("--chosen", required=True); ap.add_argument("--rejected", required=True); ap.add_argument("--future")
 ap.add_argument("--out", required=True); ap.add_argument("--filter", action="store_true"); ap.add_argument("--check")
+ap.add_argument("--keep-equal-scores", action="store_true", help="Keep all score ties; chosen source ties prefer future, rejected source ties prefer current; no length selection")
 ap.add_argument("--strict", action="store_true", help="paper Alg.1 line 17: upgrade to Mf only if max(s_f) > max(s_i)")
+ap.add_argument("--min-length-gap", action="store_true", help="Jointly choose the closest character lengths from the highest/lowest score pools, without model-source priority")
+ap.add_argument("--source-priority-length-gap", action="store_true", help="Strict score gap, then future/current source ties, then joint minimum character length gap")
+ap.add_argument("--different-text", action="store_true", help="Require distinct stripped text in fixed source/score pools; first valid combination unless length matching is requested")
+ap.add_argument("--drop-invalid-scores", action="store_true", help="Remove candidates with invalid raw self-judge score extraction before computing extrema")
+ap.add_argument('--chosen-longer', action='store_true', help='Require chosen strictly longer; minimize positive character gap only after score/source priorities')
+ap.add_argument('--max-chosen-characters', type=int, help='Cap actual chosen response character count only after score/source priorities; do not truncate text')
 ap.add_argument("--future-only", action="store_true", help="chosen only from Mf's highest-scored responses; automatically drop score gaps <= 0")
 ap.add_argument("--score", choices=["plain", "conf"], default="plain", help="conf = official score x p(score token) from *_conf.json")
 ap.add_argument("--cho_len", choices=["first", "longest", "shortest"], default="first", help="chosen among top-score ties: repo takes the first; shortest = Meta-Rewarding length control; longest = longest top-score response (on a current/future tie, across both models)")
@@ -17,6 +24,23 @@ ap.add_argument("--rej_len", choices=["first", "longest"], default="first", help
 ap.add_argument("--within", choices=["first", "conf"], default="first", help="among same-score candidates of the selected source: repo takes the first; conf = highest p(score token) from *_conf.json")
 ap.add_argument("--rej_tie", choices=["mi", "past"], default="mi", help="past/current tie for rejected: repo gives it to Mi; past = give it to M0")
 a = ap.parse_args()
+if a.max_chosen_characters is not None:
+    if a.max_chosen_characters < 1 or not a.different_text or a.source_priority_length_gap or a.chosen_longer:
+        ap.error('--max-chosen-characters requires first-distinct mode and a positive cap, without length ranking')
+if a.chosen_longer:
+    if not a.source_priority_length_gap or not a.different_text:
+        ap.error('--chosen-longer requires --source-priority-length-gap --different-text')
+if a.drop_invalid_scores and (not a.different_text or a.score != 'plain'):
+    ap.error('--drop-invalid-scores currently requires distinct-text plain-score pairing')
+if a.different_text and not a.source_priority_length_gap:
+    if a.min_length_gap or a.strict or a.future_only or a.score != "plain" or a.within != "first" or a.cho_len != "first" or a.rej_len != "first" or a.rej_tie != "mi":
+        ap.error("Distinct-text source-priority mode requires plain scores, future/current tie priorities and no length ranking")
+    a.filter = True
+
+if a.keep_equal_scores:
+    if (a.filter or a.strict or a.future_only or a.min_length_gap or a.source_priority_length_gap or a.score != "plain"
+            or a.within != "first" or a.cho_len != "first" or a.rej_len != "first" or a.rej_tie != "mi"):
+        ap.error("--keep-equal-scores requires future/current source priorities, plain scores and no filtering or length selection")
 if a.mode == "future" and not a.future:
     ap.error("future mode requires --future")
 if a.future_only:
@@ -27,9 +51,33 @@ if a.future_only:
     if a.score != "plain":
         ap.error("--future-only requires plain scores for strict chosen > rejected filtering")
     a.filter = True
+if a.source_priority_length_gap and a.min_length_gap:
+    ap.error("Choose one length-matching policy")
+if a.min_length_gap or a.source_priority_length_gap:
+    if a.future_only or a.strict or a.score != "plain" or a.within != "first" or a.cho_len != "first" or a.rej_len != "first" or a.rej_tie != "mi":
+        ap.error("--min-length-gap replaces source/length tie rules and requires plain scores")
+    a.filter = True
+if a.different_text or a.min_length_gap or a.source_priority_length_gap:
+    from length_pairing import select_min_length_pair, select_first_distinct_pair
 SYS = {"content": "You are a helpful, respectful, and knowledgeable assistant. Your goal is to provide accurate, concise, and relevant answers to user queries. If you are unsure about something, politely let the user know and avoid making assumptions. Always prioritize clarity and helpfulness in your responses.", "role": "system"}
 C, R = json.load(open(a.chosen)), json.load(open(a.rejected))
 F = json.load(open(a.future)) if a.mode == "future" else None
+score_validation = None
+if a.drop_invalid_scores:
+    from score_validation import PARSER, remove_invalid_candidates, validation_summary
+    clean_inputs = {}
+    input_stats = {}
+    for path, rows in [(a.chosen, C), (a.rejected, R)] + ([(a.future, F)] if F is not None else []):
+        key = os.path.abspath(path)
+        if key not in clean_inputs:
+            input_stats[key] = validation_summary(rows)
+            clean_inputs[key] = [remove_invalid_candidates(row) for row in rows]
+    C, R = clean_inputs[os.path.abspath(a.chosen)], clean_inputs[os.path.abspath(a.rejected)]
+    if F is not None:
+        F = clean_inputs[os.path.abspath(a.future)]
+    score_validation = dict(enabled=True, parser=PARSER, order='before score extrema and source priorities',
+                            inputs=input_stats, input_count_unit='unique judgment file',
+                            invalid_candidates_removed=sum(s['invalid_score_candidates'] for s in input_stats.values()))
 if a.score == "conf":
     for X, path in [(C, a.chosen), (R, a.rejected)] + ([(F, a.future)] if F is not None else []):
         Xc = json.load(open(path.replace("_judgement.json", "_conf.json")))
@@ -42,9 +90,53 @@ if a.within == "conf":
         idx = [k for k, v in enumerate(x["scores"]) if v == s]
         assert all(xc[k]["s"] == x["scores"][k] for k in idx)
         return x["responses"][max(idx, key=lambda k: ((xc[k]["p"] if xc[k]["p"] is not None else -1.0), -k))]
-st = collections.Counter(); pairs = []; gaps = []
+st = collections.Counter(); pairs = []; gaps = []; length_gaps = []; signed_length_gaps = []; chosen_lengths = []; rejected_lengths = []
+chosen_pool_hist = collections.Counter(); rejected_pool_hist = collections.Counter()
 for i in range(len(C)):
     c, r = C[i], R[i]; assert c["prompt"] == r["prompt"]
+    if a.min_length_gap or a.source_priority_length_gap or a.different_text:
+        f = F[i] if F is not None else None
+        if f is not None:
+            assert f["prompt"] == c["prompt"]
+        if a.different_text and not a.source_priority_length_gap:
+            selected = select_first_distinct_pair(c, r, f, max_chosen_characters=a.max_chosen_characters)
+        else:
+            selected = select_min_length_pair(c, r, f, source_priority=a.source_priority_length_gap, require_distinct_text=a.different_text, require_chosen_longer=a.chosen_longer)
+        if not selected["valid"]:
+            equal = selected['chosen_score'] is not None and selected["chosen_score"] == selected["rejected_score"]
+            st["tie_pair"] += int(equal)
+            st["filtered_out"] += 1
+            st["filtered_equal_score_pairs"] += int(equal)
+            st['filtered_no_valid_score_candidates'] += int(selected.get('reason') == 'no_valid_score_candidates')
+            st["filtered_no_distinct_text_pairs"] += int(selected.get("reason") == "no_distinct_text_pair")
+            st['filtered_no_chosen_longer_pairs'] += int(selected.get('reason') == 'no_chosen_longer_pair')
+            st['filtered_no_chosen_within_character_limit'] += int(selected.get('reason') == 'no_chosen_within_character_limit')
+            continue
+        chosen_item, rejected_item = selected["chosen"], selected["rejected"]
+        cho, rej = chosen_item["text"], rejected_item["text"]
+        st["rejected_from_" + rejected_item["source"]] += 1
+        st["retained_chosen_from_" + chosen_item["source"]] += 1
+        if F is not None:
+            st["chosen_from_" + chosen_item["source"]] += 1
+            st["chosen_from_Mf_by_tie"] += int(chosen_item["source"] == "Mf" and bool(c['scores']) and bool(f['scores']) and max(c["scores"]) == max(f["scores"]))
+        st["identical_pair"] += int(cho == rej)
+        st["retained_tie_pairs"] += 0
+        st["identical_text_combinations_excluded"] += selected["identical_text_combinations_excluded"]
+        st['length_constraint_combinations_excluded'] += selected.get('length_constraint_combinations_excluded', 0)
+        st['character_cap_combinations_excluded'] += selected.get('character_cap_combinations_excluded', 0)
+        st["valid_pair_combinations_total"] += selected["valid_pair_combinations"]
+        st["high_pool_candidates_total"] += selected["n_high_candidates"]
+        st["low_pool_candidates_total"] += selected["n_low_candidates"]
+        chosen_pool_hist[selected["n_high_candidates"]] += 1
+        rejected_pool_hist[selected["n_low_candidates"]] += 1
+        length_gaps.append(selected["length_gap"])
+        signed_length_gaps.append(len(cho)-len(rej))
+        chosen_lengths.append(len(cho)); rejected_lengths.append(len(rej))
+        gaps.append(selected["chosen_score"] - selected["rejected_score"])
+        pairs.append({"prompt":c["prompt"],
+            "chosen":[SYS, {"content":c["prompt"],"role":"user"}, {"content":cho,"role":"assistant"}],
+            "rejected":[SYS, {"content":c["prompt"],"role":"user"}, {"content":rej,"role":"assistant"}]})
+        continue
     i_max = c["scores"].index(max(c["scores"])); s_max = c["scores"][i_max]
     i1 = c["scores"].index(min(c["scores"])); s1 = c["scores"][i1]
     i2 = r["scores"].index(min(r["scores"])); s2 = r["scores"][i2]
@@ -84,7 +176,15 @@ for i in range(len(C)):
     if F is not None:
         st["retained_chosen_from_Mi" if keep_mi else "retained_chosen_from_Mf"] += 1
     st["retained_tie_pairs"] += int(s_cho == s_rej)
+    if a.keep_equal_scores:
+        # Count tied extrema after model-source priorities, without retaining response dumps.
+        chosen_scores = f["scores"] if F is not None and not keep_mi else c["scores"]
+        rejected_scores = c["scores"] if src == "Mi" else r["scores"]
+        chosen_pool_hist[sum(v == s_cho for v in chosen_scores)] += 1
+        rejected_pool_hist[sum(v == s_rej for v in rejected_scores)] += 1
     gaps.append(s_cho - s_rej)
+    length_gaps.append(abs(len(cho)-len(rej))); chosen_lengths.append(len(cho)); rejected_lengths.append(len(rej))
+    signed_length_gaps.append(len(cho)-len(rej))
     pairs.append({"prompt": c["prompt"],
                   "chosen": [SYS, {"content": c["prompt"], "role": "user"}, {"content": cho, "role": "assistant"}],
                   "rejected": [SYS, {"content": c["prompt"], "role": "user"}, {"content": rej, "role": "assistant"}]})
@@ -92,11 +192,73 @@ os.makedirs(a.out, exist_ok=True)
 with open(f"{a.out}/train.json", "w", encoding="utf-8") as fo:
     for p in pairs: fo.write(json.dumps(p, ensure_ascii=False) + "\n")
 st["n_prompts"] = len(C); st["n_pairs"] = len(pairs)
+st['drop_invalid_scores'] = a.drop_invalid_scores
+if score_validation is not None:
+    st['invalid_score_filter'] = score_validation
 st["chosen_policy"] = "future_only" if a.future_only else "current_future_best" if F is not None else "current_best"
 st["strict_score_gap"] = a.filter
+st["base_chosen_source"] = "current"
+st["chosen_tie_break"] = ("future_only" if a.future_only else "current" if a.strict else "future") if F is not None else "not_applicable"
+st["rejected_tie_break"] = "current" if a.rej_tie == "mi" else "past"
+if a.min_length_gap:
+    st["pair_selection"] = "min_length_gap"
+    st["chosen_tie_break"] = st["rejected_tie_break"] = "joint_minimum_length_gap"
+    st["model_source_priority"] = False
+    st["length_tie_break"] = "sha256(prompt + chosen_text + rejected_text); no source names"
+if a.source_priority_length_gap:
+    st["pair_selection"] = "future_tie_longer_distinct" if a.chosen_longer else "future_tie_length_distinct" if a.different_text else "future_tie_length"
+    st["filter_equal_scores"] = True
+    st["model_source_priority"] = True
+    st["selection_order"] = ["strict_score_gap", "model_source_priority", "distinct_text_chosen_longer", "minimum_positive_character_length_gap"] if a.chosen_longer else ["strict_score_gap", "model_source_priority", "joint_minimum_character_length_gap"]
+    st["length_selection"] = 'minimum_positive_gap_after_source_priority' if a.chosen_longer else "joint_minimum_after_source_priority"
+    st['require_chosen_longer'] = a.chosen_longer
+    st["require_distinct_text"] = a.different_text
+    st["text_comparison"] = "strip leading/trailing whitespace" if a.different_text else "unrestricted"
+    st["length_tie_break"] = "sha256(prompt + chosen_text + rejected_text); deterministic"
+if a.different_text and not a.source_priority_length_gap:
+    st["pair_selection"] = "future_tie_charcap_distinct" if a.max_chosen_characters is not None else "future_tie_distinct"
+    st["filter_equal_scores"] = True
+    st["model_source_priority"] = True
+    st["selection_order"] = ["strict_score_gap", "model_source_priority", "distinct_text_and_chosen_character_cap", "first_valid_combination"] if a.max_chosen_characters is not None else ["strict_score_gap", "model_source_priority", "first_distinct_combination"]
+    st["length_selection"] = "character_cap_only_no_ranking" if a.max_chosen_characters is not None else "none"
+    st['max_chosen_characters'] = a.max_chosen_characters
+    st["require_distinct_text"] = True
+    st["text_comparison"] = "strip leading/trailing whitespace"
+if a.keep_equal_scores:
+    st["pair_selection"] = "future_tie_unfiltered"
+    st["filter_equal_scores"] = False
+    st["model_source_priority"] = True
+    st["length_selection"] = "none"
+st["length_unit"] = "unicode_characters"
+st['chosen_length_max'] = max(chosen_lengths) if chosen_lengths else None
+st['chosen_length_min'] = min(chosen_lengths) if chosen_lengths else None
+st['chosen_over_character_limit_pairs'] = sum(n > a.max_chosen_characters for n in chosen_lengths) if a.max_chosen_characters is not None else None
+st['signed_length_gap_min'] = min(signed_length_gaps) if signed_length_gaps else None
+st['signed_length_gap_mean'] = sum(signed_length_gaps)/len(signed_length_gaps) if signed_length_gaps else None
+st['chosen_longer_pairs'] = sum(g > 0 for g in signed_length_gaps)
+st['chosen_equal_length_pairs'] = sum(g == 0 for g in signed_length_gaps)
+st['chosen_shorter_pairs'] = sum(g < 0 for g in signed_length_gaps)
+st["chosen_length_mean"] = sum(chosen_lengths) / len(chosen_lengths) if chosen_lengths else None
+st["rejected_length_mean"] = sum(rejected_lengths) / len(rejected_lengths) if rejected_lengths else None
+st["absolute_length_gap_mean"] = sum(length_gaps) / len(length_gaps) if length_gaps else None
+st["absolute_length_gap_median"] = sorted(length_gaps)[len(length_gaps)//2] if length_gaps else None
+st["absolute_length_gap_max"] = max(length_gaps) if length_gaps else None
+st["zero_length_gap_pairs"] = sum(x == 0 for x in length_gaps)
 st["gap_min"] = min(gaps) if gaps else None
 st["gap_mean"] = round(sum(gaps) / max(len(gaps), 1), 3)
 st["gap_median"] = sorted(gaps)[len(gaps) // 2] if gaps else None
+if a.keep_equal_scores or a.source_priority_length_gap or a.different_text:
+    def pool_summary(hist):
+        values = sorted(k for k, count in hist.items() for _ in range(count))
+        n = len(values)
+        return {"n": n, "mean": sum(values) / n if n else None,
+                "median": (values[(n - 1) // 2] + values[n // 2]) / 2 if n else None,
+                "histogram": {str(k): hist[k] for k in sorted(hist)},
+                "multiple_candidates_rate": sum(count for k, count in hist.items() if k > 1) / n if n else None}
+    st["within_source_tie_selection"] = 'minimum positive character gap among distinct-text pairs with chosen strictly longer; deterministic hash on equal gaps' if a.chosen_longer else "joint minimum character length gap; deterministic hash for equal gaps" if a.source_priority_length_gap else "first valid distinct-text combination in original candidate order" if a.different_text else "first index; no random selection"
+    st["pool_count_unit"] = "candidate entries, without text deduplication; after source priorities"
+    st["chosen_candidate_pool"] = pool_summary(chosen_pool_hist)
+    st["rejected_candidate_pool"] = pool_summary(rejected_pool_hist)
 if a.check:
     off = [json.loads(l) for l in open(a.check)]
     st["matches_official"] = off == pairs

@@ -1,0 +1,16 @@
+{
+  "run": "tsr-llama31-8b-distinct-judge0-fast-1112p",
+  "status": "completed",
+  "created_utc": "2026-11-12T12:33:51.116166+00:00",
+  "saved_stage_models": [
+    "M1",
+    "M2_future_tie_distinct",
+    "Mf1",
+    "Mf0",
+    "M0"
+  ],
+  "completed_evaluation_models": [
+    "M2_future_tie_distinct"
+  ],
+  "already_archived": false
+}

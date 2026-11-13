@@ -1,0 +1,15 @@
+{
+  "count": 8,
+  "devices": [
+    "NVIDIA H200",
+    "NVIDIA H200",
+    "NVIDIA H200",
+    "NVIDIA H200",
+    "NVIDIA H200",
+    "NVIDIA H200",
+    "NVIDIA H200",
+    "NVIDIA H200"
+  ],
+  "torch": "2.5.1+cu124",
+  "cuda": "12.4"
+}

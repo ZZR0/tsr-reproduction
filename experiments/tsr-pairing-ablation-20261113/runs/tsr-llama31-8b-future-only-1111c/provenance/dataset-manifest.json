@@ -1,0 +1,32 @@
+[
+  {
+    "path": "sft_data/eft_train.jsonl",
+    "sha256": "19b0d7de076d5df69e0e4d48c191a5006bb4e08934e6c9fb9114786205030ecd",
+    "bytes": 14429539,
+    "rows": 1871
+  },
+  {
+    "path": "sft_data/ift_train.jsonl",
+    "sha256": "4d206b6e691445536ec24022943378753f34b8c7cd10313b9a86c21b9b67b44a",
+    "bytes": 13830518,
+    "rows": 5000
+  },
+  {
+    "path": "sft_data/ultrachat_test.json",
+    "sha256": "e7ea6edeb9c4de12509c055a44db4108f516f5306ce1c3a3e50bf6f470a01484",
+    "bytes": 7099644,
+    "rows": 1000
+  },
+  {
+    "path": "SelfPlayBeginData/qa1.jsonl",
+    "sha256": "8244f42114c44e873186e8202cc538cd89a511bb23e40872112f8c25cb64d633",
+    "bytes": 9066691,
+    "rows": 5000
+  },
+  {
+    "path": "SelfPlayBeginData/qa2.jsonl",
+    "sha256": "e5403e71f32cb054ad97d4e5e258fb3ec15b949e8639492964635b4e5b26abf3",
+    "bytes": 9303437,
+    "rows": 5000
+  }
+]

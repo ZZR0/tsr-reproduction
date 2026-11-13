@@ -1,5 +1,41 @@
 # Reproducing Temporal Self-Rewarding (TSR) on Llama-3.1-8B
 
+## Latest completed pairing experiments (2026-11-13)
+
+The [new experiment archive](experiments/tsr-pairing-ablation-20261113/README.md) contains **17 complete
+805-question evaluations**, per-question answers/annotations, native training metrics, actual configs,
+pair-filtering statistics and frozen source snapshots. Canceled/failed runs are indexed separately.
+
+| Final M2 setting | Self-judge temperature | LC Win (%) | Win (%) | Mean characters |
+|---|---:|---:|---:|---:|
+| Chosen <=2500 characters | 0 | **29.28** | **27.19** | 1762 |
+| Chosen <=2500 characters | 1 | 24.64 | 21.99 | 1676 |
+| Distinct text, no length cap | 1 | 23.94 | 30.15 | 2463 |
+| Chosen longer, minimum positive length gap | 1 | 10.96 | 28.09 | 4208 |
+
+All four use fresh Base-to-SFT training, seed 42, global batch 32, self-generation temperature 1,
+and evaluation answer generation temperature 0. These are single-training-seed results.
+The character cap is applied after score/source priorities without truncating response text.
+All four DPO stages of the cap experiments filter score ties, identical text and malformed scores.
+Win means AlpacaEval `win_rate`; LC Win additionally controls for response length.
+
+![Latest comparison](experiments/tsr-pairing-ablation-20261113/figures/latest-four-comparison.png)
+
+See [cap/temperature settings](docs/CHOSEN_2500_JUDGE_TEMPERATURE_1113.md),
+[length-pairing settings](docs/PAIR_LENGTH_ABLATION_1112.md), and [pair rules](docs/PAIR_RULES.md).
+CLI defaults and results later in this README document earlier runs; use explicit variant flags for new experiments.
+
+```bash
+# Preparation only; submit the generated job.json in your configured SN5 namespace.
+python scripts/prepare_sn5.py --run-name my-cap2500-judge0 --gpus 8 --node any-sn5 \
+  --variant future_tie_charcap_distinct --max-chosen-characters 2500 \
+  --seed 42 --self-judge-temperature 0 --drop-invalid-scores \
+  --eval-temperature 0 --eval-final-only --performance-profile h200-fast \
+  --zero-stage 2 --dpo-micro-batch 4
+# For the paired comparison, change self-judge temperature to 1.
+python scripts/archive_pairing_experiments.py --verify experiments/tsr-pairing-ablation-20261113
+```
+
 Code and outputs for our reproduction of *Temporal Self-Rewarding Language Models* ([arXiv:2508.06026](https://arxiv.org/abs/2508.06026))
 with the official code, [TemporalSelfRewarding/TSR](https://github.com/TemporalSelfRewarding/TSR) at commit `020266a`.
 The upstream code is used as is, apart from three small patches (listed below). This repository adds a driver that runs
@@ -16,19 +52,25 @@ both rounds of rollouts and self-judgements, DPO pairs, actual configs/logs, per
 source snapshots, and SHA-256 verification. Final M2 weights are unavailable on the replacement server;
 the archive documents this gap. The original report and results below remain unchanged.
 
+## Joint closest-length variant (2026-11-12)
+
+`min_length_gap` selects the closest character-length pair jointly from the highest/lowest score pools,
+with no model-source preference. Both rounds retain qa1/qa2 and strict positive-score-gap filtering.
+See [exact selection and training-only launch](docs/LENGTH_PAIRING.md). This variant has no evaluation results yet.
+
 ## Results
 
 The latest complete run, including all metrics, per-question evaluations and figures:
 [TSR future-only (2026-11-12)](experiments/tsr-future-only-20261112/README.md).
 
 
-### Local second-round rule (2026-11-11)
+### Historical future-only run (2026-11-11)
 
-`bash run.sh iter1` now selects `future_only`: chosen is always Mf1's highest-scored answer,
+The archived run used `future_only` (now explicit `bash run.sh iter1 future_only`): chosen was always Mf1's highest-scored answer,
 even if M1's best answer scores higher. Rejected remains the worst answer across M1 and M0
 (ties prefer M1). Only pairs with **chosen score > rejected score** are retained; tied and
 reversed preferences are discarded. All candidate scores are produced by M1. D1 and Mf1
-training retain their existing rules.
+training in the archived run retained their existing rules. New runs use the filtered D1 rule below.
 
 The new D2 is rebuilt under `work/data/iter1_future_only/D2` (or the configured `WORK_DIR`)
 and the output model is `work/models/M2_future_only`. Historical D2 and M2 are separate.
@@ -38,6 +80,18 @@ selects the historical current/future comparison. The completed run and all seve
 M2 reaches **19.3324 LC /29.6734 soft Win**, with mean length3,147 characters.
 Mf1 reaches **23.4019 LC /26.6419 soft Win**: future-only raises soft Win but reduces LC.
 The tables below describe earlier historical runs, not this new run.
+
+### Corrected default (2026-11-12): current wins source ties
+
+`bash run.sh iter1` now selects `current_tie`, producing `M2_current_tie`.
+Both rounds require strict positive-gap D1 and D2 datasets. Mf0/Mf1 D1 chosen is current best;
+D2 chosen is the higher-scored best answer among current/future, with **current winning equal scores**.
+Rejected is the lowest-scored answer across current/past, also with **current winning equal scores**.
+A current/future source tie alone does not discard the pair: filtering compares final chosen to rejected.
+This supersedes the previous future-only request. See [exact rules and examples](docs/PAIR_RULES.md).
+
+Cached unfiltered datasets or a different source-tie policy are rejected. Use a fresh run; old future models
+and their descendants are not results of the corrected policy. Completed result archives remain unchanged.
 
 The pair builder also exposes `--future-only`, which implies strict positive-gap filtering.
 Its `stats.json` records retained chosen sources, minimum score gap, and retained tie count.

@@ -1,0 +1,10 @@
+{
+  "model": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-judge0-m2-evaltemp0-1112r/trial/models/M2_future_tie_distinct_temp0",
+  "n": 805,
+  "seed": 0,
+  "temperature": 0.0,
+  "mean_chars": 2686.444720496894,
+  "empty_rate": 0.0,
+  "truncated_rate": 0.03229813664596273,
+  "eos_rate": 0.9677018633540373
+}

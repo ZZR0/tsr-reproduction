@@ -1,0 +1,9 @@
+{
+  "completed_unix": 1794510992.5949173,
+  "evaluations": [
+    "M2_future_tie_charcap_distinct"
+  ],
+  "questions_each": 805,
+  "m2_pairs": 4160,
+  "scoring": "handled by separate CPU worker; see SCORING_CONFIGURED.json and EVALUATION_COMPLETED.json"
+}

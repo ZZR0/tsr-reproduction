@@ -97,7 +97,7 @@ def inherit_completed_sft(run, source):
                              for p in model.iterdir() if p.is_file()})
     atomic(run / "sft-provenance.json", provenance)
     atomic(run / "sft-complete.json", dict(models=[summary], inherited_from=str(source), completed_unix=time.time()))
-    new["initialization"] = "completed prior SFT M0 -> Mf0 -> M1 -> Mf1 -> M2_future_only"
+    new["initialization"] = "completed prior SFT M0 -> Mf0 -> M1 -> Mf1 -> " + "M2_" + new.get("iter1_variant", "future_only")
     new["sft_source_run"] = str(source)
     new["sft_source_gpus"] = old["gpus"]
     atomic(run / "run-plan.json", new)
@@ -141,6 +141,10 @@ def main():
     work = run / "trial"
     owner = json.loads((run / "run-plan.json").read_text())
     ngpu = owner["gpus"]
+    variant = owner.get("iter1_variant", "future_only")
+    if variant not in ("current_tie", "future_only", "min_length_gap", "future_tie_unfiltered", "future_tie_filtered", "future_tie_length", "future_tie_length_distinct", "future_tie_distinct", 'future_tie_longer_distinct', 'future_tie_charcap_distinct'):
+        raise RuntimeError("Unsupported frozen iter1 variant")
+    final_model = f"M2_{variant}"
     if owner["run_dir"] != str(run) or ngpu not in (2, 4, 8):
         raise RuntimeError("Run ownership/resources differ")
     if owner["sft_micro_batch"] * owner["sft_gradient_accumulation"] * ngpu != 32:
@@ -162,7 +166,9 @@ def main():
             raise RuntimeError(f"Expected exactly {ngpu} visible GPUs, got {torch.cuda.device_count()}")
         atomic(run / "gpu-validated.json", {"count":ngpu, "devices":[torch.cuda.get_device_name(i) for i in range(ngpu)],
                                            "torch":torch.__version__, "cuda":torch.version.cuda})
-        if not (run / "GPU_SMOKE_PASSED.json").exists():
+        if owner.get("skip_smoke", False):
+            atomic(run / "GPU_SMOKE_SKIPPED.json", dict(reason="User requested no testing", skipped_unix=time.time()))
+        elif not (run / "GPU_SMOKE_PASSED.json").exists():
             status("gpu_smoke")
             shell(f'LIMIT={ngpu}; sft; dpo plumbing "$M0" "$WORK_DIR/data/smoke-pairs"; '
                   'gen "$MODELS/plumbing" "$(QA 1)" "$DATA/smoke_response.json"; '
@@ -180,7 +186,7 @@ def main():
         for label, command, models, phase in [
             ("sft", "stage_sft", ["M0"], None),
             ("iter0", "stage_iter0", ["Mf0", "M1"], "iter0"),
-            ("iter1_future_only", "stage_iter1 future_only", ["Mf1", "M2_future_only"], "iter1"),
+            (f"iter1_{variant}", f"stage_iter1 {variant}", ["Mf1", final_model], "iter1"),
         ]:
             marker = run / f"{label}-complete.json"
             if marker.exists():
@@ -195,16 +201,131 @@ def main():
             atomic(marker, dict(models=results, completed_unix=time.time()))
             if phase:
                 discard_consumed(work, phase, models)
-        stats = json.loads((work / "data/iter1_future_only/D2/stats.json").read_text())
-        assert stats["chosen_policy"] == "future_only" and stats["gap_min"] > 0
-        assert stats.get("retained_chosen_from_Mi", 0) == 0 and stats["retained_tie_pairs"] == 0
+        stats = json.loads((work / f"data/iter1_{variant}/D2/stats.json").read_text())
+        if variant == "future_tie_unfiltered":
+            for dataset in ["iter0/D1", "iter0/D2", "iter1/D1", f"iter1_{variant}/D2"]:
+                evidence = json.loads((work / "data" / dataset / "stats.json").read_text())
+                assert evidence["pair_selection"] == variant
+                assert evidence["strict_score_gap"] is False and evidence["filter_equal_scores"] is False
+                assert evidence["model_source_priority"] is True and evidence["length_selection"] == "none"
+                assert evidence["n_pairs"] == evidence["n_prompts"] > 0
+                assert evidence.get("filtered_out", 0) == 0 and evidence["gap_min"] >= 0
+                assert evidence.get("retained_tie_pairs", 0) == evidence.get("tie_pair", 0)
+                assert evidence["rejected_tie_break"] == "current"
+                assert evidence["chosen_tie_break"] == ("future" if dataset.endswith("D2") else "not_applicable")
+        else:
+            assert stats["strict_score_gap"] and stats["gap_min"] > 0 and stats["retained_tie_pairs"] == 0
+            if variant == "future_only":
+                assert stats["chosen_policy"] == "future_only" and stats.get("retained_chosen_from_Mi", 0) == 0
+            elif variant in ("future_tie_filtered", "future_tie_length", "future_tie_length_distinct", "future_tie_distinct", 'future_tie_longer_distinct', 'future_tie_charcap_distinct'):
+                for dataset in ["iter0/D1", "iter0/D2", "iter1/D1", f"iter1_{variant}/D2"]:
+                    evidence = json.loads((work / "data" / dataset / "stats.json").read_text())
+                    assert evidence["strict_score_gap"] is True
+                    assert evidence["n_pairs"] > 0 and evidence["gap_min"] > 0
+                    assert evidence["retained_tie_pairs"] == 0
+                    assert evidence["rejected_tie_break"] == "current"
+                    assert evidence["chosen_tie_break"] == ("future" if dataset.endswith("D2") else "not_applicable")
+                    assert evidence["chosen_policy"] == ("current_future_best" if dataset.endswith("D2") else "current_best")
+                    if variant in ("future_tie_distinct", 'future_tie_charcap_distinct'):
+                        assert evidence["pair_selection"] == variant and evidence["filter_equal_scores"] is True
+                        capped = variant == 'future_tie_charcap_distinct'
+                        assert evidence["model_source_priority"] is True
+                        assert evidence["length_selection"] == ('character_cap_only_no_ranking' if capped else 'none')
+                        assert evidence["selection_order"] == (["strict_score_gap","model_source_priority","distinct_text_and_chosen_character_cap","first_valid_combination"] if capped else ["strict_score_gap", "model_source_priority", "first_distinct_combination"])
+                        if capped:
+                            cap=owner['chosen_character_cap']['max_characters']
+                            assert evidence['max_chosen_characters']==cap and evidence['chosen_length_max']<=cap
+                            assert evidence['chosen_over_character_limit_pairs']==0
+                        assert evidence["require_distinct_text"] is True and evidence.get("identical_pair", 0) == 0
+                        for key in ["chosen_candidate_pool", "rejected_candidate_pool"]:
+                            assert evidence[key]["n"] == evidence["n_pairs"]
+                        with (work / "data" / dataset / "train.json").open() as data:
+                            for line in data:
+                                pair = json.loads(line)
+                                assert pair["chosen"][-1]["content"].strip() != pair["rejected"][-1]["content"].strip()
+                                if capped:
+                                    assert len(pair['chosen'][-1]['content'])<=cap
+                    if variant in ("future_tie_length", "future_tie_length_distinct", 'future_tie_longer_distinct'):
+                        assert evidence["pair_selection"] == variant and evidence["filter_equal_scores"] is True
+                        assert evidence["model_source_priority"] is True
+                        if variant == 'future_tie_longer_distinct':
+                            assert evidence['length_selection'] == 'minimum_positive_gap_after_source_priority'
+                            assert evidence['selection_order'] == ['strict_score_gap','model_source_priority','distinct_text_chosen_longer','minimum_positive_character_length_gap']
+                            assert evidence['require_chosen_longer'] is True and evidence['signed_length_gap_min'] > 0
+                            assert evidence['chosen_longer_pairs'] == evidence['n_pairs']
+                        else:
+                            assert evidence["length_selection"] == "joint_minimum_after_source_priority"
+                            assert evidence["selection_order"] == ["strict_score_gap", "model_source_priority", "joint_minimum_character_length_gap"]
+                        if variant in ("future_tie_length_distinct", 'future_tie_longer_distinct'):
+                            assert evidence["require_distinct_text"] is True and evidence.get("identical_pair", 0) == 0
+                            with (work / "data" / dataset / "train.json").open() as data:
+                                for line in data:
+                                    pair = json.loads(line)
+                                    assert pair["chosen"][-1]["content"].strip() != pair["rejected"][-1]["content"].strip()
+                                    if variant == 'future_tie_longer_distinct':
+                                        assert len(pair['chosen'][-1]['content']) > len(pair['rejected'][-1]['content'])
+                        for key in ["chosen_candidate_pool", "rejected_candidate_pool"]:
+                            assert evidence[key]["n"] == evidence["n_pairs"]
+
+            elif variant == "min_length_gap":
+                assert stats["pair_selection"] == "min_length_gap" and stats["model_source_priority"] is False
+                assert stats["chosen_tie_break"] == stats["rejected_tie_break"] == "joint_minimum_length_gap"
+            else:
+                assert stats["chosen_policy"] == "current_future_best" and stats["chosen_tie_break"] == "current"
+                assert stats["rejected_tie_break"] == "current"
+            for d1 in ["iter0/D1", "iter1/D1"]:
+                d1_stats = json.loads((work / "data" / d1 / "stats.json").read_text())
+                assert d1_stats["strict_score_gap"] and d1_stats["retained_tie_pairs"] == 0 and d1_stats["gap_min"] > 0
+            if variant == "min_length_gap":
+                for dataset in ["iter0/D1", "iter0/D2", "iter1/D1", "iter1_min_length_gap/D2"]:
+                    evidence = json.loads((work / "data" / dataset / "stats.json").read_text())
+                    assert evidence["pair_selection"] == "min_length_gap" and evidence["model_source_priority"] is False
+        if "self_judge_temperature" in owner["generation"]:
+            expected_temperature = owner["generation"]["self_judge_temperature"]
+            checked = []
+            judge_calls = 0
+            for file in sorted((work / "metrics/inference").glob("*.json")):
+                data = json.loads(file.read_text())
+                if 'vllm_seed_base' in owner['generation']:
+                    assert data['random_seed'] == owner['train_seed']
+                    assert data['vllm_seed'] == owner['generation']['vllm_seed_base'] + data['shard']
+                for call in data["calls"]:
+                    is_judge = call["kind"] == "self_judge"
+                    expected = expected_temperature if is_judge else owner["generation"]["temperature"]
+                    assert call["temperature"] == expected, (str(file), call["temperature"], expected)
+                    judge_calls += int(is_judge)
+                checked.append(str(file.relative_to(work)))
+            assert judge_calls > 0
+            atomic(work / "metrics/self-judge-temperature-validation.json",
+                   dict(self_judge_temperature=expected_temperature, response_temperature=owner["generation"]["temperature"],
+                       self_judge_calls_checked=judge_calls, metrics_files=checked))
+        if owner.get('invalid_score_filter', {}).get('enabled'):
+            for dataset in ['iter0/D1', 'iter0/D2', 'iter1/D1', f'iter1_{variant}/D2']:
+                evidence = json.loads((work/'data'/dataset/'stats.json').read_text())
+                assert evidence['drop_invalid_scores'] is True
+                assert evidence['invalid_score_filter']['enabled'] is True
+                assert evidence['invalid_score_filter']['parser'] == 'explicit-score-v1'
+        for name in ['M0', 'Mf0', 'M1', 'Mf1', final_model]:
+            if 'data_seed' in owner:
+                import yaml
+                config = yaml.safe_load((work/'configs'/f'{name}.yaml').read_text())
+                assert config['seed'] == owner['train_seed'] and config['data_seed'] == owner['data_seed']
+        if owner.get("training_only", False):
+            atomic(run / "TRAINING_COMPLETED.json", dict(completed_unix=time.time(),
+                models=["M0", "Mf0", "M1", "Mf1", final_model], m2_pairs=stats["n_pairs"],
+                evaluation_generation=False, api_scoring=False))
+            status("training_completed", gpu_work_complete=True, release_gpu=True, evaluation_skipped=True)
+            return
         status("alpaca_generation")
         reference = run / "inputs/alpaca_reference.json"
         reference_rows = json.loads(reference.read_text())
         # Each evaluation retains its single-GPU batch and seed. Parallelize independent evaluations.
         evaluations = [("M0", "M0", 0), ("Mf0", "Mf0", 0), ("M0_seed1", "M0", 1),
                        ("M1", "M1", 0), ("M0_seed2", "M0", 2), ("Mf1", "Mf1", 0),
-                       ("M2_future_only", "M2_future_only", 0)]
+                       (final_model, final_model, 0)]
+        if owner['eval'].get('final_only'):
+            evaluations = [(final_model, final_model, 0)]
+        eval_temperature = owner['eval'].get('generation_temperature', 1.0)
         def generate(item, gpu):
             name, model, seed = item
             out = work / "alpaca_eval" / name / "model_outputs.json"
@@ -213,9 +334,13 @@ def main():
                 log = work / "logs" / f"alpaca_gen_{name}.log"
                 with log.open("w") as f:
                     subprocess.run([sys.executable, str(bundle / "src/gen_alpaca.py"), "--model", str(work / "models" / model),
-                                    "--out", str(out), "--seed", str(seed), "--reference_outputs", str(reference)],
+                                    "--out", str(out), "--seed", str(seed), "--temperature", str(eval_temperature),
+                                    "--reference_outputs", str(reference)],
                                    env=local, stdout=f, stderr=subprocess.STDOUT, check=True)
             rows = json.loads(out.read_text())
+            diag = json.loads(out.with_suffix('.diag.json').read_text())
+            if diag['temperature'] != eval_temperature:
+                raise RuntimeError(f'Evaluation generation temperature differs: {name}')
             if len(rows) != 805 or [x["instruction"] for x in rows] != [x["instruction"] for x in reference_rows]:
                 raise RuntimeError(f"Evaluation incomplete or reordered: {name}")
         for offset in range(0, len(evaluations), ngpu):
@@ -225,8 +350,8 @@ def main():
                     f.result()
         atomic(run / "TRAINING_AND_GENERATION_COMPLETED.json", dict(completed_unix=time.time(),
                evaluations=[x[0] for x in evaluations], questions_each=805, m2_pairs=stats["n_pairs"],
-               scoring="pending original gpt-4o-2024-08-06 endpoint and credential"))
-        status("awaiting_judge_credentials", gpu_work_complete=True, release_gpu=True)
+               scoring="handled by separate CPU worker; see SCORING_CONFIGURED.json and EVALUATION_COMPLETED.json"))
+        status("gpu_work_completed", gpu_work_complete=True, release_gpu=True)
     except BaseException as e:
         status("failed", error_type=type(e).__name__, error=str(e))
         atomic(run / "FAILED.json", dict(type=type(e).__name__, error=str(e), traceback=traceback.format_exc()))

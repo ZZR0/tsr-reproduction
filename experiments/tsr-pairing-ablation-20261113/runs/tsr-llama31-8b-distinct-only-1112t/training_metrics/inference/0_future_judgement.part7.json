@@ -1,0 +1,63 @@
+{
+  "mode": "judge",
+  "shard": 7,
+  "prompts": 625,
+  "engine_options": {
+    "seed": 49,
+    "max_num_batched_tokens": 16384,
+    "max_num_seqs": 512,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": true,
+    "disable_log_stats": false
+  },
+  "model_load_s": 223.41984402784146,
+  "calls": [
+    {
+      "requests": 4375,
+      "elapsed_s": 122.35364552214742,
+      "kind": "self_judge",
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 1024,
+      "input_tokens": 3423474,
+      "output_tokens": 499685
+    }
+  ],
+  "score_validation": [
+    {
+      "score_parser": "explicit-score-v1",
+      "n_items": 625,
+      "n_judgments": 4375,
+      "valid_score_candidates": 4356,
+      "invalid_score_candidates": 19,
+      "parse_fail_rate": 0.004343,
+      "out_of_range_rate": 0.00045714285714285713,
+      "invalid_reasons": {
+        "malformed_score": 9,
+        "missing_score": 5,
+        "multiple_score_labels": 3,
+        "out_of_range_score": 2
+      },
+      "groups_without_valid_scores": 0,
+      "group_all_tie_rate": 0.0256,
+      "group_max_is_5_rate": 0.9376,
+      "score_dist": {
+        "4.0": 1709,
+        "5.0": 1863,
+        "1.0": 145,
+        "2.0": 173,
+        "2.5": 1,
+        "3.0": 393,
+        "0.0": 63,
+        "3.5": 2,
+        "4.5": 6,
+        "4.9": 1
+      },
+      "score_mean": 4.100642791551882,
+      "resp_mean_chars": 1534.4898285714285
+    }
+  ],
+  "random_seed": 42,
+  "vllm_seed": 49,
+  "total_s": 346.17605367093347
+}

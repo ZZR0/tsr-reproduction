@@ -115,12 +115,12 @@ mkdir -p "$LOGS"
 need() { for f in "$@"; do [ -e "$f" ] || return 1; done; }
 gen() { :; }; judge() { :; }; pairs() { :; }
 dpo() { echo "$1|$2|$3" >> "$TEST_ROOT/dpo-calls"; }
-stage_iter1
+stage_iter1 future_only
 '''
         env = dict(os.environ, TEST_REPO=str(REPO), TEST_ROOT=str(self.root), TEST_PY=sys.executable)
         return subprocess.run(["bash", "-c", script], env=env, capture_output=True, text=True), stale
 
-    def test_default_pipeline_rebuilds_d2_and_uses_separate_model(self):
+    def test_explicit_future_only_pipeline_rebuilds_d2_and_uses_separate_model(self):
         result, out = self.pipeline([3, 2])
         self.assertEqual(result.returncode, 0, result.stderr)
         rows = [json.loads(line) for line in (out / "train.json").read_text().splitlines()]

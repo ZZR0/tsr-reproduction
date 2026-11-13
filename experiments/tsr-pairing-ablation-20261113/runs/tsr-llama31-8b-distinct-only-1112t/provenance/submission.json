@@ -1,0 +1,20 @@
+{
+  "arm": "B",
+  "tag": "distinct-only",
+  "variant": "future_tie_distinct",
+  "run": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-distinct-only-1112t",
+  "training_job": "zaninzeng-tsr-llama31-8b-distinct-only-1112t",
+  "score_job": "zaninzeng-tsr-distinct-only-score-1112t",
+  "submitted": [
+    {
+      "name": "zaninzeng-tsr-llama31-8b-distinct-only-1112t",
+      "uid": "df1af437-0a8b-457c-b928-949a929277a5",
+      "created_utc": "2026-11-12T15:36:28Z"
+    },
+    {
+      "name": "zaninzeng-tsr-distinct-only-score-1112t",
+      "uid": "42db6ef6-9ade-4516-a1b8-93e2643c261f",
+      "created_utc": "2026-11-12T15:36:29Z"
+    }
+  ]
+}

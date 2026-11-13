@@ -1,0 +1,19 @@
+{
+  "submitted_utc": "2026-11-11T22:30:21.603195+00:00",
+  "training_job": "zaninzeng-tsr-llama31-8b-min-length-gap-1112f",
+  "gpus": 8,
+  "global_batch": 32,
+  "variant": "min_length_gap",
+  "unit_tests_run": false,
+  "gpu_smoke_run": false,
+  "evaluation_generation": false,
+  "api_scoring_submitted": false,
+  "user_request": "Joint minimum character-length gap within highest/lowest scored eligible pools; no model-source tie priority; keep qa1/qa2",
+  "models_to_train": [
+    "Mf0",
+    "M1",
+    "Mf1",
+    "M2_min_length_gap"
+  ],
+  "sft_reused": true
+}

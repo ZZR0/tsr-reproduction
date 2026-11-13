@@ -1,0 +1,34 @@
+{
+  "mode": "genjudge",
+  "shard": 7,
+  "prompts": 625,
+  "engine_options": {
+    "max_num_batched_tokens": 16384,
+    "max_num_seqs": 512,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": true,
+    "disable_log_stats": false
+  },
+  "model_load_s": 232.6459849481471,
+  "calls": [
+    {
+      "requests": 4375,
+      "elapsed_s": 182.70334225799888,
+      "input_tokens": 763119,
+      "output_tokens": 1484335
+    },
+    {
+      "requests": 4375,
+      "elapsed_s": 142.16387263312936,
+      "input_tokens": 3606997,
+      "output_tokens": 636252
+    },
+    {
+      "requests": 4375,
+      "elapsed_s": 134.79818206699565,
+      "input_tokens": 3348045,
+      "output_tokens": 639280
+    }
+  ],
+  "total_s": 693.6585034420714
+}

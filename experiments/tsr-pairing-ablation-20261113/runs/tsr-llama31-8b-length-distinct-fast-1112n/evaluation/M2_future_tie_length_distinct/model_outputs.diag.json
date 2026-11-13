@@ -1,0 +1,11 @@
+{
+  "model": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-length-distinct-fast-1112n/trial/models/M2_future_tie_length_distinct",
+  "n": 805,
+  "seed": 0,
+  "temperature": 1.0,
+  "mean_chars": 1567.3229813664595,
+  "empty_rate": 0.0,
+  "eos_rate": 0.9962732919254659,
+  "truncated_rate": 0.002484472049689441,
+  "role_stop_rate": 0.0012422360248447205
+}

@@ -1,0 +1,96 @@
+{
+  "mode": "genjudge",
+  "shard": 3,
+  "prompts": 625,
+  "engine_options": {
+    "seed": 45,
+    "max_num_batched_tokens": 16384,
+    "max_num_seqs": 512,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": true,
+    "disable_log_stats": false
+  },
+  "model_load_s": 206.6902498700656,
+  "calls": [
+    {
+      "requests": 4375,
+      "elapsed_s": 165.14749180478975,
+      "kind": "response_generation",
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 1024,
+      "input_tokens": 808087,
+      "output_tokens": 1338476
+    },
+    {
+      "requests": 4375,
+      "elapsed_s": 141.55184012372047,
+      "kind": "self_judge",
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 1024,
+      "input_tokens": 3506042,
+      "output_tokens": 630708
+    },
+    {
+      "requests": 4375,
+      "elapsed_s": 141.15416435804218,
+      "kind": "self_judge",
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 1024,
+      "input_tokens": 3410514,
+      "output_tokens": 636104
+    }
+  ],
+  "score_validation": [
+    {
+      "score_parser": "explicit-score-v1",
+      "n_items": 625,
+      "n_judgments": 4375,
+      "valid_score_candidates": 4375,
+      "invalid_score_candidates": 0,
+      "parse_fail_rate": 0.0,
+      "out_of_range_rate": 0.0,
+      "invalid_reasons": {},
+      "groups_without_valid_scores": 0,
+      "group_all_tie_rate": 0.6176,
+      "group_max_is_5_rate": 0.9968,
+      "score_dist": {
+        "5.0": 3899,
+        "4.0": 470,
+        "0.0": 1,
+        "1.0": 1,
+        "3.0": 4
+      },
+      "score_mean": 4.888685714285714,
+      "resp_mean_chars": 1558.1126857142858
+    },
+    {
+      "score_parser": "explicit-score-v1",
+      "n_items": 625,
+      "n_judgments": 4375,
+      "valid_score_candidates": 4375,
+      "invalid_score_candidates": 0,
+      "parse_fail_rate": 0.0,
+      "out_of_range_rate": 0.0,
+      "invalid_reasons": {},
+      "groups_without_valid_scores": 0,
+      "group_all_tie_rate": 0.1552,
+      "group_max_is_5_rate": 0.9664,
+      "score_dist": {
+        "5.0": 2780,
+        "4.0": 1329,
+        "3.0": 133,
+        "1.0": 38,
+        "0.0": 69,
+        "2.0": 26
+      },
+      "score_mean": 4.504,
+      "resp_mean_chars": 1390.0601142857142
+    }
+  ],
+  "random_seed": 42,
+  "vllm_seed": 45,
+  "total_s": 656.1411976823583
+}

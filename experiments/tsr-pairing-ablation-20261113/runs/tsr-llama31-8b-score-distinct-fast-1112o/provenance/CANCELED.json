@@ -1,0 +1,18 @@
+{
+  "canceled_utc": "2026-11-12T12:29:42.311704+00:00",
+  "reason": "User requested self-judge temperature=0 and restart. Candidate generation remains temperature=1.",
+  "tasks": [
+    {
+      "job": "zaninzeng-tsr-llama31-8b-score-distinct-fast-1112o",
+      "pod": "zaninzeng-tsr-llama31-8b-score-distinct-fast-1112o-9vp44",
+      "phase": "Running",
+      "node": "hyperpod-i-0b14c8ffa5ce18076"
+    },
+    {
+      "job": "zaninzeng-tsr-score-distinct-m2-score-1112o",
+      "pod": "zaninzeng-tsr-score-distinct-m2-score-1112o-8285t",
+      "phase": "Running",
+      "node": "hyperpod-i-039a10dbe287ac526"
+    }
+  ]
+}

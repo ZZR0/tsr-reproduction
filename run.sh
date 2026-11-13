@@ -4,7 +4,8 @@
 #   bash run.sh all                 SFT -> TSR iter0 -> TSR iter1 -> SR iter1 -> w/o Future iter1 -> AlpacaEval
 #   bash run.sh sft | iter0 | iter1 | sr | wof
 #   bash run.sh iter1 <variant>     one iter1 variant from configs/variants.sh (e.g. rej_past, strict, mf1_from_mf0)
-#   bash run.sh iter1               future-only chosen, strict positive score gap; saves M2_future_only
+#   bash run.sh iter1               best current/future, ties current; positive gap; saves M2_current_tie
+#   bash run.sh iter1 future_only   explicit historical future-only variant
 #   bash run.sh iter1 main          explicitly select the historical current/future comparison
 #   bash run.sh iter1_mix | iter0_strict | iter0_conf
 #   bash run.sh eval [MODEL ...]    AlpacaEval 2.0 for the given models (default: all main models that exist)
@@ -24,7 +25,7 @@ case "$cmd" in
   all)        stage_sft; stage_iter0; stage_iter1; stage_sr; stage_wof; stage_eval ;;
   sft)        stage_sft ;;
   iter0)      stage_iter0 ;;
-  iter1)      stage_iter1 "${1:-future_only}" ;;
+  iter1)      stage_iter1 "${1:-${TSR_PAIR_SELECTION:-current_tie}}" ;;
   sr)         stage_sr ;;
   wof)        stage_wof ;;
   iter1_mix)  stage_iter1_mix ;;

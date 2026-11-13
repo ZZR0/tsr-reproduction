@@ -1,0 +1,28 @@
+{
+  "requested_utc": "2026-11-12T12:22:55.066545+00:00",
+  "variant": "future_tie_distinct",
+  "priority_order": [
+    "strict chosen_score > rejected_score at every DPO stage",
+    "chosen max-score source ties prefer future; rejected min-score source ties prefer current",
+    "first distinct-text combination in original candidate order within fixed score/source pools"
+  ],
+  "length_selection": "none",
+  "random_selection": false,
+  "text_identity": "compare after stripping leading/trailing whitespace",
+  "no_valid_distinct_pair": "discard prompt; never relax scores or source priorities",
+  "gpus": 8,
+  "global_batch": 32,
+  "zero_stage": 2,
+  "cpu_request": 16,
+  "cpu_limit": 128,
+  "training_driver_only": true,
+  "post_training_generation": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-score-distinct-fast-1112o/runtime/train_then_m2_eval.sh",
+  "evaluation_models": [
+    "M2_future_tie_distinct"
+  ],
+  "questions": 805,
+  "generation_seed": 0,
+  "judge": "gpt-4o-2024-08-06",
+  "scoring_concurrency": 16,
+  "retention": "small performance/pool/filter/length diagnostics, canonical pairs and final weights; no consumed response/judgment dumps or optimizer checkpoints"
+}

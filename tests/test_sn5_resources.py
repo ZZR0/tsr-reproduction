@@ -28,7 +28,7 @@ class ResourcesTests(unittest.TestCase):
         self.assertEqual(plan["limits"]["nvidia.com/gpu"], "8")
         selectors = {x["key"]:x["values"] for x in plan["node_expressions"]}
         self.assertEqual(selectors["group"], ["shennong-5", "shennong-5-dev"])
-        self.assertEqual(selectors["node.kubernetes.io/instance-type"], ["ml.p5e.48xlarge"])
+        self.assertEqual(selectors["node.kubernetes.io/instance-type"], ["ml.p5e.48xlarge", "ml.p5en.48xlarge"])
         self.assertNotIn("kubernetes.io/hostname", selectors)
 
     def test_default_node_is_preserved_until_explicitly_overridden(self):

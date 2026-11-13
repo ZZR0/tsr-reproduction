@@ -14,7 +14,12 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--model_outputs", required=True); ap.add_argument("--name", required=True)
 ap.add_argument("--out_dir", required=True)
 ap.add_argument("--reference_outputs", help="Frozen AlpacaEval reference JSON from the archived experiment")
+ap.add_argument("--api-concurrency", type=int, default=int(os.environ.get("JUDGE_API_CONCURRENCY", "16")),
+                help="Concurrent judge API requests (default: JUDGE_API_CONCURRENCY or 16)")
 args = ap.parse_args()
+if not 1 <= args.api_concurrency <= 128:
+    ap.error("--api-concurrency must be between 1 and 128")
+os.environ.setdefault("JUDGE_REQUEST_CACHE", os.path.join(args.out_dir, "request-cache"))
 
 os.environ["OPENAI_API_KEY"] = os.environ["JUDGE_API_KEY"]
 os.environ["OPENAI_API_BASE"] = os.environ.get("JUDGE_BASE_URL") or "https://api.openai.com/v1"
@@ -41,7 +46,10 @@ with open(os.path.join(cfg_dir, "configs.yaml"), "w") as f:
     temperature: 1
     logprobs: true
     top_logprobs: 5
-    num_procs: 3
+    num_procs: {args.api_concurrency}
+    client_kwargs:
+      max_retries: 12
+      timeout: 30
   fn_completion_parser: "logprob_parser"
   completion_parser_kwargs:
     numerator_token: "m"
@@ -52,10 +60,13 @@ with open(os.path.join(cfg_dir, "configs.yaml"), "w") as f:
 """)
 
 full = len(outputs) == 805
-evaluate(model_outputs=pd.DataFrame([{**o, "generator": args.name} for o in outputs]),
-         reference_outputs=pd.DataFrame([{"instruction": r["instruction"], "output": r["output"], "generator": "gpt4_turbo"} for r in ref]),
-         annotators_config=cfg_dir, name=args.name, output_path=args.out_dir, is_return_instead_of_print=True,
-         fn_metric="get_length_controlled_winrate" if full else "get_winrate",
-         sort_by="length_controlled_winrate" if full else "win_rate")
+from judge_request_cache import official_completion_cache
+with official_completion_cache():
+    evaluate(model_outputs=pd.DataFrame([{**o, "generator": args.name} for o in outputs]),
+             reference_outputs=pd.DataFrame([{"instruction": r["instruction"], "output": r["output"], "generator": "gpt4_turbo"} for r in ref]),
+             annotators_config=cfg_dir, name=args.name, output_path=args.out_dir, is_return_instead_of_print=True,
+             fn_metric="get_length_controlled_winrate" if full else "get_winrate",
+             sort_by="length_controlled_winrate" if full else "win_rate")
+
 lb = pd.read_csv(os.path.join(args.out_dir, "leaderboard.csv"), index_col=0)
 print(lb.loc[[args.name]].to_string())

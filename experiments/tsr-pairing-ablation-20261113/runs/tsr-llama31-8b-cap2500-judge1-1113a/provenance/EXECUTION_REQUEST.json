@@ -1,0 +1,23 @@
+{
+  "series": "tsr-chosen2500-judge-temp-1113a",
+  "arm": "A",
+  "seed": 42,
+  "initialization": "fresh verified Base -> new SFT M0 -> Mf0 -> M1 -> Mf1 -> M2",
+  "reuse_sft": false,
+  "reuse_previous_training_data": false,
+  "max_chosen_characters": 2500,
+  "cap_order": "after strict score gap and model source priorities; no fallback",
+  "truncate_text": false,
+  "length_matching": false,
+  "require_chosen_longer": false,
+  "temperatures": {
+    "self_generate": 1,
+    "self_judge": 1,
+    "eval_generate": 0
+  },
+  "gpus": 8,
+  "distinct_training_nodes": true,
+  "evaluate_model": "M2_future_tie_charcap_distinct",
+  "evaluation_questions": 805,
+  "api_concurrency": 16
+}

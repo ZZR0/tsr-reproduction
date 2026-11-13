@@ -1,0 +1,77 @@
+{
+  "run_dir": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-future-tie-all-1112g",
+  "created_utc": "2026-11-12T05:17:33.716529+00:00",
+  "gpus": 8,
+  "node": "any-sn5",
+  "image": "pytorch/pytorch@sha256:14611869895df612b7b07227d5925f30ec3cd6673bad58ce3d84ed107950e014",
+  "upstream_commit": "020266aa9ef3cc35bf81384c9b59f98cff62aa1c",
+  "base_model": "meta-llama/Llama-3.1-8B",
+  "base_directory": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/base/Llama-3.1-8B",
+  "initialization": "completed prior SFT M0 -> Mf0 -> M1 -> Mf1 -> M2_future_tie_unfiltered",
+  "iter1_variant": "future_tie_unfiltered",
+  "pair_selection": "future_tie_unfiltered",
+  "training_only": true,
+  "skip_smoke": true,
+  "first_round_chosen": "highest score among M0/Mf0; ties prefer Mf0",
+  "first_round_filter": "none; retain equal-score pairs",
+  "filter_equal_scores": false,
+  "pair_rule_scope": [
+    "iter0/D1 (Mf0)",
+    "iter0/D2 (M1)",
+    "iter1/D1 (Mf1)",
+    "iter1_future_tie_unfiltered/D2 (M2)"
+  ],
+  "global_batch": 32,
+  "sft_micro_batch": 2,
+  "sft_gradient_accumulation": 2,
+  "dpo_micro_batch": 1,
+  "dpo_gradient_accumulation": 4,
+  "sft_epochs": 3,
+  "sft_lr": 2e-06,
+  "dpo_epochs": 1,
+  "dpo_lr": 5e-07,
+  "beta": 0.1,
+  "warmup_ratio": 0.1,
+  "train_seed": 42,
+  "future_model_pairs": {
+    "models": [
+      "Mf0",
+      "Mf1"
+    ],
+    "filter": "none; retain equal-score pairs",
+    "chosen": "current best only; never replaced by past",
+    "rejected": "minimum among current/past; ties prefer current"
+  },
+  "second_round_chosen": "highest score among M1/Mf1; ties prefer Mf1",
+  "second_round_rejected": "minimum among M1/M0; ties prefer M1",
+  "second_round_filter": "none; retain equal-score pairs",
+  "generation": {
+    "K": 7,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "max_tokens": 1024,
+    "judge_count": 1,
+    "data_parallel_shards": 8,
+    "note": "Changing inference sharding can change sampled answers; no bitwise equivalence claimed"
+  },
+  "eval": {
+    "enabled": false,
+    "questions": 805,
+    "judge": "gpt-4o-2024-08-06",
+    "reference": "gpt4_1106_preview",
+    "model_outputs": [
+      "M0",
+      "M0_seed1",
+      "M0_seed2",
+      "Mf0",
+      "M1",
+      "Mf1",
+      "M2_future_tie_unfiltered"
+    ],
+    "scoring": "disabled by user; no API scoring job"
+  },
+  "retention": "metrics/configs/final stage models/canonical DPO datasets; generated candidate and judgement caches removed after consumption; no optimizer checkpoints or token dumps",
+  "gpu_validation": "standalone smoke skipped at user request; actual training retains device/config/data checks",
+  "sft_source_run": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-future-only-1111c",
+  "sft_source_gpus": 2
+}

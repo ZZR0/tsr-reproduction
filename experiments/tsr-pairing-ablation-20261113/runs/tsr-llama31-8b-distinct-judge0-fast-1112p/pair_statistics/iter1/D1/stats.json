@@ -1,0 +1,79 @@
+{
+  "stats": {
+    "tie_pair": 419,
+    "filtered_out": 419,
+    "filtered_equal_score_pairs": 419,
+    "filtered_no_distinct_text_pairs": 0,
+    "rejected_from_M0": 2918,
+    "retained_chosen_from_Mi": 4581,
+    "identical_pair": 0,
+    "retained_tie_pairs": 0,
+    "identical_text_combinations_excluded": 0,
+    "valid_pair_combinations_total": 48164,
+    "high_pool_candidates_total": 26662,
+    "low_pool_candidates_total": 8573,
+    "rejected_from_Mi": 1663,
+    "n_prompts": 5000,
+    "n_pairs": 4581,
+    "chosen_policy": "current_best",
+    "strict_score_gap": true,
+    "base_chosen_source": "current",
+    "chosen_tie_break": "not_applicable",
+    "rejected_tie_break": "current",
+    "pair_selection": "future_tie_distinct",
+    "filter_equal_scores": true,
+    "model_source_priority": true,
+    "selection_order": [
+      "strict_score_gap",
+      "model_source_priority",
+      "first_distinct_combination"
+    ],
+    "length_selection": "none",
+    "require_distinct_text": true,
+    "text_comparison": "strip leading/trailing whitespace",
+    "length_unit": "unicode_characters",
+    "chosen_length_mean": 2072.952412137088,
+    "rejected_length_mean": 1462.7614058065924,
+    "absolute_length_gap_mean": 945.3584370224842,
+    "absolute_length_gap_median": 619,
+    "absolute_length_gap_max": 5498,
+    "zero_length_gap_pairs": 10,
+    "gap_min": 1.0,
+    "gap_mean": 1.743,
+    "gap_median": 1.0,
+    "within_source_tie_selection": "first valid distinct-text combination in original candidate order",
+    "pool_count_unit": "candidate entries, without text deduplication; after source priorities",
+    "chosen_candidate_pool": {
+      "n": 4581,
+      "mean": 5.8201266099105,
+      "median": 6.0,
+      "histogram": {
+        "1": 81,
+        "2": 129,
+        "3": 220,
+        "4": 359,
+        "5": 587,
+        "6": 1143,
+        "7": 2062
+      },
+      "multiple_candidates_rate": 0.9823182711198428
+    },
+    "rejected_candidate_pool": {
+      "n": 4581,
+      "mean": 1.8714254529578696,
+      "median": 1.0,
+      "histogram": {
+        "1": 2563,
+        "2": 931,
+        "3": 533,
+        "4": 308,
+        "5": 168,
+        "6": 69,
+        "7": 9
+      },
+      "multiple_candidates_rate": 0.4405151713599651
+    }
+  },
+  "train_json_sha256": "15c817a9857fadcedc15dd81dc688e535da148717a0decd4b28eeddaf8948492",
+  "train_json_bytes": 27030206
+}

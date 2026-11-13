@@ -1,0 +1,19 @@
+{
+  "series": "tsr-clean-three-seed-1112s",
+  "seed": 43,
+  "source": "fresh verified Base; newly train SFT M0",
+  "reuse_sft": false,
+  "reuse_candidate_data": false,
+  "reuse_dpo_models": false,
+  "gpus": 8,
+  "training_node_distinct": true,
+  "drop_invalid_scores": true,
+  "temperatures": {
+    "self_generate": 1,
+    "self_judge": 1,
+    "eval_generate": 0
+  },
+  "evaluation_model": "M2_future_tie_distinct",
+  "evaluation_questions": 805,
+  "api_concurrency": 16
+}

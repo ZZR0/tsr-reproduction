@@ -1,0 +1,2 @@
+# Optional figure generation; not required for training or archive verification.
+matplotlib==3.9.4

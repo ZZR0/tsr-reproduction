@@ -1,0 +1,102 @@
+{
+  "mode": "genjudge",
+  "shard": 7,
+  "prompts": 625,
+  "engine_options": {
+    "seed": 49,
+    "max_num_batched_tokens": 16384,
+    "max_num_seqs": 512,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": true,
+    "disable_log_stats": false
+  },
+  "model_load_s": 221.13934265403077,
+  "calls": [
+    {
+      "requests": 4375,
+      "elapsed_s": 193.7350036900025,
+      "kind": "response_generation",
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 1024,
+      "input_tokens": 763119,
+      "output_tokens": 1566522
+    },
+    {
+      "requests": 4375,
+      "elapsed_s": 148.86617229389958,
+      "kind": "self_judge",
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 1024,
+      "input_tokens": 3689173,
+      "output_tokens": 629056
+    },
+    {
+      "requests": 4375,
+      "elapsed_s": 139.08275346294977,
+      "kind": "self_judge",
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 1024,
+      "input_tokens": 3340696,
+      "output_tokens": 639313
+    }
+  ],
+  "score_validation": [
+    {
+      "score_parser": "explicit-score-v1",
+      "n_items": 625,
+      "n_judgments": 4375,
+      "valid_score_candidates": 4373,
+      "invalid_score_candidates": 2,
+      "parse_fail_rate": 0.000457,
+      "out_of_range_rate": 0.0,
+      "invalid_reasons": {
+        "multiple_score_labels": 2
+      },
+      "groups_without_valid_scores": 0,
+      "group_all_tie_rate": 0.3872,
+      "group_max_is_5_rate": 0.9984,
+      "score_dist": {
+        "5.0": 3675,
+        "4.0": 689,
+        "4.5": 2,
+        "1.0": 2,
+        "3.0": 5
+      },
+      "score_mean": 4.838097415961583,
+      "resp_mean_chars": 1817.4329142857143
+    },
+    {
+      "score_parser": "explicit-score-v1",
+      "n_items": 625,
+      "n_judgments": 4375,
+      "valid_score_candidates": 4371,
+      "invalid_score_candidates": 4,
+      "parse_fail_rate": 0.000914,
+      "out_of_range_rate": 0.0,
+      "invalid_reasons": {
+        "multiple_score_labels": 4
+      },
+      "groups_without_valid_scores": 0,
+      "group_all_tie_rate": 0.1008,
+      "group_max_is_5_rate": 0.984,
+      "score_dist": {
+        "5.0": 2648,
+        "4.0": 1411,
+        "3.0": 127,
+        "2.0": 67,
+        "1.0": 56,
+        "0.0": 60,
+        "1.5": 1,
+        "4.5": 1
+      },
+      "score_mean": 4.4522992450240215,
+      "resp_mean_chars": 1370.3883428571428
+    }
+  ],
+  "random_seed": 42,
+  "vllm_seed": 49,
+  "total_s": 704.4338214800227
+}

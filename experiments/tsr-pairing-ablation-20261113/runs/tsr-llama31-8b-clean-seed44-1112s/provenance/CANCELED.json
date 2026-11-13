@@ -1,0 +1,7 @@
+{
+  "canceled_utc": "2026-11-12T15:30:45.878597+00:00",
+  "reason": "User requested stopping all three seed experiments",
+  "seed": 44,
+  "preserve_files_and_logs": true,
+  "restart_authorized": false
+}

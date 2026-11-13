@@ -1,0 +1,82 @@
+{
+  "stats": {
+    "rejected_from_Mi": 4853,
+    "retained_chosen_from_Mf": 4447,
+    "chosen_from_Mf": 4447,
+    "chosen_from_Mf_by_tie": 3263,
+    "identical_pair": 0,
+    "retained_tie_pairs": 0,
+    "identical_text_combinations_excluded": 26,
+    "valid_pair_combinations_total": 39606,
+    "high_pool_candidates_total": 16502,
+    "low_pool_candidates_total": 12338,
+    "retained_chosen_from_Mi": 406,
+    "chosen_from_Mi": 406,
+    "tie_pair": 146,
+    "filtered_out": 147,
+    "filtered_equal_score_pairs": 146,
+    "filtered_no_distinct_text_pairs": 1,
+    "n_prompts": 5000,
+    "n_pairs": 4853,
+    "chosen_policy": "current_future_best",
+    "strict_score_gap": true,
+    "base_chosen_source": "current",
+    "chosen_tie_break": "future",
+    "rejected_tie_break": "current",
+    "pair_selection": "future_tie_distinct",
+    "filter_equal_scores": true,
+    "model_source_priority": true,
+    "selection_order": [
+      "strict_score_gap",
+      "model_source_priority",
+      "first_distinct_combination"
+    ],
+    "length_selection": "none",
+    "require_distinct_text": true,
+    "text_comparison": "strip leading/trailing whitespace",
+    "length_unit": "unicode_characters",
+    "chosen_length_mean": 1616.7821965794353,
+    "rejected_length_mean": 1222.1714403461776,
+    "absolute_length_gap_mean": 833.1337317123429,
+    "absolute_length_gap_median": 574,
+    "absolute_length_gap_max": 4852,
+    "zero_length_gap_pairs": 12,
+    "gap_min": 1.0,
+    "gap_mean": 2.331,
+    "gap_median": 2.0,
+    "within_source_tie_selection": "first valid distinct-text combination in original candidate order",
+    "pool_count_unit": "candidate entries, without text deduplication; after source priorities",
+    "chosen_candidate_pool": {
+      "n": 4853,
+      "mean": 3.400370904595096,
+      "median": 3.0,
+      "histogram": {
+        "1": 1386,
+        "2": 767,
+        "3": 536,
+        "4": 528,
+        "5": 523,
+        "6": 544,
+        "7": 569
+      },
+      "multiple_candidates_rate": 0.7144034617762209
+    },
+    "rejected_candidate_pool": {
+      "n": 4853,
+      "mean": 2.542344941273439,
+      "median": 2.0,
+      "histogram": {
+        "1": 2124,
+        "2": 871,
+        "3": 541,
+        "4": 433,
+        "5": 373,
+        "6": 325,
+        "7": 186
+      },
+      "multiple_candidates_rate": 0.5623325777869359
+    }
+  },
+  "train_json_sha256": "9fb3d5864638423d298308d046a920a0ae7fe94f1f01c0e6aae1ff30f750c11b",
+  "train_json_bytes": 24769473
+}

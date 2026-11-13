@@ -1,0 +1,12 @@
+{
+  "run": "tsr-llama31-8b-judge0-m2-evaltemp0-1112r",
+  "status": "completed",
+  "created_utc": "2026-11-12T14:09:19.506037+00:00",
+  "saved_stage_models": [
+    "M2_future_tie_distinct_temp0"
+  ],
+  "completed_evaluation_models": [
+    "M2_future_tie_distinct_temp0"
+  ],
+  "already_archived": false
+}

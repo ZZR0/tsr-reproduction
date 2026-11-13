@@ -1,0 +1,7 @@
+{
+  "canceled_utc": "2026-11-12T06:09:14.631338+00:00",
+  "reason": "Non-finite training metrics in ZeRO-1/fused AdamW trial; invalid run; user-authorized debug and resubmit",
+  "job_deleted": true,
+  "valid_training_result": false,
+  "files_preserved": true
+}

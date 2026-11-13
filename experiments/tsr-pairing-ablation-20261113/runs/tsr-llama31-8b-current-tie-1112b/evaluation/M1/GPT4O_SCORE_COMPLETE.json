@@ -1,0 +1,10 @@
+{
+  "model": "M1",
+  "judge": "gpt-4o-2024-08-06",
+  "input_sha256": "b2177fd0a851b09bca70be2f24d0155a7971e6fcb0c1d7c8815b315db6c1bedf",
+  "reference_sha256": "f90dac29878557296f0f2d79adbd25eeef69bc09478a2af1e708a8ed2016950d",
+  "win_rate": 14.38220201548615,
+  "length_controlled_winrate": 17.174463458071994,
+  "avg_length": 1634.0,
+  "n_total": 805
+}

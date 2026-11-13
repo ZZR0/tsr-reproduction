@@ -1,0 +1,24 @@
+{
+  "checked_utc": "2026-11-12T07:56:16.062796+00:00",
+  "tasks": [
+    {
+      "job": "zaninzeng-tsr-llama31-8b-future-tie-all-fast-1112l",
+      "pod": "zaninzeng-tsr-llama31-8b-future-tie-all-fast-1112l-qnpmt",
+      "phase": "Pending",
+      "node": null,
+      "conditions": [
+        {
+          "reason": "Unschedulable",
+          "message": "0/116 nodes are available: 1 Insufficient cpu, 3 node(s) had untolerated taint(s), 56 Insufficient nvidia.com/gpu, 57 node(s) didn't match Pod's node affinity/selector. no new claims to deallocate, preemption: 0/116 nodes are available: 56 No preemption victims found for incoming pod, 60 Preemption is not helpful for scheduling."
+        }
+      ]
+    },
+    {
+      "job": "zaninzeng-tsr-tie-all-m2-score-1112l",
+      "pod": "zaninzeng-tsr-tie-all-m2-score-1112l-jrht7",
+      "phase": "Running",
+      "node": "hyperpod-i-039a10dbe287ac526",
+      "conditions": []
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+diff --git a/settings/tsr/config/dpo/config_full_iter1_tmp.yaml b/settings/tsr/config/dpo/config_full_iter1_tmp.yaml
+index cfd8bd9..828f0f9 100644
+--- a/settings/tsr/config/dpo/config_full_iter1_tmp.yaml
++++ b/settings/tsr/config/dpo/config_full_iter1_tmp.yaml
+@@ -1,5 +1,5 @@
+ 
+-model_name_or_path: ../models/Llama-3.1-8B-mix-sft-epoch3-temporal-iterjudge-iter0_tmp
++model_name_or_path: ../models/Llama-3.1-8B-mix-sft-epoch3-temporal-iterjudge-iter0
+ torch_dtype: null
+ 
+ # Data training arguments

@@ -1,0 +1,8 @@
+{
+  "run": "tsr-llama31-8b-future-only-1111b",
+  "status": "failed",
+  "created_utc": "2026-11-11T13:17:04.553935+00:00",
+  "saved_stage_models": [],
+  "completed_evaluation_models": [],
+  "already_archived": false
+}

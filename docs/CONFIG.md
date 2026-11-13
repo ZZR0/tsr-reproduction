@@ -32,13 +32,23 @@ upstream ones; only paths and the per-GPU batch split differ.
 
 ## Pair construction
 
-Upstream rules (`reformat2DPO_past.py`, `reformat2DPO_future.py`); our re-implementation matches them pair for pair.
+Historical upstream rules (`reformat2DPO_past.py`, `reformat2DPO_future.py`); our unmodified pair mode matches them pair for pair.
 
 - chosen = the current model's highest-scored response (first index on ties);
 - rejected = the lowest-scored response of the current model and of M0, the current model's on a tie;
 - future upgrade: chosen becomes the future model's best response if its score is `>=` the current best.
 
-No further filtering: pairs whose chosen and rejected scores are equal are kept (77 in iter1 D2), as in upstream.
+Historical runs kept equal-score pairs (77 in the original iter1 D2), as in upstream.
+
+**New runs (2026-11-12):** Mf0/Mf1 D1 requires `chosen_score > rejected_score`.
+Chosen comes exclusively from the current model (including current/past score ties); rejected is
+the minimum across current/past, with current winning ties (`--rej_tie mi`).
+Both M1 and M2 D2 now select the higher-scored current/future best, with **current winning ties**,
+and require `chosen_score > rejected_score`. The default iter1 variant is `current_tie`.
+A current/future source tie is different from a chosen/rejected preference tie; see [PAIR_RULES.md](PAIR_RULES.md).
+Use a fresh `WORK_DIR` / SN5 run: cached unfiltered D1 is rejected, and the previous trained
+future models and their descendants do not satisfy this new configuration. The corrected rerun is separate from the archived future-only experiment.
+The table below and immutable result archives describe the historical runs.
 
 | Pair set | Trains | chosen from future | rejected from M0 | mean length chosen / rejected (chars) |
 |---|---|---|---|---|
@@ -51,9 +61,9 @@ No further filtering: pairs whose chosen and rejected scores are equal are kept 
 
 ## DPO
 
-### Local second-round default: future-only chosen
+### Historical second-round variant: future-only chosen
 
-As of 2026-11-11, the default `run.sh iter1` uses `future_only`. For each prompt, choose
+The 2026-11-11 archived run used `future_only` (now an explicit variant). For each prompt, choose
 Mf1's highest-scored answer unconditionally, and reject the lowest-scored answer across
 M1 and M0 (ties prefer M1). Scores remain M1's plain self-judgements. Keep the pair only
 when `score(chosen) > score(rejected)`; discard equal or reversed scores. D1/Mf1 remain
@@ -145,3 +155,23 @@ these outputs and the final driver skips them.
 Retention keeps stage-final models, canonical training pairs, configs and compact metrics;
 consumed raw candidates/judgements and duplicate loader snapshots are removed. Public
 archives contain final evaluations and statistics, not weights or raw training caches.
+
+## Judge API concurrency (2026-11-12 update)
+
+New scoring uses 16 concurrent requests by default (`--api-concurrency`, range1–128).
+Evaluation model, prompt, sampling, logprob parser, and question sets are unchanged.
+For an already frozen run, scoring-only overlays live under `scoring/code-concurrency16/`;
+`SCORING_CONFIGURED.json` records both frozen and active code hashes and effective concurrency.
+GPU training continues independently; completed annotations and bounded retries are preserved.
+
+The compatible judge service can intermittently return `expired_secret_key` as HTTP429 even at concurrency1.
+Scoring now uses SDK-level per-request retries (max12, timeout30s) before the existing bounded whole-model retries.
+This changes transport recovery only; failed or unparsed judgements are never counted as valid results.
+
+## Recoverable per-request judge cache
+
+Each successful official completion is saved atomically before a whole annotation chunk finishes.
+The cache key covers the exact request, judge/endpoint and credential fingerprint; transport retry and timeout
+settings do not invalidate successful scores. Empty or failed completions are not cached.
+The official prompt, parser, API sampling and final LC/Win computation remain unchanged.
+Scoring overlays enable this cache without editing the frozen training bundle or installed AlpacaEval.

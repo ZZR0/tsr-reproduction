@@ -3,6 +3,15 @@
 #   name | pair flags for D1 (Mf1 data) | pair flags for D2 (M2 data) | Mf1 init | vLLM seed | needs p(score token)
 # "-" = same as the main run. If D1, Mf1 init and seed are all "-", the main run's Mf1 and future responses are reused.
 VARIANTS=(
+  "future_tie_charcap_distinct|-|--different-text --max-chosen-characters ${TSR_MAX_CHOSEN_CHARACTERS:-2500} --filter --rej_tie mi|M1|-|0" # source/score priorities first, then distinct text and chosen character cap; no length ranking
+  "future_tie_longer_distinct|-|--source-priority-length-gap --different-text --chosen-longer --filter --rej_tie mi|M1|-|0" # strict gap -> source priority -> distinct chosen longer, smallest positive character gap
+  "future_tie_distinct|-|--different-text --filter --rej_tie mi|M1|-|0" # strict gap -> source priorities -> first distinct-text combination, no length ranking
+  "future_tie_length_distinct|-|--source-priority-length-gap --different-text --filter --rej_tie mi|M1|-|0" # strict gap -> source priorities -> closest distinct-text pair
+  "future_tie_length|-|--source-priority-length-gap --filter --rej_tie mi|M1|-|0" # strict gap -> source priority -> joint closest length, all four stages
+  "future_tie_filtered|-|--filter --rej_tie mi|M1|-|0"                   # both rounds: future chosen ties, current rejected ties; positive-score-gap pairs only
+  "future_tie_unfiltered|-|--keep-equal-scores --rej_tie mi|M1|-|0"         # both rounds: future chosen ties, current rejected ties, retain equal-score pairs
+  "min_length_gap|-|--min-length-gap --filter|M1|-|0"                      # joint closest-length score-extreme pair; no model priority
+  "current_tie|-|--strict --filter --rej_tie mi|M1|-|0"                    # current/future best; equal scores choose current
   "future_only|-|--future-only --filter|M1|-|0"                         # chosen exclusively from Mf1; positive score gap only
   "strict|-|--strict --filter|M1|-|0"                                    # paper Alg. 1: upgrade only if strictly better, keep s_chosen > s_rejected
   "rej_past|--rej_tie past|--rej_tie past|M1|-|0"                        # rejected past/current tie -> past

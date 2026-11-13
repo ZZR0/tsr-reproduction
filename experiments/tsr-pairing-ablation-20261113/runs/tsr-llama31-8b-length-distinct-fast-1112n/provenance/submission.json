@@ -1,0 +1,33 @@
+{
+  "checked_utc": "2026-11-12T10:40:10.990344+00:00",
+  "tasks": [
+    {
+      "job": "zaninzeng-tsr-llama31-8b-length-distinct-fast-1112n",
+      "pod": "zaninzeng-tsr-llama31-8b-length-distinct-fast-1112n-mtdxt",
+      "phase": "Running",
+      "node": "hyperpod-i-0039abaaaa54c845e",
+      "container_states": [
+        {
+          "running": {
+            "startedAt": "2026-11-12T10:39:39Z"
+          }
+        }
+      ],
+      "scheduling_messages": []
+    },
+    {
+      "job": "zaninzeng-tsr-length-distinct-m2-score-1112n",
+      "pod": "zaninzeng-tsr-length-distinct-m2-score-1112n-ttrk2",
+      "phase": "Running",
+      "node": "hyperpod-i-039a10dbe287ac526",
+      "container_states": [
+        {
+          "running": {
+            "startedAt": "2026-11-12T10:39:39Z"
+          }
+        }
+      ],
+      "scheduling_messages": []
+    }
+  ]
+}

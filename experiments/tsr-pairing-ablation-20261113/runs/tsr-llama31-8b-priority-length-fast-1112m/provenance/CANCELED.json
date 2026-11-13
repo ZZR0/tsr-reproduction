@@ -1,0 +1,18 @@
+{
+  "canceled_utc": "2026-11-12T10:33:38.187258+00:00",
+  "reason": "User requested replacement requiring different chosen/rejected text, after score/source priorities.",
+  "tasks": [
+    {
+      "job": "zaninzeng-tsr-llama31-8b-priority-length-fast-1112m",
+      "pod": "zaninzeng-tsr-llama31-8b-priority-length-fast-1112m-s9667",
+      "phase": "Pending",
+      "node": "hyperpod-i-0039abaaaa54c845e"
+    },
+    {
+      "job": "zaninzeng-tsr-priority-length-m2-score-1112m",
+      "pod": "zaninzeng-tsr-priority-length-m2-score-1112m-bxdlm",
+      "phase": "Running",
+      "node": "hyperpod-i-039a10dbe287ac526"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "arm": "A",
+  "tag": "longer-gap",
+  "variant": "future_tie_longer_distinct",
+  "run": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-longer-gap-1112t",
+  "training_job": "zaninzeng-tsr-llama31-8b-longer-gap-1112t",
+  "score_job": "zaninzeng-tsr-longer-gap-score-1112t",
+  "submitted": [
+    {
+      "name": "zaninzeng-tsr-llama31-8b-longer-gap-1112t",
+      "uid": "2ccfffed-bcfb-433c-a601-7ea8d59f400a",
+      "created_utc": "2026-11-12T15:36:26Z"
+    },
+    {
+      "name": "zaninzeng-tsr-longer-gap-score-1112t",
+      "uid": "a6cb2e36-ee97-4f74-aa99-4f4e5541d66e",
+      "created_utc": "2026-11-12T15:36:27Z"
+    }
+  ]
+}

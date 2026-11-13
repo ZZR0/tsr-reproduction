@@ -1,0 +1,30 @@
+{
+  "source_run": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-distinct-judge0-fast-1112p",
+  "source_model": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-distinct-judge0-fast-1112p/trial/models/M2_future_tie_distinct",
+  "weights_copied": false,
+  "training_repeated": false,
+  "weights": [
+    {
+      "file": "model-00001-of-00004.safetensors",
+      "bytes": 4976698672
+    },
+    {
+      "file": "model-00002-of-00004.safetensors",
+      "bytes": 4999802720
+    },
+    {
+      "file": "model-00003-of-00004.safetensors",
+      "bytes": 4915916176
+    },
+    {
+      "file": "model-00004-of-00004.safetensors",
+      "bytes": 1168138808
+    }
+  ],
+  "metadata_sha256": {
+    "config.json": "6bb072f8923d5fd0fd99118f9181831978f5d5ebfba23a0b66d1d5504c7126aa",
+    "tokenizer_config.json": "d6b03c97fb8dcbb92196a8a23133ea55575b24bcee7c2bec0899155fcb5fcf4f",
+    "model.safetensors.index.json": "146776fce3f6db1103aa6f249e65ee5544c5923ce6f971b092eee79aa6e5d37b"
+  },
+  "original_temperature1_results": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-distinct-judge0-fast-1112p/trial/alpaca_eval/M2_future_tie_distinct"
+}

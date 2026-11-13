@@ -1,0 +1,37 @@
+{
+  "run_dir": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-m2-evaltemp0-1112q",
+  "created_utc": "2026-11-12T12:40:34.935114+00:00",
+  "kind": "evaluation_only",
+  "gpus": 1,
+  "image": "pytorch/pytorch@sha256:14611869895df612b7b07227d5925f30ec3cd6673bad58ce3d84ed107950e014",
+  "source_run": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-length-distinct-fast-1112n",
+  "source_model": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-length-distinct-fast-1112n/trial/models/M2_future_tie_length_distinct",
+  "model_alias": "M2_future_tie_length_distinct_temp0",
+  "source_training_pair_selection": "future_tie_length_distinct",
+  "source_training_self_judge_temperature": 1.0,
+  "eval": {
+    "enabled": true,
+    "questions": 805,
+    "judge": "gpt-4o-2024-08-06",
+    "reference": "gpt4_1106_preview",
+    "model_outputs": [
+      "M0",
+      "M0_seed1",
+      "M0_seed2",
+      "Mf0",
+      "M1",
+      "Mf1",
+      "M2_future_tie_length_distinct_temp0"
+    ],
+    "requested_models": [
+      "M2_future_tie_length_distinct_temp0"
+    ],
+    "generation_temperature": 0.0,
+    "generation_seed": 0,
+    "top_p": 1,
+    "max_tokens": 1024,
+    "max_model_len": 4096,
+    "scoring_concurrency": 16,
+    "scoring": "CPU worker scores only temp0 M2; GPT-4o judge settings unchanged"
+  }
+}

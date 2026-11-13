@@ -1,0 +1,28 @@
+diff --git a/alignment-handbook/scripts/run_dpo.py b/alignment-handbook/scripts/run_dpo.py
+index b939c39..d6d91b9 100644
+--- a/alignment-handbook/scripts/run_dpo.py
++++ b/alignment-handbook/scripts/run_dpo.py
+@@ -39,6 +39,23 @@ from alignment import (
+ from peft import PeftConfig, PeftModel
+ from trl import DPOTrainer
+ 
++# --- reproduction patch: trl 0.12.2 DPO drops BOS for decoder-only models, while SFT and
++# vLLM inference both start with BOS. Prepend BOS to the prompt so DPO sees the same input format. Nothing else changes.
++_orig_tokenize_row = DPOTrainer.tokenize_row
++
++
++def _tokenize_row_with_bos(features, processing_class, max_prompt_length, max_completion_length, add_special_tokens):
++    out = _orig_tokenize_row(features, processing_class, max_prompt_length, max_completion_length, add_special_tokens)
++    bos = processing_class.bos_token_id
++    if bos is not None and (not out["prompt_input_ids"] or out["prompt_input_ids"][0] != bos):
++        out["prompt_input_ids"] = [bos] + out["prompt_input_ids"]
++    return out
++
++
++DPOTrainer.tokenize_row = staticmethod(_tokenize_row_with_bos)
++# --- end patch
++
++
+ 
+ logger = logging.getLogger(__name__)
+ 

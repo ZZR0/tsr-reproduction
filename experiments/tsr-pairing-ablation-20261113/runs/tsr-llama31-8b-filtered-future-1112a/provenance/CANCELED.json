@@ -1,0 +1,6 @@
+{
+  "canceled_utc": "2026-11-11T19:12:39.995225+00:00",
+  "reason": "User corrected chosen current/future score ties to prefer current; this frozen run used future-only.",
+  "phase_at_cancel": "gpu_smoke",
+  "formal_training_started": false
+}

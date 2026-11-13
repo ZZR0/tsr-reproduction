@@ -1,0 +1,10 @@
+{
+  "run": "tsr-llama31-8b-clean-seed44-1112s",
+  "status": "canceled",
+  "created_utc": "2026-11-12T14:54:21.637722+00:00",
+  "saved_stage_models": [
+    "M0"
+  ],
+  "completed_evaluation_models": [],
+  "already_archived": false
+}

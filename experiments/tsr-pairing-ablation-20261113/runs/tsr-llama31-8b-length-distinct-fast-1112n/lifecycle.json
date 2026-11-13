@@ -1,0 +1,16 @@
+{
+  "run": "tsr-llama31-8b-length-distinct-fast-1112n",
+  "status": "completed",
+  "created_utc": "2026-11-12T10:37:09.788175+00:00",
+  "saved_stage_models": [
+    "M0",
+    "Mf0",
+    "M1",
+    "M2_future_tie_length_distinct",
+    "Mf1"
+  ],
+  "completed_evaluation_models": [
+    "M2_future_tie_length_distinct"
+  ],
+  "already_archived": false
+}

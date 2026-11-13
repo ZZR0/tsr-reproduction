@@ -1,0 +1,10 @@
+{
+  "run": "tsr-llama31-8b-future-tie-filter-1112h",
+  "status": "canceled",
+  "created_utc": "2026-11-12T05:26:56.991590+00:00",
+  "saved_stage_models": [
+    "M0"
+  ],
+  "completed_evaluation_models": [],
+  "already_archived": false
+}

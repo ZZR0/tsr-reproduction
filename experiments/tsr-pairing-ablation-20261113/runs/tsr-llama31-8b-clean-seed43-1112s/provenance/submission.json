@@ -1,0 +1,34 @@
+{
+  "seed": 43,
+  "run": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-clean-seed43-1112s",
+  "training_job": "zaninzeng-tsr-llama31-8b-clean-seed43-1112s",
+  "score_job": "zaninzeng-tsr-clean-seed43-score-1112s",
+  "submitted": [
+    {
+      "name": "zaninzeng-tsr-llama31-8b-clean-seed43-1112s",
+      "uid": "3de35cfe-937b-4ee0-83bf-0299d503826d",
+      "created_utc": "2026-11-12T14:54:23Z"
+    },
+    {
+      "name": "zaninzeng-tsr-clean-seed43-score-1112s",
+      "uid": "7efbc717-afa1-4c6f-be8b-280d48a6fe24",
+      "created_utc": "2026-11-12T14:54:24Z"
+    }
+  ],
+  "score_worker_revisions": [
+    {
+      "uid": "6e32ece3-bdbc-4578-87c7-bfe3c0c47a94",
+      "created_utc": "2026-11-12T14:56:47Z",
+      "reason": "allow queue time without timing out before training starts",
+      "timeout_hours": 48
+    },
+    {
+      "name": "zaninzeng-tsr-clean-seed43-score-r2-1112s",
+      "uid": "b63f2042-7e56-455e-94cf-6a4f21d5ab4b",
+      "created_utc": "2026-11-12T15:16:21Z",
+      "reason": "previous replacement started before original worker released lock; verified lock release before this submission",
+      "timeout_hours": 48
+    }
+  ],
+  "active_score_job": "zaninzeng-tsr-clean-seed43-score-r2-1112s"
+}

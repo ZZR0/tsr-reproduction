@@ -1,0 +1,11 @@
+{
+  "model": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-longer-gap-1112t/trial/models/M2_future_tie_longer_distinct",
+  "n": 805,
+  "seed": 0,
+  "temperature": 0.0,
+  "mean_chars": 4207.653416149068,
+  "empty_rate": 0.0,
+  "truncated_rate": 0.28074534161490683,
+  "eos_rate": 0.7180124223602484,
+  "role_stop_rate": 0.0012422360248447205
+}

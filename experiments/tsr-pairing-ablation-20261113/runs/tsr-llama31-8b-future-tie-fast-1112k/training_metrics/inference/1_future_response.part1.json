@@ -1,0 +1,22 @@
+{
+  "mode": "gen",
+  "shard": 1,
+  "prompts": 625,
+  "engine_options": {
+    "max_num_batched_tokens": 16384,
+    "max_num_seqs": 512,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": true,
+    "disable_log_stats": false
+  },
+  "model_load_s": 90.501619881019,
+  "calls": [
+    {
+      "requests": 4375,
+      "elapsed_s": 223.93681835802272,
+      "input_tokens": 764708,
+      "output_tokens": 1853847
+    }
+  ],
+  "total_s": 314.5781514090486
+}

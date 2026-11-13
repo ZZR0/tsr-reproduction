@@ -1,0 +1,14 @@
+{
+  "run": "tsr-llama31-8b-min-length-gap-1112f",
+  "status": "incomplete_no_final_evaluation",
+  "created_utc": "2026-11-11T22:28:45.425982+00:00",
+  "saved_stage_models": [
+    "M0",
+    "Mf0",
+    "Mf1",
+    "M1",
+    "M2_min_length_gap"
+  ],
+  "completed_evaluation_models": [],
+  "already_archived": false
+}

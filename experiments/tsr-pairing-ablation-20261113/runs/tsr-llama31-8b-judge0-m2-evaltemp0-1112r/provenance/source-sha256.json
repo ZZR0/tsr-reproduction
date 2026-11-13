@@ -1,0 +1,6 @@
+{
+  "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-distinct-judge0-fast-1112p/EVALUATION_COMPLETED.json": "a9ecea1f079eb88bd37eb9c65e2b96f9891e89abc253816f09da5ecb6840711c",
+  "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-distinct-judge0-fast-1112p/trial/alpaca_eval/M2_future_tie_distinct/model_outputs.json": "de56b4458a7527484e6a5e10eb2d71d0448df1a6163ed46f9d371e1fb3c2e30a",
+  "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-distinct-judge0-fast-1112p/trial/alpaca_eval/M2_future_tie_distinct/model_outputs.diag.json": "45c99d5f0d218c1c1f5239f8f3f62234327ddddafd78157e9f9b718f35bbab5c",
+  "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-distinct-judge0-fast-1112p/scoring/results.json": "39b29ae0f95d01f86ee7149eb08d8206a7f95d35c256841014f3ed108dab65c8"
+}

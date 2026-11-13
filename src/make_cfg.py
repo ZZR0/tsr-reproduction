@@ -53,14 +53,24 @@ if a.mode == "sft":
 else:
     c = yaml.safe_load(open(f"{tsr}/settings/sr/config/dpo/config_full_iter0.yaml"))
     assert c["per_device_train_batch_size"] * c["gradient_accumulation_steps"] * 8 == 32
-    micro = 1
+    micro = int(os.environ.get("TSR_DPO_MICRO_BATCH", "1"))
     c.update({"report_to": ["tensorboard"]})
+    if os.environ.get("TSR_PERFORMANCE_PROFILE") == "h200-fast":
+        c.update({"torch_dtype": "bfloat16", "attn_implementation": "flash_attention_2",
+                  "gradient_checkpointing": os.environ.get("TSR_GRADIENT_CHECKPOINTING", "0") == "1",
+                  "optim": "adamw_torch", "save_safetensors": True,
+                  "logging_nan_inf_filter": False, "logging_steps": 1,
+                  "dataloader_drop_last": True})
 if 32 % (micro * a.ngpu):
     raise SystemExit(f"global batch 32 is not divisible by {micro} x {a.ngpu} GPUs; use 1, 2, 4, 8, 16 or 32 GPUs")
 data = dpo_training_data(a.data, a.cfg) if a.mode == "dpo" else a.data
 c.update({"model_name_or_path": a.init, "dataset_mixer": {data: 1.0}, "output_dir": a.out_dir,
           "hub_model_id": a.name, "per_device_train_batch_size": micro,
           "gradient_accumulation_steps": 32 // (micro * a.ngpu), "max_steps": a.max_steps})
+if 'TSR_TRAIN_SEED' in os.environ:
+    c.update(seed=int(os.environ['TSR_TRAIN_SEED']), data_seed=int(os.environ['TSR_TRAIN_SEED']))
+if os.environ.get('TSR_PERFORMANCE_PROFILE') == 'h200-fast':
+    c.update(save_safetensors=True, logging_nan_inf_filter=False)
 os.makedirs(os.path.dirname(a.cfg), exist_ok=True)
 yaml.safe_dump(c, open(a.cfg, "w"), sort_keys=False)
 print(a.cfg)

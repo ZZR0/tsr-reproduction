@@ -43,4 +43,15 @@ if __name__ == "__main__":
         if logdir is not None:
             logdir.mkdir(parents=True, exist_ok=True)
             sys.argv.append("--logging_dir=" + str(logdir))
+    if os.environ.get("TSR_PERFORMANCE_PROFILE") == "h200-fast" and entry.name == "run_dpo.py":
+        import math
+        import numbers
+        from trl import DPOTrainer
+        original_log = DPOTrainer.log
+        def finite_log(self, logs, *args, **kwargs):
+            for key, value in logs.items():
+                if isinstance(value, numbers.Real) and not math.isfinite(float(value)):
+                    raise FloatingPointError(f"Non-finite training metric {key}={value}; stopping before invalid model export")
+            return original_log(self, logs, *args, **kwargs)
+        DPOTrainer.log = finite_log
     runpy.run_path(str(entry), run_name="__main__")

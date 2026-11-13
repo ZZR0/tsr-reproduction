@@ -1,0 +1,11 @@
+{
+  "model": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-current-tie-1112b/trial/models/M2_current_tie",
+  "n": 805,
+  "seed": 0,
+  "temperature": 1.0,
+  "mean_chars": 1927.5776397515529,
+  "empty_rate": 0.0,
+  "eos_rate": 0.991304347826087,
+  "truncated_rate": 0.007453416149068323,
+  "role_stop_rate": 0.0012422360248447205
+}

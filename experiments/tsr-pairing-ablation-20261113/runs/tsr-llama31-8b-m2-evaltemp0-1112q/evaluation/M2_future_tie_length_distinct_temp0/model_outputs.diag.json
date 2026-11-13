@@ -1,0 +1,11 @@
+{
+  "model": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-m2-evaltemp0-1112q/trial/models/M2_future_tie_length_distinct_temp0",
+  "n": 805,
+  "seed": 0,
+  "temperature": 0.0,
+  "mean_chars": 1522.783850931677,
+  "empty_rate": 0.0,
+  "eos_rate": 0.9950310559006211,
+  "truncated_rate": 0.0037267080745341614,
+  "role_stop_rate": 0.0012422360248447205
+}

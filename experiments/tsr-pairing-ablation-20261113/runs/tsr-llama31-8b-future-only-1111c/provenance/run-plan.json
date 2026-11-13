@@ -1,0 +1,50 @@
+{
+  "run_dir": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-future-only-1111c",
+  "created_utc": "2026-11-11T13:28:06.374633+00:00",
+  "gpus": 2,
+  "node": "hyperpod-i-03fcebc230d22fd76",
+  "image": "pytorch/pytorch@sha256:14611869895df612b7b07227d5925f30ec3cd6673bad58ce3d84ed107950e014",
+  "upstream_commit": "020266aa9ef3cc35bf81384c9b59f98cff62aa1c",
+  "base_model": "meta-llama/Llama-3.1-8B",
+  "base_directory": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/base/Llama-3.1-8B",
+  "initialization": "fresh Base -> SFT M0 -> Mf0 -> M1 -> Mf1 -> M2_future_only",
+  "global_batch": 32,
+  "sft_micro_batch": 2,
+  "sft_gradient_accumulation": 8,
+  "dpo_micro_batch": 1,
+  "dpo_gradient_accumulation": 16,
+  "sft_epochs": 3,
+  "sft_lr": 2e-06,
+  "dpo_epochs": 1,
+  "dpo_lr": 5e-07,
+  "beta": 0.1,
+  "warmup_ratio": 0.1,
+  "train_seed": 42,
+  "second_round_chosen": "Mf1 only, first highest-scored answer",
+  "second_round_rejected": "minimum among M1/M0; ties prefer M1",
+  "second_round_filter": "chosen_score > rejected_score",
+  "generation": {
+    "K": 7,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "max_tokens": 1024,
+    "judge_count": 1
+  },
+  "eval": {
+    "questions": 805,
+    "judge": "gpt-4o-2024-08-06",
+    "reference": "gpt4_1106_preview",
+    "model_outputs": [
+      "M0",
+      "M0_seed1",
+      "M0_seed2",
+      "Mf0",
+      "M1",
+      "Mf1",
+      "M2_future_only"
+    ],
+    "scoring": "pending user-supplied API; GPU job exits after generation"
+  },
+  "retention": "metrics/configs/final stage models/canonical DPO datasets; generated candidate and judgement caches removed after consumption; no optimizer checkpoints or token dumps",
+  "gpu_validation": "2 SFT updates + 2 DPO updates + 14 generations/self-judgements in separate smoke workdir; formal starts fresh"
+}

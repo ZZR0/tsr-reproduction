@@ -1,0 +1,26 @@
+{
+  "stats": {
+    "rejected_from_Mi": 5000,
+    "chosen_from_Mi": 4160,
+    "identical_pair": 32,
+    "tie_pair": 8,
+    "retained_chosen_from_Mi": 4152,
+    "retained_tie_pairs": 0,
+    "chosen_from_Mf": 840,
+    "chosen_from_Mf_by_tie": 0,
+    "retained_chosen_from_Mf": 840,
+    "filtered_out": 8,
+    "n_prompts": 5000,
+    "n_pairs": 4992,
+    "chosen_policy": "current_future_best",
+    "strict_score_gap": true,
+    "base_chosen_source": "current",
+    "chosen_tie_break": "current",
+    "rejected_tie_break": "current",
+    "gap_min": 1.0,
+    "gap_mean": 3.617,
+    "gap_median": 4.0
+  },
+  "train_json_sha256": "b5f9118a014e76a7d76c59b2de77d47d04f5aee26ddb1014604ceaca38185f5d",
+  "train_json_bytes": 24744347
+}

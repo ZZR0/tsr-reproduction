@@ -1,0 +1,15 @@
+{
+  "completed_unix": 1794431544.983369,
+  "evaluations": [
+    "M0",
+    "Mf0",
+    "M0_seed1",
+    "M1",
+    "M0_seed2",
+    "Mf1",
+    "M2_current_tie"
+  ],
+  "questions_each": 805,
+  "m2_pairs": 4975,
+  "scoring": "handled by separate CPU worker; see SCORING_CONFIGURED.json and EVALUATION_COMPLETED.json"
+}

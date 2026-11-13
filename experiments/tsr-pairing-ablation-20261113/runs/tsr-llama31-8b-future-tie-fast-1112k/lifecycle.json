@@ -1,0 +1,16 @@
+{
+  "run": "tsr-llama31-8b-future-tie-fast-1112k",
+  "status": "completed",
+  "created_utc": "2026-11-12T06:09:17.835682+00:00",
+  "saved_stage_models": [
+    "M1",
+    "Mf1",
+    "M0",
+    "Mf0",
+    "M2_future_tie_filtered"
+  ],
+  "completed_evaluation_models": [
+    "M2_future_tie_filtered"
+  ],
+  "already_archived": false
+}

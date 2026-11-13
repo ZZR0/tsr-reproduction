@@ -1,0 +1,180 @@
+{
+  "apiVersion": "batch/v1",
+  "kind": "Job",
+  "metadata": {
+    "name": "zaninzeng-tsr-m2-evaltemp0-1112q",
+    "namespace": "sn5-system-intern",
+    "labels": {
+      "owner": "zaninzeng",
+      "app": "tsr-reproduction",
+      "toolkits/creator": "zaninzeng"
+    }
+  },
+  "spec": {
+    "backoffLimit": 0,
+    "activeDeadlineSeconds": 3600,
+    "ttlSecondsAfterFinished": 604800,
+    "template": {
+      "metadata": {
+        "labels": {
+          "owner": "zaninzeng",
+          "app": "tsr-reproduction",
+          "run": "tsr-llama31-8b-m2-evaltemp0-1112q"
+        }
+      },
+      "spec": {
+        "restartPolicy": "Never",
+        "automountServiceAccountToken": false,
+        "affinity": {
+          "nodeAffinity": {
+            "requiredDuringSchedulingIgnoredDuringExecution": {
+              "nodeSelectorTerms": [
+                {
+                  "matchExpressions": [
+                    {
+                      "key": "group",
+                      "operator": "In",
+                      "values": [
+                        "shennong-5",
+                        "shennong-5-dev"
+                      ]
+                    },
+                    {
+                      "key": "node.kubernetes.io/instance-type",
+                      "operator": "In",
+                      "values": [
+                        "ml.p5e.48xlarge",
+                        "ml.p5en.48xlarge"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "tolerations": [
+          {
+            "key": "nvidia.com/gpu",
+            "operator": "Exists",
+            "effect": "NoSchedule"
+          },
+          {
+            "key": "role",
+            "operator": "Exists",
+            "effect": "NoSchedule"
+          },
+          {
+            "key": "glm5sft",
+            "operator": "Exists",
+            "effect": "NoSchedule"
+          }
+        ],
+        "containers": [
+          {
+            "name": "eval",
+            "image": "pytorch/pytorch@sha256:14611869895df612b7b07227d5925f30ec3cd6673bad58ce3d84ed107950e014",
+            "command": [
+              "/mnt/sn-007/zaninzeng/tsr-reproduction/.venv/bin/python",
+              "-u",
+              "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-m2-evaltemp0-1112q/bundle/scripts/early_eval.py",
+              "--run",
+              "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-m2-evaltemp0-1112q",
+              "--models",
+              "M2_future_tie_length_distinct_temp0",
+              "--temperature",
+              "0"
+            ],
+            "resources": {
+              "requests": {
+                "cpu": "8",
+                "memory": "64Gi",
+                "nvidia.com/gpu": "1"
+              },
+              "limits": {
+                "cpu": "32",
+                "memory": "128Gi",
+                "nvidia.com/gpu": "1"
+              }
+            },
+            "volumeMounts": [
+              {
+                "name": "fsx",
+                "mountPath": "/mnt/sn-007"
+              },
+              {
+                "name": "shm",
+                "mountPath": "/dev/shm"
+              }
+            ],
+            "env": [
+              {
+                "name": "PYTHONDONTWRITEBYTECODE",
+                "value": "1"
+              },
+              {
+                "name": "PYTHONUNBUFFERED",
+                "value": "1"
+              },
+              {
+                "name": "TZ",
+                "value": "Asia/Shanghai"
+              },
+              {
+                "name": "HF_HOME",
+                "value": "/mnt/sn-007/zaninzeng/tsr-reproduction/.runtime/hf-cache"
+              },
+              {
+                "name": "HF_HUB_OFFLINE",
+                "value": "1"
+              },
+              {
+                "name": "HF_DATASETS_CACHE",
+                "value": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-m2-evaltemp0-1112q/runtime/eval-datasets"
+              },
+              {
+                "name": "USER",
+                "value": "zaninzeng"
+              },
+              {
+                "name": "LOGNAME",
+                "value": "zaninzeng"
+              },
+              {
+                "name": "OMP_NUM_THREADS",
+                "value": "8"
+              },
+              {
+                "name": "TOKENIZERS_PARALLELISM",
+                "value": "false"
+              },
+              {
+                "name": "VLLM_CACHE_ROOT",
+                "value": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-m2-evaltemp0-1112q/runtime/eval-vllm"
+              },
+              {
+                "name": "TRITON_CACHE_DIR",
+                "value": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-m2-evaltemp0-1112q/runtime/eval-triton"
+              }
+            ]
+          }
+        ],
+        "volumes": [
+          {
+            "name": "fsx",
+            "persistentVolumeClaim": {
+              "claimName": "youtu-sn2-007"
+            }
+          },
+          {
+            "name": "shm",
+            "emptyDir": {
+              "medium": "Memory",
+              "sizeLimit": "64Gi"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

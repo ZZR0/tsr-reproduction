@@ -1,0 +1,21 @@
+{
+  "series": "tsr-pair-length-ablation-1112t",
+  "arm": "A",
+  "variant": "future_tie_longer_distinct",
+  "source": "fresh verified Base; new SFT per arm",
+  "reuse_old_models": false,
+  "reuse_candidate_or_judge_data": false,
+  "seed": 42,
+  "gpus": 8,
+  "length_constraint": "chosen strictly longer, minimum positive gap",
+  "length_unit": "unicode_characters",
+  "no_legal_pair_action": "drop prompt without score/source fallback",
+  "temperatures": {
+    "self_generate": 1,
+    "self_judge": 1,
+    "eval_generate": 0
+  },
+  "evaluation_model": "M2_future_tie_longer_distinct",
+  "evaluation_questions": 805,
+  "api_concurrency": 16
+}

@@ -1,0 +1,29 @@
+{
+  "mode": "gen",
+  "shard": 2,
+  "prompts": 625,
+  "engine_options": {
+    "seed": 44,
+    "max_num_batched_tokens": 16384,
+    "max_num_seqs": 512,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": true,
+    "disable_log_stats": false
+  },
+  "model_load_s": 96.75864778109826,
+  "calls": [
+    {
+      "requests": 4375,
+      "elapsed_s": 158.8428135800641,
+      "kind": "response_generation",
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 1024,
+      "input_tokens": 817117,
+      "output_tokens": 1313493
+    }
+  ],
+  "random_seed": 42,
+  "vllm_seed": 44,
+  "total_s": 255.7096267810557
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "path": "data/iter0/0_chosen_judgement.json",
+    "bytes": 83088507,
+    "sha256": "de1396a24b76d84476368149a3b86743b1031dd3ae7c1f36b2cce588b8b6a1f5",
+    "prompts": 5000,
+    "scores": {
+      "3.0": 11681,
+      "1.0": 1037,
+      "4.0": 17665,
+      "5.0": 2713,
+      "0": 1423,
+      "2.0": 480,
+      "24.0": 1
+    }
+  },
+  {
+    "path": "data/iter0/0_chosen_response.json",
+    "bytes": 51410555,
+    "sha256": "b3d6591f929f6b654bcd01e01f6d85af9935ae40f8ab81ebfbd060d8fd41441d"
+  },
+  {
+    "path": "data/iter0/0_future_judgement.json",
+    "bytes": 92278297,
+    "sha256": "716e55830f4db31fd0a6147bd85d3903acd29db6d8a18f2534aebd50006e4a1f",
+    "prompts": 5000,
+    "scores": {
+      "3.0": 7631,
+      "4.0": 21650,
+      "5.0": 5250,
+      "1.0": 236,
+      "2.0": 146,
+      "0": 86,
+      "21.0": 1
+    }
+  },
+  {
+    "path": "data/iter0/0_future_response.json",
+    "bytes": 59188460,
+    "sha256": "3454a1364b8c145202ff3d98e2e4ce22927bde70e7b9dda0013c1e196a561960"
+  }
+]

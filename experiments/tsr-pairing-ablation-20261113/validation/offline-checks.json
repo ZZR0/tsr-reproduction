@@ -1,0 +1,11 @@
+{
+  "checked_utc": "2026-11-13T02:21:44.428923+00:00",
+  "unittest_command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m unittest discover -s tests -q",
+  "tests": 67,
+  "passed": 67,
+  "failed": 0,
+  "python_syntax": "passed",
+  "git_diff_check": "active source/config/test paths passed; frozen experiment snapshots retain original whitespace",
+  "external_api_calls": 0,
+  "gpu_jobs_started": 0
+}

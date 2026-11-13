@@ -1,0 +1,191 @@
+{
+  "stats": {
+    "rejected_from_Mi": 2039,
+    "retained_chosen_from_Mf": 4740,
+    "chosen_from_Mf": 4740,
+    "chosen_from_Mf_by_tie": 4735,
+    "identical_pair": 0,
+    "retained_tie_pairs": 0,
+    "identical_text_combinations_excluded": 5,
+    "length_constraint_combinations_excluded": 0,
+    "valid_pair_combinations_total": 44429,
+    "high_pool_candidates_total": 28189,
+    "low_pool_candidates_total": 7581,
+    "rejected_from_M0": 2706,
+    "tie_pair": 255,
+    "filtered_out": 255,
+    "filtered_equal_score_pairs": 255,
+    "filtered_no_valid_score_candidates": 0,
+    "filtered_no_distinct_text_pairs": 0,
+    "filtered_no_chosen_longer_pairs": 0,
+    "retained_chosen_from_Mi": 5,
+    "chosen_from_Mi": 5,
+    "n_prompts": 5000,
+    "n_pairs": 4745,
+    "drop_invalid_scores": true,
+    "invalid_score_filter": {
+      "enabled": true,
+      "parser": "explicit-score-v1",
+      "order": "before score extrema and source priorities",
+      "inputs": {
+        "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-distinct-only-1112t/trial/data/iter1/1_chosen_judgement.json": {
+          "score_parser": "explicit-score-v1",
+          "n_items": 5000,
+          "n_judgments": 35000,
+          "valid_score_candidates": 34981,
+          "invalid_score_candidates": 19,
+          "parse_fail_rate": 0.000543,
+          "out_of_range_rate": 2.857142857142857e-05,
+          "invalid_reasons": {
+            "malformed_score": 5,
+            "multiple_score_labels": 12,
+            "out_of_range_score": 1,
+            "missing_score": 1
+          },
+          "groups_without_valid_scores": 0,
+          "group_all_tie_rate": 0.365,
+          "group_max_is_5_rate": 0.999,
+          "score_dist": {
+            "4.0": 5683,
+            "5.0": 29202,
+            "3.0": 60,
+            "4.5": 11,
+            "1.0": 10,
+            "2.0": 13,
+            "0.0": 2
+          },
+          "score_mean": 4.831408478888539,
+          "resp_mean_chars": 1841.3991428571428
+        },
+        "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-distinct-only-1112t/trial/data/iter1/1_rejected_judgement.json": {
+          "score_parser": "explicit-score-v1",
+          "n_items": 5000,
+          "n_judgments": 35000,
+          "valid_score_candidates": 34972,
+          "invalid_score_candidates": 28,
+          "parse_fail_rate": 0.0008,
+          "out_of_range_rate": 2.857142857142857e-05,
+          "invalid_reasons": {
+            "multiple_score_labels": 19,
+            "malformed_score": 4,
+            "missing_score": 4,
+            "out_of_range_score": 1
+          },
+          "groups_without_valid_scores": 0,
+          "group_all_tie_rate": 0.093,
+          "group_max_is_5_rate": 0.985,
+          "score_dist": {
+            "5.0": 21504,
+            "4.0": 11011,
+            "3.0": 960,
+            "1.0": 548,
+            "0.0": 443,
+            "2.0": 496,
+            "4.5": 7,
+            "4.75": 1,
+            "3.5": 1,
+            "1.5": 1
+          },
+          "score_mean": 4.461433432460254,
+          "resp_mean_chars": 1394.5490571428572
+        },
+        "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-distinct-only-1112t/trial/data/iter1/1_future_judgement.json": {
+          "score_parser": "explicit-score-v1",
+          "n_items": 5000,
+          "n_judgments": 35000,
+          "valid_score_candidates": 34986,
+          "invalid_score_candidates": 14,
+          "parse_fail_rate": 0.0004,
+          "out_of_range_rate": 0.0,
+          "invalid_reasons": {
+            "multiple_score_labels": 11,
+            "missing_score": 1,
+            "malformed_score": 2
+          },
+          "groups_without_valid_scores": 0,
+          "group_all_tie_rate": 0.4106,
+          "group_max_is_5_rate": 0.999,
+          "score_dist": {
+            "5.0": 29863,
+            "4.0": 5051,
+            "3.0": 50,
+            "0.0": 2,
+            "1.0": 3,
+            "2.0": 9,
+            "4.5": 7,
+            "4.9": 1
+          },
+          "score_mean": 4.851266220774024,
+          "resp_mean_chars": 2069.8796
+        }
+      },
+      "input_count_unit": "unique judgment file",
+      "invalid_candidates_removed": 61
+    },
+    "chosen_policy": "current_future_best",
+    "strict_score_gap": true,
+    "base_chosen_source": "current",
+    "chosen_tie_break": "future",
+    "rejected_tie_break": "current",
+    "pair_selection": "future_tie_distinct",
+    "filter_equal_scores": true,
+    "model_source_priority": true,
+    "selection_order": [
+      "strict_score_gap",
+      "model_source_priority",
+      "first_distinct_combination"
+    ],
+    "length_selection": "none",
+    "require_distinct_text": true,
+    "text_comparison": "strip leading/trailing whitespace",
+    "length_unit": "unicode_characters",
+    "signed_length_gap_min": -6674,
+    "signed_length_gap_mean": 656.6731296101159,
+    "chosen_longer_pairs": 3745,
+    "chosen_equal_length_pairs": 3,
+    "chosen_shorter_pairs": 997,
+    "chosen_length_mean": 2087.7403582718653,
+    "rejected_length_mean": 1431.0672286617491,
+    "absolute_length_gap_mean": 875.2151738672287,
+    "absolute_length_gap_median": 612,
+    "absolute_length_gap_max": 6674,
+    "zero_length_gap_pairs": 3,
+    "gap_min": 1.0,
+    "gap_mean": 1.824,
+    "gap_median": 1.0,
+    "within_source_tie_selection": "first valid distinct-text combination in original candidate order",
+    "pool_count_unit": "candidate entries, without text deduplication; after source priorities",
+    "chosen_candidate_pool": {
+      "n": 4745,
+      "mean": 5.940779768177029,
+      "median": 6.0,
+      "histogram": {
+        "1": 23,
+        "2": 45,
+        "3": 129,
+        "4": 360,
+        "5": 742,
+        "6": 1583,
+        "7": 1863
+      },
+      "multiple_candidates_rate": 0.9951527924130664
+    },
+    "rejected_candidate_pool": {
+      "n": 4745,
+      "mean": 1.59768177028451,
+      "median": 1.0,
+      "histogram": {
+        "1": 3008,
+        "2": 1023,
+        "3": 434,
+        "4": 192,
+        "5": 73,
+        "6": 13,
+        "7": 2
+      },
+      "multiple_candidates_rate": 0.3660695468914647
+    }
+  },
+  "train_json_sha256": "92789b6aa13144db136505dab1c0d410844e00af7dfcbdfb8ff2eecf277fc3dc",
+  "train_json_bytes": 27890461
+}

@@ -1,0 +1,16 @@
+{
+  "run": "tsr-llama31-8b-cap2500-judge1-1113a",
+  "status": "completed",
+  "created_utc": "2026-11-12T17:46:35.953456+00:00",
+  "saved_stage_models": [
+    "M0",
+    "M2_future_tie_charcap_distinct",
+    "Mf1",
+    "Mf0",
+    "M1"
+  ],
+  "completed_evaluation_models": [
+    "M2_future_tie_charcap_distinct"
+  ],
+  "already_archived": false
+}

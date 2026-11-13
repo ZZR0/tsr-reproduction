@@ -1,0 +1,22 @@
+{
+  "mode": "judge",
+  "shard": 6,
+  "prompts": 625,
+  "engine_options": {
+    "max_num_batched_tokens": 16384,
+    "max_num_seqs": 512,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": true,
+    "disable_log_stats": false
+  },
+  "model_load_s": 77.55549721978605,
+  "calls": [
+    {
+      "requests": 4375,
+      "elapsed_s": 122.61614000191912,
+      "input_tokens": 3530857,
+      "output_tokens": 505501
+    }
+  ],
+  "total_s": 200.4705782388337
+}

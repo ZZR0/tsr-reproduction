@@ -1,0 +1,15 @@
+{
+  "request": "Regenerate and score latest M2 at temperature=0",
+  "models": [
+    "M2_future_tie_distinct_temp0"
+  ],
+  "questions": 805,
+  "gpu_count": 1,
+  "cluster": "SN5",
+  "response_temperature": 0,
+  "self_judge_training_temperature": 0,
+  "scoring_judge": "gpt-4o-2024-08-06",
+  "api_concurrency": 16,
+  "preserve_temperature1": true,
+  "change_training": false
+}

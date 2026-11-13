@@ -1,0 +1,7 @@
+{
+  "canceled_utc": "2026-11-12T05:44:04.597074+00:00",
+  "reason": "User requested stop and optimize ZeRO and inference throughput before restarting",
+  "job_deleted": true,
+  "files_preserved": true,
+  "remaining_pods": []
+}

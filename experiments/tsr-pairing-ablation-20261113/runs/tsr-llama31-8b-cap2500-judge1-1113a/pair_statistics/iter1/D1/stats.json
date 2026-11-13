@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "rejected_from_Mi": 2109,
+    "retained_chosen_from_Mi": 4628,
+    "identical_pair": 0,
+    "retained_tie_pairs": 0,
+    "identical_text_combinations_excluded": 7,
+    "length_constraint_combinations_excluded": 3240,
+    "character_cap_combinations_excluded": 3240,
+    "valid_pair_combinations_total": 38908,
+    "high_pool_candidates_total": 26175,
+    "low_pool_candidates_total": 7706,
+    "rejected_from_M0": 2519,
+    "tie_pair": 241,
+    "filtered_out": 372,
+    "filtered_equal_score_pairs": 241,
+    "filtered_no_valid_score_candidates": 0,
+    "filtered_no_distinct_text_pairs": 0,
+    "filtered_no_chosen_longer_pairs": 0,
+    "filtered_no_chosen_within_character_limit": 131,
+    "n_prompts": 5000,
+    "n_pairs": 4628,
+    "drop_invalid_scores": true,
+    "invalid_score_filter": {
+      "enabled": true,
+      "parser": "explicit-score-v1",
+      "order": "before score extrema and source priorities",
+      "inputs": {
+        "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-cap2500-judge1-1113a/trial/data/iter1/1_chosen_judgement.json": {
+          "score_parser": "explicit-score-v1",
+          "n_items": 5000,
+          "n_judgments": 35000,
+          "valid_score_candidates": 34972,
+          "invalid_score_candidates": 28,
+          "parse_fail_rate": 0.0008,
+          "out_of_range_rate": 0.0,
+          "invalid_reasons": {
+            "multiple_score_labels": 17,
+            "malformed_score": 8,
+            "missing_score": 3
+          },
+          "groups_without_valid_scores": 0,
+          "group_all_tie_rate": 0.3442,
+          "group_max_is_5_rate": 0.9986,
+          "score_dist": {
+            "5.0": 28524,
+            "4.0": 6397,
+            "3.0": 41,
+            "4.5": 6,
+            "4.75": 1,
+            "2.0": 1,
+            "1.0": 2
+          },
+          "score_mean": 4.814330035456937,
+          "resp_mean_chars": 1455.6635428571428
+        },
+        "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-cap2500-judge1-1113a/trial/data/iter1/1_rejected_judgement.json": {
+          "score_parser": "explicit-score-v1",
+          "n_items": 5000,
+          "n_judgments": 35000,
+          "valid_score_candidates": 34971,
+          "invalid_score_candidates": 29,
+          "parse_fail_rate": 0.000829,
+          "out_of_range_rate": 2.857142857142857e-05,
+          "invalid_reasons": {
+            "multiple_score_labels": 13,
+            "out_of_range_score": 1,
+            "malformed_score": 11,
+            "missing_score": 4
+          },
+          "groups_without_valid_scores": 0,
+          "group_all_tie_rate": 0.0878,
+          "group_max_is_5_rate": 0.98,
+          "score_dist": {
+            "4.0": 11793,
+            "5.0": 20944,
+            "3.0": 899,
+            "1.0": 484,
+            "2.0": 414,
+            "0.0": 424,
+            "4.5": 8,
+            "4.75": 2,
+            "4.9": 2,
+            "3.5": 1
+          },
+          "score_mean": 4.459689456978639,
+          "resp_mean_chars": 1395.954942857143
+        }
+      },
+      "input_count_unit": "unique judgment file",
+      "invalid_candidates_removed": 57
+    },
+    "chosen_policy": "current_best",
+    "strict_score_gap": true,
+    "base_chosen_source": "current",
+    "chosen_tie_break": "not_applicable",
+    "rejected_tie_break": "current",
+    "pair_selection": "future_tie_charcap_distinct",
+    "filter_equal_scores": true,
+    "model_source_priority": true,
+    "selection_order": [
+      "strict_score_gap",
+      "model_source_priority",
+      "distinct_text_and_chosen_character_cap",
+      "first_valid_combination"
+    ],
+    "length_selection": "character_cap_only_no_ranking",
+    "max_chosen_characters": 2500,
+    "require_distinct_text": true,
+    "text_comparison": "strip leading/trailing whitespace",
+    "length_unit": "unicode_characters",
+    "chosen_length_max": 2500,
+    "chosen_length_min": 12,
+    "chosen_over_character_limit_pairs": 0,
+    "signed_length_gap_min": -4648,
+    "signed_length_gap_mean": 163.83535004321521,
+    "chosen_longer_pairs": 2900,
+    "chosen_equal_length_pairs": 5,
+    "chosen_shorter_pairs": 1723,
+    "chosen_length_mean": 1350.6216508210891,
+    "rejected_length_mean": 1186.7863007778737,
+    "absolute_length_gap_mean": 551.3694900605013,
+    "absolute_length_gap_median": 362,
+    "absolute_length_gap_max": 4648,
+    "zero_length_gap_pairs": 5,
+    "gap_min": 1.0,
+    "gap_mean": 1.789,
+    "gap_median": 1.0,
+    "within_source_tie_selection": "first valid distinct-text combination in original candidate order",
+    "pool_count_unit": "candidate entries, without text deduplication; after source priorities",
+    "chosen_candidate_pool": {
+      "n": 4628,
+      "mean": 5.655790838375108,
+      "median": 6.0,
+      "histogram": {
+        "1": 36,
+        "2": 79,
+        "3": 214,
+        "4": 500,
+        "5": 892,
+        "6": 1470,
+        "7": 1437
+      },
+      "multiple_candidates_rate": 0.9922212618841832
+    },
+    "rejected_candidate_pool": {
+      "n": 4628,
+      "mean": 1.6650821089023335,
+      "median": 1.0,
+      "histogram": {
+        "1": 2778,
+        "2": 1038,
+        "3": 519,
+        "4": 199,
+        "5": 65,
+        "6": 29
+      },
+      "multiple_candidates_rate": 0.39974070872947276
+    }
+  },
+  "train_json_sha256": "75fd93881713ffa9d6d72b45a04c90f0607d32ffcbfe76ceb9d79b8123226ad9",
+  "train_json_bytes": 22607166
+}

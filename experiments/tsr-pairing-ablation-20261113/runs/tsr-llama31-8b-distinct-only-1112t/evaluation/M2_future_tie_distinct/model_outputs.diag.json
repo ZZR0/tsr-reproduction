@@ -1,0 +1,10 @@
+{
+  "model": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-distinct-only-1112t/trial/models/M2_future_tie_distinct",
+  "n": 805,
+  "seed": 0,
+  "temperature": 0.0,
+  "mean_chars": 2462.7329192546586,
+  "empty_rate": 0.0,
+  "eos_rate": 0.9801242236024845,
+  "truncated_rate": 0.01987577639751553
+}

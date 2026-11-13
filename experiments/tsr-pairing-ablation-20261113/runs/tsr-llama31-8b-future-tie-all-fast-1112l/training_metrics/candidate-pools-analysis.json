@@ -1,0 +1,57 @@
+{
+  "selection_is_random": false,
+  "within_source_tie_break": "first index",
+  "candidate_entry_counts_not_deduplicated_text": true,
+  "Mf0_chosen_exact": {
+    "n": 5000,
+    "mean": 2.3314,
+    "median": 2.0,
+    "histogram": {
+      "1": 1673,
+      "2": 1418,
+      "3": 983,
+      "4": 555,
+      "5": 266,
+      "6": 86,
+      "7": 19
+    },
+    "more_than_one_rate": 0.6654,
+    "all_seven_rate": 0.0038
+  },
+  "Mf0_and_M1_rejected_exact": {
+    "n": 5000,
+    "mean": 1.6598,
+    "median": 1.0,
+    "histogram": {
+      "1": 3066,
+      "2": 1151,
+      "3": 433,
+      "4": 197,
+      "5": 93,
+      "6": 41,
+      "7": 19
+    },
+    "more_than_one_rate": 0.3868,
+    "all_seven_rate": 0.0038
+  },
+  "M2_chosen": {
+    "n": 5000,
+    "from_future": 5000,
+    "source_chosen_by_equal_max_scores": 4996,
+    "all_seven_count": 2665,
+    "all_seven_rate": 0.533,
+    "median": 7,
+    "mean_bound": [
+      6.287,
+      6.2922
+    ],
+    "mean_rounded_two_decimals": 6.29,
+    "derivation": "Only 2 groups do not have max score 5. Count of 5-scored future answers is 31447; bound their tied-max pool total using at most 7 entries per exceptional group."
+  },
+  "M2_rejected": {
+    "from_current": 2255,
+    "from_past": 2745,
+    "mean_pool_size": null,
+    "reason": "Per-prompt scores removed after consumption; aggregate marginal score counts cannot recover cross-model minimum tie pools."
+  }
+}

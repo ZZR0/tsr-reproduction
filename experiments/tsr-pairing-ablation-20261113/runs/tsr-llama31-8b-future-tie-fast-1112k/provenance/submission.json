@@ -1,0 +1,30 @@
+{
+  "job": "zaninzeng-tsr-llama31-8b-future-tie-fast-1112k",
+  "observed_utc": "2026-11-12T06:17:18.364168+00:00",
+  "performance_profile": "h200-fast",
+  "gpus": 8,
+  "global_batch": 32,
+  "zero_stage": 2,
+  "optimizer": "adamw_torch",
+  "communication_overlap": false,
+  "target_gpu_elapsed_s": 3600,
+  "target_verified": false,
+  "pods": [
+    {
+      "name": "zaninzeng-tsr-llama31-8b-future-tie-fast-1112k-szph2",
+      "phase": "Pending",
+      "node": null,
+      "conditions": [
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-11-12T06:15:37Z",
+          "message": "0/116 nodes are available: 2 Insufficient cpu, 3 node(s) had untolerated taint(s), 56 Insufficient nvidia.com/gpu, 57 node(s) didn't match Pod's node affinity/selector. no new claims to deallocate, preemption: 0/116 nodes are available: 56 No preemption victims found for incoming pod, 60 Preemption is not helpful for scheduling.",
+          "observedGeneration": 1,
+          "reason": "Unschedulable",
+          "status": "False",
+          "type": "PodScheduled"
+        }
+      ]
+    }
+  ]
+}

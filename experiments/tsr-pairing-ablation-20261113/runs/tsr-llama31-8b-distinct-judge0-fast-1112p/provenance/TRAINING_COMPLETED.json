@@ -1,0 +1,13 @@
+{
+  "completed_unix": 1794491501.2624762,
+  "models": [
+    "M0",
+    "Mf0",
+    "M1",
+    "Mf1",
+    "M2_future_tie_distinct"
+  ],
+  "m2_pairs": 4592,
+  "evaluation_generation": false,
+  "api_scoring": false
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "path": "data/iter0/0_chosen_judgement.json",
+    "bytes": 83420324,
+    "sha256": "3dc757c0a4ab70fb8c188cb1d7a1d618da1a08ba30fc3bc61569dc14f98cd403",
+    "prompts": 5000,
+    "scores": {
+      "3.0": 11099,
+      "0.0": 1467,
+      "4.0": 15429,
+      "5.0": 5592,
+      "1.0": 951,
+      "2.0": 460,
+      "4.8": 1,
+      "None": 1
+    }
+  },
+  {
+    "path": "data/iter0/0_future_judgement.json",
+    "bytes": 81751913,
+    "sha256": "4f75bbce5bd4aa7017c19b4bbe920f2dc69af929a50ace83c4b115b64c856acb",
+    "prompts": 5000,
+    "scores": {
+      "3.0": 6758,
+      "4.0": 18308,
+      "5.0": 9576,
+      "2.0": 119,
+      "1.0": 172,
+      "0.0": 67
+    }
+  },
+  {
+    "path": "data/iter0/0_future_response.json",
+    "bytes": 49748279,
+    "sha256": "2cab784f7ccf7461b9397ad78b6f82ab38538bedcb5f20ce45afadcfbca846d5"
+  }
+]

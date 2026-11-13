@@ -1,0 +1,11 @@
+{
+  "model": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-future-tie-fast-1112k/trial/models/M2_future_tie_filtered",
+  "n": 805,
+  "seed": 0,
+  "temperature": 1.0,
+  "mean_chars": 2577.7167701863355,
+  "empty_rate": 0.0,
+  "eos_rate": 0.9739130434782609,
+  "truncated_rate": 0.02360248447204969,
+  "role_stop_rate": 0.002484472049689441
+}

@@ -1,0 +1,55 @@
+[
+  {
+    "path": "data/iter1/1_chosen_judgement.json",
+    "bytes": 96230275,
+    "sha256": "bbf7e4e4b21ce744e076a768d0af1c006d827f1451fa922353d790fb8a5bf863",
+    "prompts": 5000,
+    "scores": {
+      "5.0": 31610,
+      "4.0": 3360,
+      "3.0": 23,
+      "0.0": 3,
+      "1.0": 2,
+      "4.9": 1,
+      "2.0": 1
+    }
+  },
+  {
+    "path": "data/iter1/1_future_judgement.json",
+    "bytes": 98705031,
+    "sha256": "dc388356a03278acd5d4043f4a4d6af83b1882cbdfcdf47ed507592ac977336e",
+    "prompts": 5000,
+    "scores": {
+      "5.0": 32374,
+      "4.0": 2615,
+      "3.0": 7,
+      "1.0": 3,
+      "2.0": 1
+    }
+  },
+  {
+    "path": "data/iter1/1_future_response.json",
+    "bytes": 60112936,
+    "sha256": "60edb262bac80ac294ae8c4f8efe697c327189c6835107d7d647421762a193b6"
+  },
+  {
+    "path": "data/iter1/1_rejected_judgement.json",
+    "bytes": 89932106,
+    "sha256": "e60840f9d5fed887c83d002c89e401de88f707a86a17776be56059f046222d7d",
+    "prompts": 5000,
+    "scores": {
+      "5.0": 22544,
+      "4.0": 10378,
+      "2.0": 191,
+      "3.0": 1066,
+      "0.0": 531,
+      "1.0": 288,
+      "None": 2
+    }
+  },
+  {
+    "path": "data/iter1/1_rejected_response.json",
+    "bytes": 52068512,
+    "sha256": "a5383a4fe14154c34df2de447360549613f45fb21fa517e300203ddec103d3fc"
+  }
+]

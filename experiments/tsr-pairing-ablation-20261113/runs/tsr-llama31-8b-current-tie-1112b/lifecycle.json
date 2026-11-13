@@ -1,0 +1,22 @@
+{
+  "run": "tsr-llama31-8b-current-tie-1112b",
+  "status": "completed",
+  "created_utc": "2026-11-11T19:13:36.793194+00:00",
+  "saved_stage_models": [
+    "Mf0",
+    "M0",
+    "Mf1",
+    "M1",
+    "M2_current_tie"
+  ],
+  "completed_evaluation_models": [
+    "M2_current_tie",
+    "M1",
+    "M0",
+    "M0_seed1",
+    "M0_seed2",
+    "Mf0",
+    "Mf1"
+  ],
+  "already_archived": false
+}

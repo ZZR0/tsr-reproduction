@@ -1,0 +1,10 @@
+{
+  "model": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-cap2500-judge0-1113a/trial/models/M2_future_tie_charcap_distinct",
+  "n": 805,
+  "seed": 0,
+  "temperature": 0.0,
+  "mean_chars": 1761.7552795031056,
+  "empty_rate": 0.0,
+  "eos_rate": 0.9975155279503105,
+  "truncated_rate": 0.002484472049689441
+}

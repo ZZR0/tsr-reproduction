@@ -1,0 +1,10 @@
+{
+  "run": "tsr-llama31-8b-filtered-future-1112a",
+  "status": "canceled",
+  "created_utc": "2026-11-11T19:02:39.390586+00:00",
+  "saved_stage_models": [
+    "M0"
+  ],
+  "completed_evaluation_models": [],
+  "already_archived": false
+}

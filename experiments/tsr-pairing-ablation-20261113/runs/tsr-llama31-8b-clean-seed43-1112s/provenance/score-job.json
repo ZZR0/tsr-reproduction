@@ -1,0 +1,177 @@
+{
+  "apiVersion": "batch/v1",
+  "kind": "Job",
+  "metadata": {
+    "name": "zaninzeng-tsr-clean-seed43-score-1112s",
+    "namespace": "sn5-system-intern",
+    "labels": {
+      "owner": "zaninzeng",
+      "app": "tsr-scoring",
+      "toolkits/creator": "zaninzeng"
+    }
+  },
+  "spec": {
+    "backoffLimit": 0,
+    "activeDeadlineSeconds": 180000,
+    "ttlSecondsAfterFinished": 604800,
+    "template": {
+      "metadata": {
+        "labels": {
+          "owner": "zaninzeng",
+          "app": "tsr-scoring",
+          "tsr-series": "tsr-clean-three-seed-1112s",
+          "tsr-role": "score",
+          "tsr-seed": "43"
+        }
+      },
+      "spec": {
+        "restartPolicy": "Never",
+        "automountServiceAccountToken": false,
+        "securityContext": {
+          "runAsUser": 1016,
+          "runAsGroup": 1016
+        },
+        "affinity": {
+          "nodeAffinity": {
+            "requiredDuringSchedulingIgnoredDuringExecution": {
+              "nodeSelectorTerms": [
+                {
+                  "matchExpressions": [
+                    {
+                      "key": "group",
+                      "operator": "In",
+                      "values": [
+                        "shennong-5",
+                        "shennong-5-dev"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "preferredDuringSchedulingIgnoredDuringExecution": [
+              {
+                "weight": 100,
+                "preference": {
+                  "matchExpressions": [
+                    {
+                      "key": "kubernetes.io/hostname",
+                      "operator": "In",
+                      "values": [
+                        "hyperpod-i-039a10dbe287ac526"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "tolerations": [
+          {
+            "key": "nvidia.com/gpu",
+            "operator": "Exists",
+            "effect": "NoSchedule"
+          },
+          {
+            "key": "role",
+            "operator": "Exists",
+            "effect": "NoSchedule"
+          },
+          {
+            "key": "glm5sft",
+            "operator": "Exists",
+            "effect": "NoSchedule"
+          }
+        ],
+        "containers": [
+          {
+            "name": "score",
+            "image": "pytorch/pytorch@sha256:14611869895df612b7b07227d5925f30ec3cd6673bad58ce3d84ed107950e014",
+            "command": [
+              "/mnt/sn-007/zaninzeng/tsr-reproduction/.venv/bin/python",
+              "-u",
+              "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-clean-seed43-1112s/bundle/scripts/score_when_ready.py",
+              "--run",
+              "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-clean-seed43-1112s",
+              "--credentials",
+              "/mnt/sn-007/zaninzeng/tsr-reproduction/.runtime/secrets/judge.json",
+              "--timeout-hours",
+              "48",
+              "--api-concurrency",
+              "16",
+              "--only",
+              "M2_future_tie_distinct"
+            ],
+            "env": [
+              {
+                "name": "PYTHONDONTWRITEBYTECODE",
+                "value": "1"
+              },
+              {
+                "name": "PYTHONUNBUFFERED",
+                "value": "1"
+              },
+              {
+                "name": "TZ",
+                "value": "Asia/Shanghai"
+              },
+              {
+                "name": "CUDA_VISIBLE_DEVICES",
+                "value": ""
+              },
+              {
+                "name": "HF_HOME",
+                "value": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-clean-seed43-1112s/scoring/hf-cache"
+              },
+              {
+                "name": "HF_HUB_OFFLINE",
+                "value": "1"
+              },
+              {
+                "name": "HF_DATASETS_CACHE",
+                "value": "/mnt/sn-007/zaninzeng/tsr-reproduction/work/runs/tsr-llama31-8b-clean-seed43-1112s/scoring/datasets"
+              },
+              {
+                "name": "USER",
+                "value": "zaninzeng"
+              },
+              {
+                "name": "LOGNAME",
+                "value": "zaninzeng"
+              },
+              {
+                "name": "JUDGE_API_CONCURRENCY",
+                "value": "16"
+              }
+            ],
+            "resources": {
+              "requests": {
+                "cpu": "2",
+                "memory": "8Gi"
+              },
+              "limits": {
+                "cpu": "4",
+                "memory": "16Gi"
+              }
+            },
+            "volumeMounts": [
+              {
+                "name": "fsx",
+                "mountPath": "/mnt/sn-007"
+              }
+            ]
+          }
+        ],
+        "volumes": [
+          {
+            "name": "fsx",
+            "persistentVolumeClaim": {
+              "claimName": "youtu-sn2-007"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
